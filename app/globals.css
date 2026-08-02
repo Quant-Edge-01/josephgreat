@@ -1,0 +1,302 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #ffffff;
+  --color-cream: #f4efe3;
+  --color-ink: #0d0c0b;
+  --color-ash: #6b6560;
+  --color-gold: #c9a96a;
+  --color-syrup: #b4661d;
+  --color-syrup-deep: #6d3406;
+  --color-amber: #e0972b;
+  --color-void: #08070a;
+  --color-void-2: #100d12;
+  --color-neon: #ffb43d;
+  --color-acid: #c6f24e;
+
+  --font-display: var(--ff-display);
+  --font-sans: var(--ff-sans);
+  --font-mono: var(--ff-mono);
+}
+
+/* ---------------------------------------------------------------
+   base
+   --------------------------------------------------------------- */
+
+:root {
+  --hair: 1px solid color-mix(in srgb, var(--color-ink) 16%, transparent);
+  --hair-neon: 1px solid color-mix(in srgb, var(--color-neon) 32%, transparent);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  /* clip (not hidden) — hidden on html/body silently kills position:sticky in Safari */
+  overflow-x: clip;
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overscroll-behavior-y: none;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+
+/* ---------------------------------------------------------------
+   film grain — one fixed, static layer. never repaints on scroll.
+   --------------------------------------------------------------- */
+
+.grain {
+  position: fixed;
+  inset: -50%;
+  z-index: 9000;
+  pointer-events: none;
+  opacity: 0.055;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------------------------------------------------------------
+   type
+   --------------------------------------------------------------- */
+
+.t-mono {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+@media (min-width: 768px) {
+  .t-mono {
+    font-size: 0.6875rem;
+  }
+}
+
+.t-serif {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.t-grotesk {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+}
+
+/* the statement sizes: viewport-driven, clamped, no md:text-5xl ladders */
+.s-mega {
+  font-size: clamp(3.6rem, 19vw, 15rem);
+  line-height: 0.82;
+}
+.s-loud {
+  font-size: clamp(1.9rem, 7.4vw, 4.6rem);
+  line-height: 0.94;
+}
+.s-mid {
+  font-size: clamp(1.15rem, 4.2vw, 2.1rem);
+  line-height: 1.14;
+}
+.s-body {
+  font-size: clamp(0.95rem, 3.4vw, 1.15rem);
+  line-height: 1.5;
+}
+
+/* ---------------------------------------------------------------
+   rules / marks
+   --------------------------------------------------------------- */
+
+.rule {
+  border-top: var(--hair);
+}
+.rule-neon {
+  border-top: var(--hair-neon);
+}
+
+.tick::before {
+  content: "";
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.55rem;
+  background: currentColor;
+  transform: translateY(-0.1em) rotate(45deg);
+}
+
+/* ---------------------------------------------------------------
+   folders — manila-tab silhouette, cut not rounded
+   --------------------------------------------------------------- */
+
+/* one silhouette, shared by the fill and the neon rim behind it */
+.folder-shape {
+  clip-path: polygon(
+    0 15px,
+    calc(var(--tab) - 15px) 15px,
+    var(--tab) 0,
+    100% 0,
+    100% 100%,
+    0 100%
+  );
+}
+
+.folder {
+  --tab: 46%;
+  position: relative;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.folder-fill {
+  background: linear-gradient(
+    177deg,
+    color-mix(in srgb, var(--color-neon) 8%, var(--color-void-2)) 0%,
+    var(--color-void) 58%
+  );
+}
+
+/* rim: same clip, scaled a hair, painted underneath the opaque fill */
+.folder-rim {
+  position: absolute;
+  inset: 0;
+  transform: scale(1.009);
+  opacity: 0.9;
+  background: linear-gradient(
+    158deg,
+    var(--color-neon) 0%,
+    color-mix(in srgb, var(--color-neon) 55%, transparent) 42%,
+    var(--color-acid) 100%
+  );
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+}
+
+/*
+   Ambient bleed so the folders read as lit at rest. A radial-gradient paint,
+   not filter:blur() — the primary audience is on a phone, where there is no
+   hover to reveal a glow and no budget for five blurred layers.
+*/
+.folder-halo {
+  position: absolute;
+  inset: -14% -8%;
+  pointer-events: none;
+  background: radial-gradient(
+    closest-side at 50% 50%,
+    color-mix(in srgb, var(--color-neon) 15%, transparent),
+    transparent 72%
+  );
+}
+
+.folder-glow {
+  display: none;
+}
+
+@media (hover: hover) {
+  .folder-glow {
+    display: block;
+    position: absolute;
+    inset: 8% 4% 24% 4%;
+    opacity: 0;
+    background: radial-gradient(
+      50% 50% at 50% 55%,
+      color-mix(in srgb, var(--color-neon) 60%, transparent),
+      transparent 70%
+    );
+    filter: blur(40px);
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+  .folder:hover {
+    transform: translateY(-9px) rotate(-0.45deg);
+  }
+  .folder:hover .folder-rim {
+    opacity: 1;
+  }
+  .folder:hover .folder-glow {
+    opacity: 0.8;
+  }
+}
+
+.hatch {
+  background-image: repeating-linear-gradient(
+    132deg,
+    color-mix(in srgb, var(--color-neon) 11%, transparent) 0 1px,
+    transparent 1px 10px
+  );
+}
+
+/* ---------------------------------------------------------------
+   neon text / links
+   --------------------------------------------------------------- */
+
+.neon-txt {
+  color: var(--color-neon);
+  text-shadow:
+    0 0 12px color-mix(in srgb, var(--color-neon) 45%, transparent),
+    0 0 44px color-mix(in srgb, var(--color-neon) 22%, transparent);
+}
+
+.acid-txt {
+  color: var(--color-acid);
+  text-shadow: 0 0 14px color-mix(in srgb, var(--color-acid) 40%, transparent);
+}
+
+.underline-swipe {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.underline-swipe:hover,
+.underline-swipe:focus-visible {
+  background-size: 100% 1px;
+}
+
+/* ---------------------------------------------------------------
+   marquee
+   --------------------------------------------------------------- */
+
+@keyframes slide-x {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: slide-x 34s linear infinite;
+  will-change: transform;
+}
+
+/* ---------------------------------------------------------------
+   focus
+   --------------------------------------------------------------- */
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}
