@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
-import { EMAIL, IG_HANDLE, IG_URL } from "@/lib/site";
+import { EMAIL, IG_HANDLE, IG_URL, mailto } from "@/lib/site";
 
 const LINKS = [
   { n: "01", label: "Work", href: "#work" },
@@ -143,7 +143,7 @@ export default function DotsMenu() {
                   <a className="underline-swipe text-cream/80" href={IG_URL}>
                     {IG_HANDLE}
                   </a>
-                  <a className="underline-swipe text-cream/80" href={`mailto:${EMAIL}`}>
+                  <a className="underline-swipe text-cream/80" href={mailto("Project")}>
                     {EMAIL}
                   </a>
                 </span>
