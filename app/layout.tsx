@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo, DM_Mono, Instrument_Serif } from "next/font/google";
+import ContactProvider from "@/components/ContactProvider";
+import DotsMenu from "@/components/DotsMenu";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 const sans = Archivo({
@@ -44,7 +47,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sans.variable} ${display.variable} ${mono.variable}`}>
       <body>
-        {children}
+        {/* provider lives here, not on the home page: the project routes need
+            the same pricing modal behind their DM / Email buttons */}
+        <ContactProvider>
+          <DotsMenu />
+          {children}
+          <Footer />
+        </ContactProvider>
         <div className="grain" aria-hidden />
       </body>
     </html>

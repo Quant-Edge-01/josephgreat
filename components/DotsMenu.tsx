@@ -4,10 +4,12 @@ import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { EMAIL, IG_HANDLE, IG_URL, mailto } from "@/lib/site";
 
+// absolute, not bare hashes — the menu is in the root layout now, so it also
+// renders on /works/<slug> where "#work" would scroll to nothing
 const LINKS = [
-  { n: "01", label: "Work", href: "#work" },
-  { n: "02", label: "Price", href: "#price" },
-  { n: "03", label: "Contact", href: "#contact" },
+  { n: "01", label: "Work", href: "/#work" },
+  { n: "02", label: "Price", href: "/#price" },
+  { n: "03", label: "Contact", href: "/#contact" },
 ];
 
 /* the three dots sit at -9 / 0 / +9 and fold into a cross on open */

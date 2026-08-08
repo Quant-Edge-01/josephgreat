@@ -235,6 +235,54 @@ body {
   );
 }
 
+/* screenshots are cold blue-white; pull them into the syrup palette at rest */
+.cover-img {
+  filter: grayscale(0.4) sepia(0.32) brightness(0.78) contrast(1.06);
+  transition:
+    filter 0.55s ease,
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (hover: hover) {
+  .folder:hover .cover-img {
+    filter: grayscale(0) sepia(0) brightness(1) contrast(1);
+    transform: scale(1.04);
+  }
+}
+
+/* ---------------------------------------------------------------
+   drifting gallery — the plates never quite settle
+   --------------------------------------------------------------- */
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translate3d(0, calc(var(--amp) * -1), 0) rotate(var(--rot));
+  }
+  50% {
+    transform: translate3d(0, var(--amp), 0) rotate(calc(var(--rot) * -0.55));
+  }
+}
+
+/*
+   Lives on its own element, never the one Framer Motion animates — motion
+   writes `transform` inline and would silently kill the keyframes.
+*/
+.float {
+  --amp: 7px;
+  --rot: 0.6deg;
+  --dur: 9s;
+  animation: bob var(--dur) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  will-change: transform;
+}
+
+.plate {
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--color-neon) 30%, transparent),
+    0 26px 60px -28px rgba(0, 0, 0, 0.9);
+}
+
 /* ---------------------------------------------------------------
    neon text / links
    --------------------------------------------------------------- */
@@ -293,7 +341,8 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track {
+  .marquee-track,
+  .float {
     animation: none;
   }
   * {
