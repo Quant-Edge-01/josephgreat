@@ -9,10 +9,19 @@ type State = "idle" | "sending" | "sent" | "failed";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+/**
+ * Public by design. Web3Forms answers a server-side POST with 403 "This method
+ * is not allowed. Use our API in client side" unless you are on their Pro plan,
+ * so the browser has to be the sender. The key can only ever deliver to the one
+ * inbox it was issued for; abuse is fenced off by domain restriction in their
+ * dashboard, not by hiding the key.
+ */
+const ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
 /**
  * Three fields, and deliberately no phone / budget / timeline: every extra box
- * costs submissions and none of them are needed to write a reply. Validation
- * runs here and again in the route handler.
+ * costs submissions and none of them are needed to write a reply.
  */
 export default function EnquiryForm() {
   const id = useId();
@@ -36,35 +45,69 @@ export default function EnquiryForm() {
     setErrors(next);
     if (Object.keys(next).length) return;
 
+    // Honeypot: a real person never fills a field they cannot see. Show the
+    // success state so a bot learns nothing, and send nothing.
+    if (String(data.get("company_website") ?? "").trim()) {
+      setState("sent");
+      return;
+    }
+
+    if (!ACCESS_KEY) {
+      console.error(
+        "[enquiry] NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY is not set — cannot send the enquiry.",
+      );
+      setFailure("Mail isn't configured on the server.");
+      setState("failed");
+      return;
+    }
+
     setState("sending");
     setFailure("");
     try {
-      const res = await fetch("/api/enquiry", {
+      const res = await fetch(WEB3FORMS_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          business,
-          email,
-          message,
-          company_website: String(data.get("company_website") ?? ""),
+          access_key: ACCESS_KEY,
+          subject: `New enquiry — ${business}`,
+          from_name: "JosephTheGreat site",
+          // Reply goes to whoever wrote in, so the lead is answerable in one
+          // click from the notification.
+          replyto: email,
+          // remaining keys render as labelled rows in the email body
+          "Business name": business,
+          Email: email,
+          "What they want to promote": message,
         }),
       });
 
-      if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        if (body.errors) {
-          setErrors(body.errors);
-          setState("idle");
-          return;
-        }
-        setFailure(body.error ?? "Something broke on the way.");
+      // Read as text first: on a refusal the body is the only place the reason
+      // lives, and it is not always JSON — a Cloudflare challenge page comes
+      // back as HTML. Parsing straight to an object throws that away exactly
+      // when it is needed.
+      const raw = await res.text();
+      let result: { success?: boolean; message?: string } | null = null;
+      try {
+        result = JSON.parse(raw);
+      } catch {
+        /* keep raw — logged verbatim below */
+      }
+
+      // A rejected key still answers 200 with {"success": false}, so the HTTP
+      // status alone is not enough to call this sent.
+      if (!res.ok || !result?.success) {
+        console.error(
+          `[enquiry] Web3Forms refused the send — status ${res.status} ${res.statusText}, body: ${raw}`,
+        );
+        setFailure("The mail service refused it.");
         setState("failed");
         return;
       }
 
       track("Lead");
       setState("sent");
-    } catch {
+    } catch (err) {
+      console.error("[enquiry] The enquiry never left the browser:", err);
       setFailure("The request never left the browser — connection dropped.");
       setState("failed");
     }
