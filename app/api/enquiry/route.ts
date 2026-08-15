@@ -99,17 +99,22 @@ export async function POST(req: Request) {
       signal: AbortSignal.timeout(10_000),
     });
 
+    // Read as text first: on a refusal the body is the only place the reason
+    // lives, and it is not always JSON. Parsing straight to an object throws
+    // that away exactly when it is needed.
+    const raw = await upstream.text();
+    let result: { success?: boolean; message?: string } | null = null;
+    try {
+      result = JSON.parse(raw);
+    } catch {
+      /* keep raw — logged verbatim below */
+    }
+
     // A rejected key still comes back 200 with {"success": false}, so the HTTP
     // status alone is not enough to call this sent.
-    const result = (await upstream.json().catch(() => null)) as
-      | { success?: boolean; message?: string }
-      | null;
-
     if (!upstream.ok || !result?.success) {
       console.error(
-        "[enquiry] Web3Forms refused the send:",
-        upstream.status,
-        result?.message ?? result,
+        `[enquiry] Web3Forms refused the send — status ${upstream.status} ${upstream.statusText}, body: ${raw}`,
       );
       return NextResponse.json({ error: "The mail service refused it." }, { status: 502 });
     }
