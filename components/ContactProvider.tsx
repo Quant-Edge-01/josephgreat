@@ -7,6 +7,10 @@ import { EMAIL, IG_HANDLE, IG_URL, PRICE_CEILING, PRICE_FLOOR, mailto } from "@/
 const Ctx = createContext<(subject?: string) => void>(() => {});
 export const useContact = () => useContext(Ctx);
 
+/** Whether the pricing modal is currently up — fixed page chrome hides behind it. */
+const OpenCtx = createContext(false);
+export const useContactOpen = () => useContext(OpenCtx);
+
 export default function ContactProvider({ children }: { children: React.ReactNode }) {
   const [subject, setSubject] = useState<string | null>(null);
   const open = useCallback((s = "Project") => setSubject(s), []);
@@ -19,7 +23,7 @@ export default function ContactProvider({ children }: { children: React.ReactNod
 
   return (
     <Ctx.Provider value={open}>
-      {children}
+      <OpenCtx.Provider value={subject !== null}>{children}</OpenCtx.Provider>
 
       <AnimatePresence>
         {subject && (

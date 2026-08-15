@@ -45,7 +45,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.1, duration: 0.8 }}
-        className="absolute inset-x-0 bottom-6 flex flex-col items-center gap-3 md:bottom-9"
+        className="absolute inset-x-0 bottom-4 flex flex-col items-center gap-3 md:bottom-7"
       >
         <span className="t-mono text-ash/55">come closer</span>
         <motion.span
@@ -53,6 +53,11 @@ export default function Hero() {
           transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
           className="block h-10 w-px origin-top bg-ink/25"
         />
+        {/* one line of proof, pitched well under the lockup so it never
+            competes with it — the number does the work, not the styling */}
+        <span className="t-mono px-6 text-center text-ash/40">
+          last local job — $3.64 per conversation started
+        </span>
       </motion.div>
     </section>
   );

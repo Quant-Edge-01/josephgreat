@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import BackToSyrup from "@/components/BackToSyrup";
+import TrackView from "@/components/TrackView";
 import WorkCta from "@/components/WorkCta";
 import WorkGallery from "@/components/WorkGallery";
 import { WORKS, workBySlug } from "@/lib/works";
@@ -34,6 +35,7 @@ export default async function WorkPage({ params }: Params) {
         className="pointer-events-none absolute inset-x-0 top-0 h-[70vh] bg-[radial-gradient(70%_100%_at_50%_0%,rgba(224,151,43,0.16),rgba(8,7,10,0)_72%)]"
       />
 
+      <TrackView id={w.slug} />
       <BackToSyrup />
 
       <div className="relative px-6 md:px-10">

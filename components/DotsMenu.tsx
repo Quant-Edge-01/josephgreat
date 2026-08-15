@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { EMAIL, IG_HANDLE, IG_URL, mailto } from "@/lib/site";
+import { useNavDark } from "@/lib/useNavDark";
 
 // absolute, not bare hashes — the menu is in the root layout now, so it also
 // renders on /works/<slug> where "#work" would scroll to nothing
@@ -21,30 +22,13 @@ const DOT = [
 
 export default function DotsMenu() {
   const [open, setOpen] = useState(false);
-  const [onDark, setOnDark] = useState(false);
 
   /**
    * The control is fixed over four different backdrops (white, amber, near-black).
    * One colour cannot survive all of them — gold on the amber pricing slab is
-   * about 1.3:1. So watch which sections cross the top strip the dots sit in.
+   * about 1.3:1. Shared with the hire CTA so the two never disagree.
    */
-  useEffect(() => {
-    const targets = document.querySelectorAll("[data-nav-dark]");
-    if (!targets.length) return;
-    const lit = new Set<Element>();
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) lit.add(e.target);
-          else lit.delete(e.target);
-        }
-        setOnDark(lit.size > 0);
-      },
-      { rootMargin: "0px 0px -90% 0px", threshold: 0 },
-    );
-    targets.forEach((t) => io.observe(t));
-    return () => io.disconnect();
-  }, []);
+  const onDark = useNavDark();
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
