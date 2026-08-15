@@ -77,9 +77,13 @@ export async function POST(req: Request) {
   try {
     const resend = new Resend(key);
     const { error } = await resend.emails.send({
-      from: `JosephTheGreat site <enquiry@josephthegreat.art>`,
+      // sends from the send.* subdomain: the root domain carries Private Email's
+      // SPF record and adding Resend to it would collide
+      from: "JosephTheGreat site <enquiry@send.josephthegreat.art>",
       to: [EMAIL],
-      replyTo: email,
+      // replies land on the real mailbox, not the sending subdomain, which has
+      // no inbox behind it. The enquirer's own address is in the body below.
+      replyTo: EMAIL,
       subject: `Enquiry — ${business}`,
       text: [
         `Business: ${business}`,
