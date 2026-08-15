@@ -1,8 +1,13 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
-import { EMAIL } from "@/lib/site";
 
 export const runtime = "nodejs";
+
+/**
+ * Web3Forms rather than an SMTP provider: the destination inbox is bound to the
+ * access key, so nothing has to be proved through DNS. The root domain's mail
+ * is already Private Email's and its Mail Settings can't take a second MX.
+ */
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 
 const LIMITS = { business: 120, email: 200, message: 2000 } as const;
 const RATE = { max: 5, windowMs: 10 * 60 * 1000 } as const;
@@ -65,9 +70,9 @@ export async function POST(req: Request) {
     );
   }
 
-  const key = process.env.RESEND_API_KEY;
+  const key = process.env.WEB3FORMS_ACCESS_KEY;
   if (!key) {
-    console.error("[enquiry] RESEND_API_KEY is not set — cannot send the enquiry.");
+    console.error("[enquiry] WEB3FORMS_ACCESS_KEY is not set — cannot send the enquiry.");
     return NextResponse.json(
       { error: "Mail isn't configured on the server." },
       { status: 500 },
@@ -75,26 +80,37 @@ export async function POST(req: Request) {
   }
 
   try {
-    const resend = new Resend(key);
-    const { error } = await resend.emails.send({
-      // sends from the send.* subdomain: the root domain carries Private Email's
-      // SPF record and adding Resend to it would collide
-      from: "JosephTheGreat site <enquiry@send.josephthegreat.art>",
-      to: [EMAIL],
-      // replies land on the real mailbox, not the sending subdomain, which has
-      // no inbox behind it. The enquirer's own address is in the body below.
-      replyTo: EMAIL,
-      subject: `Enquiry — ${business}`,
-      text: [
-        `Business: ${business}`,
-        `Email:    ${email}`,
-        "",
-        message,
-      ].join("\n"),
+    const upstream = await fetch(WEB3FORMS_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        access_key: key,
+        subject: `New enquiry — ${business}`,
+        from_name: "JosephTheGreat site",
+        // Reply goes to the person who wrote in, so the lead is answerable in
+        // one click from the notification.
+        replyto: email,
+        // remaining keys are rendered as labelled rows in the email body
+        "Business name": business,
+        Email: email,
+        "What they want to promote": message,
+      }),
+      // an upstream that never answers would otherwise hold the function open
+      signal: AbortSignal.timeout(10_000),
     });
 
-    if (error) {
-      console.error("[enquiry] Resend rejected the send:", error);
+    // A rejected key still comes back 200 with {"success": false}, so the HTTP
+    // status alone is not enough to call this sent.
+    const result = (await upstream.json().catch(() => null)) as
+      | { success?: boolean; message?: string }
+      | null;
+
+    if (!upstream.ok || !result?.success) {
+      console.error(
+        "[enquiry] Web3Forms refused the send:",
+        upstream.status,
+        result?.message ?? result,
+      );
       return NextResponse.json({ error: "The mail service refused it." }, { status: 502 });
     }
   } catch (err) {
