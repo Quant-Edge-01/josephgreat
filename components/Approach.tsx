@@ -142,7 +142,16 @@ export default function Approach() {
         </div>
 
         {/* ---------- 01 · who ---------- */}
-        <div className="pointer-events-none absolute inset-x-6 bottom-[11vh] md:inset-x-auto md:bottom-[13vh] md:left-[7vw] md:max-w-[36rem]">
+        {/*
+          Mobile offset is px, not vh, because the thing it has to clear is:
+          HireCta sits at bottom-14 (56px) and is 48px tall, so it owns the band
+          104px up from the bottom edge. 11vh tracked the viewport instead of
+          the button and collided on every phone — worse on short ones, where
+          11vh is only 70px. 144px leaves 40px of air at rest, and still ~25px
+          mid-fade-in, when the reveal transform holds the block up to 54px
+          lower. Desktop keeps vh: there the CTA is a right-hand pill.
+        */}
+        <div className="pointer-events-none absolute inset-x-6 bottom-36 md:inset-x-auto md:bottom-[13vh] md:left-[7vw] md:max-w-[36rem]">
           <motion.div style={one}>
             <p className="t-mono mb-3 text-ash">01 — who</p>
             <div className="rule pt-4">
