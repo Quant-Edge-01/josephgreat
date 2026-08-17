@@ -124,7 +124,7 @@ const SEEDS: WorkSeed[] = [
     lede: "9,224 views in two weeks for a neighbourhood gym — three quarters of them from people who had never heard of it.",
     body: [
       "Spartan Gymnastics + District sells spring sessions, March break camps and summer camps. The kind of local business that normally posts a flyer and waits.",
-      "We posted surrealism instead. “Wait — how is there text written in the sky right now?” “Manager said this video wouldn't go viral.” Hooks with nothing to do with gymnastics, bolted onto a gymnastics club. One of them took 6,377 views by itself.",
+      "I posted surrealism instead. “Wait — how is there text written in the sky right now?” “Manager said this video wouldn't go viral.” Hooks with nothing to do with gymnastics, bolted onto a gymnastics club. One of them took 6,377 views by itself.",
       "Two weeks, zero budget, 9,224 views — and 74.9% of them from accounts that don't follow the gym. For a local business that split is the whole game. The people already following you were never the customers you were missing.",
     ],
     quote: "10k views for the past 2 weeks with zero budget — only funny surrealistic content.",
@@ -229,7 +229,7 @@ const SEEDS: WorkSeed[] = [
     lede: "Two posts. Zero dollars. 175 subscribers who actually open the emails.",
     body: [
       "A financial tool for people trading the stock market — the least forgiving niche on the platform, because every second account in it belongs to a man renting a Lamborghini by the hour.",
-      "So we went the other way. The bio reads “i'm not a guru, dude pls do not hate me.” That isn't self-deprecation, it's positioning. In a feed built entirely on borrowed authority, refusing to claim any is the thing that stops the thumb.",
+      "So I went the other way. The bio reads “i'm not a guru, dude pls do not hate me.” That isn't self-deprecation, it's positioning. In a feed built entirely on borrowed authority, refusing to claim any is the thing that stops the thumb.",
       "One month, no ad spend, an account with two posts on it: 1.2 million views in 30 days. The top reel alone took 1,150,970 views from 643,263 unique viewers, with 65,300 likes and 9,900 saves. 2,159 followers at the end of it — and 175 active subscribers on the list.",
     ],
     quote: "175 clients with 0 budget, only organic views in 1 month.",

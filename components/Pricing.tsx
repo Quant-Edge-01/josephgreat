@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import SyrupEdge from "./SyrupEdge";
 import { OFFER, PRICE_CEILING, PRICE_FLOOR } from "@/lib/site";
 
 /**
@@ -20,7 +21,8 @@ import { OFFER, PRICE_CEILING, PRICE_FLOOR } from "@/lib/site";
  */
 export default function Pricing() {
   return (
-    <section id="price" className="relative bg-[#e2a339] text-ink">
+    <section id="price" className="relative z-10 bg-[#e2a339] text-ink">
+      <SyrupEdge />
       <div className="h-[10px] w-full bg-ink" />
       <div className="flex flex-wrap justify-between gap-x-8 gap-y-1 px-6 py-3 md:px-10">
         <span className="t-mono">ceiling — ${PRICE_CEILING.toLocaleString()} cad</span>

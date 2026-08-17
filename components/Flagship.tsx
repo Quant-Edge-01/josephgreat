@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SyrupEdge from "./SyrupEdge";
 import { FLAGSHIP_SLUG } from "@/lib/site";
 import { workBySlug } from "@/lib/works";
 
@@ -15,7 +16,10 @@ export default function Flagship() {
   const w = workBySlug(FLAGSHIP_SLUG)!;
 
   return (
-    <section className="bg-[#e2a339] px-6 py-16 text-ink md:px-10 md:py-24">
+    // z-10 so the drips paint over the section below rather than under it: an
+    // overflowing child still loses to a later sibling without one.
+    <section className="relative z-10 bg-[#e2a339] px-6 py-16 text-ink md:px-10 md:py-24">
+      <SyrupEdge />
       <p className="t-mono eyebrow text-syrup-deep">The closest thing to your business</p>
 
       <h2 className="t-grotesk mt-5 text-[clamp(1.9rem,7.4vw,3.4rem)] leading-[0.95]">
