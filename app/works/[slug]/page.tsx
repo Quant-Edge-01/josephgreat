@@ -42,7 +42,7 @@ export default async function WorkPage({ params }: Params) {
         <header className="pb-16 pt-14 md:pb-24 md:pt-24">
           <div className="t-mono flex flex-wrap items-baseline gap-x-5 gap-y-2 text-neon">
             <span>file {w.n}</span>
-            <span className="text-cream/35">{w.kind}</span>
+            <span className="text-cream/70">{w.kind}</span>
           </div>
 
           <h1 className="t-grotesk mt-6 text-[clamp(2.6rem,11vw,7rem)] leading-[0.85] text-cream">
@@ -50,7 +50,7 @@ export default async function WorkPage({ params }: Params) {
           </h1>
 
           <p className="t-serif s-mid mt-6 max-w-[38rem] text-neon/90">{w.lede}</p>
-          <p className="t-mono mt-5 text-cream/35">{w.client}</p>
+          <p className="t-mono mt-5 text-cream/70">{w.client}</p>
         </header>
 
         {/* the receipts, before the prose */}
@@ -63,7 +63,7 @@ export default async function WorkPage({ params }: Params) {
               <dt className="t-grotesk text-[clamp(1.5rem,5.2vw,2.6rem)] leading-none text-cream">
                 {s.value}
               </dt>
-              <dd className="t-mono mt-2.5 text-cream/40">{s.label}</dd>
+              <dd className="t-mono mt-2.5 text-cream/70">{s.label}</dd>
             </div>
           ))}
         </dl>
@@ -80,7 +80,7 @@ export default async function WorkPage({ params }: Params) {
           <p className="t-serif text-[clamp(1.5rem,5.4vw,3rem)] leading-[1.12] text-gold">
             “{w.quote}”
           </p>
-          <footer className="t-mono mt-6 text-cream/35">— Joseph, on this one</footer>
+          <footer className="t-mono mt-6 text-cream/70">— Joseph, on this one</footer>
         </blockquote>
 
         <WorkGallery images={w.images} />
@@ -103,7 +103,7 @@ export default async function WorkPage({ params }: Params) {
 
         <nav className="mt-20 border-t border-neon/20 pt-6 md:mt-28">
           <Link href={`/works/${next.slug}`} className="group block">
-            <span className="t-mono text-cream/35">next file — {next.n}</span>
+            <span className="t-mono text-cream/70">next file — {next.n}</span>
             <span className="s-loud t-grotesk mt-2 block text-cream/80 transition-transform duration-500 group-hover:translate-x-3">
               {next.title} →
             </span>

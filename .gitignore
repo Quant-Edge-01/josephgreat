@@ -4,3 +4,8 @@ out
 .DS_Store
 *.tsbuildinfo
 next-env.d.ts
+
+# Local secrets. .env.example is the committed template; the real values live
+# in the Vercel project settings and in an untracked .env.local here.
+.env.local
+.env*.local

@@ -6,8 +6,16 @@
   --color-ink: #0d0c0b;
   --color-ash: #6b6560;
   --color-gold: #c9a96a;
-  --color-syrup: #b4661d;
-  --color-syrup-deep: #6d3406;
+  /*
+    Both were a step too light to carry text. Measured on the backgrounds they
+    actually sit on: the old syrup #b4661d was 4.32:1 on white and 3.77:1 on
+    cream, and it is the colour of every section eyebrow and every accented
+    proof number — i.e. the copy that most needs to be believed. #9c5414 is
+    5.69 / 4.96, same burnt-caramel hue. Old syrup-deep #6d3406 measured 4.45:1
+    on the amber slabs, just under; #5c2a04 is 5.33.
+  */
+  --color-syrup: #9c5414;
+  --color-syrup-deep: #5c2a04;
   --color-amber: #e0972b;
   --color-void: #08070a;
   --color-void-2: #100d12;
@@ -70,18 +78,51 @@ body {
    type
    --------------------------------------------------------------- */
 
+/*
+  Was 10px at 0.22em. That is below the size at which uppercase letterspaced
+  mono is comfortably readable, and this face carries every label, every stat
+  caption and every piece of reassurance under a button — i.e. most of the
+  copy that has to be read for the page to sell anything. 11.5px at 0.16em
+  keeps the drafting-label texture and stops costing comprehension.
+*/
 .t-mono {
   font-family: var(--font-mono);
-  font-size: 0.625rem;
-  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   font-weight: 400;
 }
 
 @media (min-width: 768px) {
   .t-mono {
-    font-size: 0.6875rem;
+    font-size: 0.78rem;
   }
+}
+
+/*
+  Section eyebrows sit at the top of their section, and the dots menu is fixed
+  at the top-right of the viewport — so at the scroll offset where a section's
+  head crosses the menu, a long eyebrow runs underneath it. Reserving the
+  menu's corner keeps them from ever colliding.
+*/
+.eyebrow {
+  max-width: calc(100% - 3.5rem);
+}
+
+@media (min-width: 768px) {
+  .eyebrow {
+    max-width: calc(100% - 5rem);
+  }
+}
+
+/* Same face, sentence case, for anything longer than three words. */
+.t-note {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.55;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 .t-serif {
@@ -101,6 +142,15 @@ body {
   font-size: clamp(3.6rem, 19vw, 15rem);
   line-height: 0.82;
 }
+/*
+  The lockup on the fold, one step down from .s-mega. It has to share a screen
+  with a proposition, a button and a proof line now, and at 19vw it left room
+  for none of them on a 812px-tall phone.
+*/
+.s-hero {
+  font-size: clamp(3.1rem, 15.5vw, 10.5rem);
+  line-height: 0.8;
+}
 .s-loud {
   font-size: clamp(1.9rem, 7.4vw, 4.6rem);
   line-height: 0.94;
@@ -110,8 +160,19 @@ body {
   line-height: 1.14;
 }
 .s-body {
-  font-size: clamp(0.95rem, 3.4vw, 1.15rem);
-  line-height: 1.5;
+  font-size: clamp(1.02rem, 3.4vw, 1.18rem);
+  line-height: 1.55;
+}
+
+/*
+  The proof voice. Numbers that carry the argument are set here rather than in
+  a muted caption: a claim rendered at low contrast is judged true at roughly
+  chance (Reber & Schwarz 1999), which is a strange thing to do to the only
+  evidence you have.
+*/
+.s-proof {
+  font-size: clamp(1.05rem, 3.8vw, 1.35rem);
+  line-height: 1.4;
 }
 
 /* ---------------------------------------------------------------
@@ -312,6 +373,48 @@ body {
 }
 
 /* ---------------------------------------------------------------
+   fold entrance — CSS, deliberately not Framer Motion
+
+   Motion writes `initial` into the server-rendered markup as inline styles, so
+   a hero built with it is literally invisible until React hydrates. On the
+   first screen, on a phone, on paid traffic, that means the value proposition
+   is blank for as long as the JS takes to arrive — which is the one part of
+   the page that can least afford it. These run off the render-blocking
+   stylesheet instead: no JS, no hydration wait, and the reduced-motion block
+   above collapses them to their end state.
+   --------------------------------------------------------------- */
+
+@keyframes rise-in {
+  from {
+    transform: translate3d(0, 108%, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.anim-rise {
+  animation: rise-in 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--delay, 0s);
+}
+
+.anim-up {
+  animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--delay, 0s);
+}
+
+/* ---------------------------------------------------------------
    marquee
    --------------------------------------------------------------- */
 
@@ -340,12 +443,45 @@ body {
   outline-offset: 3px;
 }
 
+/* ---------------------------------------------------------------
+   reduced motion
+
+   The CSS half only ever covered CSS. The expensive movement on this site is
+   the scroll-driven jar — a 300vmax object scaling through 7x under the
+   finger, which is exactly the pattern that provokes vestibular symptoms.
+   That half is switched off in JS (see Approach.tsx, useReducedMotion); this
+   block handles everything declarative.
+   --------------------------------------------------------------- */
+
 @media (prefers-reduced-motion: reduce) {
   .marquee-track,
   .float {
     animation: none;
   }
-  * {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
+}
+
+/* ---------------------------------------------------------------
+   skip link — first tab stop on every page
+   --------------------------------------------------------------- */
+
+.skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: -6rem;
+  z-index: 9999;
+  background: var(--color-ink);
+  color: var(--color-cream);
+  padding: 0.85rem 1.25rem;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 0.75rem;
 }

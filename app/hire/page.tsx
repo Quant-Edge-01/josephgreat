@@ -1,25 +1,49 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import EnquiryForm from "@/components/EnquiryForm";
-import { EMAIL, IG_HANDLE, IG_URL, PRICE_CEILING, PRICE_FLOOR, mailto } from "@/lib/site";
+import Flagship from "@/components/Flagship";
+import Identity from "@/components/Identity";
+import Ledger from "@/components/Ledger";
+import Objections from "@/components/Objections";
+import Process from "@/components/Process";
+import StartHere from "@/components/StartHere";
+import {
+  FLAGSHIP_SLUG,
+  IG_HANDLE,
+  IG_URL,
+  OFFER,
+  PRICE_CEILING,
+  PRICE_FLOOR,
+} from "@/lib/site";
 import { WORKS, workBySlug } from "@/lib/works";
 
 /**
- * The page paid traffic lands on. Everything here is server-rendered and
- * static — no scroll-linked sequence, no jar. Cold visitors from a Reel get
- * offer, price, proof and a form; the artistic homepage stays for people who
- * already know who he is.
+ * The page paid traffic lands on.
+ *
+ * It survives as a separate route for one reason: message match. The ad's
+ * promise has to be repeated in the same words at the top of the page the click
+ * lands on, and it cannot be if the visitor first has to get through a
+ * full-screen poster and a scroll sequence. Ad-to-page congruence is the
+ * largest single lever available on paid traffic, so the landing page keeps its
+ * own fold.
+ *
+ * It is also deliberately leakier-proof than the home page: the dots menu and
+ * the site footer are suppressed here (see SiteChrome), leaving one road. Cold
+ * traffic with no formed preference is exactly the profile where extra choices
+ * measurably hurt, even though choice overload is not a universal law.
+ *
+ * Everything is server-rendered and static — no scroll-linked sequence, no jar.
  */
 
 const PRICE = `$${PRICE_FLOOR}–$${PRICE_CEILING.toLocaleString()} CAD`;
 
 export const metadata: Metadata = {
-  title: `Short-form video for Toronto businesses — ${PRICE} | Joseph The Great`,
-  description: `Short-form marketing video for Toronto and GTA local businesses. ${PRICE}, and $${PRICE_CEILING.toLocaleString()} is a hard ceiling. Last local campaign: $3.64 per conversation started.`,
+  title: `Free: the 3 things I'd fix on your Instagram — Joseph The Great, Toronto`,
+  description:
+    "Short-form video for Toronto and GTA local businesses, built to start conversations rather than collect views. Send your Instagram and I'll tell you the first three things I'd change — free. Last local job: $214.86 of ads, 59 conversations at $3.64 each, 9 leads.",
+  alternates: { canonical: "/hire" },
   openGraph: {
-    title: `Short-form video for Toronto businesses — ${PRICE}`,
-    description:
-      "$214.86 of ad spend, 59 conversations started, $3.64 each. Tell me what you're promoting.",
+    title: "Send me your Instagram. I'll tell you the 3 things I'd fix.",
+    description: `Short-form video for Toronto local businesses. ${PRICE}, and $${PRICE_CEILING.toLocaleString()} is a hard ceiling. Last local job: 59 conversations at $3.64 each.`,
     url: "/hire",
     siteName: "Joseph The Great",
     locale: "en_CA",
@@ -28,73 +52,108 @@ export const metadata: Metadata = {
 };
 
 export default function HirePage() {
-  const dream = workBySlug("dream-alteration")!;
+  const dream = workBySlug(FLAGSHIP_SLUG)!;
   const spend = dream.stats[0].value;
   const convos = dream.stats[1].value;
   const perConvo = dream.stats[2].value;
   const leads = dream.stats[3].value;
 
   return (
-    <main>
-      {/* ---------- fold: offer, price, proof, one button ---------- */}
+    <main id="main">
+      {/* ---------- fold: who it's for, what it makes, what it's for, proof, one button ---------- */}
       <section className="bg-paper px-6 pb-14 pt-16 md:px-10 md:pb-20 md:pt-24">
-        <p className="t-mono text-syrup">Toronto &amp; the GTA</p>
+        <p className="t-mono text-syrup">Toronto &amp; the GTA · one person, not an agency</p>
 
-        <h1 className="t-grotesk mt-5 max-w-[16ch] text-[clamp(2.05rem,8.6vw,4.4rem)] leading-[0.94]">
-          Short-form video for local businesses that need customers, not
-          <span className="t-serif font-normal"> impressions.</span>
+        <h1 className="t-grotesk mt-5 max-w-[17ch] text-[clamp(2.05rem,8.4vw,4.2rem)] leading-[0.94]">
+          Short-form video for local businesses, built to start{" "}
+          <span className="t-serif font-normal">conversations</span> — not collect views.
         </h1>
 
-        <p className="s-mid t-grotesk mt-7">
-          {PRICE}
-          <span className="t-serif font-normal text-syrup-deep">
-            {" "}
-            — and ${PRICE_CEILING.toLocaleString()} is the ceiling, not the starting point.
-          </span>
+        {/*
+          The proof, immediately under the claim and at full contrast. A claim
+          set at low contrast is judged true at roughly chance (Reber & Schwarz
+          1999), and this is the only hard evidence above the fold.
+        */}
+        <p className="s-proof t-grotesk mt-7 max-w-[38rem]">
+          <span className="text-syrup">{spend}</span> of ads →{" "}
+          <span className="text-syrup">{convos}</span> messaging conversations at{" "}
+          <span className="text-syrup">{perConvo}</span> each →{" "}
+          <span className="text-syrup">{leads}</span> leads.
+        </p>
+        <p className="t-mono mt-2.5 text-ash">
+          a bridal alterations shop in the GTA · screenshots below
         </p>
 
-        <p className="s-body mt-5 max-w-[36rem] text-syrup-deep">
-          Last local job — a bridal alterations shop in the GTA: {spend} of ad spend,{" "}
-          {convos} messaging conversations started at {perConvo} each, {leads} of them
-          became leads.
-        </p>
+        {/* ---------- the offer ---------- */}
+        <div className="mt-11 border-t border-ink pt-8">
+          <p className="t-mono text-syrup">Start with the free version</p>
+          <p className="s-mid t-grotesk mt-4 max-w-[28ch]">
+            I&apos;ll tell you the{" "}
+            <span className="t-serif font-normal text-syrup">
+              first three things I&apos;d change
+            </span>{" "}
+            about your account.
+          </p>
+          <p className="s-body mt-3 max-w-[38rem] text-ash">
+            Free, and you&apos;re welcome to go do them yourself. {OFFER.reply}
+          </p>
 
-        <a
-          href="#enquiry"
-          // w-fit, not w-auto: a block-level flex box still fills its line
-          className="t-grotesk mt-9 flex min-h-[56px] w-full items-center justify-center bg-ink px-8 text-[1.15rem] text-cream transition-colors duration-300 hover:bg-syrup sm:w-fit sm:min-w-[22rem]"
-        >
-          Tell me what you&apos;re promoting
-        </a>
+          <a
+            href="#start"
+            // w-fit, not w-auto: a block-level flex box still fills its line
+            className="t-grotesk mt-8 flex min-h-[60px] w-full items-center justify-center gap-3 bg-ink px-8 text-[1.15rem] text-cream transition-colors duration-300 hover:bg-syrup sm:w-fit sm:min-w-[22rem]"
+          >
+            {OFFER.cta}
+            <span aria-hidden>↓</span>
+          </a>
 
-        <p className="t-mono mt-4 text-ash">
-          three fields · no call · no phone number
+          <p className="t-mono mt-4 text-ash">
+            two fields · no call · no phone number
+          </p>
+        </div>
+
+        {/* price, deliberately subordinate: it is an advantage here, not the headline */}
+        <p className="mt-9 max-w-[38rem] text-[1rem] leading-relaxed text-ash">
+          If you do want something made afterwards, it&apos;s{" "}
+          <span className="text-ink">{PRICE}</span> — and $
+          {PRICE_CEILING.toLocaleString()} is the ceiling, not the starting point.
         </p>
       </section>
 
-      {/* ---------- proof strip ---------- */}
-      <section data-nav-dark className="bg-void px-6 py-16 md:px-10 md:py-24">
-        <h2 className="t-mono text-neon/70">Four jobs, every number screenshotted</h2>
+      <Flagship />
+      <Ledger />
+      <Process />
+      <Objections />
+      <Identity />
 
-        <ul className="mt-8 border-t border-neon/20">
+      {/* ---------- the rest of the shelf ---------- */}
+      <section data-nav-dark className="bg-void px-6 py-16 md:px-10 md:py-24">
+        <h2 className="t-mono text-neon">Four jobs, every number screenshotted</h2>
+        <p className="t-note mt-3 max-w-[40rem] text-cream/70">
+          Marked for what each one actually proves, because a view and a customer are
+          not the same thing.
+        </p>
+
+        <ul className="mt-9 border-t border-neon/25">
           {WORKS.map((w) => (
             <li key={w.slug}>
               <Link
                 href={`/works/${w.slug}`}
-                className="group flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3 border-b border-neon/20 py-6"
+                className="group flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3 border-b border-neon/25 py-6"
               >
                 <span className="min-w-0">
                   <span className="s-mid t-grotesk block text-cream transition-transform duration-500 group-hover:translate-x-2">
                     {w.title}
                   </span>
-                  <span className="t-mono mt-1.5 block text-cream/35">{w.client}</span>
+                  <span className="t-mono mt-1.5 block text-cream/60">{w.client}</span>
                 </span>
-                {/* one line rather than two stacked columns — the labels are
-                    longer than the values and cramp badly under 400px */}
-                <span className="t-mono text-cream/35 md:text-right">
-                  <span className="text-acid">{w.stats[0].value}</span> {w.stats[0].label}
-                  <span className="px-2 text-cream/20">·</span>
-                  <span className="text-acid">{w.stats[1].value}</span> {w.stats[1].label}
+                <span className="t-mono md:text-right">
+                  <span
+                    className={w.proves === "enquiries" ? "text-acid" : "text-cream/70"}
+                  >
+                    {w.headline.value}
+                  </span>{" "}
+                  <span className="text-cream/70">{w.headline.label}</span>
                 </span>
               </Link>
             </li>
@@ -102,88 +161,20 @@ export default function HirePage() {
         </ul>
       </section>
 
-      {/* ---------- featured case: the one a local owner recognises ---------- */}
-      <section className="bg-[#e2a339] px-6 py-16 text-ink md:px-10 md:py-24">
-        <p className="t-mono text-syrup-deep">The closest thing to your business</p>
-        <h2 className="t-grotesk mt-5 text-[clamp(1.9rem,7.4vw,3.4rem)] leading-[0.95]">
-          {dream.title}
-        </h2>
-        <p className="t-mono mt-3 text-syrup-deep">{dream.client}</p>
+      <StartHere context="hire" />
 
-        <dl className="mt-10 grid grid-cols-2 border-t border-ink/25 md:grid-cols-4">
-          {dream.stats.map((s) => (
-            <div key={s.label} className="border-b border-r border-ink/25 py-6 pr-4 last:border-r-0">
-              <dt className="t-grotesk text-[clamp(1.4rem,5vw,2.3rem)] leading-none">
-                {s.value}
-              </dt>
-              <dd className="t-mono mt-2.5 text-syrup-deep">{s.label}</dd>
-            </div>
-          ))}
-        </dl>
-
-        <p className="s-body mt-8 max-w-[38rem]">
-          Appointments-only shop, so an enquiry has to be a real one — there is no
-          walk-in traffic to hide a weak campaign behind. On the best day of the run
-          a conversation cost $1.46.
-        </p>
-
-        <Link
-          href={`/works/${dream.slug}`}
-          className="t-mono mt-8 inline-flex items-center gap-3 border border-ink px-5 py-4 transition-colors duration-300 hover:bg-ink hover:text-cream"
-        >
-          see the screenshots
-          <span aria-hidden>↗</span>
-        </Link>
-      </section>
-
-      {/* ---------- how it works ---------- */}
-      <section className="bg-paper px-6 py-16 md:px-10 md:py-24">
-        <h2 className="t-mono text-syrup">How it works</h2>
-        <ol className="mt-8 max-w-[40rem]">
-          {[
-            "You tell me what you're promoting. One sentence is enough to start.",
-            "I come back with what I'd make and what it costs. Nothing to sign to get that.",
-            "The price lands between $700 and $1,000 — a harder brief does not move it.",
-            "No retainers, no packages, no discovery call you have to sit through.",
-          ].map((line, i) => (
-            <li key={i} className="flex gap-5 border-t border-ink/20 py-5 last:border-b">
-              <span className="t-mono shrink-0 pt-1.5 text-syrup">0{i + 1}</span>
-              <span className="s-body">{line}</span>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      {/* ---------- the form ---------- */}
-      <section
-        id="enquiry"
-        data-nav-dark
-        className="scroll-mt-4 bg-void px-6 py-16 md:px-10 md:py-24"
-      >
-        <h2 className="t-grotesk text-[clamp(1.9rem,7.4vw,3.4rem)] leading-[0.95] text-cream">
-          What are we promoting<span className="text-neon">?</span>
-        </h2>
-        <p className="s-body mt-5 max-w-[34rem] text-cream/60">
-          Three fields. I reply myself, usually within a day.
-        </p>
-
-        <div className="mt-10">
-          <EnquiryForm />
+      {/*
+        A landing page footer, not the site one: no navigation back into the
+        gallery, because the only thing this page is for is the form above it.
+      */}
+      <footer data-nav-dark className="bg-void px-6 pb-14 md:px-10">
+        <div className="t-mono flex flex-wrap items-center justify-between gap-x-10 gap-y-3 border-t border-neon/20 pt-8 text-cream/60">
+          <span>Joseph The Great · Toronto, ON · © {new Date().getFullYear()}</span>
+          <a className="underline-swipe text-cream/85" href={IG_URL}>
+            {IG_HANDLE} ↗
+          </a>
         </div>
-
-        {/* secondary, for people who would rather not use a form at all */}
-        <div className="mt-14 max-w-[34rem] border-t border-neon/20 pt-6">
-          <p className="t-mono text-cream/40">or, if you&apos;d rather not fill anything in</p>
-          <div className="t-mono mt-4 flex flex-wrap gap-x-8 gap-y-3">
-            <a className="underline-swipe text-cream/70" href={IG_URL}>
-              {IG_HANDLE} ↗
-            </a>
-            <a className="underline-swipe text-cream/70" href={mailto("Project")}>
-              {EMAIL} ↗
-            </a>
-          </div>
-        </div>
-      </section>
+      </footer>
     </main>
   );
 }

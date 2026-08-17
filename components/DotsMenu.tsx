@@ -10,7 +10,9 @@ import { useNavDark } from "@/lib/useNavDark";
 const LINKS = [
   { n: "01", label: "Work", href: "/#work" },
   { n: "02", label: "Price", href: "/#price" },
-  { n: "03", label: "Contact", href: "/#contact" },
+  // "Contact" described a mailto. This one goes to the thing that actually
+  // sends, and says what you get for using it.
+  { n: "03", label: "Get 3 free fixes", href: "/#start" },
 ];
 
 /* the three dots sit at -9 / 0 / +9 and fold into a cross on open */
@@ -122,14 +124,14 @@ export default function DotsMenu() {
                   hide: { opacity: 0 },
                   show: { opacity: 1, transition: { delay: 0.36 } },
                 }}
-                className="t-mono flex flex-wrap items-end justify-between gap-x-8 gap-y-3 text-cream/45"
+                className="t-mono flex flex-wrap items-end justify-between gap-x-8 gap-y-3 text-cream/70"
               >
-                <span>Toronto, ON · 19 y/o · solo</span>
-                <span className="flex gap-5">
-                  <a className="underline-swipe text-cream/80" href={IG_URL}>
+                <span>Toronto, ON · 19 · works alone</span>
+                <span className="flex flex-wrap gap-5">
+                  <a className="underline-swipe text-cream" href={IG_URL}>
                     {IG_HANDLE}
                   </a>
-                  <a className="underline-swipe text-cream/80" href={mailto("Project")}>
+                  <a className="underline-swipe text-cream" href={mailto("Project")}>
                     {EMAIL}
                   </a>
                 </span>

@@ -16,10 +16,11 @@ import { WORKS } from "@/lib/works";
 const STRIP = [
   "be unique",
   "surreal sells",
-  "toronto, on",
+  "toronto & the gta",
   "$1,000 ceiling",
   "no retainers",
   "no book-a-call",
+  "$3.64 per conversation",
 ];
 
 export default function Portfolio() {
@@ -42,13 +43,14 @@ export default function Portfolio() {
 
       <header className="flex flex-wrap items-end justify-between gap-6 px-6 pb-14 pt-16 md:px-10 md:pb-24 md:pt-24">
         <div>
-          <p className="t-mono mb-4 text-neon/60">you are inside the jar</p>
+          <p className="t-mono mb-4 text-neon">you are inside the jar</p>
           <h2 className="s-mega t-grotesk leading-[0.8] text-cream">
             Wor<span className="neon-txt">k</span>
           </h2>
         </div>
-        <p className="t-mono max-w-[19rem] leading-relaxed text-cream/40">
-          four files. every number on them is a screenshot away — open one.
+        <p className="t-note max-w-[21rem] text-cream/70">
+          Four jobs. Every number on them is a screenshot away — open one. The first two
+          are local businesses; the last two are proof I can make things people watch.
         </p>
       </header>
 
@@ -73,7 +75,15 @@ export default function Portfolio() {
             >
               <div className="flex items-baseline justify-between gap-3">
                 <span className="t-mono whitespace-nowrap text-neon">file {w.n}</span>
-                <span className="t-mono text-right text-cream/35">{w.kind}</span>
+                {/* what the job is evidence *of*, so a local owner isn't left to
+                    infer that 33.1M views means 33.1M customers */}
+                <span
+                  className={`t-mono whitespace-nowrap ${
+                    w.proves === "enquiries" ? "text-acid" : "text-cream/60"
+                  }`}
+                >
+                  {w.proves === "enquiries" ? "enquiries" : "reach"}
+                </span>
               </div>
 
               <div
@@ -89,15 +99,21 @@ export default function Portfolio() {
                 />
               </div>
 
-              <div className="mt-5 flex items-end justify-between gap-4">
-                <div>
-                  <p className="s-mid t-grotesk text-cream/90">{w.title}</p>
-                  <p className="t-mono mt-1.5 text-cream/30">{w.client}</p>
-                </div>
-                <span className="t-mono shrink-0 text-acid/70">{w.stats[0].value}</span>
+              <div className="mt-5">
+                <p className="s-mid t-grotesk text-cream">{w.title}</p>
+                <p className="t-mono mt-1.5 text-cream/60">{w.client}</p>
               </div>
 
-              <div className="t-mono mt-6 flex items-center justify-between border-t border-neon/20 pt-4 text-cream/70">
+              {/* the headline number, given room to be read rather than tucked
+                  into a corner at 70% opacity */}
+              <p className="mt-4 flex flex-wrap items-baseline gap-x-2.5">
+                <span className="t-grotesk text-[clamp(1.35rem,4.6vw,1.9rem)] leading-none text-acid">
+                  {w.headline.value}
+                </span>
+                <span className="t-mono text-cream/70">{w.headline.label}</span>
+              </p>
+
+              <div className="t-mono mt-6 flex items-center justify-between border-t border-neon/25 pt-4 text-cream/85">
                 <span>open file</span>
                 <span aria-hidden className="text-neon">
                   ↗

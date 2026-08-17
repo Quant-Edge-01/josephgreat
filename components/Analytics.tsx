@@ -1,26 +1,49 @@
 "use client";
 
 import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
+import { usePathname } from "next/navigation";
 import Script from "next/script";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { track } from "@/lib/track";
 
 const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 
 /**
- * Pixel + page analytics, plus one delegated listener that reports outbound
- * contact clicks. Delegation rather than a wrapper component so the existing
- * mailto/Instagram links in Pricing, ContactProvider, WorkCta, DotsMenu and
- * Footer keep working untouched — there is no single link component to hook.
+ * Pixel + page analytics.
+ *
+ * PageView is the fiddly one. The inline snippet fires it once per *document*
+ * load. App Router navigations never re-run that script, so without help every
+ * route after the first is invisible; with naive help, the landing route gets
+ * counted twice. The fix is to seed the last-seen path from the first render
+ * and only fire on an actual change of path.
+ *
+ * The delegated click listener stays delegated on purpose: the mailto and
+ * Instagram links are scattered across Pricing, ContactProvider, WorkCta,
+ * DotsMenu, Footer and the form's failure state, and there is no single link
+ * component to hook.
  */
 export default function Analytics() {
+  const pathname = usePathname();
+  /**
+   * Seeded, not empty. On first render this is the path the snippet already
+   * reported, so the effect below correctly does nothing for it.
+   */
+  const lastPath = useRef<string | null>(pathname);
+
+  useEffect(() => {
+    if (lastPath.current === pathname) return;
+    lastPath.current = pathname;
+    track("PageView");
+  }, [pathname]);
+
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
       const el = e.target as HTMLElement | null;
       const a = el?.closest?.("a");
       const href = a?.getAttribute("href");
       if (!href) return;
-      // no personal data in the params — just which door they took
+      // No personal data in the params — only which door they took. Instagram
+      // and email are reported separately so the two can be compared.
       if (href.startsWith("mailto:")) track("Contact", { method: "email" });
       else if (href.includes("instagram.com")) track("Contact", { method: "instagram" });
     };

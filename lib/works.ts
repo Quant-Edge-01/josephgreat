@@ -12,9 +12,8 @@ export type WorkImage = {
   caption: string;
 };
 
-export type Work = {
+type WorkSeed = {
   slug: string;
-  n: string;
   title: string;
   client: string;
   kind: string;
@@ -25,130 +24,48 @@ export type Work = {
   link?: { label: string; href: string };
   cover: string;
   images: WorkImage[];
+  /**
+   * What this job is actually evidence of. A Toronto shop owner deciding
+   * whether to spend $700 needs to know which of these numbers is a person who
+   * messaged a business and which is a person who watched a video — so the
+   * distinction is data, not something left to the reader to infer.
+   */
+  proves: "enquiries" | "reach";
+  /** A local service business in Toronto/the GTA, i.e. one they can map onto. */
+  local: boolean;
+  /**
+   * The single number to lead with in lists and cards. Not stats[0]: on the
+   * bridal job that is "$214.86 total ad spend", which as a headline reads like
+   * a fee rather than the thing it bought.
+   */
+  headline: { value: string; label: string };
+};
+
+export type Work = WorkSeed & {
+  /** Derived from position — see below. */
+  n: string;
   /** card geometry — deliberately uneven, see Portfolio.tsx */
   card: { tab: string; col: string; off: string; lean: string; mob: string; preview: string };
 };
 
-export const WORKS: Work[] = [
-  {
-    slug: "joeroblox85",
-    n: "01",
-    title: "Joeroblox85",
-    client: "Own channel — Roblox",
-    kind: "kids' content · youtube shorts",
-    lede: "The hardest audience on the internet is eight years old. I held it thirty-three million times.",
-    body: [
-      "A Roblox channel I built and ran myself, start to finish. 33.1 million views. 324,400 subscribers. A silver play button on the desk, which tends to make the conversation shorter.",
-      "One Short did 8,490,448 views on its own and brought 116,400 subscribers with it. That's the one that gets the reaction. The number that actually means something is sitting right next to it — six Shorts past a million views, spread across two years. Once is luck. Six times is a format.",
-      "Kids are the most honest audience alive. They don't watch to be polite and they don't finish something out of respect for the effort. They leave in the first second and they never come back. Learning to hold them taught me hooks, pacing and payoff harder than any client brief has since.",
-    ],
-    quote: "I know even how to make content for kids — over 30 million views.",
-    stats: [
-      { value: "33.1M", label: "lifetime views" },
-      { value: "324.4K", label: "subscribers" },
-      { value: "8.5M", label: "best single short" },
-      { value: "6", label: "shorts past 1M" },
-    ],
-    cover: "/works/joeroblox85/02.jpg",
-    images: [
-      {
-        src: "/works/joeroblox85/02.jpg",
-        w: 1600,
-        h: 1200,
-        alt: "YouTube silver play button next to channel analytics showing 33,134,030 lifetime views",
-        caption: "The silver play button, and the channel it came out of — 33,134,030 views.",
-      },
-      {
-        src: "/works/joeroblox85/01.jpg",
-        w: 1600,
-        h: 1200,
-        alt: "YouTube Studio analytics showing 19,314,092 views in the last 365 days",
-        caption: "19.3M of those landed inside a single 365-day window.",
-      },
-      {
-        src: "/works/joeroblox85/03.jpg",
-        w: 1600,
-        h: 1200,
-        alt: "Video analytics for one Short showing 8,490,448 views and 116,400 subscribers gained",
-        caption: "One Short: 8,490,448 views, +116,400 subscribers.",
-      },
-      {
-        src: "/works/joeroblox85/04.jpg",
-        w: 1600,
-        h: 1200,
-        alt: "Channel content filtered to Shorts with over one million views, showing six entries",
-        caption: "Filtered to Shorts above a million views. Six of them.",
-      },
-    ],
-    card: {
-      tab: "38%",
-      col: "md:col-start-1 md:col-span-6",
-      off: "md:mt-0",
-      lean: "-0.7deg",
-      mob: "mr-auto w-[95%]",
-      preview: "h-56 md:h-80",
-    },
-  },
-
-  {
-    slug: "quantlarper",
-    n: "02",
-    title: "quantlarper",
-    client: "QuantEdge — market tool for retail investors",
-    kind: "fintech · organic only",
-    lede: "Two posts. Zero dollars. 175 subscribers who actually open the emails.",
-    body: [
-      "A financial tool for people trading the stock market — the least forgiving niche on the platform, because every second account in it belongs to a man renting a Lamborghini by the hour.",
-      "So we went the other way. The bio reads “i'm not a guru, dude pls do not hate me.” That isn't self-deprecation, it's positioning. In a feed built entirely on borrowed authority, refusing to claim any is the thing that stops the thumb.",
-      "One month, no ad spend, an account with two posts on it: 1.2 million views in 30 days. The top reel alone took 1,150,970 views from 643,263 unique viewers, with 65,300 likes and 9,900 saves. 2,159 followers at the end of it — and 175 active subscribers on the list.",
-    ],
-    quote: "175 clients with 0 budget, only organic views in 1 month.",
-    stats: [
-      { value: "$0", label: "ad spend" },
-      { value: "1.2M", label: "views in 30 days" },
-      { value: "1,150,970", label: "top reel" },
-      { value: "175", label: "active subscribers" },
-    ],
-    cover: "/works/quantlarper/02.jpg",
-    images: [
-      {
-        src: "/works/quantlarper/01.jpg",
-        w: 1069,
-        h: 1600,
-        alt: "Instagram reel insights showing 1,150,970 views and 643,263 viewers",
-        caption: "The reel that carried it — 1,150,970 views, 11 seconds of average watch time.",
-      },
-      {
-        src: "/works/quantlarper/02.jpg",
-        w: 736,
-        h: 1600,
-        alt: "Instagram profile for quantlarper showing 2 posts, 2,159 followers and 1.2M views in 30 days",
-        caption: "Two posts. 2,159 followers. 1.2M views in the last 30 days.",
-      },
-      {
-        src: "/works/quantlarper/04.png",
-        w: 1340,
-        h: 515,
-        alt: "Email platform showing 175 active subscribers",
-        caption: "175 active subscribers. Their addresses are cropped out of this shot on purpose.",
-      },
-    ],
-    card: {
-      tab: "62%",
-      col: "md:col-start-8 md:col-span-4",
-      off: "md:mt-32",
-      lean: "0.7deg",
-      mob: "ml-auto w-[86%]",
-      preview: "h-44 md:h-52",
-    },
-  },
-
+/**
+ * Ordered for a cold local owner, not chronologically and not by headline size.
+ *
+ * The bridal shop goes first because it is the only job on here that proves the
+ * thing being sold — money in, conversations out — and it is the business a
+ * Toronto owner can map onto their own. The 33.1M-view Roblox channel used to
+ * lead; it is a bigger number and a worse argument, because "makes viral kids'
+ * content" is not what someone with a gym is trying to buy.
+ */
+const SEEDS: WorkSeed[] = [
   {
     slug: "dream-alteration",
-    n: "03",
     title: "Dream Alterations",
     client: "Dream Alterations — bridal, GTA",
     kind: "local service · paid + organic",
+    proves: "enquiries",
+    local: true,
+    headline: { value: "$3.64", label: "per conversation started" },
     lede: "$3.64 to put a bride in the inbox. A Toronto agency would charge more than that for the slide explaining it.",
     body: [
       "Custom bridal and wedding gown alterations across the GTA. Appointments only — which means every enquiry has to be a real one. There's no walk-in traffic to hide a weak campaign behind.",
@@ -194,22 +111,16 @@ export const WORKS: Work[] = [
         caption: "Twelve posts. 689 followers. 30,700 views a month.",
       },
     ],
-    card: {
-      tab: "30%",
-      col: "md:col-start-2 md:col-span-7",
-      off: "md:mt-10",
-      lean: "0.9deg",
-      mob: "mr-auto w-full",
-      preview: "h-64 md:h-72",
-    },
   },
 
   {
     slug: "spartan-gymnastics",
-    n: "04",
     title: "Spartan Gymnastics",
     client: "Spartan Gymnastics + District — Toronto",
     kind: "local business · surreal short-form",
+    proves: "reach",
+    local: true,
+    headline: { value: "74.9%", label: "of reach from non-followers" },
     lede: "9,224 views in two weeks for a neighbourhood gym — three quarters of them from people who had never heard of it.",
     body: [
       "Spartan Gymnastics + District sells spring sessions, March break camps and summer camps. The kind of local business that normally posts a flyer and waits.",
@@ -251,15 +162,162 @@ export const WORKS: Work[] = [
         caption: "1,820 followers. The reach came from everyone else.",
       },
     ],
-    card: {
-      tab: "68%",
-      col: "md:col-start-9 md:col-span-4",
-      off: "md:mt-28",
-      lean: "-1deg",
-      mob: "ml-auto w-[88%]",
-      preview: "h-48 md:h-60",
-    },
+  },
+
+  {
+    slug: "joeroblox85",
+    title: "Joeroblox85",
+    client: "Own channel — Roblox",
+    kind: "kids' content · youtube shorts",
+    proves: "reach",
+    local: false,
+    headline: { value: "33.1M", label: "lifetime views" },
+    lede: "The hardest audience on the internet is eight years old. I held it thirty-three million times.",
+    body: [
+      "A Roblox channel I built and ran myself, start to finish. 33.1 million views. 324,400 subscribers. A silver play button on the desk, which tends to make the conversation shorter.",
+      "One Short did 8,490,448 views on its own and brought 116,400 subscribers with it. That's the one that gets the reaction. The number that actually means something is sitting right next to it — six Shorts past a million views, spread across two years. Once is luck. Six times is a format.",
+      "Kids are the most honest audience alive. They don't watch to be polite and they don't finish something out of respect for the effort. They leave in the first second and they never come back. Learning to hold them taught me hooks, pacing and payoff harder than any client brief has since.",
+    ],
+    quote: "I know even how to make content for kids — over 30 million views.",
+    stats: [
+      { value: "33.1M", label: "lifetime views" },
+      { value: "324.4K", label: "subscribers" },
+      { value: "8.5M", label: "best single short" },
+      { value: "6", label: "shorts past 1M" },
+    ],
+    cover: "/works/joeroblox85/02.jpg",
+    images: [
+      {
+        src: "/works/joeroblox85/02.jpg",
+        w: 1600,
+        h: 1200,
+        alt: "YouTube silver play button next to channel analytics showing 33,134,030 lifetime views",
+        caption: "The silver play button, and the channel it came out of — 33,134,030 views.",
+      },
+      {
+        src: "/works/joeroblox85/01.jpg",
+        w: 1600,
+        h: 1200,
+        alt: "YouTube Studio analytics showing 19,314,092 views in the last 365 days",
+        caption: "19.3M of those landed inside a single 365-day window.",
+      },
+      {
+        src: "/works/joeroblox85/03.jpg",
+        w: 1600,
+        h: 1200,
+        alt: "Video analytics for one Short showing 8,490,448 views and 116,400 subscribers gained",
+        caption: "One Short: 8,490,448 views, +116,400 subscribers.",
+      },
+      {
+        src: "/works/joeroblox85/04.jpg",
+        w: 1600,
+        h: 1200,
+        alt: "Channel content filtered to Shorts with over one million views, showing six entries",
+        caption: "Filtered to Shorts above a million views. Six of them.",
+      },
+    ],
+  },
+
+  {
+    slug: "quantlarper",
+    title: "quantlarper",
+    client: "QuantEdge — market tool for retail investors",
+    kind: "fintech · organic only",
+    proves: "reach",
+    local: false,
+    headline: { value: "1.2M", label: "views in 30 days, $0 spent" },
+    lede: "Two posts. Zero dollars. 175 subscribers who actually open the emails.",
+    body: [
+      "A financial tool for people trading the stock market — the least forgiving niche on the platform, because every second account in it belongs to a man renting a Lamborghini by the hour.",
+      "So we went the other way. The bio reads “i'm not a guru, dude pls do not hate me.” That isn't self-deprecation, it's positioning. In a feed built entirely on borrowed authority, refusing to claim any is the thing that stops the thumb.",
+      "One month, no ad spend, an account with two posts on it: 1.2 million views in 30 days. The top reel alone took 1,150,970 views from 643,263 unique viewers, with 65,300 likes and 9,900 saves. 2,159 followers at the end of it — and 175 active subscribers on the list.",
+    ],
+    quote: "175 clients with 0 budget, only organic views in 1 month.",
+    stats: [
+      { value: "$0", label: "ad spend" },
+      { value: "1.2M", label: "views in 30 days" },
+      { value: "1,150,970", label: "top reel" },
+      { value: "175", label: "active subscribers" },
+    ],
+    cover: "/works/quantlarper/02.jpg",
+    images: [
+      {
+        src: "/works/quantlarper/01.jpg",
+        w: 1069,
+        h: 1600,
+        alt: "Instagram reel insights showing 1,150,970 views and 643,263 viewers",
+        caption: "The reel that carried it — 1,150,970 views, 11 seconds of average watch time.",
+      },
+      {
+        src: "/works/quantlarper/02.jpg",
+        w: 736,
+        h: 1600,
+        alt: "Instagram profile for quantlarper showing 2 posts, 2,159 followers and 1.2M views in 30 days",
+        caption: "Two posts. 2,159 followers. 1.2M views in the last 30 days.",
+      },
+      {
+        src: "/works/quantlarper/04.png",
+        w: 1340,
+        h: 515,
+        alt: "Email platform showing 175 active subscribers",
+        caption: "175 active subscribers. Their addresses are cropped out of this shot on purpose.",
+      },
+    ],
   },
 ];
 
+/**
+ * Card geometry belongs to the *slot*, not the project — four folders pulled
+ * out of a drawer, no two sharing a band. Keeping it positional means the
+ * collage survives any reordering of SEEDS above, which the old per-project
+ * config did not: moving the bridal job to the front used to drag a
+ * half-width right-column card with it and leave a hole on the left.
+ */
+const CARD_SLOTS: Work["card"][] = [
+  {
+    tab: "38%",
+    col: "md:col-start-1 md:col-span-6",
+    off: "md:mt-0",
+    lean: "-0.7deg",
+    mob: "mr-auto w-[95%]",
+    preview: "h-56 md:h-80",
+  },
+  {
+    tab: "62%",
+    col: "md:col-start-8 md:col-span-4",
+    off: "md:mt-32",
+    lean: "0.7deg",
+    mob: "ml-auto w-[86%]",
+    preview: "h-44 md:h-52",
+  },
+  {
+    tab: "30%",
+    col: "md:col-start-2 md:col-span-7",
+    off: "md:mt-10",
+    lean: "0.9deg",
+    mob: "mr-auto w-full",
+    preview: "h-64 md:h-72",
+  },
+  {
+    tab: "68%",
+    col: "md:col-start-9 md:col-span-4",
+    off: "md:mt-28",
+    lean: "-1deg",
+    mob: "ml-auto w-[88%]",
+    preview: "h-48 md:h-60",
+  },
+];
+
+/** `n` is derived so the file numbers can never disagree with the running order. */
+export const WORKS: Work[] = SEEDS.map((w, i) => ({
+  ...w,
+  n: String(i + 1).padStart(2, "0"),
+  card: CARD_SLOTS[i % CARD_SLOTS.length],
+}));
+
 export const workBySlug = (slug: string) => WORKS.find((w) => w.slug === slug);
+
+/** The jobs a local owner can map onto their own shop. */
+export const LOCAL_WORKS = WORKS.filter((w) => w.local);
+/** The jobs that prove reach rather than enquiries. Labelled as such on the page. */
+export const REACH_WORKS = WORKS.filter((w) => w.proves === "reach");

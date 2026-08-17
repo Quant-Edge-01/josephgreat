@@ -1,64 +1,119 @@
-"use client";
+import type { CSSProperties } from "react";
+import { FLAGSHIP_SLUG, OFFER } from "@/lib/site";
+import { workBySlug } from "@/lib/works";
 
-import { motion } from "motion/react";
+/**
+ * The fold.
+ *
+ * It used to be the lockup and nothing else — one hundred vertical percent of
+ * "Be unique." with a $3.64 proof line under it at about 1.6:1 against white.
+ * A cold visitor off a Reel got two words: no service, no audience, no result
+ * and no action, inside the ten seconds that decide whether the page survives
+ * at all (NN/g, *How Long Do Users Stay on Web Pages?*).
+ *
+ * The poster is still the loudest thing here. It just isn't the only thing:
+ * this screen now names who it's for, what gets made, what it's supposed to
+ * produce, one number proving it happened, and one button.
+ *
+ * Note the absence of "use client" and of Framer Motion. This was a client
+ * component; Motion serialises `initial` into the SSR markup as inline styles,
+ * so every word above the fold was `opacity: 0` until React hydrated. The
+ * entrance is now three CSS classes, which means the offer is painted with the
+ * first frame of HTML and survives a failed or slow JS load entirely.
+ */
 
-const rise = {
-  hidden: { y: "108%" },
-  show: (i: number) => ({
-    y: "0%",
-    transition: { delay: 0.12 + i * 0.09, type: "spring" as const, stiffness: 180, damping: 22 },
-  }),
-};
+const delay = (s: number) => ({ "--delay": `${s}s` }) as CSSProperties;
 
 export default function Hero() {
-  return (
-    <section className="relative flex h-[100dvh] flex-col justify-center bg-paper px-6 md:px-14">
-      {/* one lockup, two typefaces: the seam between them is the whole idea */}
-      <h1 className="s-mega mx-auto w-fit leading-[0.76]">
-        <span className="block overflow-hidden">
-          <motion.span
-            className="t-grotesk inline-block font-[800] tracking-[-0.06em]"
-            variants={rise}
-            initial="hidden"
-            animate="show"
-            custom={0}
-          >
-            Be
-          </motion.span>
-        </span>
-        <span className="block overflow-hidden pb-[0.1em]">
-          <motion.span
-            className="t-serif -ml-[0.03em] inline-block text-[1.14em]"
-            variants={rise}
-            initial="hidden"
-            animate="show"
-            custom={1}
-          >
-            unique
-            <span className="text-gold">.</span>
-          </motion.span>
-        </span>
-      </h1>
+  const dream = workBySlug(FLAGSHIP_SLUG)!;
+  const [spend, convos, perConvo, leads] = dream.stats.map((s) => s.value);
 
-      {/* the only other mark on this screen: the affordance the whole site depends on */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.1, duration: 0.8 }}
-        className="absolute inset-x-0 bottom-4 flex flex-col items-center gap-3 md:bottom-7"
-      >
-        <span className="t-mono text-ash/55">come closer</span>
-        <motion.span
-          animate={{ scaleY: [0.25, 1, 0.25], originY: 0 }}
-          transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
-          className="block h-10 w-px origin-top bg-ink/25"
-        />
-        {/* one line of proof, pitched well under the lockup so it never
-            competes with it — the number does the work, not the styling */}
-        <span className="t-mono px-6 text-center text-ash/40">
-          last local job — $3.64 per conversation started
-        </span>
-      </motion.div>
+  return (
+    <section className="relative flex min-h-[100dvh] flex-col justify-between overflow-hidden bg-paper px-6 pb-6 pt-20 md:px-14 md:pb-10 md:pt-24">
+      <p className="t-mono anim-up eyebrow text-syrup" style={delay(0.05)}>
+        Joseph The Great — Toronto &amp; the GTA
+      </p>
+
+      <div className="flex flex-col items-center">
+        {/*
+          One lockup, two typefaces: the seam between them is the whole idea.
+
+          It is a <p>, not the <h1>. Heading level is a semantic claim about
+          what the page is about, and "Be unique." answers that for nobody —
+          not a search result, not a screen-reader user landing cold. The h1 is
+          the proposition below; this stays the loudest thing on the screen
+          because size and heading level are different tools.
+        */}
+        <p className="s-hero mx-auto w-fit text-center leading-[0.76]">
+          <span className="block overflow-hidden">
+            <span
+              className="t-grotesk anim-rise inline-block font-[800] tracking-[-0.06em]"
+              style={delay(0.06)}
+            >
+              Be
+            </span>
+          </span>
+          <span className="block overflow-hidden pb-[0.1em]">
+            <span
+              className="t-serif anim-rise -ml-[0.03em] inline-block text-[1.14em]"
+              style={delay(0.14)}
+            >
+              unique
+              <span className="text-gold">.</span>
+            </span>
+          </span>
+        </p>
+
+        {/*
+          The commercial half. Hung under the lockup on a hairline so it reads
+          as the label on the jar rather than a marketing block bolted onto an
+          art piece.
+        */}
+        <div className="anim-up mt-9 w-full max-w-[46rem] md:mt-11" style={delay(0.24)}>
+          <div className="rule pt-6 text-center">
+            <h1 className="s-mid t-grotesk mx-auto max-w-[30ch] text-balance">
+              Surreal short-form video for local businesses — built to start{" "}
+              <span className="t-serif font-normal text-syrup">conversations</span>, not
+              collect views.
+            </h1>
+
+            <div className="mt-8 flex flex-col items-center gap-4">
+              <a
+                href="#start"
+                className="t-grotesk flex min-h-[60px] w-full items-center justify-center gap-3 bg-ink px-8 text-[1.15rem] text-cream transition-colors duration-300 hover:bg-syrup sm:w-auto sm:min-w-[24rem]"
+              >
+                {OFFER.cta}
+                <span aria-hidden>↓</span>
+              </a>
+              {/* sans, not the mono note face: three lines of letterspaced
+                  uppercase-adjacent mono is a chore to read, and this sentence
+                  is the offer */}
+              <p className="mx-auto max-w-[32rem] text-[1rem] leading-relaxed text-ash">
+                I&apos;ll tell you the first three things I&apos;d change — free, and
+                you&apos;re welcome to go do them yourself.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/*
+        The proof, at a contrast it can actually be believed at. This line was
+        previously 10px mono at 40% opacity — around 1.6:1, which is the exact
+        condition under which a true statement gets judged true at chance
+        (Reber & Schwarz, 1999). It is the only hard evidence above the fold.
+      */}
+      <div className="anim-up mx-auto w-full max-w-[46rem] pt-8" style={delay(0.32)}>
+        <p className="s-proof t-grotesk text-center text-ink">
+          <span className="text-syrup">{spend}</span> of ads →{" "}
+          <span className="text-syrup">{convos}</span> conversations at{" "}
+          <span className="text-syrup">{perConvo}</span> each →{" "}
+          <span className="text-syrup">{leads}</span> leads.
+        </p>
+        <p className="t-mono mt-2.5 text-center text-ash">
+          a bridal shop in the GTA · every number screenshotted below
+        </p>
+      </div>
     </section>
   );
 }

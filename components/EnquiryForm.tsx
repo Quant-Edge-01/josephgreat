@@ -1,13 +1,17 @@
 "use client";
 
-import { useId, useState } from "react";
-import { EMAIL, IG_HANDLE, IG_URL, mailto } from "@/lib/site";
+import { useEffect, useId, useRef, useState } from "react";
+import { EMAIL, IG_HANDLE, IG_URL, OFFER, mailto } from "@/lib/site";
 import { track } from "@/lib/track";
 
-type Errors = Partial<Record<"business" | "email" | "message", string>>;
+type Field = "site" | "reply";
+type Errors = Partial<Record<Field, string>>;
 type State = "idle" | "sending" | "sent" | "failed";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+/** `@name`, `name`, instagram.com/name, or any domain-looking string. */
+const HANDLE_RE = /^@?[A-Za-z0-9._]{2,40}$/;
+const URLISH_RE = /^(https?:\/\/)?([a-z0-9-]+\.)+[a-z]{2,}(\/\S*)?$/i;
 
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 /**
@@ -20,43 +24,101 @@ const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 const ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 
 /**
- * Three fields, and deliberately no phone / budget / timeline: every extra box
- * costs submissions and none of them are needed to write a reply.
+ * Nothing a human can clear. A bot that fills every field it finds trips the
+ * honeypot; a bot that posts instantly trips the clock. 1.5s is far under the
+ * time it takes a person to focus two fields, even with autofill, so a real
+ * visitor can never hit it.
  */
-export default function EnquiryForm() {
+const MIN_FILL_MS = 1500;
+
+function validate(name: Field, raw: string): string | undefined {
+  const v = raw.trim();
+  if (name === "site") {
+    if (!v) return "Your Instagram handle or your website — either one.";
+    if (!HANDLE_RE.test(v) && !URLISH_RE.test(v))
+      return "That doesn't look like a handle or a link. @yourshop works.";
+    return;
+  }
+  if (!v) return "Where should the reply go?";
+  // Deliberately permissive: an email or an @handle, because forcing an email
+  // on someone who lives in the Instagram app costs more sends than it saves.
+  if (!EMAIL_RE.test(v) && !HANDLE_RE.test(v))
+    return "An email or an @handle — either is fine.";
+  return;
+}
+
+/**
+ * Two required fields and one optional one. No phone, no budget dropdown, no
+ * "how did you hear about us": every extra box costs sends, and none of them
+ * are needed to look at an account and write back.
+ */
+export default function EnquiryForm({ context = "site" }: { context?: string }) {
   const id = useId();
+  const formRef = useRef<HTMLFormElement>(null);
+  const doneRef = useRef<HTMLParagraphElement>(null);
+  const mountedAt = useRef(Date.now());
   const [state, setState] = useState<State>("idle");
   const [errors, setErrors] = useState<Errors>({});
   const [failure, setFailure] = useState("");
 
+  useEffect(() => {
+    if (state === "sent") doneRef.current?.focus();
+  }, [state]);
+
+  /** Validate on blur, but never surprise someone who hasn't typed yet. */
+  function onBlur(e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) {
+    const name = e.target.name as Field;
+    if (name !== "site" && name !== "reply") return;
+    if (!e.target.value.trim()) return;
+    setErrors((prev) => ({ ...prev, [name]: validate(name, e.target.value) }));
+  }
+
+  /** Clear an error the moment it stops being true, not on the next submit. */
+  function onInput(e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) {
+    const el = e.currentTarget;
+    const name = el.name as Field;
+    if (name !== "site" && name !== "reply") return;
+    setErrors((prev) => (prev[name] ? { ...prev, [name]: validate(name, el.value) } : prev));
+  }
+
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    const business = String(data.get("business") ?? "").trim();
-    const email = String(data.get("email") ?? "").trim();
-    const message = String(data.get("message") ?? "").trim();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const site = String(data.get("site") ?? "").trim();
+    const reply = String(data.get("reply") ?? "").trim();
+    const promoting = String(data.get("promoting") ?? "").trim();
 
     const next: Errors = {};
-    if (!business) next.business = "Tell me the business name.";
-    if (!email) next.email = "I need an email to reply to.";
-    else if (!EMAIL_RE.test(email)) next.email = "That email doesn't look right.";
-    if (!message) next.message = "One sentence is enough — what are we promoting?";
+    const siteErr = validate("site", site);
+    const replyErr = validate("reply", reply);
+    if (siteErr) next.site = siteErr;
+    if (replyErr) next.reply = replyErr;
 
     setErrors(next);
-    if (Object.keys(next).length) return;
+    if (Object.keys(next).length) {
+      // Send focus to the first thing that needs fixing rather than leaving a
+      // screen-reader user to hunt for the message.
+      const first = next.site ? "site" : "reply";
+      form.querySelector<HTMLElement>(`[name="${first}"]`)?.focus();
+      return;
+    }
 
-    // Honeypot: a real person never fills a field they cannot see. Show the
-    // success state so a bot learns nothing, and send nothing.
-    if (String(data.get("company_website") ?? "").trim()) {
+    // A real person never fills a field they cannot see, and never submits in
+    // under a second and a half. Show the success state so a bot learns
+    // nothing from the difference, and send nothing.
+    const tooFast = Date.now() - mountedAt.current < MIN_FILL_MS;
+    if (String(data.get("company_website") ?? "").trim() || tooFast) {
       setState("sent");
       return;
     }
 
     if (!ACCESS_KEY) {
       console.error(
-        "[enquiry] NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY is not set — cannot send the enquiry.",
+        "[enquiry] NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY is not set — the enquiry cannot be sent. " +
+          "Set it in the Vercel project (and .env.local for development), then redeploy.",
       );
-      setFailure("Mail isn't configured on the server.");
+      setFailure("The form isn't wired up on this deploy.");
       setState("failed");
       return;
     }
@@ -69,15 +131,17 @@ export default function EnquiryForm() {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: ACCESS_KEY,
-          subject: `New enquiry — ${business}`,
+          subject: `Teardown request — ${site}`,
           from_name: "JosephTheGreat site",
-          // Reply goes to whoever wrote in, so the lead is answerable in one
-          // click from the notification.
-          replyto: email,
+          // Only a real address can be a reply-to. An @handle here would make
+          // the notification unreplyable, so it is left off and the handle is
+          // carried in the body instead.
+          ...(EMAIL_RE.test(reply) ? { replyto: reply } : {}),
           // remaining keys render as labelled rows in the email body
-          "Business name": business,
-          Email: email,
-          "What they want to promote": message,
+          "Instagram or website": site,
+          "Reply to": reply,
+          "What they're promoting": promoting || "— not given —",
+          "Sent from": context,
         }),
       });
 
@@ -94,21 +158,23 @@ export default function EnquiryForm() {
       }
 
       // A rejected key still answers 200 with {"success": false}, so the HTTP
-      // status alone is not enough to call this sent.
+      // status alone is not enough to call this sent. Nothing below this line
+      // runs unless the mail actually left.
       if (!res.ok || !result?.success) {
         console.error(
           `[enquiry] Web3Forms refused the send — status ${res.status} ${res.statusText}, body: ${raw}`,
         );
-        setFailure("The mail service refused it.");
+        setFailure("The mail service turned it down.");
         setState("failed");
         return;
       }
 
-      track("Lead");
+      // The only place Lead is fired anywhere in the codebase.
+      track("Lead", { content_name: "teardown_request", source: context });
       setState("sent");
     } catch (err) {
       console.error("[enquiry] The enquiry never left the browser:", err);
-      setFailure("The request never left the browser — connection dropped.");
+      setFailure("The request never left your browser — the connection dropped.");
       setState("failed");
     }
   }
@@ -116,114 +182,150 @@ export default function EnquiryForm() {
   if (state === "sent") {
     return (
       <div className="rule-neon pt-8">
-        <p className="s-loud t-grotesk text-cream">Got it.</p>
-        <p className="s-body mt-4 max-w-[34rem] text-cream/70">
-          I read everything myself, so the reply comes from a person and usually
-          lands within a day. It will arrive from{" "}
-          <span className="text-neon">{EMAIL}</span> — if it isn&apos;t there, it fell
-          into spam.
+        <p
+          ref={doneRef}
+          tabIndex={-1}
+          className="s-loud t-grotesk text-cream focus:outline-none"
+        >
+          Sent<span className="text-neon">.</span>
+        </p>
+        <p className="s-body mt-4 max-w-[34rem] text-cream/75">
+          I&apos;ll open your account, watch what you&apos;ve got, and write back with the
+          first three things I&apos;d change. {OFFER.reply} It comes from{" "}
+          <span className="text-neon">{EMAIL}</span> — if it isn&apos;t there in a day,
+          check spam, then DM me.
+        </p>
+        <p className="s-body mt-4 max-w-[34rem] text-cream/60">
+          {OFFER.noCall} If the three things are all you wanted, take them and go.
         </p>
       </div>
     );
   }
 
-  const field = "w-full border border-neon/30 bg-void-2 px-4 py-3.5 text-[16px] text-cream placeholder:text-cream/25 focus:border-neon focus:outline-none";
-  const label = "t-mono mb-2 block text-cream/60";
-  const err = "t-mono mt-2 block text-acid";
+  const field =
+    "w-full border border-neon/40 bg-void-2 px-4 py-3.5 text-[16px] text-cream placeholder:text-cream/55 focus:border-neon focus:outline-none";
+  const label = "t-mono mb-2 block text-cream/75";
+  // t-note, not t-mono: .t-mono sets text-transform on the class itself and so
+  // beats Tailwind's normal-case, which turned every hint into shouted caps.
+  const hint = "t-note mt-2 block text-cream/65";
+  const err = "t-note mt-2 block text-acid";
 
   return (
-    <form onSubmit={onSubmit} noValidate className="max-w-[34rem]">
+    <form ref={formRef} onSubmit={onSubmit} noValidate className="max-w-[34rem]">
       <div className="mb-6">
-        <label htmlFor={`${id}-business`} className={label}>
-          Business name
+        <label htmlFor={`${id}-site`} className={label}>
+          Your Instagram or website
         </label>
         <input
-          id={`${id}-business`}
-          name="business"
+          id={`${id}-site`}
+          name="site"
           type="text"
-          maxLength={120}
-          autoComplete="organization"
-          aria-invalid={!!errors.business}
-          aria-describedby={errors.business ? `${id}-business-err` : undefined}
+          maxLength={200}
+          autoComplete="url"
+          autoCapitalize="none"
+          autoCorrect="off"
+          spellCheck={false}
+          placeholder="@yourshop"
+          onBlur={onBlur}
+          onInput={onInput}
+          aria-invalid={!!errors.site}
+          aria-describedby={errors.site ? `${id}-site-err` : `${id}-site-hint`}
           className={field}
         />
-        {errors.business && (
-          <span id={`${id}-business-err`} className={err}>
-            {errors.business}
+        {errors.site ? (
+          <span id={`${id}-site-err`} className={err}>
+            {errors.site}
+          </span>
+        ) : (
+          <span id={`${id}-site-hint`} className={hint}>
+            This is the thing I actually look at.
           </span>
         )}
       </div>
 
       <div className="mb-6">
-        <label htmlFor={`${id}-email`} className={label}>
-          Email
+        <label htmlFor={`${id}-reply`} className={label}>
+          Where should I send it back?
         </label>
         <input
-          id={`${id}-email`}
-          name="email"
-          type="email"
-          inputMode="email"
+          id={`${id}-reply`}
+          name="reply"
+          type="text"
           maxLength={200}
           autoComplete="email"
-          aria-invalid={!!errors.email}
-          aria-describedby={errors.email ? `${id}-email-err` : undefined}
+          autoCapitalize="none"
+          autoCorrect="off"
+          spellCheck={false}
+          placeholder="you@shop.ca — or your @handle"
+          onBlur={onBlur}
+          onInput={onInput}
+          aria-invalid={!!errors.reply}
+          aria-describedby={errors.reply ? `${id}-reply-err` : `${id}-reply-hint`}
           className={field}
         />
-        {errors.email && (
-          <span id={`${id}-email-err`} className={err}>
-            {errors.email}
+        {errors.reply ? (
+          <span id={`${id}-reply-err`} className={err}>
+            {errors.reply}
+          </span>
+        ) : (
+          <span id={`${id}-reply-hint`} className={hint}>
+            Email or Instagram — whichever you actually check.
           </span>
         )}
       </div>
 
       <div className="mb-8">
-        <label htmlFor={`${id}-message`} className={label}>
-          What you want to promote
+        <label htmlFor={`${id}-promoting`} className={label}>
+          What are you promoting?{" "}
+          <span className="t-note text-cream/65">(optional)</span>
         </label>
         <textarea
-          id={`${id}-message`}
-          name="message"
-          rows={3}
+          id={`${id}-promoting`}
+          name="promoting"
+          rows={2}
           maxLength={2000}
-          placeholder="One sentence is plenty."
-          aria-invalid={!!errors.message}
-          aria-describedby={errors.message ? `${id}-message-err` : undefined}
+          placeholder="Spring sessions. A new location. Whatever's next."
+          onInput={onInput}
           className={`${field} resize-y`}
         />
-        {errors.message && (
-          <span id={`${id}-message-err`} className={err}>
-            {errors.message}
-          </span>
-        )}
       </div>
 
       {/* honeypot — off-screen, never focusable, must stay empty */}
       <div aria-hidden className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
         <label htmlFor={`${id}-hp`}>Company website</label>
-        <input id={`${id}-hp`} name="company_website" type="text" tabIndex={-1} autoComplete="off" />
+        <input
+          id={`${id}-hp`}
+          name="company_website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
       </div>
 
       <button
         type="submit"
         disabled={state === "sending"}
-        className="t-grotesk min-h-[56px] w-full bg-neon px-6 text-[1.15rem] text-void transition-colors duration-300 hover:bg-acid disabled:cursor-wait disabled:opacity-60"
+        className="t-grotesk min-h-[60px] w-full bg-neon px-6 text-[1.2rem] text-void transition-colors duration-300 hover:bg-acid disabled:cursor-wait disabled:opacity-70"
       >
-        {state === "sending" ? "Sending…" : "Send it"}
+        {state === "sending" ? "Sending…" : "Send it over"}
       </button>
 
-      <p className="t-mono mt-4 text-cream/35">
-        No call required. No phone number asked for.
+      <p className="t-note mt-4 text-cream/70">
+        {OFFER.reply} {OFFER.noCall}
       </p>
 
       {state === "failed" && (
-        <div role="alert" className="mt-8 border border-acid/40 p-5">
-          <p className="s-body text-cream">{failure}</p>
-          <p className="s-body mt-3 text-cream/60">Use whichever of these is easier:</p>
+        <div role="alert" className="mt-8 border border-acid/50 p-5">
+          <p className="s-body text-cream">
+            That didn&apos;t go through — {failure} Nothing you typed is lost, and
+            you can hit send again.
+          </p>
+          <p className="s-body mt-3 text-cream/70">Or just use whichever is easier:</p>
           <div className="t-mono mt-4 flex flex-col gap-2">
             <a className="underline-swipe w-fit text-neon" href={IG_URL}>
               {IG_HANDLE} ↗
             </a>
-            <a className="underline-swipe w-fit text-neon" href={mailto("Project")}>
+            <a className="underline-swipe w-fit text-neon" href={mailto(OFFER.cta)}>
               {EMAIL} ↗
             </a>
           </div>

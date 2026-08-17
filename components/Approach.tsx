@@ -1,7 +1,15 @@
 "use client";
 
-import { motion, useScroll, useSpring, useTransform, type MotionValue } from "motion/react";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+  type MotionValue,
+} from "motion/react";
 import { useRef } from "react";
+import { PRICE_CEILING, PRICE_FLOOR } from "@/lib/site";
 import SyrupJar from "./SyrupJar";
 
 /**
@@ -9,23 +17,29 @@ import SyrupJar from "./SyrupJar";
  * Everything is driven off one progress value so nothing can desync, and every
  * animated property is transform or opacity only — iOS Safari never has to
  * re-layout or repaint while the finger is down.
+ *
+ * Two things changed after the conversion audit.
+ *
+ * The track was 520vh. Five and a bit screens of scrolling delivered three
+ * short paragraphs, each of which was visible only inside a narrow progress
+ * window — 01 from 0.05 to 0.26, then gone. A fast flick on a phone, which is
+ * how people actually scroll (NN/g, *What Parallax Lacks*), delivered all three
+ * at zero. It is now 300vh and the reveals do not exit: copy arrives and stays,
+ * so by the time the syrup closes over the frame the whole statement is on
+ * screen at once. That is both more readable and, as it turns out, weirder.
+ *
+ * And `prefers-reduced-motion` used to reach only the CSS. A 300vmax object
+ * scaling through 7x under the finger is exactly the pattern that provokes
+ * vestibular symptoms, so with the flag set the whole choreography is replaced
+ * by ApproachStatic — the same words, in the same order, in normal flow.
  */
 
-function useReveal(p: MotionValue<number>, a: number, b: number, c: number, d: number) {
-  return {
-    opacity: useTransform(p, [a, b, c, d], [0, 1, 1, 0]),
-    y: useTransform(p, [a, b], [54, 0]),
-    scale: useTransform(p, [a, b], [0.93, 1]),
-  };
-}
-
 /** Length of the scroll track. The whole approach is paced off this one number. */
-const TRACK_VH = 520;
+const TRACK_VH = 300;
 /**
  * Progress at which the stage has gone fully dark — drives the menu's tone
- * sentinel. Follows `amber`: the syrup now closes over the frame at ~0.78, so
- * leaving this at the old 0.9 would strand ink-coloured dots on a black
- * backdrop for ~40vh.
+ * sentinel. Follows `amber`: the syrup closes over the frame at ~0.78, so
+ * leaving this at 0.9 would strand ink-coloured dots on a black backdrop.
  */
 const DARK_AT = 0.8;
 /**
@@ -42,7 +56,107 @@ const THROUGH_AT = 0.79;
  */
 const DARK_OFFSET = (DARK_AT * (TRACK_VH - 100)) / TRACK_VH;
 
+const BLOCKS = {
+  who: {
+    tag: "01 — who",
+    title: "Joseph The Great",
+    sub: "One person. I make the video, I run the ads, I answer the email.",
+  },
+  record: {
+    tag: "02 — record",
+    lines: [
+      "Seven years making content — YouTube and Instagram since I was eleven. In Canada on my own since sixteen. The last three years, marketing only.",
+      "Not a pitch — a record. Ask me to prove any line of it.",
+    ],
+  },
+  statement: {
+    tag: "03 — the part nobody says",
+    body: "It's not the edit. Most of them never learned what marketing is. Surreal is the one thing left that stops a thumb — so that's what I make, for a tenth of the money.",
+  },
+};
+
+/** Shared by both branches so the words can never drift apart. */
+function Statement({ withPrice = false }: { withPrice?: boolean }) {
+  return (
+    <>
+      <p className="t-mono mb-3 text-gold">{BLOCKS.statement.tag}</p>
+      <p className="s-loud t-grotesk text-cream">
+        Agencies here bill <span className="text-gold">$3,000+</span> for template video{" "}
+        <span className="t-serif font-normal">that doesn&apos;t work.</span>
+      </p>
+      <p className="s-body mt-4 max-w-[46rem] text-cream/75">{BLOCKS.statement.body}</p>
+      {withPrice && (
+        <p className="t-mono mt-6 text-neon">
+          mine is ${PRICE_FLOOR}–${PRICE_CEILING.toLocaleString()}
+        </p>
+      )}
+    </>
+  );
+}
+
+function useReveal(p: MotionValue<number>, from: number, to: number) {
+  return {
+    // 0 -> 1 and then held. No fade-out: the syrup and void discs paint over
+    // the top of these blocks at the end of the track, which is a better exit
+    // than dissolving them into white.
+    opacity: useTransform(p, [from, to], [0, 1]),
+    y: useTransform(p, [from, to], [46, 0]),
+    scale: useTransform(p, [from, to], [0.95, 1]),
+  };
+}
+
+/**
+ * The branch is a component boundary, not an early return. `useScroll` binds to
+ * a ref; if the hooks run but the tree owning that element is never rendered,
+ * Motion warns that the target "is defined but not hydrated" on every load.
+ * Hooks cannot be called conditionally — so the component holding them is the
+ * thing that has to be conditional.
+ */
 export default function Approach() {
+  return useReducedMotion() ? <ApproachStatic /> : <ApproachScroll />;
+}
+
+/* ---------------------------------------------------------------
+   reduced motion — same words, same order, no choreography
+   --------------------------------------------------------------- */
+function ApproachStatic() {
+  return (
+    <section className="bg-paper px-6 py-20 md:px-14 md:py-28">
+      <div className="mx-auto flex max-w-[70rem] flex-col gap-14 md:flex-row md:items-start md:gap-20">
+        <div className="mx-auto w-[42vw] max-w-[16rem] shrink-0 md:mx-0">
+          <SyrupJar className="h-auto w-full" />
+        </div>
+
+        <div className="flex flex-col gap-12">
+          <div>
+            <p className="t-mono mb-3 text-syrup">{BLOCKS.who.tag}</p>
+            <div className="rule pt-4">
+              <h2 className="s-loud t-grotesk">{BLOCKS.who.title}</h2>
+              <p className="t-serif s-mid mt-1 text-syrup-deep">{BLOCKS.who.sub}</p>
+            </div>
+          </div>
+
+          <div>
+            <p className="t-mono mb-3 text-syrup">{BLOCKS.record.tag}</p>
+            <div className="rule space-y-2 pt-4">
+              <p className="s-body">{BLOCKS.record.lines[0]}</p>
+              <p className="s-body t-serif text-syrup">{BLOCKS.record.lines[1]}</p>
+            </div>
+          </div>
+
+          <div className="-rotate-[1deg] bg-ink px-7 py-8 md:px-10 md:py-10">
+            <Statement withPrice />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------------------------------------------------------
+   the approach itself
+   --------------------------------------------------------------- */
+function ApproachScroll() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -59,39 +173,27 @@ export default function Approach() {
   const pb = useSpring(scrollYProgress, { stiffness: 260, damping: 12, mass: 0.4 });
 
   /**
-   * Front-loaded on purpose. With two keyframes the jar spent the first 62% of
-   * the track crawling from a 26px speck to 300px — technically growing, but
-   * below the threshold where a phone screen reads it as *approaching*.
-   * These stops put it past 100px by 7% and bleeding off both edges by 55%.
+   * Front-loaded on purpose. With two keyframes the jar spent most of the track
+   * crawling from a speck to something a phone screen still doesn't read as
+   * *approaching*. These stops put it past 100px early and bleeding off both
+   * edges by the time the copy has assembled.
    */
-  const jarScale = useTransform(
-    p,
-    [0, 0.1, 0.3, 0.58, 0.84, 1],
-    [0.22, 0.6, 1.15, 1.95, 3.7, 7.2],
-  );
+  const jarScale = useTransform(p, [0, 0.1, 0.3, 0.58, 0.84, 1], [0.24, 0.62, 1.15, 1.95, 3.7, 7.2]);
   const jarDrift = useTransform(p, [0, 1], ["7vh", "-3vh"]);
   const jarTilt = useTransform(p, [0, 0.5, 1], [-4, 1.5, -0.6]);
 
-  const bg = useTransform(
-    p,
-    [0, 0.42, 0.74, 0.88],
-    ["#ffffff", "#faf6ec", "#f3e4c2", "#e7ae43"],
-  );
-
+  const bg = useTransform(p, [0, 0.42, 0.74, 0.88], ["#ffffff", "#faf6ec", "#f3e4c2", "#e7ae43"]);
   const vignette = useTransform(p, [0.3, 0.85], [0, 0.55]);
 
-  const one = useReveal(pb, 0.05, 0.12, 0.2, 0.26);
-  const two = useReveal(pb, 0.3, 0.37, 0.46, 0.52);
-  const three = useReveal(pb, 0.56, 0.63, 0.74, 0.8);
+  // Windows are wide and early now, and none of them close.
+  const one = useReveal(pb, 0.04, 0.16);
+  const two = useReveal(pb, 0.24, 0.4);
+  const three = useReveal(pb, 0.5, 0.66);
 
   /**
    * Both discs are feathered, so they over-scale to actually cover: on a phone
    * a 300vmax circle needs scale 0.37 to clear the viewport diagonal, 0.47 on a
    * square one.
-   *
-   * The syrup now starts rising at 0.68 and closes over the frame at ~0.78 —
-   * i.e. *during* block 03's fade-out (0.74 → 0.80), so the text sinks into it
-   * instead of leaving and handing over to nine percent of nothing.
    */
   const amber = useTransform(p, [0.68, 0.79, 0.9], [0, 0.42, 1.6]);
   /**
@@ -143,38 +245,28 @@ export default function Approach() {
 
         {/* ---------- 01 · who ---------- */}
         {/*
-          Mobile offset is px, not vh, because the thing it has to clear is:
-          HireCta sits at bottom-14 (56px) and is 48px tall, so it owns the band
-          104px up from the bottom edge. 11vh tracked the viewport instead of
-          the button and collided on every phone — worse on short ones, where
-          11vh is only 70px. 144px leaves 40px of air at rest, and still ~25px
-          mid-fade-in, when the reveal transform holds the block up to 54px
-          lower. Desktop keeps vh: there the CTA is a right-hand pill.
+          Mobile offset is px, not vh, because the thing it has to clear is the
+          floating CTA: it sits at bottom-14 (56px) and is 52px tall, so it owns
+          the band ~108px up from the bottom edge. 11vh tracked the viewport
+          instead of the button and collided on every phone.
         */}
-        <div className="pointer-events-none absolute inset-x-6 bottom-36 md:inset-x-auto md:bottom-[13vh] md:left-[7vw] md:max-w-[36rem]">
+        <div className="pointer-events-none absolute inset-x-6 bottom-36 md:inset-x-auto md:bottom-[13vh] md:left-[7vw] md:max-w-[34rem]">
           <motion.div style={one}>
-            <p className="t-mono mb-3 text-ash">01 — who</p>
+            <p className="t-mono mb-3 text-syrup">{BLOCKS.who.tag}</p>
             <div className="rule pt-4">
-              <h2 className="s-loud t-grotesk">Joseph The Great</h2>
-              <p className="t-serif s-mid mt-1 text-syrup-deep">
-                19, marketing &amp; social media.
-              </p>
+              <h2 className="s-loud t-grotesk">{BLOCKS.who.title}</h2>
+              <p className="t-serif s-mid mt-1 text-syrup-deep">{BLOCKS.who.sub}</p>
             </div>
           </motion.div>
         </div>
 
         {/* ---------- 02 · record ---------- */}
-        <div className="pointer-events-none absolute inset-x-6 top-[13vh] md:inset-x-auto md:right-[7vw] md:top-[17vh] md:max-w-[27rem]">
+        <div className="pointer-events-none absolute inset-x-6 top-[11vh] md:inset-x-auto md:right-[7vw] md:top-[15vh] md:max-w-[26rem]">
           <motion.div style={two} className="md:text-right">
-            <p className="t-mono mb-3 text-ash">02 — record</p>
+            <p className="t-mono mb-3 text-syrup">{BLOCKS.record.tag}</p>
             <div className="rule space-y-2 pt-4">
-              <p className="s-body">
-                YouTube and Instagram projects since 11. Seven years of making content.
-                In Canada on my own since 16. The last three years, marketing only.
-              </p>
-              <p className="s-body t-serif text-syrup">
-                Not a pitch — a record. Ask me to prove any line of it.
-              </p>
+              <p className="s-body">{BLOCKS.record.lines[0]}</p>
+              <p className="s-body t-serif text-syrup">{BLOCKS.record.lines[1]}</p>
             </div>
           </motion.div>
         </div>
@@ -183,16 +275,8 @@ export default function Approach() {
         <div className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2">
           <motion.div style={three}>
             {/* bleeds 6% past both edges, so the padding has to buy that back */}
-            <div className="-mx-[6%] w-[112%] -rotate-[1.4deg] bg-ink px-12 py-8 md:px-[14vw] md:py-12">
-              <p className="t-mono mb-4 text-gold">03 — the part nobody says</p>
-              <p className="s-loud t-grotesk text-cream">
-                Agencies here bill <span className="text-gold">$3,000+</span> for
-                template video <span className="t-serif font-normal">that doesn&apos;t work.</span>
-              </p>
-              <p className="s-body mt-5 max-w-[46rem] text-cream/60">
-                It&apos;s not the edit. They never learned what marketing is. Surreal is
-                the only thing left that stops a thumb — so that&apos;s what I make.
-              </p>
+            <div className="-mx-[6%] w-[112%] -rotate-[1.4deg] bg-ink px-12 py-7 md:px-[14vw] md:py-11">
+              <Statement />
             </div>
           </motion.div>
         </div>
@@ -202,21 +286,17 @@ export default function Approach() {
           style={{ opacity: hudOpacity }}
           className="pointer-events-none absolute inset-x-6 bottom-5 flex items-end justify-between md:inset-x-10"
         >
-          <span className="t-mono text-syrup-deep/70">
-            distance{" "}
-            <motion.span className="text-syrup-deep">{metersLeft}</motion.span> m
+          <span className="t-mono text-syrup-deep">
+            distance <motion.span className="text-ink">{metersLeft}</motion.span> m
           </span>
-          <span className="t-mono text-syrup-deep/70">maple grove no. 01</span>
+          <span className="t-mono text-syrup-deep">maple grove no. 01</span>
         </motion.div>
 
         <motion.div
           style={{ opacity: hudOpacity }}
           className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-ink/10"
         >
-          <motion.div
-            style={{ scaleX: progressX, originX: 0 }}
-            className="h-full w-full bg-syrup"
-          />
+          <motion.div style={{ scaleX: progressX, originX: 0 }} className="h-full w-full bg-syrup" />
         </motion.div>
 
         {/*

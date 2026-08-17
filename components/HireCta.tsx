@@ -1,21 +1,29 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
-import Link from "next/link";
 import { useEffect, useState } from "react";
-import { PRICE_CEILING } from "@/lib/site";
 import { useNavDark } from "@/lib/useNavDark";
 import { useContactOpen } from "./ContactProvider";
 
 /**
- * The home page's only concession to conversion. It stays out of the first
- * screen so the "Be unique." poster is never shared with a button, sits at the
- * bottom (the dots menu owns the top-right), and drops below the menu and modal
- * z-layers so it can never sit on top of either.
+ * The home page's persistent call to action.
+ *
+ * Three changes out of the audit. It points at the form on this page rather
+ * than shipping the visitor to /hire, so the scroll they have already invested
+ * isn't thrown away. It offers the free thing instead of "hire me — $1,000
+ * max", which asks a stranger to commit money as their first interaction. And
+ * it gets out of the way once the form is actually on screen, rather than
+ * hovering over the fields it is advertising.
+ *
+ * It still stays off the first screen (the lockup owns that), sits at the
+ * bottom because the dots menu owns the top-right, and drops below the menu and
+ * modal z-layers so it can never sit on top of either.
  */
 export default function HireCta() {
   const [past, setPast] = useState(false);
-  const onDark = useNavDark();
+  const [atForm, setAtForm] = useState(false);
+  // sampled at the bottom of the viewport, where this actually floats
+  const onDark = useNavDark("bottom");
   const modalOpen = useContactOpen();
 
   useEffect(() => {
@@ -34,7 +42,18 @@ export default function HireCta() {
     };
   }, []);
 
-  const show = past && !modalOpen;
+  useEffect(() => {
+    const target = document.getElementById("start");
+    if (!target || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(
+      ([entry]) => setAtForm(entry.isIntersecting),
+      { threshold: 0 },
+    );
+    io.observe(target);
+    return () => io.disconnect();
+  }, []);
+
+  const show = past && !modalOpen && !atForm;
 
   return (
     <AnimatePresence>
@@ -48,17 +67,17 @@ export default function HireCta() {
           // pinned stage — otherwise it lands on top of the distance readout
           className="fixed inset-x-4 bottom-14 z-[9000] flex justify-center md:inset-x-auto md:bottom-12 md:right-8 md:justify-end"
         >
-          <Link
-            href="/hire"
-            className="t-mono flex min-h-[48px] w-full items-center justify-center gap-3 px-6 transition-colors duration-300 md:w-auto"
+          <a
+            href="#start"
+            className="t-mono flex min-h-[52px] w-full items-center justify-center gap-3 px-6 shadow-[0_10px_40px_-12px_rgba(0,0,0,0.5)] transition-colors duration-300 md:w-auto"
             style={{
               background: onDark ? "#ffb43d" : "#0d0c0b",
               color: onDark ? "#08070a" : "#f4efe3",
             }}
           >
-            hire me — ${PRICE_CEILING.toLocaleString()} max
-            <span aria-hidden>↗</span>
-          </Link>
+            three things I&apos;d fix — free
+            <span aria-hidden>↓</span>
+          </a>
         </motion.div>
       )}
     </AnimatePresence>

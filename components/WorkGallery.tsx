@@ -52,7 +52,7 @@ export default function WorkGallery({ images }: { images: WorkImage[] }) {
                 className="plate h-auto w-full"
               />
             </div>
-            <figcaption className="t-mono mt-5 max-w-[34rem] leading-relaxed text-cream/45">
+            <figcaption className="t-note mt-5 max-w-[34rem] text-cream/70">
               {img.caption}
             </figcaption>
           </motion.figure>

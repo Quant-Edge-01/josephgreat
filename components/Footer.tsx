@@ -7,9 +7,9 @@ export default function Footer() {
         <p className="t-serif text-[clamp(2rem,9vw,4.5rem)] leading-none text-cream">
           Be unique<span className="text-gold">.</span>
         </p>
-        <div className="t-mono flex flex-col gap-1.5 text-cream/35 md:text-right">
+        <div className="t-mono flex flex-col gap-1.5 text-cream/70 md:text-right">
           <span>Joseph The Great · Toronto, ON</span>
-          <a className="underline-swipe w-fit text-cream/60 md:ml-auto" href={IG_URL}>
+          <a className="underline-swipe w-fit text-cream md:ml-auto" href={IG_URL}>
             {IG_HANDLE}
           </a>
           <span>© {new Date().getFullYear()} — built solo</span>
