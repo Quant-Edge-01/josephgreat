@@ -28,19 +28,19 @@ const mono = DM_Mono({
 });
 
 const PRICE = `$${PRICE_FLOOR}–$${PRICE_CEILING.toLocaleString()} CAD`;
-const BLURB = `Surreal short-form video for Toronto and GTA local businesses, built to start conversations rather than collect views. ${PRICE}, and $${PRICE_CEILING.toLocaleString()} is a hard ceiling.`;
+const BLURB = `Reels, the ads behind them and the website they land on, for Toronto and GTA local businesses — built to start conversations rather than collect views. ${PRICE}, and $${PRICE_CEILING.toLocaleString()} is a hard ceiling.`;
 
 export const metadata: Metadata = {
   // the title has to survive as a search result and a DM link preview, where
   // "Be unique." alone says nothing about what is being sold or where
   title: {
-    default: `Joseph The Great — short-form video for Toronto businesses · ${PRICE}`,
+    default: `Joseph The Great — reels, ads and websites for Toronto businesses · ${PRICE}`,
     template: "%s",
   },
   description: BLURB,
   metadataBase: new URL("https://josephthegreat.art"),
   openGraph: {
-    title: "Joseph The Great — short-form video, Toronto",
+    title: "Joseph The Great — reels, ads and websites, Toronto",
     description: BLURB,
     url: "/",
     siteName: "Joseph The Great",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Joseph The Great — short-form video, Toronto",
+    title: "Joseph The Great — reels, ads and websites, Toronto",
     description: BLURB,
   },
 };

@@ -5,6 +5,7 @@ import Identity from "@/components/Identity";
 import Ledger from "@/components/Ledger";
 import Objections from "@/components/Objections";
 import Process from "@/components/Process";
+import Scope from "@/components/Scope";
 import StartHere from "@/components/StartHere";
 import {
   FLAGSHIP_SLUG,
@@ -39,11 +40,11 @@ const PRICE = `$${PRICE_FLOOR}–$${PRICE_CEILING.toLocaleString()} CAD`;
 export const metadata: Metadata = {
   title: `Free: the 3 things I'd fix on your Instagram — Joseph The Great, Toronto`,
   description:
-    "Short-form video for Toronto and GTA local businesses, built to start conversations rather than collect views. Send your Instagram and I'll tell you the first three things I'd change — free. Last local job: $214.86 of ads, 59 conversations at $3.64 each, 9 leads.",
+    "Reels, the ads behind them and the website they land on, for Toronto and GTA local businesses — built to start conversations rather than collect views. Send your Instagram and I'll tell you the first three things I'd change, free. Last local job: $214.86 of ads, 59 conversations at $3.64 each, 9 leads.",
   alternates: { canonical: "/hire" },
   openGraph: {
     title: "Send me your Instagram. I'll tell you the 3 things I'd fix.",
-    description: `Short-form video for Toronto local businesses. ${PRICE}, and $${PRICE_CEILING.toLocaleString()} is a hard ceiling. Last local job: 59 conversations at $3.64 each.`,
+    description: `Reels, ads and the website, for Toronto local businesses. ${PRICE}, and $${PRICE_CEILING.toLocaleString()} is a hard ceiling. Last local job: 59 conversations at $3.64 each.`,
     url: "/hire",
     siteName: "Joseph The Great",
     locale: "en_CA",
@@ -65,9 +66,12 @@ export default function HirePage() {
         <p className="t-mono text-syrup">Toronto &amp; the GTA · one person, not an agency</p>
 
         <h1 className="t-grotesk mt-5 max-w-[17ch] text-[clamp(2.05rem,8.4vw,4.2rem)] leading-[0.94]">
-          Short-form video for local businesses, built to start{" "}
+          Everything a customer sees before they walk in, built to start{" "}
           <span className="t-serif font-normal">conversations</span> — not collect views.
         </h1>
+        <p className="t-mono mt-5 text-syrup">
+          reels · the ads behind them · the website they land on
+        </p>
 
         {/*
           The proof, immediately under the claim and at full contrast. A claim
@@ -108,7 +112,7 @@ export default function HirePage() {
           </a>
 
           <p className="t-mono mt-4 text-ash">
-            two fields · no call · no phone number
+            two fields · no call required · no phone number
           </p>
         </div>
 
@@ -122,6 +126,7 @@ export default function HirePage() {
 
       <Flagship />
       <Ledger />
+      <Scope />
       <Process />
       <Objections />
       <Identity />

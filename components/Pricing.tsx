@@ -63,9 +63,9 @@ export default function Pricing() {
 
           <ol className="space-y-0">
             {[
-              "I'm 19 and I work alone. No office, no account manager, nothing to pay for but my own time.",
-              "No retainers, no packages, no discovery-call funnel.",
-              `Scope gets agreed after we talk, and the price still can't pass $${PRICE_CEILING.toLocaleString()}.`,
+              "One person, no office, no account manager — nothing to pay for but my own time.",
+              "No long-term contracts, no packages, no discovery-call funnel.",
+              `Scope gets agreed in writing before anything starts, and the price still can't pass $${PRICE_CEILING.toLocaleString()}.`,
             ].map((line, i) => (
               <li key={i} className="flex gap-5 border-t border-ink/25 py-4 last:border-b">
                 <span className="t-mono shrink-0 pt-1 text-syrup-deep">0{i + 1}</span>

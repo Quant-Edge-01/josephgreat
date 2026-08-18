@@ -14,11 +14,11 @@ import { PRICE_CEILING, PRICE_FLOOR } from "@/lib/site";
 const QA = [
   {
     q: "You're nineteen.",
-    a: `I am, and that is exactly why this costs $${PRICE_FLOOR} instead of $3,000. I've been making content since I was eleven and it's been the only thing I do for three years. Every number on this site is a screenshot — ask me to open any of them live and I will.`,
+    a: "Nineteen, with seven years of making things people actually watched — I started at eleven. I'm not learning how the internet works from a course; I grew up inside it, which is most of the reason this looks like it was made this year instead of off a 2019 template. Every number on this site is a screenshot. Ask me to open any of them live and I will.",
   },
   {
     q: "I hired someone for this before. It didn't work.",
-    a: "Most of what I've seen sold around here is a retainer attached to a template. There's no retainer here and no package: one job, one price, and you can stop after it. If the three things I send back are obvious and useless, you'll know within a day and it will have cost you nothing.",
+    a: "Most of what I've seen sold around here is a long contract attached to a template. There's no lock-in here and no package: one job, one price, and you can stop after it. If the three things I send back are obvious and useless, you'll know within a day and it will have cost you nothing.",
   },
   {
     q: "Will this actually work for my business?",
@@ -26,11 +26,15 @@ const QA = [
   },
   {
     q: `Why only $${PRICE_FLOOR}–$${PRICE_CEILING.toLocaleString()}? What's the catch?`,
-    a: "No office, no account manager, no sales team, no software licences. I work alone out of Toronto and I'd rather you come back a second time than pay agency rates once. That's the entire catch.",
+    a: "No office, no account manager, no sales team. I work alone out of Toronto, and the systems I build with are already built — I'm not starting a website from nothing every time, which is why one can sit inside the price instead of beside it. I'd rather you came back a second time than paid agency rates once. That's the entire catch.",
   },
   {
     q: "Someone already makes my content.",
     a: "Then take the three things and hand them to that person. I mean it — it costs me twenty minutes and it costs you nothing, and I'd rather be the person whose notes were useful than the person who wouldn't share them.",
+  },
+  {
+    q: "How does one person do content, ads and a website?",
+    a: "Because it's one job, not three. The reel, the ad and the page are the same argument made in three places — the hard part is deciding what the argument is, and that doesn't get easier by hiring three people to disagree about it. The real limit isn't the range, it's volume: I can't take ten of these at once, so if I'm full I'll tell you instead of stalling.",
   },
   {
     q: "Why shouldn't I just close this page?",

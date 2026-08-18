@@ -313,6 +313,13 @@ export default function EnquiryForm({ context = "site" }: { context?: string }) 
       <p className="t-note mt-4 text-cream/70">
         {OFFER.reply} {OFFER.noCall}
       </p>
+      {/*
+        Offered, not asked for, and with no booking link anywhere — the point of
+        "no call" was never that talking is forbidden, it was that nobody has to
+        sit through a discovery call to get an answer. Saying so removes the
+        objection for people who would simply rather speak.
+      */}
+      <p className="t-note mt-2 text-cream/50">{OFFER.callOptional}</p>
 
       {state === "failed" && (
         <div role="alert" className="mt-8 border border-acid/50 p-5">

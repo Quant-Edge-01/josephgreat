@@ -143,12 +143,15 @@ body {
   line-height: 0.82;
 }
 /*
-  The lockup on the fold, one step down from .s-mega. It has to share a screen
-  with a proposition, a button and a proof line now, and at 19vw it left room
-  for none of them on a 812px-tall phone.
+  Width *and* height aware. The fold has to carry the lockup, the proposition,
+  the scope line, a button, the offer and the proof line — and a purely
+  width-driven size pushed the proof below the fold on a 13" laptop, which is
+  the one element up there that has to be seen. min(vw, vh) lets the poster
+  shrink on a short screen while staying width-driven on a phone, where there
+  is height to spare.
 */
 .s-hero {
-  font-size: clamp(3.1rem, 15.5vw, 10.5rem);
+  font-size: clamp(2.9rem, min(14vw, 17vh), 9.5rem);
   line-height: 0.8;
 }
 .s-loud {

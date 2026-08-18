@@ -31,7 +31,16 @@ export const OFFER = {
   line: "Send me your Instagram. I'll tell you the first three things I'd change — free, and you're welcome to go do them yourself.",
   /** What happens next, in the order people worry about it. */
   reply: "I reply myself, usually within a day.",
-  noCall: "No call. No calendar link. No follow-up sequence.",
+  /**
+   * "No follow-up sequence" is marketing-insider language for a promise the
+   * visitor cares about in plainer words. And a call is not forbidden — it is
+   * simply never required — so the blanket "No call." was quietly untrue for
+   * anyone who would rather talk.
+   */
+  noCall: "No calendar link, and I won't chase you.",
+  /** Offered, never asked for. There is deliberately no booking link anywhere. */
+  callOptional:
+    "If you'd rather talk it through, say so and I'll call you — but you never have to.",
 } as const;
 
 /**

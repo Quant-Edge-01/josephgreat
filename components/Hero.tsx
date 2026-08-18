@@ -29,7 +29,7 @@ export default function Hero() {
   const [spend, convos, perConvo, leads] = dream.stats.map((s) => s.value);
 
   return (
-    <section className="relative flex min-h-[100dvh] flex-col justify-between overflow-hidden bg-paper px-6 pb-6 pt-20 md:px-14 md:pb-10 md:pt-24">
+    <section className="relative flex min-h-[100dvh] flex-col justify-between overflow-hidden bg-paper px-6 pb-6 pt-16 md:px-14 md:pb-8 md:pt-20">
       <p className="t-mono anim-up eyebrow text-syrup" style={delay(0.05)}>
         Joseph The Great — Toronto &amp; the GTA
       </p>
@@ -69,13 +69,28 @@ export default function Hero() {
           as the label on the jar rather than a marketing block bolted onto an
           art piece.
         */}
-        <div className="anim-up mt-9 w-full max-w-[46rem] md:mt-11" style={delay(0.24)}>
+        <div className="anim-up mt-8 w-full max-w-[46rem] md:mt-9" style={delay(0.24)}>
           <div className="rule pt-6 text-center">
+            {/*
+              The scope, framed as one job rather than a list of them.
+
+              It used to read "Surreal short-form video", which under-sold the
+              thing by about everything: the same money also covers the ads and
+              the site. But naming them as three services is the wrong fix —
+              people comparing an all-in-one against specialists discount the
+              all-in-one on each specialist's home turf (the compensatory
+              inference in the jack-of-all-trades work). Presented as a single
+              domain — what a customer sees before they walk in — breadth reads
+              as one specialism instead of four hobbies.
+            */}
             <h1 className="s-mid t-grotesk mx-auto max-w-[30ch] text-balance">
-              Surreal short-form video for local businesses — built to start{" "}
+              Everything a customer sees before they walk in — built to start{" "}
               <span className="t-serif font-normal text-syrup">conversations</span>, not
               collect views.
             </h1>
+            <p className="t-mono mt-4 text-syrup">
+              reels · the ads behind them · the website they land on
+            </p>
 
             <div className="mt-8 flex flex-col items-center gap-4">
               <a
@@ -103,7 +118,7 @@ export default function Hero() {
         condition under which a true statement gets judged true at chance
         (Reber & Schwarz, 1999). It is the only hard evidence above the fold.
       */}
-      <div className="anim-up mx-auto w-full max-w-[46rem] pt-8" style={delay(0.32)}>
+      <div className="anim-up mx-auto w-full max-w-[46rem] pt-5" style={delay(0.32)}>
         <p className="s-proof t-grotesk text-center text-ink">
           <span className="text-syrup">{spend}</span> of ads →{" "}
           <span className="text-syrup">{convos}</span> conversations at{" "}

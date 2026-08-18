@@ -28,7 +28,7 @@ const STEPS = [
   {
     n: "04",
     title: "If you don't, you keep the three things",
-    body: "Go do them yourself, or hand them to whoever makes your content now. That's the whole deal. No call, no calendar link, no follow-up sequence — I'm one person, not a pipeline.",
+    body: "Go do them yourself, or hand them to whoever makes your content now. That's the whole deal. No calendar link, no chasing — I'm one person, not a pipeline.",
   },
 ];
 

@@ -28,8 +28,9 @@ impressions also set perceived credibility, not just perceived aesthetics.
 
 **Change.** The old home page spent its entire first viewport on the words
 "Be unique." and nothing else — no service, no audience, no result, no action.
-The new fold states audience (Toronto/GTA local business), deliverable
-(short-form video + ads), outcome (people messaging you, not views), proof
+The new fold states audience (Toronto/GTA local business), scope
+(everything a customer sees before they walk in — reels, the ads behind them,
+the site they land on), outcome (people messaging you, not views), proof
 ($3.64 per conversation, screenshotted) and next action, while keeping the
 "Be unique." lockup as the visual anchor. The poster still exists; it is no
 longer the whole screen.
@@ -268,6 +269,60 @@ Interactions), SC 2.5.8 (Target Size Minimum); NN/g on the
 | Full-bleed 100dvh hero with no content edge visible | Fold now shows the top of the next section, plus a real scroll affordance |
 | Contact modal had no focus trap and no focus restore | Focus is trapped while open and returned to the trigger on close |
 | Mailto as a primary mobile action (opens a blank draft the visitor must write) | Demoted to fallback; the form is the primary path everywhere, including work pages |
+
+---
+
+## 13. Breadth has to read as one job, not four services
+
+**Source.** Work on the "jack of all trades" effect and compensatory inference
+in multi-category evaluation — see the review of
+[multi-category endorsement effects](https://www.researchgate.net/publication/372762418_JACK_OF_ALL_TRADES_MASTER_OF_EVERYTHING_COMPETING_ROUTES_OF_CONSUMER_RESPONSES_TOWARD_MULTIPLE_PRODUCT_CATEGORIES_ENDORSEMENT_OF_FASHION_INFLUENCERS)
+and the all-in-one-versus-specialist literature summarised in
+[Kellogg Insight](https://insight.kellogg.northwestern.edu/article/jack_of_all_trades_or_master_of_one).
+
+**Finding.** When people evaluate a choice set containing both specialised and
+all-in-one options, they tend to assume overall performance is roughly
+equivalent and resolve that by **marking the all-in-one down** on each
+specialist's differentiating attribute. Breadth presented as a list of
+capabilities therefore invites one comparison per item — and loses most of them.
+Generalists hold their own when the domain is framed as a single one.
+
+**Change.** The money now covers reels, the ads behind them, the site they point
+at and the strategy underneath. The obvious way to say that is four bullet
+points, which is precisely the losing move. Instead the fold names one domain —
+*everything a customer sees before they walk in* — and the new `Scope` section
+argues that these are not separable problems ("a reel that works, pointing at a
+website that doesn't, is still a business nobody calls"). No packages, no
+service grid, no icons. One job, stated once.
+
+---
+
+## 14. A low price attached to a big claim discounts the claim, not the price
+
+**Source.** [*Impact of "High Quality, Low Price" Appeal on Consumer
+Evaluations*](https://www.tandfonline.com/doi/full/10.1080/10496491.2015.1088922)
+(Journal of Promotion Management); Dawar & Parker, [*Can Low Price Signal High
+Quality?*](https://flora.insead.edu/fichiersti_wp/inseadwp1996/96-91.pdf)
+(INSEAD working paper); price–quality inference reviews.
+
+**Finding.** Where a "high quality" cue and a "low price" cue conflict, people
+resolve the mismatch by **discounting the quality cue**. Price is used as a
+quality signal most heavily when the buyer is highly involved, perceives real
+risk, and cannot verify quality directly — i.e. exactly a local owner deciding
+whether a stranger can rebuild their online presence for $700.
+
+**Change.** This is why "a full website, included" could not simply be asserted:
+the sentence would have been read as "a template, included". Two things carry it
+instead. The price gets a **structural** justification rather than an apologetic
+one — no office, no account manager, no sales team, and systems that already
+exist, so a site is not rebuilt from nothing each time. And the claim is handed
+to the visitor to check rather than argued: *"You're reading one of the
+websites."* Verification beats assertion when the asymmetry is the problem.
+
+Related: the age answer stopped saying "that's why it costs $700". Tying the
+price to the seller's youth invites exactly the quality discount above. It now
+reads as tenure — seven years, starting at eleven — and cultural fluency, with
+the price explained by structure instead.
 
 ---
 

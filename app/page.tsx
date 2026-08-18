@@ -7,6 +7,7 @@ import Objections from "@/components/Objections";
 import Portfolio from "@/components/Portfolio";
 import Pricing from "@/components/Pricing";
 import Process from "@/components/Process";
+import Scope from "@/components/Scope";
 import StartHere from "@/components/StartHere";
 
 /**
@@ -17,7 +18,7 @@ import StartHere from "@/components/StartHere";
  * artwork, and everyone else can keep scrolling into the sequence.
  *
  * Section order is: offer → proof → who → work → how to read the numbers →
- * process → objections → price → send. Every one of those does a job the brief
+ * how far it goes → process → objections → price → send. Every one of those does a job the brief
  * names; anything that only decorated is gone.
  */
 export default function Page() {
@@ -28,6 +29,7 @@ export default function Page() {
       <Approach />
       <Portfolio />
       <Ledger />
+      <Scope />
       <Process />
       <Objections />
       <Pricing />

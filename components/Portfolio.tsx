@@ -18,7 +18,7 @@ const STRIP = [
   "surreal sells",
   "toronto & the gta",
   "$1,000 ceiling",
-  "no retainers",
+  "no long-term contracts",
   "no book-a-call",
   "$3.64 per conversation",
 ];

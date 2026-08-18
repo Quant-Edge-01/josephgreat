@@ -21,8 +21,9 @@ Why not fold it into the home page:
   proves a claim. The home page keeps the full menu, because its traffic is
   warm (bio link, a share, a return visit) and for those people the gallery and
   the price are the reason to stay.
-- **It's static.** `/hire` builds to **0 kB** of route JavaScript. The home
-  page's scroll sequence cannot be.
+- **It's static.** `/hire` is server-rendered HTML with no animation library
+  on it — 127 kB first load against the home page's 190 kB. The home page's
+  scroll sequence cannot be.
 
 Why not leave the home page as pure art: it is where the Instagram bio link
 goes, and it converted at zero by construction — the first screen contained no
@@ -36,7 +37,7 @@ So both pages convert, with different jobs:
 | Audience | warm — bio link, shares, returning | cold — paid clicks |
 | Opens with | the lockup, then the offer | the offer |
 | Chrome | full menu + footer | none |
-| Route JS | 13.7 kB | 0 kB |
+| First load JS | 190 kB | 127 kB |
 
 **Redirects** (`next.config.mjs`) catch the plausible near-misses so a click
 that cost money can never 404: `/start` and `/quote` → `/hire`; `/contact` →
@@ -44,7 +45,31 @@ that cost money can never 404: `/start` and `/quote` → `/hire`; `/contact` →
 
 ---
 
-## The offer
+## What is actually being sold
+
+One job, not a menu: **everything a customer sees before they walk in** — the
+reels, the ads behind them, the website they land on, and the argument
+underneath all three. Shoots repeat for as long as the work needs them, with no
+contract that outlives it.
+
+That breadth is deliberately never written as a service list. People comparing
+an all-in-one against specialists mark the all-in-one down on each specialist's
+home turf, so four bullet points would invite four comparisons and lose most of
+them (RESEARCH.md §13). It is stated once, as one domain, in the fold and in
+`components/Scope.tsx`.
+
+The website sits inside the $700–$1,000, not beside it. That claim is *not*
+asserted — a low price attached to a big claim gets resolved by discounting the
+claim, so "a real website, included" would read as "a template, included"
+(§14). It is handed to the visitor to verify instead: **"You're reading one of
+the websites."** Keep that true. If the site is ever replaced with something
+worse, the strongest line on the page stops working.
+
+**Method stays vague on purpose.** How a site gets built in an afternoon, what
+the systems are, how many reels a shoot yields — none of that is on the page.
+Make the outcome clear, keep the method mysterious.
+
+## The free way in
 
 > **Send me your Instagram. I'll tell you the first three things I'd change —
 > free, and you're welcome to go do them yourself.**
@@ -126,22 +151,26 @@ Roughly in order of expected value. Change one thing at a time, and give each
 enough traffic to mean something — 33–40 visitors cannot separate a good page
 from a bad one.
 
-1. **Offer framing.** "The first three things I'd change" vs. a sharper,
+1. **Scope headline.** "Everything a customer sees before they walk in" vs. a
+   blunter version naming the website outright in the H1. The first is the
+   one-domain framing the evidence prefers; the second is more concrete. This is
+   the highest-value thing to test now that the offer has widened.
+2. **Offer framing.** "The first three things I'd change" vs. a sharper,
    narrower version: *"I'll tell you why your last three reels didn't get
    saved."* Same work, more specific promise.
-2. **Price in the fold vs. below it.** It is currently visible but subordinate
+3. **Price in the fold vs. below it.** It is currently visible but subordinate
    on `/hire`. Worth testing removed from the fold entirely — the argument for
    keeping it is qualification, and that is measurable: watch reply quality, not
    just form count.
-3. **Proof order.** Bridal first (current) vs. Spartan first. Spartan is the
+4. **Proof order.** Bridal first (current) vs. Spartan first. Spartan is the
    closer analogue for gyms, studios and camps; bridal is the only one with a
    cost-per-conversation.
-4. **Reply-field default.** Instagram handle first vs. email first. The audience
+5. **Reply-field default.** Instagram handle first vs. email first. The audience
    lives in the app; the handle may be the lower-friction identifier, and the
    form already accepts either.
-5. **Ad creative → page continuity.** Run a variant whose first frame uses the
+6. **Ad creative → page continuity.** Run a variant whose first frame uses the
    same words as the H1. Message match is the highest-leverage paid change and
    costs nothing but a caption rewrite.
-6. **The Ledger section.** It is the most differentiated thing on the site and
+7. **The Ledger section.** It is the most differentiated thing on the site and
    also the most unusual — worth confirming it helps rather than introducing
    doubt. Test with it removed from `/hire` only.

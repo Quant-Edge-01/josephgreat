@@ -45,7 +45,7 @@ export default function Identity() {
             <p className="s-body text-cream/85">
               There is no team behind this page and no &ldquo;we&rdquo;. I write the
               concept, shoot or source the footage, cut it, write the hooks, set up the
-              ad and read the numbers afterwards. When you send the form, the person who
+              ad, build the site it points at, and read the numbers afterwards. When you send the form, the person who
               opens your account is the same person who would make the video.
             </p>
             <p className="s-body text-cream/85">
