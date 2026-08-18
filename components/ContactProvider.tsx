@@ -9,10 +9,9 @@ import { createContext, useCallback, useContext, useRef, useState } from "react"
  *
  * The panel itself lives in ContactPanel and is fetched on demand. This
  * provider is mounted in the root layout, so anything imported here lands in
- * the bundle of every route — and the panel pulls in Framer Motion, which was
- * being shipped to /hire, a page that is otherwise entirely static server HTML
- * and the page people pay to arrive at. Nothing in the modal is needed until
- * somebody opens it.
+ * the bundle of every route — and the panel pulls in Framer Motion for a dialog
+ * most visitors never open. Nothing in the modal is needed until somebody
+ * opens it.
  */
 
 const Ctx = createContext<(subject?: string) => void>(() => {});

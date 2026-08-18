@@ -1,6 +1,7 @@
 import Approach from "@/components/Approach";
 import Flagship from "@/components/Flagship";
 import Hero from "@/components/Hero";
+import Identity from "@/components/Identity";
 import HireCta from "@/components/HireCta";
 import Ledger from "@/components/Ledger";
 import Objections from "@/components/Objections";
@@ -18,7 +19,7 @@ import StartHere from "@/components/StartHere";
  * artwork, and everyone else can keep scrolling into the sequence.
  *
  * Section order is: offer → proof → who → work → how to read the numbers →
- * how far it goes → process → objections → price → send. Every one of those does a job the brief
+ * how far it goes → process → objections → who replies → price → send. Every one of those does a job the brief
  * names; anything that only decorated is gone.
  */
 export default function Page() {
@@ -32,6 +33,7 @@ export default function Page() {
       <Scope />
       <Process />
       <Objections />
+      <Identity />
       <Pricing />
       <StartHere context="home" />
       <HireCta />

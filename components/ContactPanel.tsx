@@ -10,10 +10,9 @@ import { EMAIL, IG_HANDLE, IG_URL, OFFER, PRICE_CEILING, PRICE_FLOOR, mailto } f
  * can be loaded on demand.
  *
  * The provider is mounted in the root layout on every route, and it used to
- * carry this markup — which meant Framer Motion was in the bundle of every page
- * including /hire, the one page that is otherwise entirely static server HTML
- * and the one people pay to arrive at. The provider now holds only state; the
- * animation and the markup arrive the first time someone actually opens it.
+ * carry this markup — which meant Framer Motion was in the bundle of every
+ * page, for a dialog most visitors never open. The provider now holds only
+ * state; the animation and the markup arrive the first time someone opens it.
  *
  * It used to be a price card with two mailto links under it, which is a dead
  * end: a mailto opens an empty draft the visitor has to compose, on a phone,

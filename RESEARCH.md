@@ -195,12 +195,13 @@ large lifts with no change to offer, targeting or creative (documented cases in
 the tens of percent and above). Congruence operates on four dimensions: visual,
 headline, information scent (same keywords/pain points), and tone.
 
-**Change.** This is the main reason **`/hire` survives as a separate page**. It
-exists so the ad's promise can be repeated verbatim at the top of the page the
-click lands on, without the home page's brand-first sequence in between. Its H1
-now names the audience and the outcome in the same words the ads use, and the
-page-level exits (hamburger nav, full site footer) were removed so paid traffic
-has one road. See `CONVERSION-NOTES.md` for the full routing decision.
+**Change.** Initially this justified keeping `/hire` as a separate page whose
+H1 could repeat the ad verbatim. That page has since been removed — but the
+requirement did not go away, it moved: the **home page fold** now carries the
+same H1, the same scope line and the same offer the ads use, so the promise is
+still repeated where the click lands. Message match is a property of the words
+at the top of the landing page, not of having a dedicated URL. See
+`CONVERSION-NOTES.md` for the routing decision and why it reversed.
 
 ---
 
@@ -323,6 +324,38 @@ Related: the age answer stopped saying "that's why it costs $700". Tying the
 price to the seller's youth invites exactly the quality discount above. It now
 reads as tenure — seven years, starting at eleven — and cultural fluency, with
 the price explained by structure instead.
+
+---
+
+## 15. When you sell websites, the page is the portfolio
+
+**Source.** Stanford Web Credibility research (Fogg et al.) — see the
+[summary of visual-design weighting in credibility
+judgements](https://www.websiteoptimization.com/speed/tweak/blink/); Lindgaard
+et al. on 50ms first impressions; the aesthetic–usability effect and halo
+effects in interface evaluation, reviewed in
+[NN/g's first-impressions work](https://www.nngroup.com/articles/first-impressions-human-automaticity/).
+
+**Finding.** A large share of credibility judgements — around half in Stanford's
+data — are made primarily on visual design, before any content is read.
+Impressions form in tens of milliseconds and then halo onto later judgements of
+competence, usability and trustworthiness. Conversely, the overwhelming majority
+of stated reasons for *mistrusting* a site are design-related.
+
+**Change.** This finished off `/hire`. Once the offer included building the
+website, the page a visitor is standing on became the single best piece of
+evidence — the site is the portfolio, and "you're reading one of the websites"
+is only as strong as the page saying it. `/hire` was deliberately the plainest
+page on the domain: no navigation, no jar, no animation, static by design.
+Routing bought clicks there meant paying to show people the weakest available
+demonstration of the thing being sold. All traffic now lands on the full home
+page, and `/hire` 307s to it so live ad links keep working.
+
+The same finding is why the portrait placeholder was rebuilt. It had been
+rendering as an empty bordered rectangle — an inline `backgroundImage`
+overwrote the Tailwind gradient, and the fallback monogram sat behind its own
+parent — which on a page arguing "I build good websites" is an expensive thing
+to leave broken.
 
 ---
 

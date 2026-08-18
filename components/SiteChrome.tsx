@@ -1,43 +1,30 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { usePathname } from "next/navigation";
 import Footer from "./Footer";
 
 /**
- * Loaded on demand rather than imported statically: SiteNav returns null on
- * /hire, but a static import lands in that route's bundle regardless, and the
- * menu pulls in Framer Motion. `ssr: false` costs a beat before the button
- * appears on the routes that do have it, which is fine for a fixed control in
- * the corner that needs hydration to do anything anyway.
+ * Site navigation and footer.
+ *
+ * This used to suppress both on /hire, a stripped landing page for paid
+ * traffic. That page is gone — once the offer grew to include the website, the
+ * strongest thing on the site became "you're reading one of the websites", and
+ * /hire was the plainest page on the domain. Paid clicks now land on the full
+ * home page, where the design is itself part of the argument, and the menu and
+ * footer are no longer distractions to hide: the gallery and the price are the
+ * evidence.
+ *
+ * The menu is still loaded on demand rather than imported statically. It pulls
+ * in Framer Motion, and deferring it is most of why the shared bundle dropped
+ * from 183 kB to 131 kB. `ssr: false` costs a beat before the button appears,
+ * which is fine for a fixed control that needs hydration to do anything.
  */
 const DotsMenu = dynamic(() => import("./DotsMenu"), { ssr: false });
 
-/**
- * Routes that get no site navigation and no site footer.
- *
- * /hire is a paid-traffic landing page: every link that isn't the form is a
- * way for someone who cost money to arrive to leave without converting. The
- * page keeps its own minimal footer so it still says who and where.
- *
- * The home page keeps the full menu on purpose. Its visitors are warm — bio
- * link, a share, someone who came back — and for them the gallery and the
- * price are the reason to stay.
- */
-const BARE_ROUTES = new Set(["/hire"]);
-
-function isBare(pathname: string | null) {
-  if (!pathname) return false;
-  // tolerate a trailing slash so /hire/ behaves like /hire
-  return BARE_ROUTES.has(pathname.replace(/\/+$/, "") || "/");
-}
-
 export function SiteNav() {
-  const pathname = usePathname();
-  return isBare(pathname) ? null : <DotsMenu />;
+  return <DotsMenu />;
 }
 
 export function SiteFooter() {
-  const pathname = usePathname();
-  return isBare(pathname) ? null : <Footer />;
+  return <Footer />;
 }

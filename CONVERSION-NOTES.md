@@ -5,43 +5,45 @@ holds the decisions and the things only a human can finish.
 
 ---
 
-## The routing decision: `/hire` stays
+## The routing decision: one page
 
-**It keeps its address and its job.** Nothing pointing at `/hire` needs
-changing, so existing ad creative keeps working untouched.
+**`/hire` is gone.** It was a separate, deliberately stripped landing page for
+paid traffic — no menu, no footer, no jar, no animation — built so a cold click
+had exactly one road. That was right when the home page opened with a
+full-screen poster and no offer.
 
-Why not fold it into the home page:
+Two things changed and killed it.
 
-- **Message match.** The single largest lever on paid traffic is repeating the
-  ad's promise in the same words at the top of the page the click lands on. The
-  home page opens with a full-screen "Be unique." lockup and a scroll sequence.
-  Both are good, and neither can be the first thing a cold click sees.
-- **Exits.** `/hire` now renders no dots menu and no site footer (see
-  `components/SiteChrome.tsx`) — every link on it either sends the form or
-  proves a claim. The home page keeps the full menu, because its traffic is
-  warm (bio link, a share, a return visit) and for those people the gallery and
-  the price are the reason to stay.
-- **It's static.** `/hire` is server-rendered HTML with no animation library
-  on it — 127 kB first load against the home page's 190 kB. The home page's
-  scroll sequence cannot be.
+The home page fold now carries the whole pitch: audience, scope, outcome, the
+$3.64 proof and the button. The original reason for a separate landing page
+simply stopped existing.
 
-Why not leave the home page as pure art: it is where the Instagram bio link
-goes, and it converted at zero by construction — the first screen contained no
-offer and the only ways to make contact were `mailto:` links, which open an
-empty draft the visitor has to write themselves.
+And the offer grew to include the website. The strongest sentence on the site is
+now *"You're reading one of the websites"* — which means the page a visitor
+lands on **is** the portfolio. Around half of credibility judgements are made on
+visual design alone, first impressions form in roughly 50ms, and they halo onto
+everything judged afterwards (RESEARCH.md §15). So paid traffic was being routed
+to the plainest page on the domain, where that sentence proved the least. That
+is backwards. Bought clicks now land on the full thing.
 
-So both pages convert, with different jobs:
+What was lost, and why it is acceptable:
 
-| | `/` | `/hire` |
-| --- | --- | --- |
-| Audience | warm — bio link, shares, returning | cold — paid clicks |
-| Opens with | the lockup, then the offer | the offer |
-| Chrome | full menu + footer | none |
-| First load JS | 190 kB | 127 kB |
+- **Fewer exits.** The home page has a menu and a footer. But its "distractions"
+  are the work gallery and the price — evidence, not leaks — and the menu's
+  three links are all on-page anchors.
+- **Weight.** 189 kB versus 127 kB. Real, but the fold is server-rendered HTML
+  with a CSS-only entrance, so the offer paints without waiting for any of it.
+- **Message match.** Preserved: the same H1 and the same offer that were on
+  `/hire` are now the home page's fold.
 
-**Redirects** (`next.config.mjs`) catch the plausible near-misses so a click
-that cost money can never 404: `/start` and `/quote` → `/hire`; `/contact` →
-`/#start`; `/pricing` → `/#price`; `/work` and `/works` → `/#work`.
+**The address still resolves and always must.** `/hire`, `/start` and `/quote`
+307 to `/`. Live ad creative points at `/hire`, and a click that cost money can
+never be allowed to 404. Temporary rather than permanent, so this is reversible.
+
+Also carried over from `/hire`: the **Identity** block — the portrait plate and
+"Joseph. That's who replies." — which only existed there. It sits between the
+objections and the price now, trimmed so it stops repeating the record the jar
+sequence already delivers.
 
 ---
 

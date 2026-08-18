@@ -8,11 +8,11 @@ import { useContactOpen } from "./ContactProvider";
 /**
  * The home page's persistent call to action.
  *
- * Three changes out of the audit. It points at the form on this page rather
- * than shipping the visitor to /hire, so the scroll they have already invested
- * isn't thrown away. It offers the free thing instead of "hire me — $1,000
- * max", which asks a stranger to commit money as their first interaction. And
- * it gets out of the way once the form is actually on screen, rather than
+ * Three changes out of the audit. It scrolls to the form on this page rather
+ * than navigating away, so the scroll the visitor has already invested isn't
+ * thrown away. It offers the free thing instead of "hire me — $1,000 max",
+ * which asks a stranger to commit money as their first interaction. And it
+ * gets out of the way once the form is actually on screen, rather than
  * hovering over the fields it is advertising.
  *
  * It still stays off the first screen (the lockup owns that), sits at the

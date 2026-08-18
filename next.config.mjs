@@ -13,15 +13,22 @@ const nextConfig = {
   outputFileTracingRoot: dirname(fileURLToPath(import.meta.url)),
 
   /**
-   * /hire is unchanged and stays the ad destination — existing creative keeps
-   * working untouched. These are insurance for the plausible near-misses: a
-   * link typed from memory, an old bio link, a URL shortened by hand. A cold
-   * click that costs money to buy should never land on a 404.
+   * /hire used to be a separate, deliberately stripped landing page for paid
+   * traffic. It is gone: once the offer widened to include the website, the
+   * page that best proves "you're reading one of the websites" is the full
+   * home page, and /hire was the plainest thing on the domain. Sending bought
+   * clicks to the least designed page worked against the pitch — roughly half
+   * of credibility judgements are made on visual design alone.
+   *
+   * The address still resolves, and always must: live ad creative points at
+   * it, and a click that cost money can never be allowed to 404. Temporary
+   * (307) rather than permanent, so the decision stays reversible.
    */
   async redirects() {
     return [
-      { source: "/start", destination: "/hire", permanent: false },
-      { source: "/quote", destination: "/hire", permanent: false },
+      { source: "/hire", destination: "/", permanent: false },
+      { source: "/start", destination: "/", permanent: false },
+      { source: "/quote", destination: "/", permanent: false },
       { source: "/pricing", destination: "/#price", permanent: false },
       { source: "/contact", destination: "/#start", permanent: false },
       { source: "/work", destination: "/#work", permanent: false },
