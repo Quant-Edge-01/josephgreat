@@ -13,6 +13,18 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const HANDLE_RE = /^@?[A-Za-z0-9._]{2,40}$/;
 const URLISH_RE = /^(https?:\/\/)?([a-z0-9-]+\.)+[a-z]{2,}(\/\S*)?$/i;
 
+/**
+ * Digits and phone punctuation only — no letters, so an @handle can never pass
+ * as a number. 10 to 15 digits covers a North American number with or without
+ * the country code, and everything the E.164 maximum allows.
+ */
+const PHONE_SHAPE_RE = /^\+?[\d\s().-]{9,}$/;
+function isPhone(v: string) {
+  if (!PHONE_SHAPE_RE.test(v)) return false;
+  const digits = v.replace(/\D/g, "");
+  return digits.length >= 10 && digits.length <= 15;
+}
+
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 /**
  * Public by design. Web3Forms answers a server-side POST with 403 "This method
@@ -39,18 +51,37 @@ function validate(name: Field, raw: string): string | undefined {
       return "That doesn't look like a handle or a link. @yourshop works.";
     return;
   }
-  if (!v) return "Where should the reply go?";
-  // Deliberately permissive: an email or an @handle, because forcing an email
-  // on someone who lives in the Instagram app costs more sends than it saves.
-  if (!EMAIL_RE.test(v) && !HANDLE_RE.test(v))
-    return "An email or an @handle — either is fine.";
-  return;
+  if (!v) return "An email address or a phone number.";
+  /*
+   * This used to accept an @handle, on the theory that forcing an email on
+   * someone who lives in the Instagram app costs more sends than it saves.
+   * That was wrong, and it cost a real lead: Instagram will not deliver a DM
+   * to someone who does not follow you — it lands in a hidden request folder
+   * or nowhere at all — so a handle here produced an enquiry that could not be
+   * answered. Friction saved on a lead you cannot reach is not saved at all.
+   *
+   * Nothing is lost by refusing it: the field above already captures their
+   * Instagram. This one only has to be a channel that actually opens.
+   */
+  if (EMAIL_RE.test(v) || isPhone(v)) return;
+  // Mostly digits: they meant a number and got the length wrong.
+  if (/^\+?[\d\s().-]+$/.test(v))
+    return "That doesn't look like a full phone number — include the area code.";
+  // A handle or a URL. Instagram handles routinely contain dots
+  // (@dream.alterations), so this cannot key off punctuation.
+  if (v.startsWith("@") || HANDLE_RE.test(v) || URLISH_RE.test(v))
+    return "Instagram won't let me message you unless you follow me first, so a handle here is a dead end. An email or a phone number works.";
+  return "That doesn't look like an email or a phone number.";
 }
 
 /**
- * Two required fields and one optional one. No phone, no budget dropdown, no
- * "how did you hear about us": every extra box costs sends, and none of them
- * are needed to look at an account and write back.
+ * Two required fields and one optional one. No budget dropdown, no "how did you
+ * hear about us": every extra box costs sends, and none of them are needed to
+ * look at an account and write back.
+ *
+ * The reply field takes an email or a phone number and refuses a bare handle —
+ * see validate(). That is a deliberate step back up in friction, taken because
+ * the cheaper version produced an enquiry nobody could answer.
  */
 export default function EnquiryForm({ context = "site" }: { context?: string }) {
   const id = useId();
@@ -139,7 +170,7 @@ export default function EnquiryForm({ context = "site" }: { context?: string }) 
           ...(EMAIL_RE.test(reply) ? { replyto: reply } : {}),
           // remaining keys render as labelled rows in the email body
           "Instagram or website": site,
-          "Reply to": reply,
+          [EMAIL_RE.test(reply) ? "Reply by email" : "Reply by phone / WhatsApp"]: reply,
           "What they're promoting": promoting || "— not given —",
           "Sent from": context,
         }),
@@ -256,7 +287,7 @@ export default function EnquiryForm({ context = "site" }: { context?: string }) 
           autoCapitalize="none"
           autoCorrect="off"
           spellCheck={false}
-          placeholder="you@shop.ca — or your @handle"
+          placeholder="you@shop.ca or 416 555 1234"
           onBlur={onBlur}
           onInput={onInput}
           aria-invalid={!!errors.reply}
@@ -269,7 +300,8 @@ export default function EnquiryForm({ context = "site" }: { context?: string }) 
           </span>
         ) : (
           <span id={`${id}-reply-hint`} className={hint}>
-            Email or Instagram — whichever you actually check.
+            Email or a number I can WhatsApp. Instagram won&apos;t let me reply
+            unless you follow me first.
           </span>
         )}
       </div>

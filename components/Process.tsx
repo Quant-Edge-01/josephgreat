@@ -13,7 +13,7 @@ const STEPS = [
   {
     n: "01",
     title: "You send your Instagram",
-    body: "Two fields. The handle or the website, and where to send the reply. No phone number, no budget dropdown, no company size.",
+    body: "Two fields: the handle or the website, and an email or number to reply to. Instagram blocks messages from people you don't follow, so a handle alone leaves me no way to answer. No budget dropdown, no company size.",
   },
   {
     n: "02",
