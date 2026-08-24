@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import SyrupEdge from "./SyrupEdge";
-import { OFFER, PRICE_CEILING, PRICE_FLOOR } from "@/lib/site";
+import { OFFER, PRICE_CEILING, PRICE_FLOOR, RETAINER, retainedOrdinal } from "@/lib/site";
 
 /**
  * The ceiling is drawn, not described: a hard bar nothing sits above.
@@ -20,6 +20,8 @@ import { OFFER, PRICE_CEILING, PRICE_FLOOR } from "@/lib/site";
  * write themselves. Both now point at the form.
  */
 export default function Pricing() {
+  const monthsWord = retainedOrdinal();
+
   return (
     <section id="price" className="relative z-10 bg-[#e2a339] text-ink">
       <SyrupEdge />
@@ -59,12 +61,21 @@ export default function Pricing() {
               Not a starting price. Not a tier you get upsold out of. The number
               doesn&apos;t move because the brief got harder.
             </p>
+            {/* Two numbers now live on this site — $700–$1,000 for a piece of
+                work and $600/month for the client I run continuously. Left
+                unexplained they read as a contradiction, so they are reconciled
+                here rather than left for the reader to trip over. */}
+            <p className="s-body mt-4 text-syrup-deep">
+              Ongoing monthly work sits under the same ceiling — the shop I run now
+              is <span className="text-ink">${RETAINER.monthly} a month</span>,
+              month to month.
+            </p>
           </div>
 
           <ol className="space-y-0">
             {[
               "One person, no office, no account manager — nothing to pay for but my own time.",
-              "No long-term contracts, no packages, no discovery-call funnel.",
+              `No long-term contracts, no packages, no discovery-call funnel. The bridal shop is on month ${monthsWord} because they keep deciding to be, not because they signed something.`,
               `Scope gets agreed in writing before anything starts, and the price still can't pass $${PRICE_CEILING.toLocaleString()}.`,
             ].map((line, i) => (
               <li key={i} className="flex gap-5 border-t border-ink/25 py-4 last:border-b">

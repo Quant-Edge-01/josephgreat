@@ -1,6 +1,6 @@
 import Link from "next/link";
 import SyrupEdge from "./SyrupEdge";
-import { FLAGSHIP_SLUG } from "@/lib/site";
+import { FLAGSHIP_SLUG, RETAINER, retainedOrdinal } from "@/lib/site";
 import { workBySlug } from "@/lib/works";
 
 /**
@@ -27,6 +27,19 @@ export default function Flagship() {
       </h2>
       <p className="t-mono mt-3 text-syrup-deep">{w.client}</p>
 
+      {/* Reads as a live status, not a portfolio credit. */}
+      {w.current && (
+        <p className="t-mono mt-5 inline-block border border-ink px-3.5 py-2.5">
+          {/* inline-block, not a flex item: as a flex child the dot wrapped onto
+              a line of its own as soon as the label needed two lines */}
+          <span
+            aria-hidden
+            className="mr-2.5 inline-block h-2 w-2 translate-y-[-1px] rounded-full bg-ink align-middle"
+          />
+          current client · since {w.since} · ${RETAINER.monthly}/month
+        </p>
+      )}
+
       <dl className="mt-10 grid grid-cols-2 border-t border-ink/30 md:grid-cols-4">
         {w.stats.map((s) => (
           <div key={s.label} className="border-b border-r border-ink/30 py-6 pr-4 last:border-r-0">
@@ -40,6 +53,11 @@ export default function Flagship() {
         Appointments-only shop, so an enquiry has to be a real one — there is no walk-in
         traffic to hide a weak campaign behind. On the best day of the run a conversation
         cost $1.46.
+      </p>
+      <p className="s-body mt-4 max-w-[40rem] text-syrup-deep">
+        That was the first campaign. I am still running the account — {retainedOrdinal()}{" "}
+        month now, paid monthly. One good month is luck; the months after it are the
+        actual evidence.
       </p>
 
       <Link

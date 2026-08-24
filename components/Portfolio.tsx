@@ -102,6 +102,16 @@ export default function Portfolio() {
               <div className="mt-5">
                 <p className="s-mid t-grotesk text-cream">{w.title}</p>
                 <p className="t-mono mt-1.5 text-cream/60">{w.client}</p>
+                {/* One card in four is a client who is still paying. Say so. */}
+                {w.current && (
+                  <p className="t-mono mt-2 text-acid">
+                    <span
+                      aria-hidden
+                      className="mr-2 inline-block h-1.5 w-1.5 translate-y-[-1px] rounded-full bg-acid align-middle"
+                    />
+                    still running · since {w.since}
+                  </p>
+                )}
               </div>
 
               {/* the headline number, given room to be read rather than tucked

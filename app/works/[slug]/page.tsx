@@ -5,6 +5,7 @@ import BackToSyrup from "@/components/BackToSyrup";
 import TrackView from "@/components/TrackView";
 import WorkCta from "@/components/WorkCta";
 import WorkGallery from "@/components/WorkGallery";
+import { RETAINER, retainedOrdinal } from "@/lib/site";
 import { WORKS, workBySlug } from "@/lib/works";
 
 type Params = { params: Promise<{ slug: string }> };
@@ -51,6 +52,15 @@ export default async function WorkPage({ params }: Params) {
 
           <p className="t-serif s-mid mt-6 max-w-[38rem] text-neon/90">{w.lede}</p>
           <p className="t-mono mt-5 text-cream/70">{w.client}</p>
+          {w.current && (
+            <p className="t-mono mt-4 inline-block border border-acid/50 px-3.5 py-2.5 text-acid">
+              <span
+                aria-hidden
+                className="mr-2.5 inline-block h-2 w-2 translate-y-[-1px] rounded-full bg-acid align-middle"
+              />
+              current client · since {w.since} · ${RETAINER.monthly}/month
+            </p>
+          )}
         </header>
 
         {/* the receipts, before the prose */}
@@ -95,6 +105,13 @@ export default async function WorkPage({ params }: Params) {
             {w.link.label}
             <span aria-hidden>↗</span>
           </a>
+        )}
+
+        {w.current && (
+          <p className="s-body mt-20 max-w-[42rem] text-cream/85 md:mt-28">
+            This one is still open. {retainedOrdinal().replace(/^./, (c) => c.toUpperCase())}{" "}
+            month, same client, paid monthly — not a project that ended and got written up.
+          </p>
         )}
 
         <div className="mt-24 md:mt-36">

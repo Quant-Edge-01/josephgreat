@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { FLAGSHIP_SLUG, OFFER } from "@/lib/site";
+import { FLAGSHIP_SLUG, OFFER, RETAINER, retainedOrdinal } from "@/lib/site";
 import { workBySlug } from "@/lib/works";
 
 /**
@@ -125,8 +125,16 @@ export default function Hero() {
           <span className="text-syrup">{perConvo}</span> each →{" "}
           <span className="text-syrup">{leads}</span> leads.
         </p>
+        {/*
+          The retention fact, not a decorative caption. Anyone can screenshot
+          one good campaign; a client who keeps paying every month is the part
+          that cannot be staged. Kept to a single mono line at the same weight
+          so the fold's height does not change — it is already within ~10px of
+          the bottom on a 13" laptop.
+        */}
         <p className="t-mono mt-2.5 text-center text-ash">
-          a bridal shop in the GTA · every number screenshotted below
+          <span className="text-syrup">{retainedOrdinal()} month</span> running a GTA
+          bridal shop · ${RETAINER.monthly}/mo
         </p>
       </div>
     </section>

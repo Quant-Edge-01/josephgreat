@@ -3,7 +3,7 @@ import { Archivo, DM_Mono, Instrument_Serif } from "next/font/google";
 import Analytics from "@/components/Analytics";
 import ContactProvider from "@/components/ContactProvider";
 import { SiteFooter, SiteNav } from "@/components/SiteChrome";
-import { PRICE_CEILING, PRICE_FLOOR } from "@/lib/site";
+import { PRICE_CEILING, PRICE_FLOOR, RETAINER, retainedOrdinal } from "@/lib/site";
 import "./globals.css";
 
 const sans = Archivo({
@@ -28,7 +28,7 @@ const mono = DM_Mono({
 });
 
 const PRICE = `$${PRICE_FLOOR}–$${PRICE_CEILING.toLocaleString()} CAD`;
-const BLURB = `Reels, the ads behind them and the website they land on, for Toronto and GTA local businesses — built to start conversations rather than collect views. ${PRICE}, and $${PRICE_CEILING.toLocaleString()} is a hard ceiling.`;
+const BLURB = `Reels, the ads behind them and the website they land on, for Toronto and GTA local businesses — built to start conversations rather than collect views. Currently running a GTA bridal shop's content, ${retainedOrdinal()} month on a $${RETAINER.monthly}/month retainer. ${PRICE}, and $${PRICE_CEILING.toLocaleString()} is a hard ceiling.`;
 
 export const metadata: Metadata = {
   // the title has to survive as a search result and a DM link preview, where

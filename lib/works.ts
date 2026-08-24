@@ -39,6 +39,14 @@ type WorkSeed = {
    * a fee rather than the thing it bought.
    */
   headline: { value: string; label: string };
+  /**
+   * Set only on work that is still running. Three of the four entries are
+   * finished projects or own channels; exactly one is a paying client, and the
+   * page needs to be able to say so without the reader inferring it.
+   */
+  current?: boolean;
+  /** Human-readable start, e.g. "January 2026". Only meaningful with `current`. */
+  since?: string;
 };
 
 export type Work = WorkSeed & {
@@ -65,12 +73,15 @@ const SEEDS: WorkSeed[] = [
     kind: "local service · paid + organic",
     proves: "enquiries",
     local: true,
+    current: true,
+    since: "January 2026",
     headline: { value: "$3.64", label: "per conversation started" },
-    lede: "$3.64 to put a bride in the inbox. A Toronto agency would charge more than that for the slide explaining it.",
+    lede: "$3.64 to put a bride in the inbox — and they kept me on. Still running the account, every month since January.",
     body: [
       "Custom bridal and wedding gown alterations across the GTA. Appointments only — which means every enquiry has to be a real one. There's no walk-in traffic to hide a weak campaign behind.",
       "The paid side: $214.86 spent, 59 messaging conversations started, $3.64 each on average. Nine of them turned into leads. On the best day of the run the cost per conversation dropped to $1.46.",
-      "The organic side did the rest — half a million views on one reel, 17,200 likes, 2,700 saves, from an account with twelve posts and 689 followers. A shop competing with every alteration place in the city, and now it's the one people can actually name.",
+      "The organic side does the rest — half a million views on one reel, 17,200 likes, 2,700 saves, from an account with twelve posts and 689 followers. A shop competing with every alteration place in the city, and now it's the one people can actually name.",
+      "This one is not a finished case study. I still run the account on a monthly retainer, and have since January — which is the part I would look at hardest if I were you, because a single good month is luck and a client who keeps paying is not.",
     ],
     quote:
       "Custom bridal alteration in toronto — 3$ per message, 55 messages in 2 weeks, 9 leads with only 220$ spent on targeting.",

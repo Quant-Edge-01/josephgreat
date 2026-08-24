@@ -49,3 +49,56 @@ export const OFFER = {
  * channel to a bridal client.
  */
 export const FLAGSHIP_SLUG = "dream-alteration";
+
+/**
+ * Dream Alterations is not a finished portfolio piece — it is a client who is
+ * still paying, every month, since January 2026.
+ *
+ * This is the strongest fact the business owns and it was nowhere on the site.
+ * Anyone can produce one good campaign screenshot. Retention is the part that
+ * cannot be staged: it is a third party voting with money, repeatedly, and it
+ * answers the "you're nineteen with a new account" objection more completely
+ * than any argument could.
+ *
+ * The month count is derived rather than typed, for two reasons: a hardcoded
+ * "ninth month" is wrong the moment it ships (January to August is eight), and
+ * it silently rots afterwards. Note the one caveat — pages are statically
+ * generated, so the number is fixed at build time and steps forward on the next
+ * deploy, not on the first of the month.
+ */
+export const RETAINER = {
+  /** Month is 0-indexed: 0 = January. */
+  since: new Date(2026, 0, 1),
+  sinceLabel: "January",
+  monthly: 600,
+  currency: "CAD",
+} as const;
+
+const ORDINALS = [
+  "first", "second", "third", "fourth", "fifth", "sixth",
+  "seventh", "eighth", "ninth", "tenth", "eleventh", "twelfth",
+];
+
+/** Inclusive: the month work started counts as month one. */
+export function monthsRetained(now: Date = new Date()) {
+  const { since } = RETAINER;
+  return (
+    (now.getFullYear() - since.getFullYear()) * 12 +
+    (now.getMonth() - since.getMonth()) +
+    1
+  );
+}
+
+/** "eighth" for 8, falling back to "8th" past twelve. */
+export function retainedOrdinal(now: Date = new Date()) {
+  const n = monthsRetained(now);
+  return ORDINALS[n - 1] ?? `${n}th`;
+}
+
+/** The compact badge used on the card, the case page and the case block. */
+export const RETAINER_BADGE = `current client · since ${RETAINER.sinceLabel.toLowerCase()}`;
+
+/** One sentence of proof, for the fold and for metadata. */
+export function retainerLine(now: Date = new Date()) {
+  return `Running content for a GTA bridal shop since ${RETAINER.sinceLabel} — ${retainedOrdinal(now)} month, $${RETAINER.monthly}/month.`;
+}

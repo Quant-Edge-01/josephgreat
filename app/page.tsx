@@ -10,6 +10,7 @@ import Pricing from "@/components/Pricing";
 import Process from "@/components/Process";
 import Scope from "@/components/Scope";
 import StartHere from "@/components/StartHere";
+import Testimonial from "@/components/Testimonial";
 
 /**
  * The home page still opens with the poster and still walks you into the jar.
@@ -27,6 +28,8 @@ export default function Page() {
     <main id="main">
       <Hero />
       <Flagship />
+      {/* Renders nothing until a real quote is passed — see Testimonial.tsx. */}
+      <Testimonial />
       <Approach />
       <Portfolio />
       <Ledger />
