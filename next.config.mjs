@@ -29,7 +29,7 @@ const nextConfig = {
       { source: "/hire", destination: "/", permanent: false },
       { source: "/start", destination: "/", permanent: false },
       { source: "/quote", destination: "/", permanent: false },
-      { source: "/pricing", destination: "/#price", permanent: false },
+      { source: "/pricing", destination: "/#offer", permanent: false },
       { source: "/contact", destination: "/#start", permanent: false },
       { source: "/work", destination: "/#work", permanent: false },
       { source: "/works", destination: "/#work", permanent: false },

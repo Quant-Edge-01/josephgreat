@@ -14,15 +14,14 @@ import Footer from "./Footer";
  * footer are no longer distractions to hide: the gallery and the price are the
  * evidence.
  *
- * The menu is still loaded on demand rather than imported statically. It pulls
- * in Framer Motion, and deferring it is most of why the shared bundle dropped
- * from 183 kB to 131 kB. `ssr: false` costs a beat before the button appears,
- * which is fine for a fixed control that needs hydration to do anything.
+ * The bar is loaded on demand rather than imported statically — it needs
+ * hydration to do anything anyway, and keeping it out of the initial chunk is
+ * part of why the shared bundle sits at 131 kB rather than 183 kB.
  */
-const DotsMenu = dynamic(() => import("./DotsMenu"), { ssr: false });
+const Nav = dynamic(() => import("./Nav"), { ssr: false });
 
 export function SiteNav() {
-  return <DotsMenu />;
+  return <Nav />;
 }
 
 export function SiteFooter() {

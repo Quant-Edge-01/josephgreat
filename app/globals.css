@@ -412,6 +412,28 @@ body {
   animation-delay: var(--delay, 0s);
 }
 
+/*
+  The jar settles into frame once, on load. Scale rather than translate so the
+  glass edges do not slide past the type, and slow enough to read as a camera
+  move rather than a bounce. Collapsed to its end state by the reduced-motion
+  block above.
+*/
+@keyframes jar-rise {
+  from {
+    opacity: 0;
+    transform: scale(1.06) translate3d(0, 2.5%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+.jar-rise {
+  animation: jar-rise 1.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform-origin: 50% 58%;
+}
+
 .anim-up {
   animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: var(--delay, 0s);
