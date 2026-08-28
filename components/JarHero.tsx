@@ -111,10 +111,19 @@ export default function JarHero() {
               and half lost to the clip. Solving x + 0.76·w = 200 for w=560
               gives x=-225, which lands the mask on the jar's centre line.
             */}
+            {/* the empty glass above his head — without it the photo's top
+                edge lands as a hard seam across the shoulder of the jar */}
+            <rect
+              x="60"
+              y="58"
+              width="280"
+              height="520"
+              fill="#1a1207"
+            />
             <image
               href="/joseph.jpg"
               x="-225"
-              y="40"
+              y="176"
               width="560"
               height="700"
               preserveAspectRatio="xMidYMin slice"
