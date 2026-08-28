@@ -187,17 +187,24 @@ export default function JarHero() {
 
       {/* mt-auto, not centred: the middle of the frame belongs to his face */}
       <div className="relative z-10 mt-auto flex flex-col items-center text-center">
-        <h1 className="s-hero anim-up t-grotesk leading-[0.8] text-cream" style={delay(0.12)}>
+        {/*
+          The lockup is a <p> and the proposition is the <h1>. Heading level is
+          a semantic claim about what the page is about, and "Be unique."
+          answers that for nobody — not a search result, not a screen reader
+          landing cold. Size and heading level are different tools: this stays
+          the loudest thing on the screen either way.
+        */}
+        <p className="s-hero anim-up t-grotesk leading-[0.8] text-cream" style={delay(0.12)}>
           Be <span className="t-serif font-normal text-neon">unique.</span>
-        </h1>
+        </p>
 
-        <p
+        <h1
           className="s-mid anim-up t-grotesk mt-6 max-w-[24ch] text-balance text-cream"
           style={delay(0.2)}
         >
           Surreal campaigns that start{" "}
           <span className="t-serif font-normal text-neon">real conversations.</span>
-        </p>
+        </h1>
 
         <div className="anim-up mt-8 flex w-full flex-col items-center gap-4" style={delay(0.28)}>
           <a
