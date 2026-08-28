@@ -177,7 +177,7 @@ export default function JarHero() {
       */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(8,7,10,0.88)_0%,rgba(8,7,10,0.34)_13%,rgba(8,7,10,0.10)_27%,rgba(8,7,10,0.30)_38%,rgba(8,7,10,0.72)_52%,rgba(8,7,10,0.92)_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(8,7,10,0.86)_0%,rgba(8,7,10,0.40)_16%,rgba(8,7,10,0.12)_38%,rgba(8,7,10,0.14)_58%,rgba(8,7,10,0.68)_70%,rgba(8,7,10,0.94)_100%)]"
       />
 
       {/* ---------- type ---------- */}
@@ -185,7 +185,8 @@ export default function JarHero() {
         Joseph The Great — Toronto &amp; the GTA
       </p>
 
-      <div className="relative z-10 flex flex-col items-center text-center">
+      {/* mt-auto, not centred: the middle of the frame belongs to his face */}
+      <div className="relative z-10 mt-auto flex flex-col items-center text-center">
         <h1 className="s-hero anim-up t-grotesk leading-[0.8] text-cream" style={delay(0.12)}>
           Be <span className="t-serif font-normal text-neon">unique.</span>
         </h1>
