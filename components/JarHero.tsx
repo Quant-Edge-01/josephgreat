@@ -34,7 +34,7 @@ const JAR_INNER =
   "C328 428 325 332 322 236 C304 172 234 156 234 120 L234 68 Z";
 
 /** Where the syrup surface sits inside the jar, in viewBox units. */
-const MENISCUS = 372;
+const MENISCUS = 402;
 
 const delay = (s: number) => ({ "--delay": `${s}s` }) as CSSProperties;
 
@@ -48,7 +48,7 @@ export default function JarHero() {
       <div aria-hidden className="pointer-events-none absolute inset-0 grid place-items-center">
         <svg
           viewBox="0 0 400 620"
-          className="jar-rise h-[86svh] w-auto max-w-none opacity-95"
+          className="jar-rise h-[92svh] w-auto max-w-none opacity-95"
           shapeRendering="geometricPrecision"
         >
           <defs>
@@ -60,7 +60,7 @@ export default function JarHero() {
             <linearGradient id="jh-tint" x1="0" y1="0" x2="0.3" y2="1">
               <stop offset="0%" stopColor="#e0972b" stopOpacity="0.20" />
               <stop offset="55%" stopColor="#a4560f" stopOpacity="0.34" />
-              <stop offset="100%" stopColor="#3d1a02" stopOpacity="0.62" />
+              <stop offset="100%" stopColor="#3d1a02" stopOpacity="0.42" />
             </linearGradient>
 
             {/* the pool he is standing in */}
@@ -94,21 +94,29 @@ export default function JarHero() {
             </linearGradient>
 
             {/* darkens the glass edges so the figure sits *in* something */}
-            <radialGradient id="jh-vig" cx="50%" cy="42%" r="62%">
-              <stop offset="55%" stopColor="#08070a" stopOpacity="0" />
-              <stop offset="100%" stopColor="#08070a" stopOpacity="0.78" />
+            <radialGradient id="jh-vig" cx="50%" cy="38%" r="66%">
+              <stop offset="62%" stopColor="#08070a" stopOpacity="0" />
+              <stop offset="100%" stopColor="#08070a" stopOpacity="0.52" />
             </radialGradient>
           </defs>
 
           <g clipPath="url(#jh-inner)">
             {/* The real photograph. Top-aligned so the mask sits high in the
                 jar; sliced, so the sides crop and he reads as compressed. */}
+            {/*
+              Placement is arithmetic, not taste. In joseph.jpg the mask sits at
+              roughly 0.76 across and 0.12–0.26 down. At the first attempt —
+              x=-8, width=416 — that put the head at x≈308 against a jar whose
+              inner edge is 328, so the face was jammed against the right wall
+              and half lost to the clip. Solving x + 0.76·w = 200 for w=560
+              gives x=-225, which lands the mask on the jar's centre line.
+            */}
             <image
               href="/joseph.jpg"
-              x="-8"
-              y="58"
-              width="416"
-              height="520"
+              x="-225"
+              y="40"
+              width="560"
+              height="700"
               preserveAspectRatio="xMidYMin slice"
             />
             <rect x="60" y="58" width="280" height="520" fill="url(#jh-tint)" />
