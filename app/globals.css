@@ -592,6 +592,129 @@ body {
 }
 
 /* ---------------------------------------------------------------
+   entry gate
+
+   Hidden unless the inline script in the document head has set
+   data-gate="closed" on <html>. That is the whole no-JavaScript story: no
+   script, no attribute, no gate, and the site underneath is simply readable.
+   The site is always in the DOM behind this — the gate is an overlay, never a
+   replacement, so crawlers and link previews get the real page.
+   --------------------------------------------------------------- */
+
+.site-gate {
+  display: none;
+}
+
+html[data-gate="closed"] .site-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 9800;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 1.6rem;
+  padding: 2rem 1.5rem;
+  background: #ffffff;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.22s ease 0.2s;
+}
+
+/* Scroll is locked only while the gate is actually up. Locking it in the
+   stylesheet unconditionally would strand a no-JS visitor on a page they
+   cannot scroll. */
+html[data-gate="closed"] body {
+  overflow: hidden;
+}
+
+.gate-jar {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: min(52vh, 27rem);
+  width: 100%;
+}
+
+.gate-half {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  transition:
+    transform 0.24s cubic-bezier(0.3, 0, 0.15, 1),
+    opacity 0.24s linear 0.16s;
+}
+
+/* The break. Hand-set so the two edges interlock rather than meeting flat. */
+.gate-half-l {
+  clip-path: polygon(
+    0 0, 52% 0, 46% 12%, 55% 26%, 45% 41%, 54% 56%, 46% 71%, 53% 86%, 47% 100%, 0 100%
+  );
+}
+.gate-half-r {
+  clip-path: polygon(
+    52% 0, 100% 0, 100% 100%, 47% 100%, 53% 86%, 46% 71%, 54% 56%, 45% 41%, 55% 26%, 46% 12%
+  );
+}
+
+.gate-breaking .gate-half-l {
+  transform: translate3d(-58%, 4%, 0) rotate(-9deg);
+  opacity: 0;
+}
+.gate-breaking .gate-half-r {
+  transform: translate3d(58%, 4%, 0) rotate(9deg);
+  opacity: 0;
+}
+
+html[data-gate="closed"] .site-gate.gate-breaking {
+  opacity: 0;
+}
+
+.gate-cta {
+  font-size: clamp(1.9rem, 7vw, 3.2rem);
+  line-height: 1;
+  color: var(--color-ink);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.gate-note {
+  color: var(--color-syrup);
+  text-align: center;
+}
+
+.gate-muted {
+  color: var(--color-ash);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  min-height: 44px;
+  padding: 0 0.5rem;
+}
+
+.gate-breaking .gate-cta,
+.gate-breaking .gate-note,
+.gate-breaking .gate-muted {
+  opacity: 0;
+  transition: opacity 0.16s linear;
+}
+
+/* Reduced motion: the door still opens, it just does not throw itself apart. */
+@media (prefers-reduced-motion: reduce) {
+  .gate-half {
+    transition: opacity 0.2s linear;
+  }
+  .gate-breaking .gate-half-l,
+  .gate-breaking .gate-half-r {
+    transform: none;
+    opacity: 0;
+  }
+}
+
+/* ---------------------------------------------------------------
    focus
    --------------------------------------------------------------- */
 

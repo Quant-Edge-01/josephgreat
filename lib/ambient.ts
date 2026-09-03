@@ -87,9 +87,25 @@ export class Ambient {
   private nextNoteAt = 0;
   private running = false;
   private level = 0;
+  private listeners = new Set<(on: boolean) => void>();
 
   get isRunning() {
     return this.running;
+  }
+
+  /** The gate and the toggle both drive the same engine; this keeps the
+      control's label honest when the other one starts or stops it. */
+  subscribe(fn: (on: boolean) => void) {
+    this.listeners.add(fn);
+    /* Braces, not a concise body: Set.delete returns a boolean, and a cleanup
+       function is required to return void or a destructor. */
+    return () => {
+      this.listeners.delete(fn);
+    };
+  }
+
+  private emit() {
+    this.listeners.forEach((fn) => fn(this.running));
   }
 
   /**
@@ -105,10 +121,37 @@ export class Ambient {
     const ctx = new Ctor();
     this.ctx = ctx;
 
+    /*
+      iOS needs two things that no other platform does.
+
+      First, the ringer switch. By default WebAudio is filed under the
+      "ambient" audio session, which the hardware mute switch silences — so a
+      phone on silent plays nothing, the context still reports "running", and
+      everything looks like it works. Declaring "playback" opts into the
+      category used for music, which the switch does not mute. Safari 16.4+;
+      absent elsewhere, hence the guard.
+
+      Second, older iOS only truly unlocks a context after it has actually
+      played something, so a zero-length buffer goes through inside the gesture.
+    */
+    const ns = navigator as unknown as { audioSession?: { type: string } };
+    if (ns.audioSession) {
+      try {
+        ns.audioSession.type = "playback";
+      } catch {
+        /* older Safari exposes it read-only */
+      }
+    }
+
     const master = ctx.createGain();
     master.gain.value = 0;
     master.connect(ctx.destination);
     this.master = master;
+
+    const unlock = ctx.createBufferSource();
+    unlock.buffer = ctx.createBuffer(1, 1, 22050);
+    unlock.connect(ctx.destination);
+    unlock.start(0);
 
     if (TRACK_URL) {
       const el = new Audio(TRACK_URL);
@@ -191,6 +234,7 @@ export class Ambient {
       this.nextNoteAt = ctx.currentTime + 0.06;
       this.tick();
     }
+    this.emit();
     return true;
   }
 
@@ -200,6 +244,7 @@ export class Ambient {
     if (!ctx || !this.master) return;
     this.rampTo(0, FADE_OUT);
     this.clearTimer();
+    this.emit();
     /* Suspend only once the ramp has finished — suspending mid-ramp freezes the
        clock and the bed snaps back at full level on the next resume. */
     window.setTimeout(() => {
@@ -373,4 +418,15 @@ function noiseBuffer(ctx: AudioContext, seconds: number) {
   const d = buf.getChannelData(0);
   for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
   return buf;
+}
+
+/**
+ * One engine per page. The entry gate starts it and the toggle controls it, and
+ * two Ambient instances would mean two sequencers playing a bar apart.
+ */
+let shared: Ambient | null = null;
+
+export function getAmbient() {
+  if (!shared) shared = new Ambient();
+  return shared;
 }

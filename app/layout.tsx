@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Archivo, DM_Mono, Instrument_Serif } from "next/font/google";
 import Analytics from "@/components/Analytics";
 import ContactProvider from "@/components/ContactProvider";
+import EnterGate from "@/components/EnterGate";
 import { SiteFooter, SiteNav } from "@/components/SiteChrome";
 import SoundToggle from "@/components/SoundToggle";
 import { PRICE_CEILING, PRICE_FLOOR, RETAINER, retainedOrdinal } from "@/lib/site";
@@ -63,9 +64,35 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  /*
+    suppressHydrationWarning sits on <html> only, and only because the inline
+    script below deliberately sets data-gate on it before React hydrates. React
+    compares its server markup against the live DOM and flags the attribute it
+    did not write. The alternative — rendering the gate after mount — means a
+    visible flash of the page the gate exists to cover. The suppression is one
+    element deep and does not extend to any child.
+  */
   return (
-    <html lang="en-CA" className={`${sans.variable} ${display.variable} ${mono.variable}`}>
+    <html
+      lang="en-CA"
+      suppressHydrationWarning
+      className={`${sans.variable} ${display.variable} ${mono.variable}`}
+    >
       <body>
+        {/*
+          Runs during parse, before anything paints, so the gate is up on the
+          first frame rather than appearing over a page the visitor has already
+          started reading. It is also the entire no-JavaScript story: if this
+          never executes the attribute is never set, the gate stays
+          display:none, and the site behind it is simply readable.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(!sessionStorage.getItem('jtg-entered'))document.documentElement.setAttribute('data-gate','closed')}catch(e){}",
+          }}
+        />
+
         {/* first tab stop: the fixed dots menu is otherwise the only way past
             a full screen of poster for a keyboard user */}
         <a href="#main" className="skip-link t-mono">
@@ -79,7 +106,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
           <SiteFooter />
         </ContactProvider>
-        {/* Off by default and silent until pressed — see SoundToggle.tsx. */}
+        {/* The tap that opens this is also the user gesture the browser
+            requires before any audio can start — see EnterGate.tsx. */}
+        <EnterGate />
         <SoundToggle />
         <div className="grain" aria-hidden />
         <Analytics />

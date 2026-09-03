@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Ambient } from "@/lib/ambient";
+import { getAmbient } from "@/lib/ambient";
 
 /**
  * The sound control. On by default — and that default is the whole reason this
@@ -36,14 +36,15 @@ const HINT_KEY = "jtg-sound-hint";
 export default function SoundToggle() {
   const [on, setOn] = useState(false);
   const [hint, setHint] = useState(false);
-  const engine = useRef<Ambient | null>(null);
+  const engine = useRef(getAmbient());
 
+  /* The entry gate starts the same engine, so the label has to follow the
+     engine rather than only this component's own clicks. Not disposed on
+     unmount any more: the instance is shared and outlives this control. */
   useEffect(() => {
-    engine.current = new Ambient();
-    return () => {
-      engine.current?.dispose();
-      engine.current = null;
-    };
+    const e = engine.current;
+    setOn(e.isRunning);
+    return e.subscribe(setOn);
   }, []);
 
   /* Tell people it is on and how to stop it, once, shortly after it starts.
@@ -56,9 +57,12 @@ export default function SoundToggle() {
     window.setTimeout(() => setHint(false), 6500);
   }, []);
 
-  // arm: start at the first gesture unless this visitor has switched it off
+  /* Arming still matters even with the gate: the gate only appears once per
+     session, so a reload or a return from /works/* has no gate to tap and the
+     bed has to catch the next interaction instead. */
   useEffect(() => {
     if (sessionStorage.getItem(KEY) === "off") return;
+    if (engine.current.isRunning) return;
 
     let done = false;
     const go = async () => {
