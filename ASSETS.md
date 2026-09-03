@@ -82,3 +82,46 @@ change to accept them.
 - Do not ship a placeholder that looks like a real photo. The monogram plate in
   `Founder.tsx` is deliberately typographic for exactly this reason: it reads as
   a designed mark, not as a broken image.
+
+---
+
+# Audio
+
+## There is no audio file, and nothing is missing
+
+The soundtrack is **generated in the browser** by `lib/ambient.ts` — a small
+chiptune sequencer built on the Web Audio API. Two pulse channels, a triangle
+bass and a noise channel, playing a four-chord progression at 96 BPM.
+
+This is not a placeholder. It ships, it works, and it is preferable to a file:
+
+- **Nothing to license.** It is original by construction, so there is no
+  copyright to clear and no attribution to carry. No music was downloaded.
+- **Zero bytes.** A listenable ambient loop is 1–3 MB. This is ~9 kB of code
+  that is already in the bundle.
+- **It never loops audibly**, because it is being played rather than replayed.
+
+## If you want to replace it with a real track
+
+Only one line changes. Put your file in `public/` (something you own, or
+royalty-free with the licence kept on record), then in `lib/ambient.ts`:
+
+```ts
+export const TRACK_URL: string | null = "/ambient/loop.mp3";
+```
+
+The file is then streamed and looped instead, and everything around it — the
+fade in and out, the toggle, the session memory, the pause when the tab is
+hidden — behaves identically. The synthesiser is skipped entirely.
+
+## How it behaves
+
+Sound is **on by default**, but it cannot start until the visitor has
+interacted with the page: every current browser blocks audio before a real
+gesture, in Chrome, Safari and Firefox alike, and there is no way around it.
+So the bed arms on load and begins at the first click, tap or keypress
+anywhere. Until then the control honestly reads "Sound off".
+
+Peak level is 0.08, measured at roughly 0.04 peak and 0.003 average — under
+reading, not competing with it. Turning it off is remembered for the session
+and beats the default, so off means off. It never plays into a hidden tab.

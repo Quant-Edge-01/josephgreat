@@ -3,6 +3,7 @@ import { Archivo, DM_Mono, Instrument_Serif } from "next/font/google";
 import Analytics from "@/components/Analytics";
 import ContactProvider from "@/components/ContactProvider";
 import { SiteFooter, SiteNav } from "@/components/SiteChrome";
+import SoundToggle from "@/components/SoundToggle";
 import { PRICE_CEILING, PRICE_FLOOR, RETAINER, retainedOrdinal } from "@/lib/site";
 import "./globals.css";
 
@@ -78,6 +79,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
           <SiteFooter />
         </ContactProvider>
+        {/* Off by default and silent until pressed — see SoundToggle.tsx. */}
+        <SoundToggle />
         <div className="grain" aria-hidden />
         <Analytics />
       </body>

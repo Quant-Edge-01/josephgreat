@@ -460,6 +460,138 @@ body {
 }
 
 /* ---------------------------------------------------------------
+   sound toggle — four bars, moving only while sound actually is
+   --------------------------------------------------------------- */
+
+@keyframes eq {
+  0%,
+  100% {
+    height: 20%;
+  }
+  50% {
+    height: 100%;
+  }
+}
+
+.eq-bar {
+  display: block;
+  width: 2px;
+  height: 20%;
+  background: currentColor;
+  animation: eq 0.9s ease-in-out infinite;
+}
+
+/* Off is a state, not a pause: flat bars, no animation, nothing running. */
+.eq-off {
+  animation: none;
+  height: 20%;
+  opacity: 0.45;
+}
+
+/* ---------------------------------------------------------------
+   the jar easter egg — tips, pours, rights itself
+   --------------------------------------------------------------- */
+
+@keyframes tip {
+  0% {
+    transform: rotate(0deg);
+  }
+  22% {
+    transform: rotate(-74deg);
+  }
+  62% {
+    transform: rotate(-74deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.jar-tip {
+  animation: tip 2.6s cubic-bezier(0.5, 0, 0.2, 1) both;
+  transform-origin: 22% 88%;
+}
+
+@keyframes pour {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px) scaleY(0.2);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(120px) scaleY(1.6);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(230px) scaleY(0.4);
+  }
+}
+
+.jar-pour {
+  position: absolute;
+  left: 16%;
+  top: 42%;
+  width: 7px;
+  height: 46px;
+  border-radius: 0 0 999px 999px;
+  background: linear-gradient(180deg, #e0972b, #8a4408);
+  animation: pour 2.4s ease-in 0.45s both;
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------------
+   Y2K surface — scanlines, at the threshold of visible
+   --------------------------------------------------------------- */
+
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05) 0 1px,
+    transparent 1px 3px
+  );
+}
+
+/* ---------------------------------------------------------------
+   scroll reveal — no JavaScript at all
+
+   animation-timeline drives this off the scroller on the compositor, so there
+   is no observer, no scroll listener and no hydration wait. It is wrapped in
+   @supports for a reason: without the timeline, `opacity: 0` in the keyframes
+   would simply run as an ordinary animation on load, and in a browser that
+   also stalls JS the content could sit invisible. Browsers that do not support
+   it get no animation and fully painted content, which is the correct failure.
+   --------------------------------------------------------------- */
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 26px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      animation-range: entry 4% cover 24%;
+    }
+  }
+}
+
+/* ---------------------------------------------------------------
    focus
    --------------------------------------------------------------- */
 
@@ -471,16 +603,18 @@ body {
 /* ---------------------------------------------------------------
    reduced motion
 
-   The CSS half only ever covered CSS. The expensive movement on this site is
-   the scroll-driven jar — a 300vmax object scaling through 7x under the
-   finger, which is exactly the pattern that provokes vestibular symptoms.
-   That half is switched off in JS (see Approach.tsx, useReducedMotion); this
-   block handles everything declarative.
+   Two halves. This block handles everything declarative — the marquee, the
+   drifting plates, the equaliser, the fold entrance. The scroll-linked motion
+   is switched off in JS instead, at a component boundary rather than an early
+   return, so the hooks that bind to a scroll position are never created: see
+   DriftingJar.tsx. The scroll reveal above opts itself out by sitting inside
+   `prefers-reduced-motion: no-preference`.
    --------------------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
   .marquee-track,
-  .float {
+  .float,
+  .eq-bar {
     animation: none;
   }
   *,

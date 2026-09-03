@@ -50,8 +50,11 @@ export default function Nav() {
         aria-label="Main"
         className="flex items-center justify-between gap-4 px-6 py-3.5 md:px-10"
       >
+        {/* Spelled out at every width. It was abbreviated to "JtG" below 640px,
+            which is the width where the visitor is least able to work out whose
+            site this is from anything else on screen. */}
         <a href="#main" className="t-mono text-neon">
-          JtG<span className="hidden sm:inline"> — Joseph The Great</span>
+          Joseph The Great
         </a>
 
         {/* desktop */}

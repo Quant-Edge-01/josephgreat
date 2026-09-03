@@ -38,7 +38,7 @@ export default function Offer() {
       </h2>
 
       <div className="mt-11 grid gap-x-16 gap-y-10 md:grid-cols-[minmax(0,30rem)_minmax(0,26rem)]">
-        <ol className="border-t border-ink/30">
+        <ol className="reveal border-t border-ink/30">
           {INCLUDED.map((line, i) => (
             <li key={i} className="flex gap-5 border-b border-ink/30 py-4">
               <span className="t-mono shrink-0 pt-1 text-syrup-deep">0{i + 1}</span>

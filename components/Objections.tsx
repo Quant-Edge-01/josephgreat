@@ -38,7 +38,7 @@ export default function Objections() {
         <span className="t-serif font-normal text-syrup">answered first.</span>
       </h2>
 
-      <dl className="mt-11 grid gap-x-14 md:grid-cols-2">
+      <dl className="reveal mt-11 grid gap-x-14 md:grid-cols-2">
         {QA.map((item) => (
           <div key={item.q} className="border-t border-ink/25 py-7">
             <dt className="s-mid t-grotesk max-w-[24ch]">{item.q}</dt>

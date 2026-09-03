@@ -177,57 +177,94 @@ export default function JarHero() {
       */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(8,7,10,0.86)_0%,rgba(8,7,10,0.40)_16%,rgba(8,7,10,0.12)_38%,rgba(8,7,10,0.14)_58%,rgba(8,7,10,0.68)_70%,rgba(8,7,10,0.94)_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(8,7,10,0.90)_0%,rgba(8,7,10,0.62)_22%,rgba(8,7,10,0.14)_38%,rgba(8,7,10,0.18)_54%,rgba(8,7,10,0.74)_66%,rgba(8,7,10,0.96)_100%)]"
       />
 
-      {/* ---------- type ---------- */}
-      <p className="t-mono anim-up relative z-10 text-neon" style={delay(0.05)}>
-        Joseph The Great — Toronto &amp; the GTA
-      </p>
+      {/* ---------- type ----------
 
-      {/* mt-auto, not centred: the middle of the frame belongs to his face */}
-      <div className="relative z-10 mt-auto flex flex-col items-center text-center">
-        {/*
-          The lockup is a <p> and the proposition is the <h1>. Heading level is
-          a semantic claim about what the page is about, and "Be unique."
-          answers that for nobody — not a search result, not a screen reader
-          landing cold. Size and heading level are different tools: this stays
-          the loudest thing on the screen either way.
-        */}
-        <p className="s-hero anim-up t-grotesk leading-[0.8] text-cream" style={delay(0.12)}>
-          Be <span className="t-serif font-normal text-neon">unique.</span>
+        Two blocks, pinned to the two ends, with the middle of the frame left
+        to the picture. The previous arrangement stacked everything through the
+        vertical centre, which put the headline directly across his face: the
+        photograph and the proposition were fighting for the same 200px and
+        both lost.
+
+        Left-aligned, not centred. A centred stack of headline / subhead /
+        button is the house style of every SaaS template in the category, and
+        the brief was explicit about not looking like one. Ranged left with a
+        hard measure reads as editorial, which is what this is.
+      */}
+      <div className="relative z-10">
+        <p className="t-mono anim-up eyebrow text-neon" style={delay(0.05)}>
+          {/* The name is in the nav and the title bar; repeating it here cost a
+              third line of the fold on a phone. What a stranger needs from this
+              line is the category and the city. */}
+          Creative marketing studio · Toronto &amp; the GTA
         </p>
 
+        {/*
+          The lockup is a <p> and the proposition below is the <h1>. Heading
+          level is a semantic claim about what the page is about, and "Be
+          unique." answers that for nobody — not a search result, not a screen
+          reader landing cold. Size and heading level are different tools.
+        */}
+        <p
+          className="s-hero anim-up t-grotesk mt-3 leading-[0.8] text-cream"
+          style={delay(0.12)}
+        >
+          Be <span className="t-serif font-normal text-neon">unique.</span>
+        </p>
+      </div>
+
+      <div className="relative z-10 mt-auto max-w-[52rem]">
+        {/*
+          What actually gets made, in nouns.
+
+          The line here used to be "Surreal campaigns that start real
+          conversations." It is a better sentence and it was the wrong thing to
+          put on the first screen: it describes a quality of the work without
+          ever saying what the work is. An owner arriving from an ad has to
+          leave with three nouns — reels, ads, websites — and the adjective can
+          wait for the second screen. The strangeness up here is carried by the
+          picture, which does not need the copy's help.
+        */}
         <h1
-          className="s-mid anim-up t-grotesk mt-6 max-w-[24ch] text-balance text-cream"
+          className="anim-up t-grotesk max-w-[20ch] text-balance text-[clamp(1.6rem,5.2vw,3rem)] leading-[1.02] text-cream"
           style={delay(0.2)}
         >
-          Surreal campaigns that start{" "}
-          <span className="t-serif font-normal text-neon">real conversations.</span>
+          Reels, ads, and the websites{" "}
+          <span className="t-serif font-normal text-neon">they land on.</span>
         </h1>
 
-        <div className="anim-up mt-8 flex w-full flex-col items-center gap-4" style={delay(0.28)}>
+        <p
+          className="anim-up mt-4 max-w-[44ch] text-[1.02rem] leading-snug text-cream/80"
+          style={delay(0.26)}
+        >
+          For Toronto businesses that need customers, not compliments — judged on
+          conversations started, never on views.
+        </p>
+
+        <div
+          className="anim-up mt-7 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-6"
+          style={delay(0.34)}
+        >
           <a
             href="#start"
-            className="t-grotesk flex min-h-[60px] w-full max-w-[26rem] items-center justify-center gap-3 bg-neon px-8 text-[1.15rem] text-void transition-colors duration-300 hover:bg-acid"
+            className="t-grotesk flex min-h-[60px] w-full max-w-[24rem] items-center justify-center gap-3 bg-neon px-8 text-[1.12rem] text-void transition-colors duration-300 hover:bg-acid sm:w-auto"
           >
             {OFFER.cta}
             <span aria-hidden>↓</span>
           </a>
-          <p className="max-w-[34rem] text-[0.98rem] leading-relaxed text-cream/75">
+          <p className="max-w-[22rem] text-[0.95rem] leading-snug text-cream/75">
             I&apos;ll send back the first three things I&apos;d change — free.
           </p>
         </div>
-      </div>
 
-      <p
-        className="s-proof anim-up relative z-10 text-center text-cream"
-        style={delay(0.36)}
-      >
-        <span className="text-neon">{spend}</span> in ads →{" "}
-        <span className="text-neon">{convos}</span> conversations →{" "}
-        <span className="text-neon">{leads}</span> qualified leads.
-      </p>
+        <p className="s-proof anim-up mt-8 text-cream" style={delay(0.42)}>
+          <span className="text-neon">{spend}</span> in ads →{" "}
+          <span className="text-neon">{convos}</span> conversations →{" "}
+          <span className="text-neon">{leads}</span> qualified leads.
+        </p>
+      </div>
     </section>
   );
 }

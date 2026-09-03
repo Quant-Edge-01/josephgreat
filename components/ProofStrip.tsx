@@ -53,7 +53,7 @@ export default function ProofStrip() {
         </p>
       </div>
 
-      <dl className="mt-9 grid grid-cols-2 gap-x-6 gap-y-9 md:grid-cols-4">
+      <dl className="reveal mt-9 grid grid-cols-2 gap-x-6 gap-y-9 md:grid-cols-4">
         {METRICS.map((m) => (
           <div key={m.value + m.label}>
             <dt
