@@ -26,9 +26,9 @@ export const mailto = (subject = "Project") =>
  */
 export const OFFER = {
   /** The ask, as a button. */
-  cta: "Send me your Instagram",
+  cta: "Get 3 free ideas",
   /** The full promise. */
-  line: "Send me your Instagram. I'll tell you the first three things I'd change — free, and you're welcome to go do them yourself.",
+  line: "Send me your business link. I’ll send back 3 free creative ideas.",
   /** What happens next, in the order people worry about it. */
   reply: "I reply myself, usually within a day.",
   /**

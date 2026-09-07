@@ -36,14 +36,14 @@ export default function Page() {
       <JarHero />
       <ProofStrip />
       {/* label-voice interruption; ~70px, see Interlude.tsx on the budget */}
-      <Interlude />
+
       <CaseCards />
       {/* Renders nothing until a real quote is passed — see Testimonial.tsx. */}
       <Testimonial />
       <Offer />
       <Founder />
       {/* the one place the jar gets room to move, between two text sections */}
-      <Interlude tone="cream" jar />
+
       <Objections />
       <StartHere context="home" />
     </main>

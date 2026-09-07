@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { OFFER } from "@/lib/site";
+import SoundToggle from "./SoundToggle";
 
 /**
  * Persistent navigation — glass, but legible first.
@@ -43,32 +44,37 @@ export default function Nav() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-[9500] transition-colors duration-300 ${
-        lifted ? "border-b border-neon/20 bg-void/85 backdrop-blur-md" : "bg-transparent"
+        lifted
+          ? "border-b border-neon/20 bg-void/85 backdrop-blur-md"
+          : "bg-transparent"
       }`}
     >
       <nav
         aria-label="Main"
-        className="flex items-center justify-between gap-4 px-6 py-3.5 md:px-10"
+        className="flex items-center justify-between gap-2 px-4 py-3.5 md:px-10"
       >
         {/* Spelled out at every width. It was abbreviated to "JtG" below 640px,
             which is the width where the visitor is least able to work out whose
             site this is from anything else on screen. */}
-        <a href="#main" className="t-mono text-neon">
-          Joseph The Great
+        <a href="/#main" className="t-mono text-neon">
+          <span className="nav-brand">Joseph The Great</span>
         </a>
 
         {/* desktop */}
         <ul className="hidden items-center gap-8 md:flex">
           {LINKS.map((l) => (
             <li key={l.href}>
-              <a className="t-mono underline-swipe text-cream/85" href={l.href}>
+              <a
+                className="t-mono underline-swipe text-cream/85"
+                href={`/${l.href}`}
+              >
                 {l.label}
               </a>
             </li>
           ))}
           <li>
             <a
-              href="#start"
+              href="/#start"
               className="t-mono flex min-h-[40px] items-center bg-neon px-4 text-void transition-colors duration-300 hover:bg-acid"
             >
               {OFFER.cta}
@@ -76,7 +82,13 @@ export default function Nav() {
           </li>
         </ul>
 
-        {/* mobile: a real disclosure button, not a mystery glyph */}
+        <a
+          href="/#start"
+          className="t-mono ml-auto flex min-h-11 items-center bg-neon px-3 text-void md:hidden"
+        >
+          3 free ideas
+        </a>
+        {/* mobile menu */}
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
@@ -86,6 +98,7 @@ export default function Nav() {
         >
           {open ? "Close" : "Menu"}
         </button>
+        <SoundToggle />
       </nav>
 
       {open && (
@@ -94,10 +107,13 @@ export default function Nav() {
           className="border-t border-neon/20 bg-void/95 px-6 pb-5 pt-2 backdrop-blur-md md:hidden"
         >
           {LINKS.map((l) => (
-            <li key={l.href} className="border-b border-neon/15 last:border-b-0">
+            <li
+              key={l.href}
+              className="border-b border-neon/15 last:border-b-0"
+            >
               <a
                 className="s-mid t-grotesk block py-3.5 text-cream"
-                href={l.href}
+                href={`/${l.href}`}
                 onClick={() => setOpen(false)}
               >
                 {l.label}

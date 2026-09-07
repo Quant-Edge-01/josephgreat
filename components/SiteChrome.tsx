@@ -1,6 +1,6 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import Nav from "./Nav";
 import Footer from "./Footer";
 
 /**
@@ -18,7 +18,7 @@ import Footer from "./Footer";
  * hydration to do anything anyway, and keeping it out of the initial chunk is
  * part of why the shared bundle sits at 131 kB rather than 183 kB.
  */
-const Nav = dynamic(() => import("./Nav"), { ssr: false });
+
 
 export function SiteNav() {
   return <Nav />;

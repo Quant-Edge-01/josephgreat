@@ -70,7 +70,7 @@ function validate(name: Field, raw: string): string | undefined {
   // A handle or a URL. Instagram handles routinely contain dots
   // (@dream.alterations), so this cannot key off punctuation.
   if (v.startsWith("@") || HANDLE_RE.test(v) || URLISH_RE.test(v))
-    return "Instagram won't let me message you unless you follow me first, so a handle here is a dead end. An email or a phone number works.";
+    return "Use an email or phone number so I can send your ideas back.";
   return "That doesn't look like an email or a phone number.";
 }
 
@@ -83,7 +83,11 @@ function validate(name: Field, raw: string): string | undefined {
  * see validate(). That is a deliberate step back up in friction, taken because
  * the cheaper version produced an enquiry nobody could answer.
  */
-export default function EnquiryForm({ context = "site" }: { context?: string }) {
+export default function EnquiryForm({
+  context = "site",
+}: {
+  context?: string;
+}) {
   const id = useId();
   const formRef = useRef<HTMLFormElement>(null);
   const doneRef = useRef<HTMLParagraphElement>(null);
@@ -109,7 +113,9 @@ export default function EnquiryForm({ context = "site" }: { context?: string }) 
     const el = e.currentTarget;
     const name = el.name as Field;
     if (name !== "site" && name !== "reply") return;
-    setErrors((prev) => (prev[name] ? { ...prev, [name]: validate(name, el.value) } : prev));
+    setErrors((prev) =>
+      prev[name] ? { ...prev, [name]: validate(name, el.value) } : prev,
+    );
   }
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -149,20 +155,26 @@ export default function EnquiryForm({ context = "site" }: { context?: string }) 
         "[enquiry] NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY is not set — the enquiry cannot be sent. " +
           "Set it in the Vercel project (and .env.local for development), then redeploy.",
       );
-      setFailure("The form isn't wired up on this deploy.");
+      setFailure("Please email me using the link below.");
       setState("failed");
       return;
     }
 
     setState("sending");
     setFailure("");
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 15000);
     try {
       const res = await fetch(WEB3FORMS_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        signal: controller.signal,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify({
           access_key: ACCESS_KEY,
-          subject: `Teardown request — ${site}`,
+          subject: `3 creative ideas — ${site}`,
           from_name: "JosephTheGreat site",
           // Only a real address can be a reply-to. An @handle here would make
           // the notification unreplyable, so it is left off and the handle is
@@ -170,7 +182,9 @@ export default function EnquiryForm({ context = "site" }: { context?: string }) 
           ...(EMAIL_RE.test(reply) ? { replyto: reply } : {}),
           // remaining keys render as labelled rows in the email body
           "Instagram or website": site,
-          [EMAIL_RE.test(reply) ? "Reply by email" : "Reply by phone / WhatsApp"]: reply,
+          [EMAIL_RE.test(reply)
+            ? "Reply by email"
+            : "Reply by phone / WhatsApp"]: reply,
           "What they're promoting": promoting || "— not given —",
           "Sent from": context,
         }),
@@ -193,9 +207,9 @@ export default function EnquiryForm({ context = "site" }: { context?: string }) 
       // runs unless the mail actually left.
       if (!res.ok || !result?.success) {
         console.error(
-          `[enquiry] Web3Forms refused the send — status ${res.status} ${res.statusText}, body: ${raw}`,
+          `[enquiry] Web3Forms refused the send — status ${res.status}`,
         );
-        setFailure("The mail service turned it down.");
+        setFailure("Please try again or email me below.");
         setState("failed");
         return;
       }
@@ -205,8 +219,12 @@ export default function EnquiryForm({ context = "site" }: { context?: string }) 
       setState("sent");
     } catch (err) {
       console.error("[enquiry] The enquiry never left the browser:", err);
-      setFailure("The request never left your browser — the connection dropped.");
+      setFailure(
+        "The request never left your browser — the connection dropped.",
+      );
       setState("failed");
+    } finally {
+      window.clearTimeout(timeout);
     }
   }
 
@@ -221,13 +239,12 @@ export default function EnquiryForm({ context = "site" }: { context?: string }) 
           Sent<span className="text-neon">.</span>
         </p>
         <p className="s-body mt-4 max-w-[34rem] text-cream/75">
-          I&apos;ll open your account, watch what you&apos;ve got, and write back with the
-          first three things I&apos;d change. {OFFER.reply} It comes from{" "}
-          <span className="text-neon">{EMAIL}</span> — if it isn&apos;t there in a day,
-          check spam, then DM me.
+          I’ll send your three ideas to the contact you gave me. {OFFER.reply}
+          Email replies come from <span className="text-neon">{EMAIL}</span>.
         </p>
         <p className="s-body mt-4 max-w-[34rem] text-cream/60">
-          {OFFER.noCall} If the three things are all you wanted, take them and go.
+          {OFFER.noCall} If the three things are all you wanted, take them and
+          go.
         </p>
       </div>
     );
@@ -242,7 +259,12 @@ export default function EnquiryForm({ context = "site" }: { context?: string }) 
   const err = "t-note mt-2 block text-acid";
 
   return (
-    <form ref={formRef} onSubmit={onSubmit} noValidate className="max-w-[34rem]">
+    <form
+      ref={formRef}
+      onSubmit={onSubmit}
+      noValidate
+      className="max-w-[34rem]"
+    >
       <div className="mb-6">
         <label htmlFor={`${id}-site`} className={label}>
           Your Instagram or website
@@ -250,6 +272,7 @@ export default function EnquiryForm({ context = "site" }: { context?: string }) 
         <input
           id={`${id}-site`}
           name="site"
+          required
           type="text"
           maxLength={200}
           autoComplete="url"
@@ -281,6 +304,7 @@ export default function EnquiryForm({ context = "site" }: { context?: string }) 
         <input
           id={`${id}-reply`}
           name="reply"
+          required
           type="text"
           maxLength={200}
           autoComplete="email"
@@ -291,7 +315,9 @@ export default function EnquiryForm({ context = "site" }: { context?: string }) 
           onBlur={onBlur}
           onInput={onInput}
           aria-invalid={!!errors.reply}
-          aria-describedby={errors.reply ? `${id}-reply-err` : `${id}-reply-hint`}
+          aria-describedby={
+            errors.reply ? `${id}-reply-err` : `${id}-reply-hint`
+          }
           className={field}
         />
         {errors.reply ? (
@@ -300,13 +326,13 @@ export default function EnquiryForm({ context = "site" }: { context?: string }) 
           </span>
         ) : (
           <span id={`${id}-reply-hint`} className={hint}>
-            Email or a number I can WhatsApp. Instagram won&apos;t let me reply
-            unless you follow me first.
+            Email or WhatsApp — whichever you check.
           </span>
         )}
       </div>
 
-      <div className="mb-8">
+      <details className="mb-6 short-detail text-cream/80">
+        <summary className="mb-3">Anything I should know? (optional)</summary>
         <label htmlFor={`${id}-promoting`} className={label}>
           What are you promoting?{" "}
           <span className="t-note text-cream/65">(optional)</span>
@@ -320,10 +346,13 @@ export default function EnquiryForm({ context = "site" }: { context?: string }) 
           onInput={onInput}
           className={`${field} resize-y`}
         />
-      </div>
+      </details>
 
       {/* honeypot — off-screen, never focusable, must stay empty */}
-      <div aria-hidden className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
+      <div
+        aria-hidden
+        className="absolute left-[-9999px] h-0 w-0 overflow-hidden"
+      >
         <label htmlFor={`${id}-hp`}>Company website</label>
         <input
           id={`${id}-hp`}
@@ -339,32 +368,34 @@ export default function EnquiryForm({ context = "site" }: { context?: string }) 
         disabled={state === "sending"}
         className="t-grotesk min-h-[60px] w-full bg-neon px-6 text-[1.2rem] text-void transition-colors duration-300 hover:bg-acid disabled:cursor-wait disabled:opacity-70"
       >
-        {state === "sending" ? "Sending…" : "Send it over"}
+        {state === "sending" ? "Sending…" : "Send me 3 ideas"}
       </button>
 
-      <p className="t-note mt-4 text-cream/70">
-        {OFFER.reply} {OFFER.noCall}
-      </p>
+      <p className="t-note mt-4 text-cream/70">{OFFER.reply}</p>
       {/*
         Offered, not asked for, and with no booking link anywhere — the point of
         "no call" was never that talking is forbidden, it was that nobody has to
         sit through a discovery call to get an answer. Saying so removes the
         objection for people who would simply rather speak.
       */}
-      <p className="t-note mt-2 text-cream/50">{OFFER.callOptional}</p>
 
       {state === "failed" && (
         <div role="alert" className="mt-8 border border-acid/50 p-5">
           <p className="s-body text-cream">
-            That didn&apos;t go through — {failure} Nothing you typed is lost, and
-            you can hit send again.
+            That didn&apos;t go through — {failure} Nothing you typed is lost,
+            and you can hit send again.
           </p>
-          <p className="s-body mt-3 text-cream/70">Or just use whichever is easier:</p>
+          <p className="s-body mt-3 text-cream/70">
+            Or just use whichever is easier:
+          </p>
           <div className="t-mono mt-4 flex flex-col gap-2">
             <a className="underline-swipe w-fit text-neon" href={IG_URL}>
               {IG_HANDLE} ↗
             </a>
-            <a className="underline-swipe w-fit text-neon" href={mailto(OFFER.cta)}>
+            <a
+              className="underline-swipe w-fit text-neon"
+              href={mailto(OFFER.cta)}
+            >
               {EMAIL} ↗
             </a>
           </div>

@@ -61,12 +61,12 @@ export default function SoundToggle() {
      session, so a reload or a return from /works/* has no gate to tap and the
      bed has to catch the next interaction instead. */
   useEffect(() => {
-    if (sessionStorage.getItem(KEY) === "off") return;
+    if (sessionStorage.getItem(KEY) !== "on") return;
     if (engine.current.isRunning) return;
 
     let done = false;
     const go = async () => {
-      if (done) return;
+      if (done || sessionStorage.getItem(KEY) !== "on") return;
       const started = await engine.current?.start();
       /* Blocked after all — leave the listeners up and try the next gesture
          rather than flipping the label to a lie. */
@@ -117,14 +117,26 @@ export default function SoundToggle() {
     // Right, not left: the hero's proof line and every section eyebrow are
     // ranged left, so a control fixed in that corner lands on copy at some
     // scroll offset on every page. The right gutter is empty the whole way down.
-    <div className="pointer-events-none fixed bottom-4 right-4 z-[9400] flex flex-row-reverse items-center gap-2.5 md:bottom-6 md:right-6">
+    <div className="sound-control shrink-0">
       <button
         type="button"
         onClick={toggle}
         aria-pressed={on}
-        className="t-mono pointer-events-auto flex min-h-[40px] items-center gap-2.5 border border-neon/35 bg-void/80 px-3 text-cream backdrop-blur-md transition-colors duration-300 hover:border-neon/70"
+        aria-label={on ? "Mute music" : "Play music"}
+        onPointerDown={(e) => e.stopPropagation()}
+        onKeyDown={(e) => e.stopPropagation()}
+        onTouchEnd={(e) => e.stopPropagation()}
+        className="t-mono flex min-h-11 min-w-11 items-center justify-center gap-2.5 border border-neon/35 bg-void/80 px-3 text-cream transition-colors duration-300 hover:border-neon/70"
       >
-        <span aria-hidden className="flex h-3.5 items-end gap-[2px]">
+        {!on && (
+          <span aria-hidden className="text-xl leading-none">
+            ♪
+          </span>
+        )}
+        <span
+          aria-hidden
+          className={on ? "flex h-3.5 items-end gap-[2px]" : "hidden"}
+        >
           {[0, 1, 2, 3].map((i) => (
             <span
               key={i}
@@ -135,10 +147,12 @@ export default function SoundToggle() {
         </span>
         {/* the state, not the action — a control reading "Sound off" while
             sound is off is ambiguous about which of the two it means */}
-        <span>{on ? "Sound on" : "Sound off"}</span>
+        <span className="hidden lg:inline">
+          {on ? "Sound on" : "Sound off"}
+        </span>
       </button>
 
-      {hint && (
+      {hint && false && (
         <p className="t-mono pointer-events-none hidden max-w-[16rem] text-right text-cream/55 sm:block">
           soundtrack playing — mute here →
         </p>

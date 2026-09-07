@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
-import { FLAGSHIP_SLUG, OFFER } from "@/lib/site";
-import { workBySlug } from "@/lib/works";
+import { OFFER, PRICE_RANGE } from "@/lib/site";
+import SyrupScroll from "./SyrupScroll";
+
 
 /**
  * The founder, inside the jar, on the first screen.
@@ -39,16 +40,15 @@ const MENISCUS = 402;
 const delay = (s: number) => ({ "--delay": `${s}s` }) as CSSProperties;
 
 export default function JarHero() {
-  const dream = workBySlug(FLAGSHIP_SLUG)!;
-  const [spend, convos, , leads] = dream.stats.map((s) => s.value);
 
   return (
-    <section className="relative isolate flex min-h-[100svh] flex-col justify-between overflow-hidden bg-void px-6 pb-8 pt-24 md:px-10 md:pb-10 md:pt-28">
+    <section className="hero-scene relative isolate flex min-h-[100svh] flex-col justify-between overflow-hidden bg-void px-6 pb-8 pt-24 md:px-10 md:pb-10 md:pt-28">
+      <SyrupScroll />
       {/* ---------- the jar ---------- */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 grid place-items-center">
+      <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center">
         <svg
           viewBox="0 0 400 620"
-          className="jar-rise h-[92svh] w-auto max-w-none opacity-95"
+          className="hero-jar jar-rise h-[92svh] w-auto max-w-none shrink-0 opacity-95"
           shapeRendering="geometricPrecision"
         >
           <defs>
@@ -165,6 +165,10 @@ export default function JarHero() {
             <rect x="88" y="150" width="18" height="380" fill="url(#jh-streak)" opacity="0.5" />
             <rect x="300" y="200" width="8" height="300" fill="url(#jh-streak)" opacity="0.34" />
           </g>
+          <path className="jar-crack" d="M318 483 l-10 8 15 9 -9 8" fill="none" stroke="#ffcf7d" strokeWidth="2" />
+          <path className="jar-stream" d="M318 501 C349 501 357 525 351 548 C346 572 359 579 357 597" fill="none" stroke="url(#jh-syrup)" strokeWidth="14" strokeLinecap="round" pathLength="1" />
+          <ellipse className="jar-pool" cx="305" cy="600" rx="115" ry="13" fill="url(#jh-syrup)" />
+          <ellipse className="jar-pool" cx="300" cy="596" rx="92" ry="3" fill="#ffcf7d" opacity=".4" />
         </svg>
       </div>
 
@@ -198,7 +202,7 @@ export default function JarHero() {
           {/* The name is in the nav and the title bar; repeating it here cost a
               third line of the fold on a phone. What a stranger needs from this
               line is the category and the city. */}
-          Creative marketing studio · Toronto &amp; the GTA
+          Creative marketing agency · Toronto
         </p>
 
         {/*
@@ -239,8 +243,7 @@ export default function JarHero() {
           className="anim-up mt-4 max-w-[44ch] text-[1.02rem] leading-snug text-cream/80"
           style={delay(0.26)}
         >
-          For Toronto businesses that need customers, not compliments — judged on
-          conversations started, never on views.
+          Make your business memorable. Give people a reason to get in touch.
         </p>
 
         <div
@@ -255,15 +258,11 @@ export default function JarHero() {
             <span aria-hidden>↓</span>
           </a>
           <p className="max-w-[22rem] text-[0.95rem] leading-snug text-cream/75">
-            I&apos;ll send back the first three things I&apos;d change — free.
+            For your business. No call required.
           </p>
         </div>
 
-        <p className="s-proof anim-up mt-8 text-cream" style={delay(0.42)}>
-          <span className="text-neon">{spend}</span> in ads →{" "}
-          <span className="text-neon">{convos}</span> conversations →{" "}
-          <span className="text-neon">{leads}</span> qualified leads.
-        </p>
+        <p className="t-note mt-5 text-cream/75">Working together: {PRICE_RANGE} CAD / month.</p>
       </div>
     </section>
   );

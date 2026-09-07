@@ -5,8 +5,9 @@ import BackToSyrup from "@/components/BackToSyrup";
 import TrackView from "@/components/TrackView";
 import WorkCta from "@/components/WorkCta";
 import WorkGallery from "@/components/WorkGallery";
-import { RETAINER, retainedOrdinal } from "@/lib/site";
+import { RETAINER } from "@/lib/site";
 import { WORKS, workBySlug } from "@/lib/works";
+import { CASE_NOTES } from "@/lib/case-notes";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -18,7 +19,10 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const w = workBySlug(slug);
   if (!w) return {};
-  return { title: `${w.title} — Joseph The Great`, description: w.lede };
+  return {
+    title: `${w.title} — Joseph The Great`,
+    description: CASE_NOTES[w.slug].problem,
+  };
 }
 
 export default async function WorkPage({ params }: Params) {
@@ -26,10 +30,15 @@ export default async function WorkPage({ params }: Params) {
   const w = workBySlug(slug);
   if (!w) notFound();
 
-  const next = WORKS[(WORKS.findIndex((x) => x.slug === w.slug) + 1) % WORKS.length];
+  const next =
+    WORKS[(WORKS.findIndex((x) => x.slug === w.slug) + 1) % WORKS.length];
 
   return (
-    <main data-nav-dark className="relative min-h-screen bg-void pb-24">
+    <main
+      id="main"
+      data-nav-dark
+      className="relative min-h-screen bg-void pb-24"
+    >
       {/* still inside the jar: amber bleeding in from the top edge */}
       <div
         aria-hidden
@@ -50,7 +59,9 @@ export default async function WorkPage({ params }: Params) {
             {w.title}
           </h1>
 
-          <p className="t-serif s-mid mt-6 max-w-[38rem] text-neon/90">{w.lede}</p>
+          <p className="t-serif s-mid mt-6 max-w-[38rem] text-neon/90">
+            {CASE_NOTES[w.slug].result} — {CASE_NOTES[w.slug].label}
+          </p>
           <p className="t-mono mt-5 text-cream/70">{w.client}</p>
           {w.current && (
             <p className="t-mono mt-4 inline-block border border-acid/50 px-3.5 py-2.5 text-acid">
@@ -78,21 +89,24 @@ export default async function WorkPage({ params }: Params) {
           ))}
         </dl>
 
-        <div className="mt-16 max-w-[42rem] space-y-6 md:mt-24">
-          {w.body.map((para, i) => (
-            <p key={i} className="s-body text-cream/70">
-              {para}
-            </p>
-          ))}
-        </div>
-
-        <blockquote className="my-20 max-w-[46rem] md:my-32 md:pl-[8%]">
-          <p className="t-serif text-[clamp(1.5rem,5.4vw,3rem)] leading-[1.12] text-gold">
-            “{w.quote}”
-          </p>
-          <footer className="t-mono mt-6 text-cream/70">— Joseph, on this one</footer>
-        </blockquote>
-
+        <dl className="mt-10 grid max-w-4xl gap-7 md:grid-cols-2">
+          <div>
+            <dt className="t-mono text-neon">The brief</dt>
+            <dd className="s-body mt-3 text-cream/80">
+              {CASE_NOTES[w.slug].problem}
+            </dd>
+          </div>
+          <div>
+            <dt className="t-mono text-neon">What I made</dt>
+            <dd className="s-body mt-3 text-cream/80">
+              {CASE_NOTES[w.slug].work}
+            </dd>
+          </div>
+        </dl>
+        <p className="t-note my-10 max-w-3xl text-cream/65">
+          {CASE_NOTES[w.slug].limit} Figures are from the saved campaign
+          screenshots.
+        </p>
         <WorkGallery images={w.images} />
 
         {w.link && (
@@ -105,13 +119,6 @@ export default async function WorkPage({ params }: Params) {
             {w.link.label}
             <span aria-hidden>↗</span>
           </a>
-        )}
-
-        {w.current && (
-          <p className="s-body mt-20 max-w-[42rem] text-cream/85 md:mt-28">
-            This one is still open. {retainedOrdinal().replace(/^./, (c) => c.toUpperCase())}{" "}
-            month, same client, paid monthly — not a project that ended and got written up.
-          </p>
         )}
 
         <div className="mt-24 md:mt-36">

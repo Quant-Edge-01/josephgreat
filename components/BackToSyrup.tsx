@@ -10,10 +10,10 @@ export default function BackToSyrup() {
   return (
     // right inset keeps a dark backdrop under the fixed dots menu — cream dots
     // on this amber measure about 1.6:1
-    <div className="sticky top-0 z-[9200] px-4 pr-16 pt-4 md:px-8 md:pr-24 md:pt-6">
+    <div className="relative px-6 pt-24 md:px-10">
       <Link
         href="/#work"
-        className="group relative flex items-center gap-4 overflow-visible bg-[#e2a339] px-5 py-4 text-ink transition-colors duration-300 hover:bg-neon md:gap-6 md:px-8 md:py-6"
+        className="group relative inline-flex min-h-11 items-center gap-4 bg-[#e2a339] px-5 py-3 text-ink transition-colors duration-300 hover:bg-neon"
       >
         <span
           aria-hidden

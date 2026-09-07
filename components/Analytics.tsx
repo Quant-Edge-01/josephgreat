@@ -57,7 +57,7 @@ export default function Analytics() {
       <VercelAnalytics />
 
       {/* absent pixel id renders nothing at all, rather than a broken snippet */}
-      {PIXEL_ID && (
+      {PIXEL_ID && /^(?!0+$)\d+$/.test(PIXEL_ID) && (
         <Script id="meta-pixel" strategy="afterInteractive">
           {`!function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?

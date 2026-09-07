@@ -2,16 +2,9 @@ import type { Metadata, Viewport } from "next";
 import { Archivo, DM_Mono, Instrument_Serif } from "next/font/google";
 import Analytics from "@/components/Analytics";
 import ContactProvider from "@/components/ContactProvider";
-import EnterGate from "@/components/EnterGate";
+
 import { SiteFooter, SiteNav } from "@/components/SiteChrome";
-import SoundToggle from "@/components/SoundToggle";
-import {
-  PRICE_CEILING,
-  PRICE_FLOOR,
-  RETAINER,
-  UNGATED_PATHS,
-  retainedOrdinal,
-} from "@/lib/site";
+import { PRICE_CEILING, PRICE_FLOOR } from "@/lib/site";
 import "./globals.css";
 
 const sans = Archivo({
@@ -36,7 +29,7 @@ const mono = DM_Mono({
 });
 
 const PRICE = `$${PRICE_FLOOR}–$${PRICE_CEILING.toLocaleString()} CAD`;
-const BLURB = `Reels, the ads behind them and the website they land on, for Toronto and GTA local businesses — built to start conversations rather than collect views. Currently running a GTA bridal shop's content, ${retainedOrdinal()} month on a $${RETAINER.monthly}/month retainer. ${PRICE}, and $${PRICE_CEILING.toLocaleString()} is a hard ceiling.`;
+const BLURB = `Creative marketing in Toronto. Reels, ads and websites to make your business memorable and help attract customers. ${PRICE}/month depending on scope. Get 3 free creative ideas.`;
 
 export const metadata: Metadata = {
   // the title has to survive as a search result and a DM link preview, where
@@ -69,7 +62,11 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   /*
     suppressHydrationWarning sits on <html> only, and only because the inline
     script below deliberately sets data-gate on it before React hydrates. React
@@ -92,13 +89,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           never executes the attribute is never set, the gate stays
           display:none, and the site behind it is simply readable.
         */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `try{var p=location.pathname.replace(/\\/+$/,'')||'/';if(!sessionStorage.getItem('jtg-entered')&&${JSON.stringify(
-              UNGATED_PATHS,
-            )}.indexOf(p)<0)document.documentElement.setAttribute('data-gate','closed')}catch(e){}`,
-          }}
-        />
 
         {/* first tab stop: the fixed dots menu is otherwise the only way past
             a full screen of poster for a keyboard user */}
@@ -115,8 +105,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </ContactProvider>
         {/* The tap that opens this is also the user gesture the browser
             requires before any audio can start — see EnterGate.tsx. */}
-        <EnterGate />
-        <SoundToggle />
+
         <div className="grain" aria-hidden />
         <Analytics />
       </body>

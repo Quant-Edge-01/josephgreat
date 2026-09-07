@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "motion/react";
 import type { CSSProperties } from "react";
 import type { WorkImage } from "@/lib/works";
 
@@ -22,12 +21,8 @@ export default function WorkGallery({ images }: { images: WorkImage[] }) {
       {images.map((img, i) => {
         const p = PLACEMENT[i % PLACEMENT.length];
         return (
-          <motion.figure
+          <figure
             key={img.src}
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-10% 0px" }}
-            transition={{ type: "spring", stiffness: 120, damping: 20 }}
             className={`${p.w} ${p.pull}`}
           >
             <div
@@ -55,7 +50,7 @@ export default function WorkGallery({ images }: { images: WorkImage[] }) {
             <figcaption className="t-note mt-5 max-w-[34rem] text-cream/70">
               {img.caption}
             </figcaption>
-          </motion.figure>
+          </figure>
         );
       })}
     </div>
