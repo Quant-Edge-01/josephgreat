@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { IG_HANDLE, IG_URL } from "@/lib/site";
 
 export default function Footer() {
@@ -13,6 +14,15 @@ export default function Footer() {
             {IG_HANDLE}
           </a>
           <span>© {new Date().getFullYear()} — built solo</span>
+          {/* Deliberately the quietest thing in the footer: it has to be
+              findable from every page and on the lead form, without competing
+              with the contact links above it. */}
+          <Link
+            className="underline-swipe w-fit text-cream/55 md:ml-auto"
+            href="/privacy-policy"
+          >
+            Privacy Policy
+          </Link>
         </div>
       </div>
     </footer>

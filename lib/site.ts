@@ -102,3 +102,21 @@ export const RETAINER_BADGE = `current client · since ${RETAINER.sinceLabel.toL
 export function retainerLine(now: Date = new Date()) {
   return `Running content for a GTA bridal shop since ${RETAINER.sinceLabel} — ${retainedOrdinal(now)} month, $${RETAINER.monthly}/month.`;
 }
+
+/**
+ * Paths the entry gate must never cover.
+ *
+ * The gate is a full-screen "tap to enter" overlay, which is the wrong thing to
+ * put in front of a privacy policy: the URL is handed to Meta for ad review and
+ * printed on lead forms, and a reviewer opening it needs the policy, not a door.
+ * Declared here rather than inline because two places consume it — the inline
+ * script in the document head and the gate component itself — and they cannot
+ * be allowed to disagree.
+ */
+export const UNGATED_PATHS = ["/privacy-policy"] as const;
+
+/** Trailing slashes are normalised so "/privacy-policy/" is ungated too. */
+export function isUngated(pathname: string) {
+  const clean = pathname.replace(/\/+$/, "") || "/";
+  return (UNGATED_PATHS as readonly string[]).includes(clean);
+}

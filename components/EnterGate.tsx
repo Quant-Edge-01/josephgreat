@@ -1,7 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { getAmbient } from "@/lib/ambient";
+import { isUngated } from "@/lib/site";
 import SyrupJar from "./SyrupJar";
 
 /**
@@ -37,6 +39,9 @@ const SOUND_KEY = "jtg-sound";
 const BREAK_MS = 430;
 
 export default function EnterGate() {
+  const pathname = usePathname();
+  const ungated = isUngated(pathname);
+
   const [breaking, setBreaking] = useState(false);
   const [gone, setGone] = useState(false);
   const enterBtn = useRef<HTMLButtonElement>(null);
@@ -46,13 +51,13 @@ export default function EnterGate() {
     /* Already through it this session — a client-side return from /works/*
        still renders this markup on the server, so drop it immediately rather
        than leaving two jar SVGs and two buttons in the document. */
-    if (sessionStorage.getItem(ENTERED_KEY)) {
+    if (ungated || sessionStorage.getItem(ENTERED_KEY)) {
       setGone(true);
       return;
     }
     // focus the way in, so a keyboard lands here and not on the page behind
     enterBtn.current?.focus();
-  }, []);
+  }, [ungated]);
 
   const open = useCallback((withSound: boolean) => {
     if (done.current) return;
@@ -76,7 +81,7 @@ export default function EnterGate() {
     }, BREAK_MS);
   }, []);
 
-  if (gone) return null;
+  if (gone || ungated) return null;
 
   return (
     <div

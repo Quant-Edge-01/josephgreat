@@ -5,7 +5,13 @@ import ContactProvider from "@/components/ContactProvider";
 import EnterGate from "@/components/EnterGate";
 import { SiteFooter, SiteNav } from "@/components/SiteChrome";
 import SoundToggle from "@/components/SoundToggle";
-import { PRICE_CEILING, PRICE_FLOOR, RETAINER, retainedOrdinal } from "@/lib/site";
+import {
+  PRICE_CEILING,
+  PRICE_FLOOR,
+  RETAINER,
+  UNGATED_PATHS,
+  retainedOrdinal,
+} from "@/lib/site";
 import "./globals.css";
 
 const sans = Archivo({
@@ -88,8 +94,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         */}
         <script
           dangerouslySetInnerHTML={{
-            __html:
-              "try{if(!sessionStorage.getItem('jtg-entered'))document.documentElement.setAttribute('data-gate','closed')}catch(e){}",
+            __html: `try{var p=location.pathname.replace(/\\/+$/,'')||'/';if(!sessionStorage.getItem('jtg-entered')&&${JSON.stringify(
+              UNGATED_PATHS,
+            )}.indexOf(p)<0)document.documentElement.setAttribute('data-gate','closed')}catch(e){}`,
           }}
         />
 
