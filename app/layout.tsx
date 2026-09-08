@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo, DM_Mono, Instrument_Serif } from "next/font/google";
 import Analytics from "@/components/Analytics";
+import EnterGate from "@/components/EnterGate";
+import { UNGATED_PATHS } from "@/lib/site";
 import ContactProvider from "@/components/ContactProvider";
 
 import { SiteFooter, SiteNav } from "@/components/SiteChrome";
@@ -82,6 +84,7 @@ export default function RootLayout({
       className={`${sans.variable} ${display.variable} ${mono.variable}`}
     >
       <body>
+        <script dangerouslySetInnerHTML={{ __html: `try{var p=location.pathname.replace(/\\/+$/,'')||'/';if(!sessionStorage.getItem('jtg-entered')&&${JSON.stringify(UNGATED_PATHS)}.indexOf(p)<0)document.documentElement.setAttribute('data-gate','closed')}catch(e){}` }} />
         {/*
           Runs during parse, before anything paints, so the gate is up on the
           first frame rather than appearing over a page the visitor has already
@@ -106,6 +109,7 @@ export default function RootLayout({
         {/* The tap that opens this is also the user gesture the browser
             requires before any audio can start — see EnterGate.tsx. */}
 
+        <EnterGate />
         <div className="grain" aria-hidden />
         <Analytics />
       </body>
