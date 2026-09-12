@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EMAIL, IG_HANDLE, IG_URL, mailto } from "@/lib/site";
@@ -24,12 +25,11 @@ import { EMAIL, IG_HANDLE, IG_URL, mailto } from "@/lib/site";
  * boilerplate pasted from somewhere else.
  */
 
-export const metadata: Metadata = {
-  title: "Privacy Policy | Joseph The Great",
-  description:
-    "How Joseph The Great collects, uses and stores information from enquiries, contact forms, Meta lead forms and website analytics.",
-  alternates: { canonical: "/privacy-policy" },
-};
+export const metadata: Metadata = pageMetadata(
+  "Privacy Policy | Joseph The Great",
+  "How Joseph The Great collects, uses and stores information from enquiries, contact forms, Meta lead forms and website analytics.",
+  "/privacy-policy",
+);
 
 /** Shown in the header and at the foot of the policy. */
 const UPDATED = "7 September 2026";
@@ -72,7 +72,7 @@ function List({ items }: { items: React.ReactNode[] }) {
 
 export default function PrivacyPolicyPage() {
   return (
-    <main data-nav-dark className="min-h-screen bg-void px-6 pb-24 pt-24 md:px-10 md:pt-28">
+    <main id="main" tabIndex={-1} data-nav-dark className="min-h-screen bg-void px-6 pb-24 pt-24 md:px-10 md:pt-28">
       <div className="mx-auto max-w-[46rem]">
         <p className="t-mono text-neon">Joseph The Great — Toronto, ON</p>
 

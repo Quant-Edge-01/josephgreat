@@ -1,8 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo, DM_Mono, Instrument_Serif } from "next/font/google";
+import JsonLd from "@/components/JsonLd";
+import { organizationSchema } from "@/lib/seo";
 import Analytics from "@/components/Analytics";
 import EnterGate from "@/components/EnterGate";
-import { UNGATED_PATHS } from "@/lib/site";
+import { SITE_URL, UNGATED_PATHS } from "@/lib/site";
 import ContactProvider from "@/components/ContactProvider";
 
 import { SiteFooter, SiteNav } from "@/components/SiteChrome";
@@ -41,7 +43,9 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description: BLURB,
-  metadataBase: new URL("https://josephthegreat.art"),
+  metadataBase: new URL(SITE_URL),
+  // Public ownership token supplied by this site's Google Search Console property.
+  verification: { google: "wawMoksh2vtNaOd2v-VWroxJo0J_wUrt3WPwpse-aOo" },
   openGraph: {
     title: "Joseph The Great — reels, ads and websites, Toronto",
     description: BLURB,
@@ -49,9 +53,11 @@ export const metadata: Metadata = {
     siteName: "Joseph The Great",
     locale: "en_CA",
     type: "website",
+    images: [{ url: "/joseph.jpg", alt: "Joseph The Great — Toronto creative marketing studio" }],
   },
   twitter: {
     card: "summary_large_image",
+    images: ["/joseph.jpg"],
     title: "Joseph The Great — reels, ads and websites, Toronto",
     description: BLURB,
   },
@@ -84,6 +90,7 @@ export default function RootLayout({
       className={`${sans.variable} ${display.variable} ${mono.variable}`}
     >
       <body>
+        <JsonLd data={organizationSchema} />
         <script dangerouslySetInnerHTML={{ __html: `try{var p=location.pathname.replace(/\\/+$/,'')||'/';if(!sessionStorage.getItem('jtg-entered')&&${JSON.stringify(UNGATED_PATHS)}.indexOf(p)<0)document.documentElement.setAttribute('data-gate','closed')}catch(e){}` }} />
         {/*
           Runs during parse, before anything paints, so the gate is up on the

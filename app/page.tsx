@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import CaseCards from "@/components/CaseCards";
 import Interlude from "@/components/Interlude";
 import Founder from "@/components/Founder";
@@ -30,6 +31,8 @@ import Testimonial from "@/components/Testimonial";
  * - HireCta (floating button) — dropped. The persistent nav carries the CTA,
  *   and two pieces of fixed chrome doing one job is one too many.
  */
+export const metadata: Metadata = { alternates: { canonical: "/" } };
+
 export default function Page() {
   return (
     <main id="main">

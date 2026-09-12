@@ -1,3 +1,5 @@
+export const SITE_URL = "https://www.josephthegreat.art";
+
 export const EMAIL = "email@josephthegreat.art";
 
 /**
@@ -113,7 +115,12 @@ export function retainerLine(now: Date = new Date()) {
  * script in the document head and the gate component itself — and they cannot
  * be allowed to disagree.
  */
-export const UNGATED_PATHS = ["/privacy-policy"] as const;
+export const UNGATED_PATHS = [
+  "/privacy-policy", "/toronto-marketing", "/affordable-marketing-toronto", "/about-joseph",
+  "/services/bridal-marketing-toronto", "/services/beauty-salon-marketing-toronto",
+  "/services/gym-marketing-toronto", "/services/restaurant-marketing-toronto",
+  "/services/retail-marketing-toronto",
+] as const;
 
 /** Trailing slashes are normalised so "/privacy-policy/" is ungated too. */
 export function isUngated(pathname: string) {

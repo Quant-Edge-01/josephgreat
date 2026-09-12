@@ -192,7 +192,7 @@ const SEEDS: WorkSeed[] = [
     quote: "I know even how to make content for kids — over 30 million views.",
     stats: [
       { value: "33.1M", label: "lifetime views" },
-      { value: "324.4K", label: "subscribers" },
+      { value: "+324.4K", label: "net subscribers gained" },
       { value: "8.5M", label: "best single short" },
       { value: "6", label: "shorts past 1M" },
     ],

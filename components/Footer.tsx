@@ -22,6 +22,9 @@ export default function Footer() {
           <a className="underline-swipe w-fit text-cream md:ml-auto" href={IG_URL}>
             {IG_HANDLE}
           </a>
+          <Link className="underline-swipe w-fit text-cream/70 md:ml-auto" href="/toronto-marketing">Toronto marketing services</Link>
+          <Link className="underline-swipe w-fit text-cream/70 md:ml-auto" href="/affordable-marketing-toronto">Pricing &amp; scope</Link>
+          <Link className="underline-swipe w-fit text-cream/70 md:ml-auto" href="/about-joseph">About Joseph</Link>
           <span>© {new Date().getFullYear()} — built solo</span>
           {/* Deliberately the quietest thing in the footer: it has to be
               findable from every page and on the lead form, without competing

@@ -1,3 +1,6 @@
+import JsonLd from "@/components/JsonLd";
+import { pageMetadata, webPageSchema } from "@/lib/seo";
+import { INDUSTRIES } from "@/lib/services";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -19,10 +22,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const w = workBySlug(slug);
   if (!w) return {};
-  return {
-    title: `${w.title} — Joseph The Great`,
-    description: CASE_NOTES[w.slug].problem,
-  };
+  return pageMetadata(`${w.title} — Joseph The Great`, `${CASE_NOTES[w.slug].problem} ${CASE_NOTES[w.slug].result}. ${CASE_NOTES[w.slug].limit}`, `/works/${w.slug}`, w.cover);
 }
 
 export default async function WorkPage({ params }: Params) {
@@ -45,6 +45,7 @@ export default async function WorkPage({ params }: Params) {
         className="pointer-events-none absolute inset-x-0 top-0 h-[70vh] bg-[radial-gradient(70%_100%_at_50%_0%,rgba(224,151,43,0.16),rgba(8,7,10,0)_72%)]"
       />
 
+      <JsonLd data={webPageSchema(`${w.title} — case study`, `${CASE_NOTES[w.slug].problem} ${CASE_NOTES[w.slug].result}. ${CASE_NOTES[w.slug].limit}`, `/works/${w.slug}`)} />
       <TrackView id={w.slug} />
       <BackToSyrup />
 
@@ -121,6 +122,10 @@ export default async function WorkPage({ params }: Params) {
           </a>
         )}
 
+        <nav aria-label="Related services" className="t-mono mt-12 flex flex-wrap gap-x-6 gap-y-4 text-neon">
+          <Link href="/toronto-marketing" className="underline underline-offset-4">Toronto marketing services</Link>
+          {INDUSTRIES.filter(page => page.proofSlug === w.slug).map(page => <Link key={page.slug} href={`/services/${page.slug}`} className="underline underline-offset-4">{page.name}</Link>)}
+        </nav>
         <div className="mt-24 md:mt-36">
           <WorkCta subject={w.title} />
         </div>
