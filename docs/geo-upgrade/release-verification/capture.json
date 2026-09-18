@@ -1,0 +1,10 @@
+{
+  "captured_at_utc": "2026-09-18T04:04:50.985452+00:00",
+  "source_commit": "2f8cf3a",
+  "origin": "https://www.josephthegreat.art",
+  "limitations": [
+    "UA simulation does not prove genuine crawler IP access",
+    "Initial HTML is not a Google indexing verdict",
+    "JSON parse and manual property review are not external schema certification"
+  ]
+}

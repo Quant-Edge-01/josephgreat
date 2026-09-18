@@ -1,3 +1,73 @@
+# Joseph The Great — implementation handoff for another ChatGPT
+
+Date: September18,2026. Public origin: https://www.josephthegreat.art
+Source release:2f8cf3a. Owner approved Phase2 P0/P1 on September17. Phase1 GEO-PLAN-2026-09-12.md is retained. Preserve the surreal/editorial identity, red mask, syrup jar and tap-to-enter music; no redesign was authorized in this release.
+
+## Exact public robots.txt
+
+```text
+User-Agent: *
+Allow: /
+
+User-Agent: OAI-SearchBot
+Allow: /
+
+Sitemap: https://www.josephthegreat.art/sitemap.xml
+```
+
+## Final canonical sitemap routes
+
+```text
+https://www.josephthegreat.art/
+https://www.josephthegreat.art/toronto-marketing
+https://www.josephthegreat.art/affordable-marketing-toronto
+https://www.josephthegreat.art/about-joseph
+https://www.josephthegreat.art/privacy-policy
+https://www.josephthegreat.art/case-studies
+https://www.josephthegreat.art/service-areas
+https://www.josephthegreat.art/meta-ads-toronto
+https://www.josephthegreat.art/instagram-reels-toronto
+https://www.josephthegreat.art/creative-marketing-toronto
+https://www.josephthegreat.art/websites-for-small-businesses-toronto
+https://www.josephthegreat.art/services/bridal-marketing-toronto
+https://www.josephthegreat.art/services/beauty-salon-marketing-toronto
+https://www.josephthegreat.art/services/gym-marketing-toronto
+https://www.josephthegreat.art/services/restaurant-marketing-toronto
+https://www.josephthegreat.art/services/retail-marketing-toronto
+https://www.josephthegreat.art/works/dream-alteration
+https://www.josephthegreat.art/works/spartan-gymnastics
+https://www.josephthegreat.art/works/joeroblox85
+https://www.josephthegreat.art/works/quantlarper
+```
+
+## Website and acceptance-check files changed
+
+```text
+app/about-joseph/page.tsx
+app/affordable-marketing-toronto/page.tsx
+app/case-studies/page.tsx
+app/creative-marketing-toronto/page.tsx
+app/instagram-reels-toronto/page.tsx
+app/meta-ads-toronto/page.tsx
+app/service-areas/page.tsx
+app/services/[slug]/page.tsx
+app/sitemap.ts
+app/toronto-marketing/page.tsx
+app/websites-for-small-businesses-toronto/page.tsx
+components/DiscoveryService.tsx
+components/Footer.tsx
+components/ServiceDocument.tsx
+lib/case-notes.ts
+lib/discovery-services.ts
+lib/seo.ts
+lib/services.ts
+lib/site.ts
+lib/works.ts
+scripts/check-geo.py
+```
+
+The release also committed the complete prior review/benchmark documentation pack, including50 raw responses. See docs/geo-upgrade/README.md for the nine pre-code deliverables, source inventory, strategy, intent map, entity specification, evidence checklist, competitor analysis and external corroboration plan. Those audits describe their inspection dates; do not treat every historical snapshot as current.
+
 # Phase 2 implementation receipt — September 18, 2026
 
 Owner approved the concrete release scope: “confirming, continue”. Phase1 remains intact. Website release2f8cf3a was pushed to main and Vercel reported Deployment has completed. Live checks below verified the released routes.
@@ -59,3 +129,17 @@ Exact public files and machine-readable audit:
 - [capture timestamp and limitations](release-verification/capture.json)
 
 Search Console indexation and genuine bot-IP access remain unconfirmed. Deployment completion does not prove recommendations. Independent corroboration still needs legitimate client and public-profile evidence.
+
+## Google profile, separately authorized
+
+Existing verified Google profile was inspected using the owner-authorized account. Removed an incorrect York,Pennsylvania service area and added the truthful studio Instagram link. Revised description and Meta-service description were saved; Google approval/public visibility remained pending at last inspection. Website was already correctly saved with www; no website-address change claimed. Another unverified duplicate profile remains; not deleted or merged. No address, reviews or fake directory profiles created. No Google Ads launched; Apple Business Connect is a separate legitimate listing option subject to eligibility and account terms, not paid ranking evidence.
+
+## Priorities after this release
+
+1. Confirm Search Console sitemap submission and indexing with the real owner property.
+2. Obtain genuine crawler access evidence from CDN/firewall/logs where available.
+3. Confirm current client facts and Dream reporting range/lead definition.
+4. Request legitimate public client credit/review only with owner authorization for the actual message; do not invent independent corroboration.
+5. Repeat the complete50-prompt test with recorded conditions and report mention/citation trends, never exact deterministic ranks or unsupported causation.
+
+Do not infer success from the build, robots allowance, schema or new pages. Site-side intent coverage is improved; third-party evidence, indexing and downstream acquisition are still unresolved.

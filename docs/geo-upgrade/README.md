@@ -28,3 +28,5 @@ All 50 exact prompts have captured responses and manual narrative-provider codin
 The full success criterion remains incomplete: independent client corroboration, a complete single-condition comparison run and genuine crawler-IP access are not established. Profile changes are recorded in [the Google audit](16-google-profile-audit.md) and [change log](15-measurement-change-log.md). [Local profile strategy](14-local-profiles.md) distinguishes free listings from advertising.
 
 Unpersonalized temporary mode and explicit Web search were verified. The backend version is undisclosed. The earlier account-limit explanation was unsupported and corrected in the change log. Owner approved Phase2 P0/P1 on September17; implementation and release verification are recorded in [the Phase2 receipt](18-phase-2-receipt.md). Google profile improvements were separately authorized on September16.
+
+Published implementation: [18 September transfer document](GEO-HANDOFF-2026-09-18.md) and [full receipt](18-phase-2-receipt.md).

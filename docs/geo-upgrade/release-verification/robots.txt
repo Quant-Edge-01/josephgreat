@@ -1,0 +1,7 @@
+User-Agent: *
+Allow: /
+
+User-Agent: OAI-SearchBot
+Allow: /
+
+Sitemap: https://www.josephthegreat.art/sitemap.xml

@@ -1,0 +1,1666 @@
+{
+  "https://www.josephthegreat.art/": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://www.josephthegreat.art/#organization",
+      "name": "Joseph The Great",
+      "url": "https://www.josephthegreat.art",
+      "email": "email@josephthegreat.art",
+      "description": "Joseph The Great is an independent creative marketing studio led by Yusuf Yakubov, known as Joseph, serving small businesses in Toronto and the Greater Toronto Area. Services include short-form content, creative advertising, Meta Ads and website work.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "email@josephthegreat.art",
+        "contactType": "project enquiries",
+        "availableLanguage": "English"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "sameAs": [
+        "https://instagram.com/thejosephgreat"
+      ],
+      "founder": {
+        "@id": "https://www.josephthegreat.art/about-joseph#person"
+      }
+    }
+  ],
+  "https://www.josephthegreat.art/toronto-marketing": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://www.josephthegreat.art/#organization",
+      "name": "Joseph The Great",
+      "url": "https://www.josephthegreat.art",
+      "email": "email@josephthegreat.art",
+      "description": "Joseph The Great is an independent creative marketing studio led by Yusuf Yakubov, known as Joseph, serving small businesses in Toronto and the Greater Toronto Area. Services include short-form content, creative advertising, Meta Ads and website work.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "email@josephthegreat.art",
+        "contactType": "project enquiries",
+        "availableLanguage": "English"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "sameAs": [
+        "https://instagram.com/thejosephgreat"
+      ],
+      "founder": {
+        "@id": "https://www.josephthegreat.art/about-joseph#person"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.josephthegreat.art/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Creative marketing for Toronto small businesses",
+          "item": "https://www.josephthegreat.art/toronto-marketing"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://www.josephthegreat.art/toronto-marketing#service",
+      "name": "Creative marketing for Toronto small businesses",
+      "description": "Joseph The Great is a one-person creative marketing studio in Toronto. I make short-form videos, Meta ads and websites for small businesses in Toronto and the GTA. You work directly with Joseph, from the first idea to the finished work.",
+      "url": "https://www.josephthegreat.art/toronto-marketing",
+      "serviceType": "Short-form content, Meta ads and website services",
+      "provider": {
+        "@id": "https://www.josephthegreat.art/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.josephthegreat.art/affordable-marketing-toronto",
+        "description": "CAD $700\u2013$1,000 per month depending on agreed scope. Ad spend is separate. A full website and every service are not automatically included.",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "minPrice": 700,
+          "maxPrice": 1000,
+          "priceCurrency": "CAD",
+          "unitText": "month"
+        }
+      }
+    }
+  ],
+  "https://www.josephthegreat.art/affordable-marketing-toronto": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://www.josephthegreat.art/#organization",
+      "name": "Joseph The Great",
+      "url": "https://www.josephthegreat.art",
+      "email": "email@josephthegreat.art",
+      "description": "Joseph The Great is an independent creative marketing studio led by Yusuf Yakubov, known as Joseph, serving small businesses in Toronto and the Greater Toronto Area. Services include short-form content, creative advertising, Meta Ads and website work.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "email@josephthegreat.art",
+        "contactType": "project enquiries",
+        "availableLanguage": "English"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "sameAs": [
+        "https://instagram.com/thejosephgreat"
+      ],
+      "founder": {
+        "@id": "https://www.josephthegreat.art/about-joseph#person"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.josephthegreat.art/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Toronto marketing",
+          "item": "https://www.josephthegreat.art/toronto-marketing"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Affordable marketing in Toronto: price & scope",
+          "item": "https://www.josephthegreat.art/affordable-marketing-toronto"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://www.josephthegreat.art/affordable-marketing-toronto#service",
+      "name": "Monthly creative marketing for Toronto small businesses",
+      "description": "Joseph The Great offers creative marketing for Toronto small businesses at $700\u2013$1,000 CAD per month, depending on scope. Reels, Meta ads and website work are available. Ad spend is separate, and you agree on the actual work before starting.",
+      "url": "https://www.josephthegreat.art/affordable-marketing-toronto",
+      "serviceType": "Short-form content, Meta ads and website services",
+      "provider": {
+        "@id": "https://www.josephthegreat.art/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.josephthegreat.art/affordable-marketing-toronto",
+        "description": "CAD $700\u2013$1,000 per month depending on agreed scope. Ad spend is separate. A full website and every service are not automatically included.",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "minPrice": 700,
+          "maxPrice": 1000,
+          "priceCurrency": "CAD",
+          "unitText": "month"
+        }
+      }
+    }
+  ],
+  "https://www.josephthegreat.art/about-joseph": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://www.josephthegreat.art/#organization",
+      "name": "Joseph The Great",
+      "url": "https://www.josephthegreat.art",
+      "email": "email@josephthegreat.art",
+      "description": "Joseph The Great is an independent creative marketing studio led by Yusuf Yakubov, known as Joseph, serving small businesses in Toronto and the Greater Toronto Area. Services include short-form content, creative advertising, Meta Ads and website work.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "email@josephthegreat.art",
+        "contactType": "project enquiries",
+        "availableLanguage": "English"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "sameAs": [
+        "https://instagram.com/thejosephgreat"
+      ],
+      "founder": {
+        "@id": "https://www.josephthegreat.art/about-joseph#person"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.josephthegreat.art/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Toronto marketing",
+          "item": "https://www.josephthegreat.art/toronto-marketing"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Joseph, the person behind Joseph The Great",
+          "item": "https://www.josephthegreat.art/about-joseph"
+        }
+      ]
+    },
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "@id": "https://www.josephthegreat.art/about-joseph#webpage",
+        "url": "https://www.josephthegreat.art/about-joseph",
+        "name": "Joseph, the person behind Joseph The Great",
+        "description": "I\u2019m Yusuf Yakubov, known as Joseph, a Toronto creator and the founder of Joseph The Great. I make reels, Meta ads and websites for small businesses. You speak to me, and I do the work.",
+        "inLanguage": "en-CA",
+        "publisher": {
+          "@id": "https://www.josephthegreat.art/#organization"
+        },
+        "mainEntity": {
+          "@id": "https://www.josephthegreat.art/about-joseph#person"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://www.josephthegreat.art/about-joseph#person",
+        "name": "Yusuf Yakubov",
+        "alternateName": "Joseph",
+        "url": "https://www.josephthegreat.art/about-joseph",
+        "jobTitle": "Founder and creative marketer",
+        "worksFor": {
+          "@id": "https://www.josephthegreat.art/#organization"
+        },
+        "homeLocation": {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        "image": "https://www.josephthegreat.art/joseph.jpg",
+        "sameAs": [
+          "https://instagram.com/thejosephgreat",
+          "https://www.instagram.com/quantlarper/"
+        ],
+        "knowsAbout": [
+          "Short-form video production",
+          "Video editing",
+          "Meta advertising",
+          "Website creation"
+        ]
+      }
+    ]
+  ],
+  "https://www.josephthegreat.art/privacy-policy": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://www.josephthegreat.art/#organization",
+      "name": "Joseph The Great",
+      "url": "https://www.josephthegreat.art",
+      "email": "email@josephthegreat.art",
+      "description": "Joseph The Great is an independent creative marketing studio led by Yusuf Yakubov, known as Joseph, serving small businesses in Toronto and the Greater Toronto Area. Services include short-form content, creative advertising, Meta Ads and website work.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "email@josephthegreat.art",
+        "contactType": "project enquiries",
+        "availableLanguage": "English"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "sameAs": [
+        "https://instagram.com/thejosephgreat"
+      ],
+      "founder": {
+        "@id": "https://www.josephthegreat.art/about-joseph#person"
+      }
+    }
+  ],
+  "https://www.josephthegreat.art/case-studies": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://www.josephthegreat.art/#organization",
+      "name": "Joseph The Great",
+      "url": "https://www.josephthegreat.art",
+      "email": "email@josephthegreat.art",
+      "description": "Joseph The Great is an independent creative marketing studio led by Yusuf Yakubov, known as Joseph, serving small businesses in Toronto and the Greater Toronto Area. Services include short-form content, creative advertising, Meta Ads and website work.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "email@josephthegreat.art",
+        "contactType": "project enquiries",
+        "availableLanguage": "English"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "sameAs": [
+        "https://instagram.com/thejosephgreat"
+      ],
+      "founder": {
+        "@id": "https://www.josephthegreat.art/about-joseph#person"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.josephthegreat.art/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Toronto marketing",
+          "item": "https://www.josephthegreat.art/toronto-marketing"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Real work. Specific evidence. Clear limits.",
+          "item": "https://www.josephthegreat.art/case-studies"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://www.josephthegreat.art/case-studies#webpage",
+      "url": "https://www.josephthegreat.art/case-studies",
+      "name": "Real work. Specific evidence. Clear limits.",
+      "description": "Explore Joseph The Great\u2019s local business work and Joseph\u2019s own creator projects. Each case separates the creative, saved metrics and outcomes that were not measured.",
+      "inLanguage": "en-CA",
+      "publisher": {
+        "@id": "https://www.josephthegreat.art/#organization"
+      }
+    }
+  ],
+  "https://www.josephthegreat.art/service-areas": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://www.josephthegreat.art/#organization",
+      "name": "Joseph The Great",
+      "url": "https://www.josephthegreat.art",
+      "email": "email@josephthegreat.art",
+      "description": "Joseph The Great is an independent creative marketing studio led by Yusuf Yakubov, known as Joseph, serving small businesses in Toronto and the Greater Toronto Area. Services include short-form content, creative advertising, Meta Ads and website work.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "email@josephthegreat.art",
+        "contactType": "project enquiries",
+        "availableLanguage": "English"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "sameAs": [
+        "https://instagram.com/thejosephgreat"
+      ],
+      "founder": {
+        "@id": "https://www.josephthegreat.art/about-joseph#person"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.josephthegreat.art/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Toronto marketing",
+          "item": "https://www.josephthegreat.art/toronto-marketing"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Toronto and GTA service areas",
+          "item": "https://www.josephthegreat.art/service-areas"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://www.josephthegreat.art/service-areas#webpage",
+      "url": "https://www.josephthegreat.art/service-areas",
+      "name": "Toronto and GTA service areas",
+      "description": "Joseph The Great is an independent creative marketing studio serving small businesses in Toronto and the Greater Toronto Area. This is a service-area business; no public storefront or client-facing office is represented here.",
+      "inLanguage": "en-CA",
+      "publisher": {
+        "@id": "https://www.josephthegreat.art/#organization"
+      }
+    }
+  ],
+  "https://www.josephthegreat.art/meta-ads-toronto": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://www.josephthegreat.art/#organization",
+      "name": "Joseph The Great",
+      "url": "https://www.josephthegreat.art",
+      "email": "email@josephthegreat.art",
+      "description": "Joseph The Great is an independent creative marketing studio led by Yusuf Yakubov, known as Joseph, serving small businesses in Toronto and the Greater Toronto Area. Services include short-form content, creative advertising, Meta Ads and website work.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "email@josephthegreat.art",
+        "contactType": "project enquiries",
+        "availableLanguage": "English"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "sameAs": [
+        "https://instagram.com/thejosephgreat"
+      ],
+      "founder": {
+        "@id": "https://www.josephthegreat.art/about-joseph#person"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.josephthegreat.art/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Toronto marketing",
+          "item": "https://www.josephthegreat.art/toronto-marketing"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Meta Ads for Toronto small businesses",
+          "item": "https://www.josephthegreat.art/meta-ads-toronto"
+        }
+      ]
+    },
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://www.josephthegreat.art/meta-ads-toronto#webpage",
+        "url": "https://www.josephthegreat.art/meta-ads-toronto",
+        "name": "Meta Ads for Toronto small businesses",
+        "description": "Joseph The Great offers meta advertising for small businesses in Toronto and the GTA. Monthly work is CAD $700\u2013$1,000 depending on the agreed deliverables; ad spend is separate. You work directly with Joseph. Facebook and Instagram campaign work for an owner who has a clear offer and someone ready to answer enquiries.",
+        "inLanguage": "en-CA",
+        "publisher": {
+          "@id": "https://www.josephthegreat.art/#organization"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://www.josephthegreat.art/meta-ads-toronto#service",
+        "name": "Meta Ads for Toronto small businesses",
+        "description": "Joseph The Great offers meta advertising for small businesses in Toronto and the GTA. Monthly work is CAD $700\u2013$1,000 depending on the agreed deliverables; ad spend is separate. You work directly with Joseph. Facebook and Instagram campaign work for an owner who has a clear offer and someone ready to answer enquiries.",
+        "url": "https://www.josephthegreat.art/meta-ads-toronto",
+        "serviceType": "Meta advertising",
+        "provider": {
+          "@id": "https://www.josephthegreat.art/#organization"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Toronto",
+            "containedInPlace": {
+              "@type": "AdministrativeArea",
+              "name": "Ontario, Canada"
+            }
+          },
+          {
+            "@type": "Place",
+            "name": "Greater Toronto Area, Ontario, Canada"
+          }
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://www.josephthegreat.art/affordable-marketing-toronto",
+          "description": "CAD $700\u2013$1,000 per month depending on agreed scope. Ad spend is separate. A full website and every service are not automatically included.",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "minPrice": 700,
+            "maxPrice": 1000,
+            "priceCurrency": "CAD",
+            "unitText": "month"
+          }
+        }
+      }
+    ]
+  ],
+  "https://www.josephthegreat.art/instagram-reels-toronto": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://www.josephthegreat.art/#organization",
+      "name": "Joseph The Great",
+      "url": "https://www.josephthegreat.art",
+      "email": "email@josephthegreat.art",
+      "description": "Joseph The Great is an independent creative marketing studio led by Yusuf Yakubov, known as Joseph, serving small businesses in Toronto and the Greater Toronto Area. Services include short-form content, creative advertising, Meta Ads and website work.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "email@josephthegreat.art",
+        "contactType": "project enquiries",
+        "availableLanguage": "English"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "sameAs": [
+        "https://instagram.com/thejosephgreat"
+      ],
+      "founder": {
+        "@id": "https://www.josephthegreat.art/about-joseph#person"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.josephthegreat.art/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Toronto marketing",
+          "item": "https://www.josephthegreat.art/toronto-marketing"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Instagram Reels for Toronto small businesses",
+          "item": "https://www.josephthegreat.art/instagram-reels-toronto"
+        }
+      ]
+    },
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://www.josephthegreat.art/instagram-reels-toronto#webpage",
+        "url": "https://www.josephthegreat.art/instagram-reels-toronto",
+        "name": "Instagram Reels for Toronto small businesses",
+        "description": "Joseph The Great offers short-form video production for small businesses in Toronto and the GTA. Monthly work is CAD $700\u2013$1,000 depending on the agreed deliverables; ad spend is separate. You work directly with Joseph. Short-form video concepts, filming and editing that explain a real service or product while keeping the creative memorable.",
+        "inLanguage": "en-CA",
+        "publisher": {
+          "@id": "https://www.josephthegreat.art/#organization"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://www.josephthegreat.art/instagram-reels-toronto#service",
+        "name": "Instagram Reels for Toronto small businesses",
+        "description": "Joseph The Great offers short-form video production for small businesses in Toronto and the GTA. Monthly work is CAD $700\u2013$1,000 depending on the agreed deliverables; ad spend is separate. You work directly with Joseph. Short-form video concepts, filming and editing that explain a real service or product while keeping the creative memorable.",
+        "url": "https://www.josephthegreat.art/instagram-reels-toronto",
+        "serviceType": "Short-form video production",
+        "provider": {
+          "@id": "https://www.josephthegreat.art/#organization"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Toronto",
+            "containedInPlace": {
+              "@type": "AdministrativeArea",
+              "name": "Ontario, Canada"
+            }
+          },
+          {
+            "@type": "Place",
+            "name": "Greater Toronto Area, Ontario, Canada"
+          }
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://www.josephthegreat.art/affordable-marketing-toronto",
+          "description": "CAD $700\u2013$1,000 per month depending on agreed scope. Ad spend is separate. A full website and every service are not automatically included.",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "minPrice": 700,
+            "maxPrice": 1000,
+            "priceCurrency": "CAD",
+            "unitText": "month"
+          }
+        }
+      }
+    ]
+  ],
+  "https://www.josephthegreat.art/creative-marketing-toronto": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://www.josephthegreat.art/#organization",
+      "name": "Joseph The Great",
+      "url": "https://www.josephthegreat.art",
+      "email": "email@josephthegreat.art",
+      "description": "Joseph The Great is an independent creative marketing studio led by Yusuf Yakubov, known as Joseph, serving small businesses in Toronto and the Greater Toronto Area. Services include short-form content, creative advertising, Meta Ads and website work.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "email@josephthegreat.art",
+        "contactType": "project enquiries",
+        "availableLanguage": "English"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "sameAs": [
+        "https://instagram.com/thejosephgreat"
+      ],
+      "founder": {
+        "@id": "https://www.josephthegreat.art/about-joseph#person"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.josephthegreat.art/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Toronto marketing",
+          "item": "https://www.josephthegreat.art/toronto-marketing"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Creative advertising for Toronto small businesses",
+          "item": "https://www.josephthegreat.art/creative-marketing-toronto"
+        }
+      ]
+    },
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://www.josephthegreat.art/creative-marketing-toronto#webpage",
+        "url": "https://www.josephthegreat.art/creative-marketing-toronto",
+        "name": "Creative advertising for Toronto small businesses",
+        "description": "Joseph The Great offers creative advertising for small businesses in Toronto and the GTA. Monthly work is CAD $700\u2013$1,000 depending on the agreed deliverables; ad spend is separate. You work directly with Joseph. Unusual short-form advertising and editorial visual concepts built around a product, service and a clear next action.",
+        "inLanguage": "en-CA",
+        "publisher": {
+          "@id": "https://www.josephthegreat.art/#organization"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://www.josephthegreat.art/creative-marketing-toronto#service",
+        "name": "Creative advertising for Toronto small businesses",
+        "description": "Joseph The Great offers creative advertising for small businesses in Toronto and the GTA. Monthly work is CAD $700\u2013$1,000 depending on the agreed deliverables; ad spend is separate. You work directly with Joseph. Unusual short-form advertising and editorial visual concepts built around a product, service and a clear next action.",
+        "url": "https://www.josephthegreat.art/creative-marketing-toronto",
+        "serviceType": "Creative advertising",
+        "provider": {
+          "@id": "https://www.josephthegreat.art/#organization"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Toronto",
+            "containedInPlace": {
+              "@type": "AdministrativeArea",
+              "name": "Ontario, Canada"
+            }
+          },
+          {
+            "@type": "Place",
+            "name": "Greater Toronto Area, Ontario, Canada"
+          }
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://www.josephthegreat.art/affordable-marketing-toronto",
+          "description": "CAD $700\u2013$1,000 per month depending on agreed scope. Ad spend is separate. A full website and every service are not automatically included.",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "minPrice": 700,
+            "maxPrice": 1000,
+            "priceCurrency": "CAD",
+            "unitText": "month"
+          }
+        }
+      }
+    ]
+  ],
+  "https://www.josephthegreat.art/websites-for-small-businesses-toronto": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://www.josephthegreat.art/#organization",
+      "name": "Joseph The Great",
+      "url": "https://www.josephthegreat.art",
+      "email": "email@josephthegreat.art",
+      "description": "Joseph The Great is an independent creative marketing studio led by Yusuf Yakubov, known as Joseph, serving small businesses in Toronto and the Greater Toronto Area. Services include short-form content, creative advertising, Meta Ads and website work.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "email@josephthegreat.art",
+        "contactType": "project enquiries",
+        "availableLanguage": "English"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "sameAs": [
+        "https://instagram.com/thejosephgreat"
+      ],
+      "founder": {
+        "@id": "https://www.josephthegreat.art/about-joseph#person"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.josephthegreat.art/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Toronto marketing",
+          "item": "https://www.josephthegreat.art/toronto-marketing"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Websites and landing pages for Toronto small businesses",
+          "item": "https://www.josephthegreat.art/websites-for-small-businesses-toronto"
+        }
+      ]
+    },
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://www.josephthegreat.art/websites-for-small-businesses-toronto#webpage",
+        "url": "https://www.josephthegreat.art/websites-for-small-businesses-toronto",
+        "name": "Websites and landing pages for Toronto small businesses",
+        "description": "Joseph The Great offers website and landing-page creation for small businesses in Toronto and the GTA. Monthly work is CAD $700\u2013$1,000 depending on the agreed deliverables; ad spend is separate. You work directly with Joseph. Focused website and landing-page work that explains your offer and gives visitors a simple path to an enquiry or existing booking system.",
+        "inLanguage": "en-CA",
+        "publisher": {
+          "@id": "https://www.josephthegreat.art/#organization"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://www.josephthegreat.art/websites-for-small-businesses-toronto#service",
+        "name": "Websites and landing pages for Toronto small businesses",
+        "description": "Joseph The Great offers website and landing-page creation for small businesses in Toronto and the GTA. Monthly work is CAD $700\u2013$1,000 depending on the agreed deliverables; ad spend is separate. You work directly with Joseph. Focused website and landing-page work that explains your offer and gives visitors a simple path to an enquiry or existing booking system.",
+        "url": "https://www.josephthegreat.art/websites-for-small-businesses-toronto",
+        "serviceType": "Website and landing-page creation",
+        "provider": {
+          "@id": "https://www.josephthegreat.art/#organization"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Toronto",
+            "containedInPlace": {
+              "@type": "AdministrativeArea",
+              "name": "Ontario, Canada"
+            }
+          },
+          {
+            "@type": "Place",
+            "name": "Greater Toronto Area, Ontario, Canada"
+          }
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://www.josephthegreat.art/affordable-marketing-toronto",
+          "description": "CAD $700\u2013$1,000 per month depending on agreed scope. Ad spend is separate. A full website and every service are not automatically included.",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "minPrice": 700,
+            "maxPrice": 1000,
+            "priceCurrency": "CAD",
+            "unitText": "month"
+          }
+        }
+      }
+    ]
+  ],
+  "https://www.josephthegreat.art/services/bridal-marketing-toronto": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://www.josephthegreat.art/#organization",
+      "name": "Joseph The Great",
+      "url": "https://www.josephthegreat.art",
+      "email": "email@josephthegreat.art",
+      "description": "Joseph The Great is an independent creative marketing studio led by Yusuf Yakubov, known as Joseph, serving small businesses in Toronto and the Greater Toronto Area. Services include short-form content, creative advertising, Meta Ads and website work.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "email@josephthegreat.art",
+        "contactType": "project enquiries",
+        "availableLanguage": "English"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "sameAs": [
+        "https://instagram.com/thejosephgreat"
+      ],
+      "founder": {
+        "@id": "https://www.josephthegreat.art/about-joseph#person"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.josephthegreat.art/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Toronto marketing",
+          "item": "https://www.josephthegreat.art/toronto-marketing"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Bridal marketing in Toronto",
+          "item": "https://www.josephthegreat.art/services/bridal-marketing-toronto"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://www.josephthegreat.art/services/bridal-marketing-toronto#service",
+      "name": "Bridal marketing in Toronto",
+      "description": "Help a bride understand your work before she asks for a fitting. I make short videos, Meta ads and websites for bridal boutiques and alterations studios in Toronto and the GTA.",
+      "url": "https://www.josephthegreat.art/services/bridal-marketing-toronto",
+      "serviceType": "Short-form content, Meta ads and website services",
+      "provider": {
+        "@id": "https://www.josephthegreat.art/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.josephthegreat.art/affordable-marketing-toronto",
+        "description": "CAD $700\u2013$1,000 per month depending on agreed scope. Ad spend is separate. A full website and every service are not automatically included.",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "minPrice": 700,
+          "maxPrice": 1000,
+          "priceCurrency": "CAD",
+          "unitText": "month"
+        }
+      }
+    }
+  ],
+  "https://www.josephthegreat.art/services/beauty-salon-marketing-toronto": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://www.josephthegreat.art/#organization",
+      "name": "Joseph The Great",
+      "url": "https://www.josephthegreat.art",
+      "email": "email@josephthegreat.art",
+      "description": "Joseph The Great is an independent creative marketing studio led by Yusuf Yakubov, known as Joseph, serving small businesses in Toronto and the Greater Toronto Area. Services include short-form content, creative advertising, Meta Ads and website work.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "email@josephthegreat.art",
+        "contactType": "project enquiries",
+        "availableLanguage": "English"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "sameAs": [
+        "https://instagram.com/thejosephgreat"
+      ],
+      "founder": {
+        "@id": "https://www.josephthegreat.art/about-joseph#person"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.josephthegreat.art/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Toronto marketing",
+          "item": "https://www.josephthegreat.art/toronto-marketing"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Beauty salon marketing in Toronto",
+          "item": "https://www.josephthegreat.art/services/beauty-salon-marketing-toronto"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://www.josephthegreat.art/services/beauty-salon-marketing-toronto#service",
+      "name": "Beauty salon marketing in Toronto",
+      "description": "Turn your salon\u2019s skill into content people can understand and a clear route to an appointment. I offer reels, Meta ads and website work for Toronto hair, nail, lash and beauty businesses.",
+      "url": "https://www.josephthegreat.art/services/beauty-salon-marketing-toronto",
+      "serviceType": "Short-form content, Meta ads and website services",
+      "provider": {
+        "@id": "https://www.josephthegreat.art/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.josephthegreat.art/affordable-marketing-toronto",
+        "description": "CAD $700\u2013$1,000 per month depending on agreed scope. Ad spend is separate. A full website and every service are not automatically included.",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "minPrice": 700,
+          "maxPrice": 1000,
+          "priceCurrency": "CAD",
+          "unitText": "month"
+        }
+      }
+    }
+  ],
+  "https://www.josephthegreat.art/services/gym-marketing-toronto": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://www.josephthegreat.art/#organization",
+      "name": "Joseph The Great",
+      "url": "https://www.josephthegreat.art",
+      "email": "email@josephthegreat.art",
+      "description": "Joseph The Great is an independent creative marketing studio led by Yusuf Yakubov, known as Joseph, serving small businesses in Toronto and the Greater Toronto Area. Services include short-form content, creative advertising, Meta Ads and website work.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "email@josephthegreat.art",
+        "contactType": "project enquiries",
+        "availableLanguage": "English"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "sameAs": [
+        "https://instagram.com/thejosephgreat"
+      ],
+      "founder": {
+        "@id": "https://www.josephthegreat.art/about-joseph#person"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.josephthegreat.art/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Toronto marketing",
+          "item": "https://www.josephthegreat.art/toronto-marketing"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Gym marketing in Toronto",
+          "item": "https://www.josephthegreat.art/services/gym-marketing-toronto"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://www.josephthegreat.art/services/gym-marketing-toronto#service",
+      "name": "Gym marketing in Toronto",
+      "description": "Give someone a reason to try their first session. I make reels, Meta ads and website content for gyms, fitness studios and gymnastics businesses in Toronto and the GTA.",
+      "url": "https://www.josephthegreat.art/services/gym-marketing-toronto",
+      "serviceType": "Short-form content, Meta ads and website services",
+      "provider": {
+        "@id": "https://www.josephthegreat.art/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.josephthegreat.art/affordable-marketing-toronto",
+        "description": "CAD $700\u2013$1,000 per month depending on agreed scope. Ad spend is separate. A full website and every service are not automatically included.",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "minPrice": 700,
+          "maxPrice": 1000,
+          "priceCurrency": "CAD",
+          "unitText": "month"
+        }
+      }
+    }
+  ],
+  "https://www.josephthegreat.art/services/restaurant-marketing-toronto": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://www.josephthegreat.art/#organization",
+      "name": "Joseph The Great",
+      "url": "https://www.josephthegreat.art",
+      "email": "email@josephthegreat.art",
+      "description": "Joseph The Great is an independent creative marketing studio led by Yusuf Yakubov, known as Joseph, serving small businesses in Toronto and the Greater Toronto Area. Services include short-form content, creative advertising, Meta Ads and website work.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "email@josephthegreat.art",
+        "contactType": "project enquiries",
+        "availableLanguage": "English"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "sameAs": [
+        "https://instagram.com/thejosephgreat"
+      ],
+      "founder": {
+        "@id": "https://www.josephthegreat.art/about-joseph#person"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.josephthegreat.art/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Toronto marketing",
+          "item": "https://www.josephthegreat.art/toronto-marketing"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Restaurant marketing in Toronto",
+          "item": "https://www.josephthegreat.art/services/restaurant-marketing-toronto"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://www.josephthegreat.art/services/restaurant-marketing-toronto#service",
+      "name": "Restaurant marketing in Toronto",
+      "description": "Make the food memorable and the practical details easy to find. I offer short videos, local Meta ads and website work for restaurants and caf\u00e9s in Toronto.",
+      "url": "https://www.josephthegreat.art/services/restaurant-marketing-toronto",
+      "serviceType": "Short-form content, Meta ads and website services",
+      "provider": {
+        "@id": "https://www.josephthegreat.art/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.josephthegreat.art/affordable-marketing-toronto",
+        "description": "CAD $700\u2013$1,000 per month depending on agreed scope. Ad spend is separate. A full website and every service are not automatically included.",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "minPrice": 700,
+          "maxPrice": 1000,
+          "priceCurrency": "CAD",
+          "unitText": "month"
+        }
+      }
+    }
+  ],
+  "https://www.josephthegreat.art/services/retail-marketing-toronto": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://www.josephthegreat.art/#organization",
+      "name": "Joseph The Great",
+      "url": "https://www.josephthegreat.art",
+      "email": "email@josephthegreat.art",
+      "description": "Joseph The Great is an independent creative marketing studio led by Yusuf Yakubov, known as Joseph, serving small businesses in Toronto and the Greater Toronto Area. Services include short-form content, creative advertising, Meta Ads and website work.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "email@josephthegreat.art",
+        "contactType": "project enquiries",
+        "availableLanguage": "English"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "sameAs": [
+        "https://instagram.com/thejosephgreat"
+      ],
+      "founder": {
+        "@id": "https://www.josephthegreat.art/about-joseph#person"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.josephthegreat.art/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Toronto marketing",
+          "item": "https://www.josephthegreat.art/toronto-marketing"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Retail marketing in Toronto",
+          "item": "https://www.josephthegreat.art/services/retail-marketing-toronto"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://www.josephthegreat.art/services/retail-marketing-toronto#service",
+      "name": "Retail marketing in Toronto",
+      "description": "Show people what is worth coming in for. I offer product videos, Meta ads and website work for independent shops and local retail businesses in Toronto.",
+      "url": "https://www.josephthegreat.art/services/retail-marketing-toronto",
+      "serviceType": "Short-form content, Meta ads and website services",
+      "provider": {
+        "@id": "https://www.josephthegreat.art/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.josephthegreat.art/affordable-marketing-toronto",
+        "description": "CAD $700\u2013$1,000 per month depending on agreed scope. Ad spend is separate. A full website and every service are not automatically included.",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "minPrice": 700,
+          "maxPrice": 1000,
+          "priceCurrency": "CAD",
+          "unitText": "month"
+        }
+      }
+    }
+  ],
+  "https://www.josephthegreat.art/works/dream-alteration": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://www.josephthegreat.art/#organization",
+      "name": "Joseph The Great",
+      "url": "https://www.josephthegreat.art",
+      "email": "email@josephthegreat.art",
+      "description": "Joseph The Great is an independent creative marketing studio led by Yusuf Yakubov, known as Joseph, serving small businesses in Toronto and the Greater Toronto Area. Services include short-form content, creative advertising, Meta Ads and website work.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "email@josephthegreat.art",
+        "contactType": "project enquiries",
+        "availableLanguage": "English"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "sameAs": [
+        "https://instagram.com/thejosephgreat"
+      ],
+      "founder": {
+        "@id": "https://www.josephthegreat.art/about-joseph#person"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://www.josephthegreat.art/works/dream-alteration#webpage",
+      "url": "https://www.josephthegreat.art/works/dream-alteration",
+      "name": "Dream Alterations \u2014 case study",
+      "description": "Bring enquiries to an appointments-only bridal alterations business in the GTA. 59 conversations. Campaign snapshot. Nine leads are owner-reported; qualification criteria and the full campaign date range are unavailable. Bookings and revenue were not tracked in this case.",
+      "inLanguage": "en-CA",
+      "publisher": {
+        "@id": "https://www.josephthegreat.art/#organization"
+      }
+    }
+  ],
+  "https://www.josephthegreat.art/works/spartan-gymnastics": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://www.josephthegreat.art/#organization",
+      "name": "Joseph The Great",
+      "url": "https://www.josephthegreat.art",
+      "email": "email@josephthegreat.art",
+      "description": "Joseph The Great is an independent creative marketing studio led by Yusuf Yakubov, known as Joseph, serving small businesses in Toronto and the Greater Toronto Area. Services include short-form content, creative advertising, Meta Ads and website work.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "email@josephthegreat.art",
+        "contactType": "project enquiries",
+        "availableLanguage": "English"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "sameAs": [
+        "https://instagram.com/thejosephgreat"
+      ],
+      "founder": {
+        "@id": "https://www.josephthegreat.art/about-joseph#person"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://www.josephthegreat.art/works/spartan-gymnastics#webpage",
+      "url": "https://www.josephthegreat.art/works/spartan-gymnastics",
+      "name": "Spartan Gymnastics \u2014 case study",
+      "description": "Get local gymnastics sessions and camps seen beyond the existing followers. 9,224 views. This is evidence of reach. Enrolments were not measured.",
+      "inLanguage": "en-CA",
+      "publisher": {
+        "@id": "https://www.josephthegreat.art/#organization"
+      }
+    }
+  ],
+  "https://www.josephthegreat.art/works/joeroblox85": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://www.josephthegreat.art/#organization",
+      "name": "Joseph The Great",
+      "url": "https://www.josephthegreat.art",
+      "email": "email@josephthegreat.art",
+      "description": "Joseph The Great is an independent creative marketing studio led by Yusuf Yakubov, known as Joseph, serving small businesses in Toronto and the Greater Toronto Area. Services include short-form content, creative advertising, Meta Ads and website work.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "email@josephthegreat.art",
+        "contactType": "project enquiries",
+        "availableLanguage": "English"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "sameAs": [
+        "https://instagram.com/thejosephgreat"
+      ],
+      "founder": {
+        "@id": "https://www.josephthegreat.art/about-joseph#person"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://www.josephthegreat.art/works/joeroblox85#webpage",
+      "url": "https://www.josephthegreat.art/works/joeroblox85",
+      "name": "Joeroblox85 \u2014 case study",
+      "description": "Build an audience for an independent Roblox channel. 33.1M views. My own channel. Historical audience results, not local client sales.",
+      "inLanguage": "en-CA",
+      "publisher": {
+        "@id": "https://www.josephthegreat.art/#organization"
+      }
+    }
+  ],
+  "https://www.josephthegreat.art/works/quantlarper": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://www.josephthegreat.art/#organization",
+      "name": "Joseph The Great",
+      "url": "https://www.josephthegreat.art",
+      "email": "email@josephthegreat.art",
+      "description": "Joseph The Great is an independent creative marketing studio led by Yusuf Yakubov, known as Joseph, serving small businesses in Toronto and the Greater Toronto Area. Services include short-form content, creative advertising, Meta Ads and website work.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "email@josephthegreat.art",
+        "contactType": "project enquiries",
+        "availableLanguage": "English"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Toronto",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Ontario, Canada"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Greater Toronto Area, Ontario, Canada"
+        }
+      ],
+      "sameAs": [
+        "https://instagram.com/thejosephgreat"
+      ],
+      "founder": {
+        "@id": "https://www.josephthegreat.art/about-joseph#person"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://www.josephthegreat.art/works/quantlarper#webpage",
+      "url": "https://www.josephthegreat.art/works/quantlarper",
+      "name": "quantlarper \u2014 case study",
+      "description": "Find an audience for a market tool in a crowded finance feed. 1.2M views. 175 email subscribers reported. Subscribers are not paying customers.",
+      "inLanguage": "en-CA",
+      "publisher": {
+        "@id": "https://www.josephthegreat.art/#organization"
+      }
+    }
+  ]
+}
