@@ -25,6 +25,8 @@ export default function Footer() {
           <Link className="underline-swipe w-fit text-cream/70 md:ml-auto" href="/toronto-marketing">Toronto marketing services</Link>
           <Link className="underline-swipe w-fit text-cream/70 md:ml-auto" href="/affordable-marketing-toronto">Pricing &amp; scope</Link>
           <Link className="underline-swipe w-fit text-cream/70 md:ml-auto" href="/about-joseph">About Joseph</Link>
+          <Link className="underline-swipe w-fit text-cream/70 md:ml-auto" href="/case-studies">Cases &amp; evidence</Link>
+          <Link className="underline-swipe w-fit text-cream/70 md:ml-auto" href="/service-areas">Toronto &amp; GTA service areas</Link>
           <span>© {new Date().getFullYear()} — built solo</span>
           {/* Deliberately the quietest thing in the footer: it has to be
               findable from every page and on the lead form, without competing

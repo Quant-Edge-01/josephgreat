@@ -1,5 +1,7 @@
 import Link from 'next/link';
-import { OFFER, PRICE_RANGE } from '@/lib/site';
+import { OFFER, PRICE_RANGE, EMAIL, IG_URL } from '@/lib/site';
+import { DISCOVERY_SERVICES } from '@/lib/discovery-services';
+import EnquiryForm from './EnquiryForm';
 import JsonLd from './JsonLd';
 import { breadcrumbs } from '@/lib/seo';
 
@@ -22,9 +24,12 @@ export function ServiceDocument({ title, intro, path, children }: { title: strin
       <section className="mt-14 border-t border-neon/25 pt-9" aria-labelledby="next-step">
         <h2 id="next-step" className="t-serif text-4xl text-neon">An idea for your business?</h2>
         <p className="s-body mt-4 max-w-2xl text-cream/80">Send me your business link. I’ll send back three creative ideas. Free, with no call required.</p>
-        <Link href="/#start" className="t-grotesk mt-6 inline-flex min-h-[52px] items-center bg-neon px-6 text-void">{OFFER.cta} →</Link>
+        <Link href="#request-ideas" className="t-grotesk mt-6 inline-flex min-h-[52px] items-center bg-neon px-6 text-void">{OFFER.cta} →</Link>
         <p className="t-note mt-4 text-cream/70"><Link href="/affordable-marketing-toronto" className="underline underline-offset-4">How the price and scope work</Link> · <Link href="/about-joseph" className="underline underline-offset-4">Meet Joseph</Link></p>
+        <div id="request-ideas" className="mt-8 max-w-2xl scroll-mt-28"><EnquiryForm /></div>
+        <p className="s-body mt-5 flex flex-wrap gap-5"><a className="py-2 text-neon underline break-all" href={`mailto:${EMAIL}`}>Email Joseph</a><a className="py-2 text-neon underline" href={IG_URL}>DM on Instagram</a></p>
       </section>
+      <nav aria-label="Explore services and evidence" className="mt-12 border-t border-neon/25 pt-7 t-mono flex flex-wrap gap-x-6 gap-y-4 text-neon">{DISCOVERY_SERVICES.map(service => <Link key={service.slug} href={`/${service.slug}`} className="py-2">{service.title}</Link>)}<Link href="/case-studies" className="py-2">Case studies</Link><Link href="/service-areas" className="py-2">Service areas</Link></nav>
     </div>
   </main>;
 }

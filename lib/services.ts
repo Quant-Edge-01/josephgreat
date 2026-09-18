@@ -13,7 +13,7 @@ export const INDUSTRIES = [
     ],
     need: 'Your alteration services, appointment process, availability, filming permissions and examples of questions brides ask before booking.',
     measure: 'Relevant enquiries → fitting appointments → completed paid work. Record ad spend separately from the creative fee.',
-    proofSlug: 'dream-alteration', proof: 'Dream Alterations is the directly relevant bridal case: the saved Meta screenshot shows CAD $214.86 spent and 59 conversations started, averaging $3.64 each. Nine leads are reported in the project notes. Bookings and revenue were not tracked in this case.',
+    proofSlug: 'dream-alteration', proof: 'Dream Alterations is the directly relevant bridal case: the saved Meta screenshot shows CAD $214.86 spent and 59 conversations started, averaging $3.64 each. Nine leads are owner-reported in the project notes; qualification criteria and full campaign dates are unavailable. Bookings and revenue were not tracked in this case.',
     faq: { question: 'Do you only work with bridal businesses?', answer: 'No. Bridal is one area with a published local case. I also offer creative work for other Toronto businesses; the scope and success measure depend on what they sell.' },
   },
   {

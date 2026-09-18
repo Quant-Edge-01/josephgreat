@@ -1,0 +1,2838 @@
+{
+  "label": "Interrupted exploratory benchmark; not clean pre-change baseline",
+  "coding_method": "Manual reading of saved narrative responses. Count provider names at most once per prompt; include comparison/price-reference providers, not only the first shortlist. Exclude map-only names, client examples, directories and general informational citations. This is mention frequency, not endorsement, factual verification or ranking. Qode Social and Qode Media remain separate named entities pending relationship verification. Source labels alone are not competitor mentions.",
+  "segments": {
+    "segment-1-2026-09-13": {
+      "attempts": 29,
+      "substantive_answers": 28,
+      "provider_lists": 28,
+      "joseph_mentions": 0,
+      "joseph_owned_domain_visible_citations": 0,
+      "responses_with_visible_url": 28
+    },
+    "segment-2-2026-09-16": {
+      "attempts": 21,
+      "substantive_answers": 21,
+      "provider_lists": 20,
+      "joseph_mentions": 0,
+      "joseph_owned_domain_visible_citations": 0,
+      "responses_with_visible_url": 20
+    }
+  },
+  "categories": {
+    "A": {
+      "attempts": 5,
+      "substantive_answers": 5,
+      "provider_lists": 5,
+      "joseph_mentions": 0,
+      "joseph_owned_domain_visible_citations": 0,
+      "responses_with_visible_url": 5
+    },
+    "B": {
+      "attempts": 5,
+      "substantive_answers": 5,
+      "provider_lists": 5,
+      "joseph_mentions": 0,
+      "joseph_owned_domain_visible_citations": 0,
+      "responses_with_visible_url": 4
+    },
+    "C": {
+      "attempts": 5,
+      "substantive_answers": 5,
+      "provider_lists": 5,
+      "joseph_mentions": 0,
+      "joseph_owned_domain_visible_citations": 0,
+      "responses_with_visible_url": 5
+    },
+    "D": {
+      "attempts": 5,
+      "substantive_answers": 4,
+      "provider_lists": 4,
+      "joseph_mentions": 0,
+      "joseph_owned_domain_visible_citations": 0,
+      "responses_with_visible_url": 4
+    },
+    "E": {
+      "attempts": 5,
+      "substantive_answers": 5,
+      "provider_lists": 5,
+      "joseph_mentions": 0,
+      "joseph_owned_domain_visible_citations": 0,
+      "responses_with_visible_url": 5
+    },
+    "F": {
+      "attempts": 5,
+      "substantive_answers": 5,
+      "provider_lists": 4,
+      "joseph_mentions": 0,
+      "joseph_owned_domain_visible_citations": 0,
+      "responses_with_visible_url": 5
+    },
+    "G": {
+      "attempts": 5,
+      "substantive_answers": 5,
+      "provider_lists": 5,
+      "joseph_mentions": 0,
+      "joseph_owned_domain_visible_citations": 0,
+      "responses_with_visible_url": 5
+    },
+    "H": {
+      "attempts": 5,
+      "substantive_answers": 5,
+      "provider_lists": 5,
+      "joseph_mentions": 0,
+      "joseph_owned_domain_visible_citations": 0,
+      "responses_with_visible_url": 5
+    },
+    "I": {
+      "attempts": 5,
+      "substantive_answers": 5,
+      "provider_lists": 5,
+      "joseph_mentions": 0,
+      "joseph_owned_domain_visible_citations": 0,
+      "responses_with_visible_url": 5
+    },
+    "J": {
+      "attempts": 5,
+      "substantive_answers": 5,
+      "provider_lists": 5,
+      "joseph_mentions": 0,
+      "joseph_owned_domain_visible_citations": 0,
+      "responses_with_visible_url": 5
+    }
+  },
+  "competitors": [
+    {
+      "name": "ORCAFY",
+      "count": 10,
+      "share_of_50_attempts": 0.2,
+      "prompt_ids": [
+        "B1",
+        "B2",
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "G3",
+        "H3",
+        "I2"
+      ]
+    },
+    {
+      "name": "myBloom",
+      "count": 7,
+      "share_of_50_attempts": 0.14,
+      "prompt_ids": [
+        "A1",
+        "A5",
+        "B2",
+        "B5",
+        "F1",
+        "G4",
+        "I2"
+      ]
+    },
+    {
+      "name": "Whissel Strategies",
+      "count": 6,
+      "share_of_50_attempts": 0.12,
+      "prompt_ids": [
+        "A3",
+        "A5",
+        "B1",
+        "D4",
+        "H3",
+        "I5"
+      ]
+    },
+    {
+      "name": "MetaBaz",
+      "count": 6,
+      "share_of_50_attempts": 0.12,
+      "prompt_ids": [
+        "B2",
+        "C1",
+        "C2",
+        "C3",
+        "C5",
+        "J3"
+      ]
+    },
+    {
+      "name": "PPC Guru",
+      "count": 6,
+      "share_of_50_attempts": 0.12,
+      "prompt_ids": [
+        "B3",
+        "C1",
+        "C2",
+        "C4",
+        "C5",
+        "I2"
+      ]
+    },
+    {
+      "name": "The Influence Agency",
+      "count": 6,
+      "share_of_50_attempts": 0.12,
+      "prompt_ids": [
+        "F4",
+        "G1",
+        "G3",
+        "H1",
+        "H2",
+        "H5"
+      ]
+    },
+    {
+      "name": "ZimaPeak",
+      "count": 6,
+      "share_of_50_attempts": 0.12,
+      "prompt_ids": [
+        "B2",
+        "C1",
+        "C2",
+        "C4",
+        "C5",
+        "I5"
+      ]
+    },
+    {
+      "name": "Neighbourhood Creative",
+      "count": 4,
+      "share_of_50_attempts": 0.08,
+      "prompt_ids": [
+        "A4",
+        "B5",
+        "C2",
+        "H5"
+      ]
+    },
+    {
+      "name": "Qode Social",
+      "count": 4,
+      "share_of_50_attempts": 0.08,
+      "prompt_ids": [
+        "C2",
+        "F3",
+        "G1",
+        "H1"
+      ]
+    },
+    {
+      "name": "Arnold Street Agency",
+      "count": 4,
+      "share_of_50_attempts": 0.08,
+      "prompt_ids": [
+        "C2",
+        "D4",
+        "H3",
+        "H5"
+      ]
+    },
+    {
+      "name": "Creative Scope",
+      "count": 4,
+      "share_of_50_attempts": 0.08,
+      "prompt_ids": [
+        "A5",
+        "C2",
+        "I1",
+        "I5"
+      ]
+    },
+    {
+      "name": "Barks Media",
+      "count": 4,
+      "share_of_50_attempts": 0.08,
+      "prompt_ids": [
+        "D1",
+        "D2",
+        "D5",
+        "E4"
+      ]
+    },
+    {
+      "name": "Synonym Social",
+      "count": 4,
+      "share_of_50_attempts": 0.08,
+      "prompt_ids": [
+        "D1",
+        "D4",
+        "H3",
+        "H5"
+      ]
+    },
+    {
+      "name": "Viterno Group",
+      "count": 4,
+      "share_of_50_attempts": 0.08,
+      "prompt_ids": [
+        "D2",
+        "D4",
+        "E1",
+        "E3"
+      ]
+    },
+    {
+      "name": "Brand Vision",
+      "count": 3,
+      "share_of_50_attempts": 0.06,
+      "prompt_ids": [
+        "A3",
+        "D4",
+        "I3"
+      ]
+    },
+    {
+      "name": "Jeff Social Marketing",
+      "count": 3,
+      "share_of_50_attempts": 0.06,
+      "prompt_ids": [
+        "A1",
+        "B1",
+        "H4"
+      ]
+    },
+    {
+      "name": "Kavana Digital",
+      "count": 3,
+      "share_of_50_attempts": 0.06,
+      "prompt_ids": [
+        "B3",
+        "F1",
+        "J2"
+      ]
+    },
+    {
+      "name": "Maduna Marketing",
+      "count": 3,
+      "share_of_50_attempts": 0.06,
+      "prompt_ids": [
+        "A1",
+        "B5",
+        "F3"
+      ]
+    },
+    {
+      "name": "Manisoft Media",
+      "count": 3,
+      "share_of_50_attempts": 0.06,
+      "prompt_ids": [
+        "C4",
+        "D4",
+        "J2"
+      ]
+    },
+    {
+      "name": "1800Marketing",
+      "count": 3,
+      "share_of_50_attempts": 0.06,
+      "prompt_ids": [
+        "C1",
+        "C4",
+        "J5"
+      ]
+    },
+    {
+      "name": "Blok Design",
+      "count": 3,
+      "share_of_50_attempts": 0.06,
+      "prompt_ids": [
+        "A4",
+        "E2",
+        "E5"
+      ]
+    },
+    {
+      "name": "Charming Media",
+      "count": 3,
+      "share_of_50_attempts": 0.06,
+      "prompt_ids": [
+        "G5",
+        "H2",
+        "H3"
+      ]
+    },
+    {
+      "name": "H2O Digital Marketing",
+      "count": 3,
+      "share_of_50_attempts": 0.06,
+      "prompt_ids": [
+        "H2",
+        "H4",
+        "J5"
+      ]
+    },
+    {
+      "name": "Made by Emblem",
+      "count": 3,
+      "share_of_50_attempts": 0.06,
+      "prompt_ids": [
+        "A4",
+        "E2",
+        "E5"
+      ]
+    },
+    {
+      "name": "Origin Films",
+      "count": 3,
+      "share_of_50_attempts": 0.06,
+      "prompt_ids": [
+        "D1",
+        "D5",
+        "G2"
+      ]
+    },
+    {
+      "name": "Page Pros",
+      "count": 3,
+      "share_of_50_attempts": 0.06,
+      "prompt_ids": [
+        "A3",
+        "B1",
+        "B4"
+      ]
+    },
+    {
+      "name": "Red Leaf Media",
+      "count": 3,
+      "share_of_50_attempts": 0.06,
+      "prompt_ids": [
+        "H1",
+        "H3",
+        "J5"
+      ]
+    },
+    {
+      "name": "SET Marketing",
+      "count": 3,
+      "share_of_50_attempts": 0.06,
+      "prompt_ids": [
+        "C1",
+        "C5",
+        "H4"
+      ]
+    },
+    {
+      "name": "She's The Niche",
+      "count": 3,
+      "share_of_50_attempts": 0.06,
+      "prompt_ids": [
+        "F4",
+        "G2",
+        "G5"
+      ]
+    },
+    {
+      "name": "Social Influenc.",
+      "count": 3,
+      "share_of_50_attempts": 0.06,
+      "prompt_ids": [
+        "F4",
+        "G1",
+        "G3"
+      ]
+    },
+    {
+      "name": "ThrillX",
+      "count": 3,
+      "share_of_50_attempts": 0.06,
+      "prompt_ids": [
+        "A3",
+        "I1",
+        "I3"
+      ]
+    },
+    {
+      "name": "The Salon Marketing Company",
+      "count": 3,
+      "share_of_50_attempts": 0.06,
+      "prompt_ids": [
+        "G1",
+        "G3",
+        "G4"
+      ]
+    },
+    {
+      "name": "Animalz Media",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "D1",
+        "G2"
+      ]
+    },
+    {
+      "name": "Art & Mechanical",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "A4",
+        "E2"
+      ]
+    },
+    {
+      "name": "AuFait",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "F1",
+        "G4"
+      ]
+    },
+    {
+      "name": "Avocado Media",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "B2",
+        "F3"
+      ]
+    },
+    {
+      "name": "Creative Squad",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "C2",
+        "I5"
+      ]
+    },
+    {
+      "name": "Elyflort",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "F3",
+        "I5"
+      ]
+    },
+    {
+      "name": "HVR Media House",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "B2",
+        "F3"
+      ]
+    },
+    {
+      "name": "Inna Malovichko",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "D1",
+        "G2"
+      ]
+    },
+    {
+      "name": "Minifridge Media",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "D2",
+        "E4"
+      ]
+    },
+    {
+      "name": "Moon Reel Media",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "D2",
+        "E4"
+      ]
+    },
+    {
+      "name": "Nano Digital",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "B3",
+        "C3"
+      ]
+    },
+    {
+      "name": "Preeminent Marketing",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "C5",
+        "J1"
+      ]
+    },
+    {
+      "name": "Qode Media",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "I5",
+        "J5"
+      ]
+    },
+    {
+      "name": "Rav Link",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "B2",
+        "F3"
+      ]
+    },
+    {
+      "name": "SA Marketing Solutions",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "A1",
+        "B1"
+      ]
+    },
+    {
+      "name": "Social Media 55",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "A5",
+        "G1"
+      ]
+    },
+    {
+      "name": "Social Signals Marketing",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "D4",
+        "I2"
+      ]
+    },
+    {
+      "name": "Sundayable",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "B1",
+        "G4"
+      ]
+    },
+    {
+      "name": "Syntara",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "A5",
+        "I5"
+      ]
+    },
+    {
+      "name": "The Iconic Management",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "D4",
+        "I2"
+      ]
+    },
+    {
+      "name": "The Toronto Content Lab",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "D5",
+        "G2"
+      ]
+    },
+    {
+      "name": "Viva Media",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "D5",
+        "I2"
+      ]
+    },
+    {
+      "name": "Web Sharx",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "A3",
+        "I1"
+      ]
+    },
+    {
+      "name": "BBMedia",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "G1",
+        "G3"
+      ]
+    },
+    {
+      "name": "Chargefield",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "E2",
+        "E5"
+      ]
+    },
+    {
+      "name": "Concrete Design Communications",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "E2",
+        "E5"
+      ]
+    },
+    {
+      "name": "EC Marketing Agency",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "F1",
+        "F4"
+      ]
+    },
+    {
+      "name": "FUSE Create",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "E1",
+        "E3"
+      ]
+    },
+    {
+      "name": "Goods & Services Branding",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "A3",
+        "A4"
+      ]
+    },
+    {
+      "name": "Mojo Media",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "I1",
+        "I3"
+      ]
+    },
+    {
+      "name": "Mondo Bridal Agency",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "F2",
+        "F4"
+      ]
+    },
+    {
+      "name": "StreetTalk",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "E1",
+        "E3"
+      ]
+    },
+    {
+      "name": "ohms.marketing",
+      "count": 2,
+      "share_of_50_attempts": 0.04,
+      "prompt_ids": [
+        "B1",
+        "B3"
+      ]
+    },
+    {
+      "name": "AdTribe",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "C3"
+      ]
+    },
+    {
+      "name": "AdWise Canada",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "B3"
+      ]
+    },
+    {
+      "name": "Advorize",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "C4"
+      ]
+    },
+    {
+      "name": "Alliance Optima",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "I1"
+      ]
+    },
+    {
+      "name": "Analytics & Beyond",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "G3"
+      ]
+    },
+    {
+      "name": "Apex Marketing",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "A1"
+      ]
+    },
+    {
+      "name": "Attribute Media",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "H4"
+      ]
+    },
+    {
+      "name": "Aurion Studio",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "D5"
+      ]
+    },
+    {
+      "name": "Avenel",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "I4"
+      ]
+    },
+    {
+      "name": "Ayra Marketing",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "C4"
+      ]
+    },
+    {
+      "name": "BOWO Creative",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "G5"
+      ]
+    },
+    {
+      "name": "Bear&Shark",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "B2"
+      ]
+    },
+    {
+      "name": "Bee Video Production",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "D2"
+      ]
+    },
+    {
+      "name": "Bhuwan Rokaha",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "C4"
+      ]
+    },
+    {
+      "name": "Blab Media",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "B4"
+      ]
+    },
+    {
+      "name": "Brand Nav",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "I2"
+      ]
+    },
+    {
+      "name": "Build With Social",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J4"
+      ]
+    },
+    {
+      "name": "CCS Studio",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J4"
+      ]
+    },
+    {
+      "name": "Ca Ching Designs",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "I4"
+      ]
+    },
+    {
+      "name": "CanConnect Studio",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "I3"
+      ]
+    },
+    {
+      "name": "Canada Create",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J5"
+      ]
+    },
+    {
+      "name": "Canadian Web Designs",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "A5"
+      ]
+    },
+    {
+      "name": "Clarity Content",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "D5"
+      ]
+    },
+    {
+      "name": "Click Media Lab",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J1"
+      ]
+    },
+    {
+      "name": "Codee",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "I4"
+      ]
+    },
+    {
+      "name": "Create Content Canada",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "H1"
+      ]
+    },
+    {
+      "name": "Creatica Studios",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "B5"
+      ]
+    },
+    {
+      "name": "Crowley Content",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "B1"
+      ]
+    },
+    {
+      "name": "DMC Creative",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "B5"
+      ]
+    },
+    {
+      "name": "Databending",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "B4"
+      ]
+    },
+    {
+      "name": "Digilite",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "C4"
+      ]
+    },
+    {
+      "name": "Digital Dash",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J3"
+      ]
+    },
+    {
+      "name": "Digital Drew SEM",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "C4"
+      ]
+    },
+    {
+      "name": "DiscoverMyBusiness",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "C4"
+      ]
+    },
+    {
+      "name": "Elevate Talent & Marketing",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J1"
+      ]
+    },
+    {
+      "name": "Encipher",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "I2"
+      ]
+    },
+    {
+      "name": "Eyeshot",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J1"
+      ]
+    },
+    {
+      "name": "FX Productions Canada",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "D2"
+      ]
+    },
+    {
+      "name": "Fabled Creative",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "E2"
+      ]
+    },
+    {
+      "name": "Firas Digital",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "F2"
+      ]
+    },
+    {
+      "name": "Fitness Studio Marketing Canada",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "H2"
+      ]
+    },
+    {
+      "name": "Flux Marketing",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "C3"
+      ]
+    },
+    {
+      "name": "Frontline Studio",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "I3"
+      ]
+    },
+    {
+      "name": "Geek Power",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J2"
+      ]
+    },
+    {
+      "name": "Get Reel Ads",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "I5"
+      ]
+    },
+    {
+      "name": "Good Days Marketing",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "D1"
+      ]
+    },
+    {
+      "name": "Good Kids",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "H5"
+      ]
+    },
+    {
+      "name": "Gooseberry Studios",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "E5"
+      ]
+    },
+    {
+      "name": "Grapevine Media",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "F1"
+      ]
+    },
+    {
+      "name": "Growsooner",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "H1"
+      ]
+    },
+    {
+      "name": "HCO",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "F2"
+      ]
+    },
+    {
+      "name": "Hatul Madan",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "D2"
+      ]
+    },
+    {
+      "name": "Hot Hot Dog Studio",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "B5"
+      ]
+    },
+    {
+      "name": "Hustle Marketers",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "F2"
+      ]
+    },
+    {
+      "name": "IAVA Productions",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "D2"
+      ]
+    },
+    {
+      "name": "Jacknife",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "E5"
+      ]
+    },
+    {
+      "name": "Jasmine Williams Media",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "H1"
+      ]
+    },
+    {
+      "name": "Julie Studios",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J4"
+      ]
+    },
+    {
+      "name": "KO 360",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "A2"
+      ]
+    },
+    {
+      "name": "Keystroke Quality Designs",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "B4"
+      ]
+    },
+    {
+      "name": "Konstruct Digital",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "A1"
+      ]
+    },
+    {
+      "name": "LONERGAN",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "B3"
+      ]
+    },
+    {
+      "name": "Lab Creative",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "B5"
+      ]
+    },
+    {
+      "name": "Lapse Productions",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "E4"
+      ]
+    },
+    {
+      "name": "Let's Snack Toronto",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "D1"
+      ]
+    },
+    {
+      "name": "LiFet Media",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "H3"
+      ]
+    },
+    {
+      "name": "Little Dragon Media",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "I5"
+      ]
+    },
+    {
+      "name": "Lorven",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "I4"
+      ]
+    },
+    {
+      "name": "MAD Social Agency",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "C2"
+      ]
+    },
+    {
+      "name": "MD Media",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "D5"
+      ]
+    },
+    {
+      "name": "MKTG Canada",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "H2"
+      ]
+    },
+    {
+      "name": "MRCK Marketing",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J1"
+      ]
+    },
+    {
+      "name": "Marketing AI",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "B4"
+      ]
+    },
+    {
+      "name": "Marketing For You",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "H4"
+      ]
+    },
+    {
+      "name": "MarketingFlow",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "A1"
+      ]
+    },
+    {
+      "name": "Marmalade Studio",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "I1"
+      ]
+    },
+    {
+      "name": "Marrelay",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "I4"
+      ]
+    },
+    {
+      "name": "Mavlers",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "F2"
+      ]
+    },
+    {
+      "name": "Mishkat Digital Marketing",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J3"
+      ]
+    },
+    {
+      "name": "Most Exposure",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J2"
+      ]
+    },
+    {
+      "name": "Narsaik",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "D4"
+      ]
+    },
+    {
+      "name": "New Design Group",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "H2"
+      ]
+    },
+    {
+      "name": "Nomad Cre8tive",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "A4"
+      ]
+    },
+    {
+      "name": "North Marketing",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J5"
+      ]
+    },
+    {
+      "name": "Oluma",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "I4"
+      ]
+    },
+    {
+      "name": "Over Here Toronto",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "G2"
+      ]
+    },
+    {
+      "name": "PM Media Marketing",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "A5"
+      ]
+    },
+    {
+      "name": "PPCPilot",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "B1"
+      ]
+    },
+    {
+      "name": "Pasky Studio",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "G2"
+      ]
+    },
+    {
+      "name": "Perspective Film Studio",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "D5"
+      ]
+    },
+    {
+      "name": "Piston Studio",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "E1"
+      ]
+    },
+    {
+      "name": "Platinum Quick",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J3"
+      ]
+    },
+    {
+      "name": "Prosh Marketing",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "B3"
+      ]
+    },
+    {
+      "name": "RAMPD Vision",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "A2"
+      ]
+    },
+    {
+      "name": "RC Design",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J2"
+      ]
+    },
+    {
+      "name": "ROUND CONTENT",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "D5"
+      ]
+    },
+    {
+      "name": "RedlineToronto",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "E1"
+      ]
+    },
+    {
+      "name": "Reel Time Creations",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "G1"
+      ]
+    },
+    {
+      "name": "Reet Media",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "A2"
+      ]
+    },
+    {
+      "name": "Rosewood Marketing",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J2"
+      ]
+    },
+    {
+      "name": "SEO24",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "B3"
+      ]
+    },
+    {
+      "name": "SOAP Media",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J1"
+      ]
+    },
+    {
+      "name": "Sable Signal Studio",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "G4"
+      ]
+    },
+    {
+      "name": "Salon Boss",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "G4"
+      ]
+    },
+    {
+      "name": "Scene Creative",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "A2"
+      ]
+    },
+    {
+      "name": "SearchKings",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J1"
+      ]
+    },
+    {
+      "name": "SearchPod",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "H4"
+      ]
+    },
+    {
+      "name": "SearchSpark",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J1"
+      ]
+    },
+    {
+      "name": "Shortents",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "G2"
+      ]
+    },
+    {
+      "name": "SimpleStart Digital",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "I3"
+      ]
+    },
+    {
+      "name": "Smaller Agency",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "A4"
+      ]
+    },
+    {
+      "name": "Social Sherpa",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J5"
+      ]
+    },
+    {
+      "name": "Socials & Stilettos",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J3"
+      ]
+    },
+    {
+      "name": "Speakeasy Agency",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "A1"
+      ]
+    },
+    {
+      "name": "Studio 3 Design Co.",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "A4"
+      ]
+    },
+    {
+      "name": "Studio Wild Wild",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "E2"
+      ]
+    },
+    {
+      "name": "Super Duper Studios",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "E3"
+      ]
+    },
+    {
+      "name": "Taste",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "E3"
+      ]
+    },
+    {
+      "name": "The Epiq Marketing Agency",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J4"
+      ]
+    },
+    {
+      "name": "The Local Collective",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "A4"
+      ]
+    },
+    {
+      "name": "The Marketing Mavericks",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J5"
+      ]
+    },
+    {
+      "name": "The Sarah Jane Co.",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "F3"
+      ]
+    },
+    {
+      "name": "The Socials Labs",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "G2"
+      ]
+    },
+    {
+      "name": "The Story",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "I1"
+      ]
+    },
+    {
+      "name": "The Website Team",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "I1"
+      ]
+    },
+    {
+      "name": "Third Eye Insights",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "A3"
+      ]
+    },
+    {
+      "name": "Tidal Media",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "F2"
+      ]
+    },
+    {
+      "name": "True-E Digital Marketing",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J1"
+      ]
+    },
+    {
+      "name": "TrueCraft Digital Media",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "H2"
+      ]
+    },
+    {
+      "name": "VOOFA",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J2"
+      ]
+    },
+    {
+      "name": "Vaelolab",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "E1"
+      ]
+    },
+    {
+      "name": "WSI Comandix",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J2"
+      ]
+    },
+    {
+      "name": "Walden",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "B5"
+      ]
+    },
+    {
+      "name": "We Are Digital Marketing",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "A5"
+      ]
+    },
+    {
+      "name": "We Are Family Canada",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "H5"
+      ]
+    },
+    {
+      "name": "We Are Social Toronto",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "E3"
+      ]
+    },
+    {
+      "name": "Webblyfy",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "I2"
+      ]
+    },
+    {
+      "name": "Website Co.",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "I4"
+      ]
+    },
+    {
+      "name": "White Petals Agency",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "B4"
+      ]
+    },
+    {
+      "name": "Whitman Emorson",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "E5"
+      ]
+    },
+    {
+      "name": "WordzOut",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J4"
+      ]
+    },
+    {
+      "name": "Writing Web Words",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "H1"
+      ]
+    },
+    {
+      "name": "X Square",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J4"
+      ]
+    },
+    {
+      "name": "XMC",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "H2"
+      ]
+    },
+    {
+      "name": "Y3S Creative",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "E1"
+      ]
+    },
+    {
+      "name": "mrge Marketing",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "J4"
+      ]
+    },
+    {
+      "name": "not so secret",
+      "count": 1,
+      "share_of_50_attempts": 0.02,
+      "prompt_ids": [
+        "A4"
+      ]
+    }
+  ],
+  "visible_source_domains": [
+    {
+      "domain": "metabaz.ca",
+      "count": 6,
+      "prompt_ids": [
+        "B2",
+        "C1",
+        "C2",
+        "C3",
+        "C5",
+        "J3"
+      ]
+    },
+    {
+      "domain": "mybloomhq.com",
+      "count": 6,
+      "prompt_ids": [
+        "A1",
+        "A5",
+        "B5",
+        "F1",
+        "G4",
+        "I2"
+      ]
+    },
+    {
+      "domain": "orcafy.com",
+      "count": 5,
+      "prompt_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C5",
+        "I2"
+      ]
+    },
+    {
+      "domain": "viternogroup.com",
+      "count": 4,
+      "prompt_ids": [
+        "D2",
+        "D4",
+        "E1",
+        "E3"
+      ]
+    },
+    {
+      "domain": "kavanadigital.com",
+      "count": 3,
+      "prompt_ids": [
+        "B3",
+        "F1",
+        "J2"
+      ]
+    },
+    {
+      "domain": "originfilms.ca",
+      "count": 3,
+      "prompt_ids": [
+        "D1",
+        "D5",
+        "G2"
+      ]
+    },
+    {
+      "domain": "redleafmedia.ca",
+      "count": 3,
+      "prompt_ids": [
+        "H1",
+        "H3",
+        "J5"
+      ]
+    },
+    {
+      "domain": "salonmarketingco.ca",
+      "count": 3,
+      "prompt_ids": [
+        "G1",
+        "G3",
+        "G4"
+      ]
+    },
+    {
+      "domain": "aufait.ca",
+      "count": 2,
+      "prompt_ids": [
+        "F1",
+        "G4"
+      ]
+    },
+    {
+      "domain": "avocadomedia.ca",
+      "count": 2,
+      "prompt_ids": [
+        "B2",
+        "F3"
+      ]
+    },
+    {
+      "domain": "bbmedia.ca",
+      "count": 2,
+      "prompt_ids": [
+        "G1",
+        "G3"
+      ]
+    },
+    {
+      "domain": "clutch.co",
+      "count": 2,
+      "prompt_ids": [
+        "A1",
+        "A3"
+      ]
+    },
+    {
+      "domain": "elyflort.com",
+      "count": 2,
+      "prompt_ids": [
+        "F3",
+        "I5"
+      ]
+    },
+    {
+      "domain": "goodkids.ca",
+      "count": 2,
+      "prompt_ids": [
+        "E3",
+        "H5"
+      ]
+    },
+    {
+      "domain": "hvrmediahouse.com",
+      "count": 2,
+      "prompt_ids": [
+        "B2",
+        "F3"
+      ]
+    },
+    {
+      "domain": "manisoft.agency",
+      "count": 2,
+      "prompt_ids": [
+        "C4",
+        "D4"
+      ]
+    },
+    {
+      "domain": "ohms.marketing",
+      "count": 2,
+      "prompt_ids": [
+        "B1",
+        "B3"
+      ]
+    },
+    {
+      "domain": "ravlink.ca",
+      "count": 2,
+      "prompt_ids": [
+        "B2",
+        "F3"
+      ]
+    },
+    {
+      "domain": "samarketingsolutions.org",
+      "count": 2,
+      "prompt_ids": [
+        "A1",
+        "B1"
+      ]
+    },
+    {
+      "domain": "streettalk.co",
+      "count": 2,
+      "prompt_ids": [
+        "E1",
+        "E3"
+      ]
+    },
+    {
+      "domain": "sundayable.com",
+      "count": 2,
+      "prompt_ids": [
+        "B1",
+        "G4"
+      ]
+    },
+    {
+      "domain": "syntara.ca",
+      "count": 2,
+      "prompt_ids": [
+        "A5",
+        "I5"
+      ]
+    },
+    {
+      "domain": "theiconicmanagement.ca",
+      "count": 2,
+      "prompt_ids": [
+        "D4",
+        "I2"
+      ]
+    },
+    {
+      "domain": "thetorontocontentlab.com",
+      "count": 2,
+      "prompt_ids": [
+        "D5",
+        "G2"
+      ]
+    },
+    {
+      "domain": "about.fb.com",
+      "count": 1,
+      "prompt_ids": [
+        "C5"
+      ]
+    },
+    {
+      "domain": "advorize.com",
+      "count": 1,
+      "prompt_ids": [
+        "C4"
+      ]
+    },
+    {
+      "domain": "adwisecanada.com",
+      "count": 1,
+      "prompt_ids": [
+        "B3"
+      ]
+    },
+    {
+      "domain": "analyticsbeyond.com",
+      "count": 1,
+      "prompt_ids": [
+        "G3"
+      ]
+    },
+    {
+      "domain": "apexmarketingcanada.com",
+      "count": 1,
+      "prompt_ids": [
+        "A1"
+      ]
+    },
+    {
+      "domain": "arnoldstreet.com",
+      "count": 1,
+      "prompt_ids": [
+        "H5"
+      ]
+    },
+    {
+      "domain": "attribute.media",
+      "count": 1,
+      "prompt_ids": [
+        "H4"
+      ]
+    },
+    {
+      "domain": "aurionstudio.io",
+      "count": 1,
+      "prompt_ids": [
+        "D5"
+      ]
+    },
+    {
+      "domain": "avenel.agency",
+      "count": 1,
+      "prompt_ids": [
+        "I4"
+      ]
+    },
+    {
+      "domain": "ayramarketing.squarespace.com",
+      "count": 1,
+      "prompt_ids": [
+        "C4"
+      ]
+    },
+    {
+      "domain": "bhu1roka.com",
+      "count": 1,
+      "prompt_ids": [
+        "C4"
+      ]
+    },
+    {
+      "domain": "bigalc.com",
+      "count": 1,
+      "prompt_ids": [
+        "H4"
+      ]
+    },
+    {
+      "domain": "bowocreative.com",
+      "count": 1,
+      "prompt_ids": [
+        "G5"
+      ]
+    },
+    {
+      "domain": "brandnav.ca",
+      "count": 1,
+      "prompt_ids": [
+        "I2"
+      ]
+    },
+    {
+      "domain": "buildwithsocial.com",
+      "count": 1,
+      "prompt_ids": [
+        "J4"
+      ]
+    },
+    {
+      "domain": "canconnectstudio.com",
+      "count": 1,
+      "prompt_ids": [
+        "I3"
+      ]
+    },
+    {
+      "domain": "codee.ca",
+      "count": 1,
+      "prompt_ids": [
+        "I4"
+      ]
+    },
+    {
+      "domain": "concrete.ca",
+      "count": 1,
+      "prompt_ids": [
+        "E2"
+      ]
+    },
+    {
+      "domain": "couturebridalalterations.ca",
+      "count": 1,
+      "prompt_ids": [
+        "F5"
+      ]
+    },
+    {
+      "domain": "crowleycontent.ca",
+      "count": 1,
+      "prompt_ids": [
+        "B1"
+      ]
+    },
+    {
+      "domain": "cruel.ca",
+      "count": 1,
+      "prompt_ids": [
+        "E3"
+      ]
+    },
+    {
+      "domain": "digilite.ca",
+      "count": 1,
+      "prompt_ids": [
+        "C4"
+      ]
+    },
+    {
+      "domain": "digitaldrewsem.com",
+      "count": 1,
+      "prompt_ids": [
+        "C4"
+      ]
+    },
+    {
+      "domain": "digitalestatemedia.com",
+      "count": 1,
+      "prompt_ids": [
+        "A1"
+      ]
+    },
+    {
+      "domain": "discovermybusiness.co",
+      "count": 1,
+      "prompt_ids": [
+        "C4"
+      ]
+    },
+    {
+      "domain": "ducerodigital.com",
+      "count": 1,
+      "prompt_ids": [
+        "J2"
+      ]
+    },
+    {
+      "domain": "empact.fit",
+      "count": 1,
+      "prompt_ids": [
+        "H1"
+      ]
+    },
+    {
+      "domain": "encipher.ca",
+      "count": 1,
+      "prompt_ids": [
+        "I2"
+      ]
+    },
+    {
+      "domain": "fabledcreative.com",
+      "count": 1,
+      "prompt_ids": [
+        "E2"
+      ]
+    },
+    {
+      "domain": "felichia.com",
+      "count": 1,
+      "prompt_ids": [
+        "F4"
+      ]
+    },
+    {
+      "domain": "firasdigital.com",
+      "count": 1,
+      "prompt_ids": [
+        "F2"
+      ]
+    },
+    {
+      "domain": "fitnessstudiomarketing.ca",
+      "count": 1,
+      "prompt_ids": [
+        "H2"
+      ]
+    },
+    {
+      "domain": "frontlinestudio.ca",
+      "count": 1,
+      "prompt_ids": [
+        "I3"
+      ]
+    },
+    {
+      "domain": "getreelads.com",
+      "count": 1,
+      "prompt_ids": [
+        "I5"
+      ]
+    },
+    {
+      "domain": "gooddaysmarketing.com",
+      "count": 1,
+      "prompt_ids": [
+        "D1"
+      ]
+    },
+    {
+      "domain": "gooseberrystudios.com",
+      "count": 1,
+      "prompt_ids": [
+        "E5"
+      ]
+    },
+    {
+      "domain": "grapevineonline.ca",
+      "count": 1,
+      "prompt_ids": [
+        "F1"
+      ]
+    },
+    {
+      "domain": "growsooner.com",
+      "count": 1,
+      "prompt_ids": [
+        "H1"
+      ]
+    },
+    {
+      "domain": "h2odigital.ca",
+      "count": 1,
+      "prompt_ids": [
+        "H2"
+      ]
+    },
+    {
+      "domain": "hatulmadan.ca",
+      "count": 1,
+      "prompt_ids": [
+        "D2"
+      ]
+    },
+    {
+      "domain": "hothotdog.studio",
+      "count": 1,
+      "prompt_ids": [
+        "B5"
+      ]
+    },
+    {
+      "domain": "hustlemarketers.com",
+      "count": 1,
+      "prompt_ids": [
+        "F2"
+      ]
+    },
+    {
+      "domain": "influencemarketing.ca",
+      "count": 1,
+      "prompt_ids": [
+        "H2"
+      ]
+    },
+    {
+      "domain": "itshco.com",
+      "count": 1,
+      "prompt_ids": [
+        "F2"
+      ]
+    },
+    {
+      "domain": "ko360.ca",
+      "count": 1,
+      "prompt_ids": [
+        "A2"
+      ]
+    },
+    {
+      "domain": "lapseproductions.com",
+      "count": 1,
+      "prompt_ids": [
+        "E4"
+      ]
+    },
+    {
+      "domain": "lifet.ca",
+      "count": 1,
+      "prompt_ids": [
+        "H3"
+      ]
+    },
+    {
+      "domain": "lorven.ca",
+      "count": 1,
+      "prompt_ids": [
+        "I4"
+      ]
+    },
+    {
+      "domain": "madebyemblem.com",
+      "count": 1,
+      "prompt_ids": [
+        "E5"
+      ]
+    },
+    {
+      "domain": "madsocialagency.com",
+      "count": 1,
+      "prompt_ids": [
+        "C2"
+      ]
+    },
+    {
+      "domain": "marketingflow.ca",
+      "count": 1,
+      "prompt_ids": [
+        "A1"
+      ]
+    },
+    {
+      "domain": "marketingmavericks.co.uk",
+      "count": 1,
+      "prompt_ids": [
+        "J5"
+      ]
+    },
+    {
+      "domain": "marrelay.com",
+      "count": 1,
+      "prompt_ids": [
+        "I4"
+      ]
+    },
+    {
+      "domain": "mavlers.agency",
+      "count": 1,
+      "prompt_ids": [
+        "F2"
+      ]
+    },
+    {
+      "domain": "minifridgemedia.com",
+      "count": 1,
+      "prompt_ids": [
+        "E4"
+      ]
+    },
+    {
+      "domain": "mishkat.ca",
+      "count": 1,
+      "prompt_ids": [
+        "J3"
+      ]
+    },
+    {
+      "domain": "mrckmarketing.com",
+      "count": 1,
+      "prompt_ids": [
+        "J1"
+      ]
+    },
+    {
+      "domain": "mrspstitches.com",
+      "count": 1,
+      "prompt_ids": [
+        "F5"
+      ]
+    },
+    {
+      "domain": "narsaik.com",
+      "count": 1,
+      "prompt_ids": [
+        "D4"
+      ]
+    },
+    {
+      "domain": "newdesigngroup.ca",
+      "count": 1,
+      "prompt_ids": [
+        "H2"
+      ]
+    },
+    {
+      "domain": "newlifemarketing.ca",
+      "count": 1,
+      "prompt_ids": [
+        "J3"
+      ]
+    },
+    {
+      "domain": "northmarketingagency.com",
+      "count": 1,
+      "prompt_ids": [
+        "J5"
+      ]
+    },
+    {
+      "domain": "oluma-agency.com",
+      "count": 1,
+      "prompt_ids": [
+        "I4"
+      ]
+    },
+    {
+      "domain": "overheretoronto.com",
+      "count": 1,
+      "prompt_ids": [
+        "G2"
+      ]
+    },
+    {
+      "domain": "paskymedia.com",
+      "count": 1,
+      "prompt_ids": [
+        "G2"
+      ]
+    },
+    {
+      "domain": "pmmediamarketing.com",
+      "count": 1,
+      "prompt_ids": [
+        "A5"
+      ]
+    },
+    {
+      "domain": "preeminentmarketing.ca",
+      "count": 1,
+      "prompt_ids": [
+        "J1"
+      ]
+    },
+    {
+      "domain": "rampdvision.com",
+      "count": 1,
+      "prompt_ids": [
+        "A2"
+      ]
+    },
+    {
+      "domain": "redlinetoronto.ca",
+      "count": 1,
+      "prompt_ids": [
+        "E1"
+      ]
+    },
+    {
+      "domain": "reeltimecreations.ca",
+      "count": 1,
+      "prompt_ids": [
+        "G1"
+      ]
+    },
+    {
+      "domain": "reetmedia.com",
+      "count": 1,
+      "prompt_ids": [
+        "A2"
+      ]
+    },
+    {
+      "domain": "rogolook.com",
+      "count": 1,
+      "prompt_ids": [
+        "H4"
+      ]
+    },
+    {
+      "domain": "rosewoodmarketing.ca",
+      "count": 1,
+      "prompt_ids": [
+        "J2"
+      ]
+    },
+    {
+      "domain": "sablesignal.com",
+      "count": 1,
+      "prompt_ids": [
+        "G4"
+      ]
+    },
+    {
+      "domain": "salonbossmarketing.com",
+      "count": 1,
+      "prompt_ids": [
+        "G4"
+      ]
+    },
+    {
+      "domain": "scenecreativeinc.com",
+      "count": 1,
+      "prompt_ids": [
+        "A2"
+      ]
+    },
+    {
+      "domain": "searchpod.com",
+      "count": 1,
+      "prompt_ids": [
+        "H4"
+      ]
+    },
+    {
+      "domain": "seo24.ca",
+      "count": 1,
+      "prompt_ids": [
+        "B3"
+      ]
+    },
+    {
+      "domain": "shestheniche.ca",
+      "count": 1,
+      "prompt_ids": [
+        "G2"
+      ]
+    },
+    {
+      "domain": "simplestartdigital.com",
+      "count": 1,
+      "prompt_ids": [
+        "I3"
+      ]
+    },
+    {
+      "domain": "smalleragency.com",
+      "count": 1,
+      "prompt_ids": [
+        "A4"
+      ]
+    },
+    {
+      "domain": "studio3designco.com",
+      "count": 1,
+      "prompt_ids": [
+        "A4"
+      ]
+    },
+    {
+      "domain": "thesarahjane.co",
+      "count": 1,
+      "prompt_ids": [
+        "F3"
+      ]
+    },
+    {
+      "domain": "thewebsiteteam.ca",
+      "count": 1,
+      "prompt_ids": [
+        "I1"
+      ]
+    },
+    {
+      "domain": "thisisnotsosecret.com",
+      "count": 1,
+      "prompt_ids": [
+        "A4"
+      ]
+    },
+    {
+      "domain": "tidalmedia.ca",
+      "count": 1,
+      "prompt_ids": [
+        "F2"
+      ]
+    },
+    {
+      "domain": "tripadvisor.com",
+      "count": 1,
+      "prompt_ids": [
+        "F5"
+      ]
+    },
+    {
+      "domain": "truecraftdigitalmedia.ca",
+      "count": 1,
+      "prompt_ids": [
+        "H2"
+      ]
+    },
+    {
+      "domain": "vaelolab.com",
+      "count": 1,
+      "prompt_ids": [
+        "E1"
+      ]
+    },
+    {
+      "domain": "voofa.ca",
+      "count": 1,
+      "prompt_ids": [
+        "J2"
+      ]
+    },
+    {
+      "domain": "we-are-family.com",
+      "count": 1,
+      "prompt_ids": [
+        "H5"
+      ]
+    },
+    {
+      "domain": "wearedigitalmarketing.ca",
+      "count": 1,
+      "prompt_ids": [
+        "A5"
+      ]
+    },
+    {
+      "domain": "webblyfy.ca",
+      "count": 1,
+      "prompt_ids": [
+        "I2"
+      ]
+    },
+    {
+      "domain": "websiteco.ca",
+      "count": 1,
+      "prompt_ids": [
+        "I4"
+      ]
+    },
+    {
+      "domain": "xmc.ca",
+      "count": 1,
+      "prompt_ids": [
+        "H2"
+      ]
+    },
+    {
+      "domain": "y3screative.ca",
+      "count": 1,
+      "prompt_ids": [
+        "E1"
+      ]
+    },
+    {
+      "domain": "yelp.ca",
+      "count": 1,
+      "prompt_ids": [
+        "A2"
+      ]
+    },
+    {
+      "domain": "zatrovo.com",
+      "count": 1,
+      "prompt_ids": [
+        "H3"
+      ]
+    }
+  ],
+  "limitations": [
+    "Grouped and map citations not fully exposed",
+    "B4 citation labels but no captured URLs",
+    "D3 clarification without provider list",
+    "F5 substantive advice without named marketing provider",
+    "Backend version undisclosed",
+    "New Google profile between segments; creation/verification date unknown",
+    "No branded prompts in this non-branded50; branded visibility requires a separate control set"
+  ]
+}

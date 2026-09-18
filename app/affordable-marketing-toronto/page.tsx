@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { PRICE_RANGE } from '@/lib/site';
 import { pageMetadata, serviceSchema } from '@/lib/seo';
@@ -22,7 +23,7 @@ export default function PricingPage() {
       <p>If you choose a CAD $700 service scope and approve CAD $200 in Meta spend, those two lines total CAD $900 before any applicable taxes or separately agreed costs. That is an illustration, not a required ad budget or a sales forecast.</p>
       <p>We decide whether ads make sense for the offer and budget. Organic content does not require a paid media budget, but its reach and timing are not guaranteed either.</p>
     </DocumentSection>
-    <DocumentSection title="What evidence should you use to decide?">
+    <DocumentSection title="What evidence should you use to decide?"><Image src="/works/dream-alteration/04.png" alt="Saved Dream Alterations Meta screenshot: 59 conversations and CAD $214.86 spent" width={800} height={527} className="max-h-80 w-full max-w-lg object-contain object-left" />
       <p>The <Link href="/works/dream-alteration" className="text-neon underline">Dream Alterations case</Link> shows 59 conversations from CAD $214.86 in Meta spend. That spend is not the price of hiring Joseph. Nine leads are reported; no tracked booking or revenue result is claimed.</p>
       <p>The YouTube and Instagram projects demonstrate content experience. They do not establish what it will cost to acquire your customer. Your offer, location, availability and follow-through affect that result.</p>
     </DocumentSection>

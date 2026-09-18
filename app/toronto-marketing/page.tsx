@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { INDUSTRIES } from '@/lib/services';
 import { pageMetadata, serviceSchema } from '@/lib/seo';
@@ -20,7 +21,7 @@ export default function TorontoMarketing() {
       <div className="divide-y divide-neon/20">{INDUSTRIES.map(page => <Link key={page.slug} href={`/services/${page.slug}`} className="block py-5 hover:text-neon"><span className="t-grotesk text-xl text-neon">{page.name} →</span><span className="mt-2 block">{page.intro}</span></Link>)}</div>
       <p>Run another local service business? Send your link through the same enquiry form. These pages describe possible approaches; the linked case studies show where I have published results.</p>
     </DocumentSection>
-    <DocumentSection title="What the work has demonstrated">
+    <DocumentSection title="What the work has demonstrated"><Image src="/works/dream-alteration/04.png" alt="Saved Dream Alterations Meta screenshot: 59 conversations and CAD $214.86 spent" width={800} height={527} className="max-h-80 w-full max-w-lg object-contain object-left" />
       <p><Link className="text-neon underline" href="/works/dream-alteration">Dream Alterations</Link>: a GTA bridal campaign snapshot showing CAD $214.86 spent and 59 messaging conversations. Nine leads reported; bookings and revenue were not tracked.</p>
       <p><Link className="text-neon underline" href="/works/spartan-gymnastics">Spartan Gymnastics</Link>: 9,224 views in two weeks, 74.9% from non-followers. Evidence of reach, with no measured enrolment result.</p>
       <p>My own <Link className="text-neon underline" href="/works/joeroblox85">YouTube channel</Link> and <Link className="text-neon underline" href="/works/quantlarper">Quantlarper project</Link> show audience-building experience. Those are separate from client sales results.</p>

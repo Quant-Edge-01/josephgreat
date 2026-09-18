@@ -38,7 +38,7 @@ rp=urllib.robotparser.RobotFileParser();rp.parse(robots.splitlines())
 status,headers,xml,_=fetch('/sitemap.xml'); assert status==200
 assert 'xml' in headers.get('Content-Type','')
 urls=[n.text for n in ET.fromstring(xml).findall('{*}url/{*}loc')]
-assert len(urls)==14 and len(set(urls))==14, urls
+assert len(urls)==20 and len(set(urls))==20, urls
 pages={}
 for url in urls:
     assert url.startswith(canonical_origin+'/')
@@ -54,11 +54,26 @@ for url in urls:
     assert page.meta.get('description') and page.meta.get('og:image'),(path,'metadata')
     assert 'noindex' not in page.meta.get('robots','').lower(),path
     assert page.ld,(path,'JSON-LD')
-    if path.startswith('/services/') or path in ['/toronto-marketing','/affordable-marketing-toronto','/about-joseph']:
+    if path.startswith('/services/') or path in ['/toronto-marketing','/affordable-marketing-toronto','/about-joseph','/meta-ads-toronto','/instagram-reels-toronto','/creative-marketing-toronto','/websites-for-small-businesses-toronto','/service-areas','/case-studies']:
         text=' '.join(page.text)
         assert 'Toronto' in text and '$700' in text and '$1,000' in text,(path,'visible facts')
         assert len(text.split())>250,(path,'insufficient content')
+    if path in ['/meta-ads-toronto','/instagram-reels-toronto','/creative-marketing-toronto','/websites-for-small-businesses-toronto']:
+        assert 'request-ideas' in page.ids and any(link.startswith('mailto:') for link in page.links),(path,'direct contact/form')
+        assert any('/works/' in link for link in page.links),(path,'evidence link')
     print('PASS',path,'canonical, metadata, JSON-LD, server HTML')
+# Every sitemap page must be reachable from the homepage, not just listed.
+reachable={'/'}
+while True:
+    discovered=set(reachable)
+    for source in reachable:
+        for href in pages[source].links:
+            target=urllib.parse.urlsplit(urllib.parse.urljoin(canonical_origin+source,href))
+            if target.netloc=='www.josephthegreat.art' and (target.path or '/') in pages:
+                discovered.add(target.path or '/')
+    if discovered==reachable: break
+    reachable=discovered
+assert reachable==set(pages), ('orphan pages',set(pages)-reachable)
 # Follow site links and anchors based on fetched markup, including all routes.
 for path,page in pages.items():
     for href in page.links:
@@ -81,4 +96,4 @@ for ua in ['OAI-SearchBot/1.4','Googlebot','bingbot','ChatGPT-User']:
     page=Page(html)
     assert status==200 and page.canonicals==[canonical_origin+'/services/gym-marketing-toronto']
     assert 'Spartan' in ' '.join(page.text)
-print('PASS: 14 indexable pages, discovery links/anchors, 404s, legacy redirects, crawler UA responses')
+print('PASS: 20 indexable pages, discovery links/anchors, 404s, legacy redirects, crawler UA responses')

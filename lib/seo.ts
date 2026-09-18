@@ -17,7 +17,8 @@ export function pageMetadata(title: string, description: string, path: string, i
 export const organizationSchema = {
   '@context': 'https://schema.org', '@type': 'Organization', '@id': organizationId,
   name: 'Joseph The Great', url: SITE_URL, email: EMAIL,
-  description: 'Independent creative marketing studio in Toronto offering reels, Meta ads and websites for small businesses.',
+  description: 'Joseph The Great is an independent creative marketing studio led by Yusuf Yakubov, known as Joseph, serving small businesses in Toronto and the Greater Toronto Area. Services include short-form content, creative advertising, Meta Ads and website work.',
+  contactPoint: { '@type': 'ContactPoint', email: EMAIL, contactType: 'project enquiries', availableLanguage: 'English' },
   areaServed: serviceArea, sameAs: [IG_URL], founder: { '@id': personId },
 };
 
@@ -29,10 +30,10 @@ export function breadcrumbs(items: { name: string; path: string }[]) {
   return { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map((item, i) => ({ '@type': 'ListItem', position: i + 1, name: item.name, item: `${SITE_URL}${item.path}` })) };
 }
 
-export function serviceSchema(name: string, description: string, path: string) {
+export function serviceSchema(name: string, description: string, path: string, serviceType = 'Short-form content, Meta ads and website services') {
   return {
     '@context': 'https://schema.org', '@type': 'Service', '@id': `${SITE_URL}${path}#service`,
-    name, description, url: `${SITE_URL}${path}`, serviceType: 'Short-form content, Meta ads and website services',
+    name, description, url: `${SITE_URL}${path}`, serviceType,
     provider: { '@id': organizationId }, areaServed: serviceArea,
     offers: { '@type': 'Offer', url: `${SITE_URL}/affordable-marketing-toronto`,
       description: 'CAD $700–$1,000 per month depending on agreed scope. Ad spend is separate. A full website and every service are not automatically included.',

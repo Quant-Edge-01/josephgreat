@@ -1,7 +1,7 @@
 /**
  * Every number here is read off a screenshot sitting in public/works/<slug>/.
- * If a claim isn't in an image, it isn't on the page. Quotes are Joseph's own
- * words from the project notes, normalised for punctuation only.
+ * If a claim isn't in an image, it isn't on the page. Project-note fields are summaries; lead and subscriber figures must retain
+ * their provenance and must never imply verified sales.
  */
 
 export type WorkImage = {
@@ -79,8 +79,8 @@ const SEEDS: WorkSeed[] = [
     lede: "$3.64 to put a bride in the inbox — and they kept me on. Still running the account, every month since January.",
     body: [
       "Custom bridal and wedding gown alterations across the GTA. Appointments only — which means every enquiry has to be a real one. There's no walk-in traffic to hide a weak campaign behind.",
-      "The paid side: $214.86 spent, 59 messaging conversations started, $3.64 each on average. Nine of them turned into leads. On the best day of the run the cost per conversation dropped to $1.46.",
-      "The organic side does the rest — half a million views on one reel, 17,200 likes, 2,700 saves, from an account with twelve posts and 689 followers. A shop competing with every alteration place in the city, and now it's the one people can actually name.",
+      "The paid side: $214.86 spent, 59 messaging conversations started, $3.64 each on average. Nine leads are owner-reported; the qualification criteria and full campaign timeframe are unavailable. Bookings and revenue were not tracked. On the best day of the run the cost per conversation dropped to $1.46.",
+      "The organic side does the rest — half a million views on one reel, 17,200 likes, 2,700 saves, from an account with twelve posts and 689 followers. These are organic reach and engagement metrics, separate from the paid messaging campaign; customer recognition and sales were not measured.",
       "This one is not a finished case study. I still run the account on a monthly retainer, and have since January — which is the part I would look at hardest if I were you, because a single good month is luck and a client who keeps paying is not.",
     ],
     quote:
@@ -89,7 +89,7 @@ const SEEDS: WorkSeed[] = [
       { value: "$214.86", label: "total ad spend" },
       { value: "59", label: "conversations started" },
       { value: "$3.64", label: "per conversation" },
-      { value: "9", label: "leads" },
+      { value: "9", label: "owner-reported leads" },
     ],
     cover: "/works/dream-alteration/03.jpg",
     images: [
@@ -185,7 +185,7 @@ const SEEDS: WorkSeed[] = [
     headline: { value: "33.1M", label: "lifetime views" },
     lede: "The hardest audience on the internet is eight years old. I held it thirty-three million times.",
     body: [
-      "A Roblox channel I built and ran myself, start to finish. 33.1 million views. 324,400 subscribers. A silver play button on the desk, which tends to make the conversation shorter.",
+      "A Roblox channel I built and ran myself, start to finish. 33.1 million lifetime views and +324.4K net subscribers gained in the saved analytics, not a live subscriber count. A silver play button on the desk, which tends to make the conversation shorter.",
       "One Short did 8,490,448 views on its own and brought 116,400 subscribers with it. That's the one that gets the reaction. The number that actually means something is sitting right next to it — six Shorts past a million views, spread across two years. Once is luck. Six times is a format.",
       "Kids are the most honest audience alive. They don't watch to be polite and they don't finish something out of respect for the effort. They leave in the first second and they never come back. Learning to hold them taught me hooks, pacing and payoff harder than any client brief has since.",
     ],
@@ -237,13 +237,13 @@ const SEEDS: WorkSeed[] = [
     proves: "reach",
     local: false,
     headline: { value: "1.2M", label: "views in 30 days, $0 spent" },
-    lede: "Two posts. Zero dollars. 175 subscribers who actually open the emails.",
+    lede: "Two posts. Zero dollars. 175 active email subscribers in the saved snapshot.",
     body: [
       "A financial tool for people trading the stock market — the least forgiving niche on the platform, because every second account in it belongs to a man renting a Lamborghini by the hour.",
       "So I went the other way. The bio reads “i'm not a guru, dude pls do not hate me.” That isn't self-deprecation, it's positioning. In a feed built entirely on borrowed authority, refusing to claim any is the thing that stops the thumb.",
       "One month, no ad spend, an account with two posts on it: 1.2 million views in 30 days. The top reel alone took 1,150,970 views from 643,263 unique viewers, with 65,300 likes and 9,900 saves. 2,159 followers at the end of it — and 175 active subscribers on the list.",
     ],
-    quote: "175 clients with 0 budget, only organic views in 1 month.",
+    quote: "175 email subscribers reported, with no ad spend in the saved project snapshot.",
     stats: [
       { value: "$0", label: "ad spend" },
       { value: "1.2M", label: "views in 30 days" },

@@ -15,7 +15,7 @@ export const CASE_NOTES: Record<
     result: "59 conversations",
     label: "CAD $214.86 ad spend · $3.64 per conversation",
     limit:
-      "Campaign snapshot. Nine leads reported; bookings and revenue were not tracked in this case.",
+      "Campaign snapshot. Nine leads are owner-reported; qualification criteria and the full campaign date range are unavailable. Bookings and revenue were not tracked in this case.",
   },
   "spartan-gymnastics": {
     problem:

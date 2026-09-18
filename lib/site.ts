@@ -116,6 +116,8 @@ export function retainerLine(now: Date = new Date()) {
  * be allowed to disagree.
  */
 export const UNGATED_PATHS = [
+  "/meta-ads-toronto", "/instagram-reels-toronto", "/creative-marketing-toronto",
+  "/websites-for-small-businesses-toronto", "/service-areas", "/case-studies",
   "/privacy-policy", "/toronto-marketing", "/affordable-marketing-toronto", "/about-joseph",
   "/services/bridal-marketing-toronto", "/services/beauty-salon-marketing-toronto",
   "/services/gym-marketing-toronto", "/services/restaurant-marketing-toronto",

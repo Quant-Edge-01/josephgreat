@@ -1,0 +1,478 @@
+{
+  "benchmark_version": "1.0",
+  "created_date": "2026-09-12",
+  "baseline_label": "post-Phase-1 / before Phase-2",
+  "baseline_site_revision": "7d849447e9f2e9efacb1d7f930df426a6e78244b",
+  "status": "CAPTURE_AND_MANUAL_CODING_COMPLETE_INTERRUPTED_EXPLORATORY",
+  "blocker": null,
+  "resume_note": "Resumed 2026-09-13 22:50 UTC within 48 hours. Prior limit came from automatic browser approval review, not a verified test-account rate limit. UI variant changed; backend model remains undisclosed. E1 original submitted response was lost with the tab; one replacement attempt is explicitly recorded.",
+  "conditions": {
+    "product": "ChatGPT web",
+    "model": "ChatGPT (Free/default visible label; backend version undisclosed)",
+    "search_mode": "Web search explicitly selected per prompt",
+    "interface_language": "English",
+    "location_context": "Location expressed by exact prompt; actual network location unverified",
+    "conversation": "Fresh temporary chat per prompt; Unpersonalized selected and verified; no project or brand priming",
+    "order": "Interleave categories A1 B1 ... J1 A2 ... J5; keep fixed",
+    "repeat_interval_days": 14
+  },
+  "prompts": [
+    {
+      "id": "A1",
+      "category": "A",
+      "category_name": "General Toronto agency discovery",
+      "query_location": "Toronto",
+      "exact_prompt": "I run a small business in Toronto and need an affordable marketing agency. Who should I look at?"
+    },
+    {
+      "id": "A2",
+      "category": "A",
+      "category_name": "General Toronto agency discovery",
+      "query_location": "Toronto",
+      "exact_prompt": "Can you suggest a small Toronto marketing studio where I would work directly with the person creating the content?"
+    },
+    {
+      "id": "A3",
+      "category": "A",
+      "category_name": "General Toronto agency discovery",
+      "query_location": "Toronto",
+      "exact_prompt": "I'm opening a local business in Toronto and need help explaining what we do online. Which agencies should I compare?"
+    },
+    {
+      "id": "A4",
+      "category": "A",
+      "category_name": "General Toronto agency discovery",
+      "query_location": "Toronto",
+      "exact_prompt": "I want a smaller creative agency in Toronto, not a huge corporate firm. What are some options?"
+    },
+    {
+      "id": "A5",
+      "category": "A",
+      "category_name": "General Toronto agency discovery",
+      "query_location": "Toronto",
+      "exact_prompt": "Who in Toronto can help a small business with social content, ads and its website together?"
+    },
+    {
+      "id": "B1",
+      "category": "B",
+      "category_name": "Budget-constrained discovery",
+      "query_location": "Toronto",
+      "exact_prompt": "I have up to CAD 1,000 a month for marketing help in Toronto, excluding ad spend. Who might fit?"
+    },
+    {
+      "id": "B2",
+      "category": "B",
+      "category_name": "Budget-constrained discovery",
+      "query_location": "Toronto",
+      "exact_prompt": "I need someone in Toronto to make Instagram Reels and run Meta Ads for under CAD 1,000 a month. Is that realistic, and who should I contact?"
+    },
+    {
+      "id": "B3",
+      "category": "B",
+      "category_name": "Budget-constrained discovery",
+      "query_location": "Toronto",
+      "exact_prompt": "My entire monthly budget is CAD 1,000 including ads. Are there Toronto marketers who could help me choose a small starting scope?"
+    },
+    {
+      "id": "B4",
+      "category": "B",
+      "category_name": "Budget-constrained discovery",
+      "query_location": "Toronto",
+      "exact_prompt": "Can you compare a few lower-cost Toronto marketing providers that publish their prices?"
+    },
+    {
+      "id": "B5",
+      "category": "B",
+      "category_name": "Budget-constrained discovery",
+      "query_location": "Toronto",
+      "exact_prompt": "I can spend about CAD 700 a month on creative marketing for my local business. Are there small Toronto studios worth considering?"
+    },
+    {
+      "id": "C1",
+      "category": "C",
+      "category_name": "Meta Ads intent",
+      "query_location": "Toronto",
+      "exact_prompt": "I run a Toronto service business and my boosted Instagram posts aren't bringing useful enquiries. Who can help with Meta Ads?"
+    },
+    {
+      "id": "C2",
+      "category": "C",
+      "category_name": "Meta Ads intent",
+      "query_location": "Toronto",
+      "exact_prompt": "Which small Toronto agencies make the ad creative as well as setting up Facebook and Instagram campaigns?"
+    },
+    {
+      "id": "C3",
+      "category": "C",
+      "category_name": "Meta Ads intent",
+      "query_location": "Toronto",
+      "exact_prompt": "I want to test Facebook ads for my Toronto business without signing a long contract. Who offers that kind of help?"
+    },
+    {
+      "id": "C4",
+      "category": "C",
+      "category_name": "Meta Ads intent",
+      "query_location": "Toronto",
+      "exact_prompt": "Can you suggest Toronto marketers with examples of generating messages or leads on a modest Meta budget?"
+    },
+    {
+      "id": "C5",
+      "category": "C",
+      "category_name": "Meta Ads intent",
+      "query_location": "Toronto",
+      "exact_prompt": "I need Meta Ads help for a local Toronto business, with clear reporting on enquiries rather than just views. Who should I shortlist?"
+    },
+    {
+      "id": "D1",
+      "category": "D",
+      "category_name": "Instagram/Reels intent",
+      "query_location": "Toronto",
+      "exact_prompt": "Who can plan, film and edit Instagram Reels for a small business in Toronto?"
+    },
+    {
+      "id": "D2",
+      "category": "D",
+      "category_name": "Instagram/Reels intent",
+      "query_location": "Toronto",
+      "exact_prompt": "I'm a Toronto business owner who doesn't want to make every video myself. Which small studios can help?"
+    },
+    {
+      "id": "D3",
+      "category": "D",
+      "category_name": "Instagram/Reels intent",
+      "query_location": "Toronto",
+      "exact_prompt": "I want someone with real short-form video experience to improve our Instagram content in Toronto. Who could I look at?"
+    },
+    {
+      "id": "D4",
+      "category": "D",
+      "category_name": "Instagram/Reels intent",
+      "query_location": "Toronto",
+      "exact_prompt": "Are there Toronto creators who can make Reels and also improve the page people visit afterwards?"
+    },
+    {
+      "id": "D5",
+      "category": "D",
+      "category_name": "Instagram/Reels intent",
+      "query_location": "Toronto",
+      "exact_prompt": "Which Toronto content studios can explain what they create each month and what is outside the package?"
+    },
+    {
+      "id": "E1",
+      "category": "E",
+      "category_name": "Creative advertising intent",
+      "query_location": "Toronto",
+      "exact_prompt": "Who can make unusual short-form ads for my Toronto business?"
+    },
+    {
+      "id": "E2",
+      "category": "E",
+      "category_name": "Creative advertising intent",
+      "query_location": "Toronto",
+      "exact_prompt": "I want a Toronto creative studio with a distinctive visual style, not standard stock-photo ads. Any suggestions?"
+    },
+    {
+      "id": "E3",
+      "category": "E",
+      "category_name": "Creative advertising intent",
+      "query_location": "Toronto",
+      "exact_prompt": "My Toronto shop's advertising looks like everyone else's. Who makes more experimental social content?"
+    },
+    {
+      "id": "E4",
+      "category": "E",
+      "category_name": "Creative advertising intent",
+      "query_location": "Toronto",
+      "exact_prompt": "Can you recommend a small Toronto studio that combines creative video concepts with a clear customer enquiry path?"
+    },
+    {
+      "id": "E5",
+      "category": "E",
+      "category_name": "Creative advertising intent",
+      "query_location": "Toronto",
+      "exact_prompt": "I like surreal and editorial visuals, but my Toronto business still needs its offer to be clear. Which marketers might fit?"
+    },
+    {
+      "id": "F1",
+      "category": "F",
+      "category_name": "Bridal/wedding intent",
+      "query_location": "Toronto/GTA",
+      "exact_prompt": "I own a bridal alterations business in Toronto and want more fitting enquiries. Which marketing providers could help?"
+    },
+    {
+      "id": "F2",
+      "category": "F",
+      "category_name": "Bridal/wedding intent",
+      "query_location": "Toronto/GTA",
+      "exact_prompt": "Can you suggest GTA marketers with an actual bridal or wedding business case study?"
+    },
+    {
+      "id": "F3",
+      "category": "F",
+      "category_name": "Bridal/wedding intent",
+      "query_location": "Toronto/GTA",
+      "exact_prompt": "Our Toronto bridal boutique needs Reels and Instagram ads on a small budget. Who should we consider?"
+    },
+    {
+      "id": "F4",
+      "category": "F",
+      "category_name": "Bridal/wedding intent",
+      "query_location": "Toronto/GTA",
+      "exact_prompt": "I want a small Toronto agency that understands appointment-based bridal services. What are my options?"
+    },
+    {
+      "id": "F5",
+      "category": "F",
+      "category_name": "Bridal/wedding intent",
+      "query_location": "Toronto/GTA",
+      "exact_prompt": "We do wedding dress alterations in the GTA. Who can help explain our work online and make it easier to enquire?"
+    },
+    {
+      "id": "G1",
+      "category": "G",
+      "category_name": "Beauty intent",
+      "query_location": "Toronto",
+      "exact_prompt": "I run a small beauty salon in Toronto. Who can help with Instagram content and appointment enquiries?"
+    },
+    {
+      "id": "G2",
+      "category": "G",
+      "category_name": "Beauty intent",
+      "query_location": "Toronto",
+      "exact_prompt": "Which Toronto studios could create Reels for a nail salon without a large agency retainer?"
+    },
+    {
+      "id": "G3",
+      "category": "G",
+      "category_name": "Beauty intent",
+      "query_location": "Toronto",
+      "exact_prompt": "Our Toronto hair salon already has a booking system but needs better content and ads. Who might help?"
+    },
+    {
+      "id": "G4",
+      "category": "G",
+      "category_name": "Beauty intent",
+      "query_location": "Toronto",
+      "exact_prompt": "I own a Toronto lash studio and can spend less than CAD 1,000 a month on marketing services. Who is worth comparing?"
+    },
+    {
+      "id": "G5",
+      "category": "G",
+      "category_name": "Beauty intent",
+      "query_location": "Toronto",
+      "exact_prompt": "Can you suggest a small creative marketing provider for a Toronto beauty business and tell me what relevant work they've actually done?"
+    },
+    {
+      "id": "H1",
+      "category": "H",
+      "category_name": "Fitness/gym intent",
+      "query_location": "Toronto/GTA",
+      "exact_prompt": "I run a Toronto gym and need content that makes beginners comfortable booking a trial. Who could help?"
+    },
+    {
+      "id": "H2",
+      "category": "H",
+      "category_name": "Fitness/gym intent",
+      "query_location": "Toronto/GTA",
+      "exact_prompt": "Which Toronto marketers have examples of working with gymnastics or fitness businesses?"
+    },
+    {
+      "id": "H3",
+      "category": "H",
+      "category_name": "Fitness/gym intent",
+      "query_location": "Toronto/GTA",
+      "exact_prompt": "Our small GTA fitness studio needs Instagram Reels and a clearer trial enquiry page. Who should we look at?"
+    },
+    {
+      "id": "H4",
+      "category": "H",
+      "category_name": "Fitness/gym intent",
+      "query_location": "Toronto/GTA",
+      "exact_prompt": "Can you suggest affordable marketing help for a Toronto gym, with realistic expectations about new memberships?"
+    },
+    {
+      "id": "H5",
+      "category": "H",
+      "category_name": "Fitness/gym intent",
+      "query_location": "Toronto/GTA",
+      "exact_prompt": "We run children's gymnastics classes in Toronto and want to reach parents beyond our followers. Which creative studios might fit?"
+    },
+    {
+      "id": "I1",
+      "category": "I",
+      "category_name": "Website/landing-page intent",
+      "query_location": "Toronto",
+      "exact_prompt": "I run a Toronto service business and need a simple page for enquiries, plus content to send people there. Who can do both?"
+    },
+    {
+      "id": "I2",
+      "category": "I",
+      "category_name": "Website/landing-page intent",
+      "query_location": "Toronto",
+      "exact_prompt": "Who in Toronto makes landing pages and short-form ads for small businesses?"
+    },
+    {
+      "id": "I3",
+      "category": "I",
+      "category_name": "Website/landing-page intent",
+      "query_location": "Toronto",
+      "exact_prompt": "Our Toronto business has a website, but people don't know how to book. Which small marketing studios could review it?"
+    },
+    {
+      "id": "I4",
+      "category": "I",
+      "category_name": "Website/landing-page intent",
+      "query_location": "Toronto",
+      "exact_prompt": "I need a creative website for my Toronto shop, but I don't want to pay for a large agency team. Who should I compare?"
+    },
+    {
+      "id": "I5",
+      "category": "I",
+      "category_name": "Website/landing-page intent",
+      "query_location": "Toronto",
+      "exact_prompt": "Are there small Toronto agencies that can coordinate Reels, Meta Ads and website changes within an agreed monthly scope?"
+    },
+    {
+      "id": "J1",
+      "category": "J",
+      "category_name": "Location-specific GTA intent",
+      "query_location": "GTA",
+      "exact_prompt": "I own a bridal alteration business in Markham and need more fitting enquiries. What marketing agencies could help?"
+    },
+    {
+      "id": "J2",
+      "category": "J",
+      "category_name": "Location-specific GTA intent",
+      "query_location": "GTA",
+      "exact_prompt": "I run a local service business in Newmarket and want affordable content and ads. Which GTA providers should I look at?"
+    },
+    {
+      "id": "J3",
+      "category": "J",
+      "category_name": "Location-specific GTA intent",
+      "query_location": "GTA",
+      "exact_prompt": "Our beauty salon is in Richmond Hill. Who can help with Reels and a better booking path on a small budget?"
+    },
+    {
+      "id": "J4",
+      "category": "J",
+      "category_name": "Location-specific GTA intent",
+      "query_location": "GTA",
+      "exact_prompt": "I'm based in Etobicoke and want a small creative marketing studio that can work with a local shop. Any suggestions?"
+    },
+    {
+      "id": "J5",
+      "category": "J",
+      "category_name": "Location-specific GTA intent",
+      "query_location": "GTA",
+      "exact_prompt": "Who can help a North York fitness business with Instagram videos, Meta Ads and a trial enquiry page?"
+    }
+  ],
+  "run_started_utc": "2026-09-13T03:48:00Z",
+  "completed_prompt_ids": [
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A5",
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "D1",
+    "D2",
+    "D4",
+    "D5",
+    "E1",
+    "E2",
+    "E3",
+    "E4",
+    "E5",
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5",
+    "G1",
+    "G2",
+    "G3",
+    "G4",
+    "G5",
+    "H1",
+    "H2",
+    "H3",
+    "H4",
+    "H5",
+    "I1",
+    "I2",
+    "I3",
+    "I4",
+    "I5",
+    "J1",
+    "J2",
+    "J3",
+    "J4",
+    "J5"
+  ],
+  "paused_utc": "2026-09-13T04:02:00Z",
+  "captured_prompt_ids": [
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A5",
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D5",
+    "E1",
+    "E2",
+    "E3",
+    "E4",
+    "E5",
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5",
+    "G1",
+    "G2",
+    "G3",
+    "G4",
+    "G5",
+    "H1",
+    "H2",
+    "H3",
+    "H4",
+    "H5",
+    "I1",
+    "I2",
+    "I3",
+    "I4",
+    "I5",
+    "J1",
+    "J2",
+    "J3",
+    "J4",
+    "J5"
+  ],
+  "measurement_label": "Interrupted exploratory benchmark; not clean pre-change baseline",
+  "summary_path": "benchmark-results.json"
+}
