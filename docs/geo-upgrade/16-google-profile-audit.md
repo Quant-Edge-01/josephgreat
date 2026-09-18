@@ -49,3 +49,7 @@ The same rendered Google results included Joseph's homepage, /toronto-marketing,
 ## Measurement consequence
 
 The profile is now an observed external presence. We cannot reconstruct a complete pre-profile 50-response baseline. Preserve the partial September 13 sample and the September 16 continuation separately; record exact profile publication date if the owner supplies it.
+
+## Profile recheck — September18
+
+Reloaded Google profile: revised full description visible in the knowledge panel; Instagram link present under Profiles. Services manager no longer displayed the earlier pending-review banner, and Meta Ads Management retained the exact saved290-character description. No service edits were submitted in this recheck. Public rendering of that individual service description was not independently inspected; no all-edits-public guarantee. The profile is owner-managed third-party presence, not independent editorial corroboration.

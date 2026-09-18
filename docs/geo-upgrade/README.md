@@ -30,3 +30,5 @@ The full success criterion remains incomplete: independent client corroboration,
 Unpersonalized temporary mode and explicit Web search were verified. The backend version is undisclosed. The earlier account-limit explanation was unsupported and corrected in the change log. Owner approved Phase2 P0/P1 on September17; implementation and release verification are recorded in [the Phase2 receipt](18-phase-2-receipt.md). Google profile improvements were separately authorized on September16.
 
 Published implementation: [18 September transfer document](GEO-HANDOFF-2026-09-18.md) and [full receipt](18-phase-2-receipt.md).
+
+[Search Console verification and request outcomes](19-search-console.md): sitemap Success/20 discovered; six new URLs queued; gym confirmed indexed by direct inspection.

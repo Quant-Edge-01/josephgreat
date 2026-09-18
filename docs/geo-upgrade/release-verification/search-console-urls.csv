@@ -1,0 +1,8 @@
+inspection_date_local,path,google_index_status,request_outcome,separate_live_test,limitations
+2026-09-18,/meta-ads-toronto,Discovered - currently not indexed,Accepted into priority crawl queue,Available to Google; can be indexed; valid Breadcrumb,Not confirmed indexed; not an OAI-IP verification
+2026-09-18,/instagram-reels-toronto,Discovered - currently not indexed,Accepted into priority crawl queue,No separate live-test report captured; request eligibility tested by Google,Not confirmed indexed; not an OAI-IP verification
+2026-09-18,/creative-marketing-toronto,Discovered - currently not indexed,Accepted into priority crawl queue,No separate live-test report captured; request eligibility tested by Google,Not confirmed indexed; not an OAI-IP verification
+2026-09-18,/websites-for-small-businesses-toronto,Discovered - currently not indexed,Accepted into priority crawl queue,No separate live-test report captured; request eligibility tested by Google,Not confirmed indexed; not an OAI-IP verification
+2026-09-18,/service-areas,Discovered - currently not indexed,Accepted into priority crawl queue,No separate live-test report captured; request eligibility tested by Google,Not confirmed indexed; not an OAI-IP verification
+2026-09-18,/case-studies,Discovered - currently not indexed,Accepted into priority crawl queue,No separate live-test report captured; request eligibility tested by Google,Not confirmed indexed; not an OAI-IP verification
+2026-09-18,/services/gym-marketing-toronto,Indexed,Not repeated,Historical Googlebot smartphone fetch successful 2026-09-15,Aggregate report lags direct inspection

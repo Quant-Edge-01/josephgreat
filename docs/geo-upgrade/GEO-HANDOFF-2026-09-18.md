@@ -143,3 +143,11 @@ Existing verified Google profile was inspected using the owner-authorized accoun
 5. Repeat the complete50-prompt test with recorded conditions and report mention/citation trends, never exact deterministic ranks or unsupported causation.
 
 Do not infer success from the build, robots allowance, schema or new pages. Site-side intent coverage is improved; third-party evidence, indexing and downstream acquisition are still unresolved.
+
+## Search Console follow-on verification — September18
+
+Submitted sitemap successfully and final table shows Success,20 discovered pages, last read September18. The initial Couldn't fetch display resolved after processing. Google Index inspection found the four new service-intent pages Discovered - currently not indexed; their indexing requests were accepted. A separate Meta live test confirmed actual Google fetch availability, index eligibility and a valid Breadcrumb item. These facts do not prove indexation or OAI crawler-IP access. See19-search-console.md for completion of supporting-page requests and the gym-page inspection.
+
+Historical13 indexed examples include home, pricing, service hub, founder, privacy, bridal/beauty/restaurant/retail and four cases. The old six excluded examples are four font assets and404s `/mo` and `/month`, not six missing service pages. Do not block Next rendering assets or invent pages to clear those rows.
+
+Final follow-on: all six new route requests accepted. Gym direct inspection confirms it is indexed, overriding its absence from the historical13-URL aggregate list. Current sitemap is Success/20 discovered. Revised Google profile description now visible in knowledge panel; not independent editorial evidence. Full dates, caveats and URL table:19-search-console.md and release-verification/search-console-urls.csv.

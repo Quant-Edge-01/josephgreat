@@ -59,3 +59,5 @@ Exact public files and machine-readable audit:
 - [capture timestamp and limitations](release-verification/capture.json)
 
 Search Console indexation and genuine bot-IP access remain unconfirmed. Deployment completion does not prove recommendations. Independent corroboration still needs legitimate client and public-profile evidence.
+
+Follow-on verification supersedes the earlier unconfirmed Search Console status: [September18 GSC audit](19-search-console.md) confirms successful sitemap processing and accepted requests for six new URLs. Indexation of those six is still pending.
