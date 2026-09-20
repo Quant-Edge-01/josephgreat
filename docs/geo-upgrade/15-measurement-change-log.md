@@ -25,3 +25,4 @@ Owner explicitly authorized improvements to the Google profile managed through h
 - Added only July 9–August 7 dates visible in the Dream chart; year and selected reporting control remain unavailable.
 - No new intent/location page, review, listing, outreach, ad, press claim or benchmark result was created.
 - Benchmark remains the fixed original 50 prompts. No repeat: only two days have passed since requests, one supporting URL is not indexed, and the planned comparable window is September 30.
+- Owner-confirmed production form test submitted from `/meta-ads-toronto`: website `josephthegreat.art`, public reply email, source `Other` and a TEST ONLY note. UI moved through Sending to Sent; browser console recorded no warning/error. Web3Forms acceptance is confirmed; destination-inbox receipt is not.

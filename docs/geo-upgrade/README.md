@@ -40,5 +40,7 @@ Published implementation: [18 September transfer document](GEO-HANDOFF-2026-09-1
 - [Source-first benchmark analysis](21-source-first-analysis-2026-09-20.md)
 - [Entity/evidence graph](22-entity-evidence-graph.md)
 - [External Authority Plan](23-external-authority-plan.md)
+- [OpenAI crawler status](24-openai-crawler-status-2026-09-20.md)
+- [Final evidence report](25-final-report-2026-09-20.md)
 
 Five of the six newly queued URLs are now indexed. `/service-areas` remains discovered/not-indexed but passes Google's live indexability test. Genuine OpenAI crawler traffic remains unverified because request logs are unavailable. The fixed 50-prompt repeat has not been run; the previous 0/49 cannot be attributed to the new implementation.

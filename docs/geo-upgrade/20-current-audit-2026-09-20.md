@@ -17,7 +17,7 @@ Scope: live site, production build, current source, Search Console URL Inspectio
 | Contact | Site email/Instagram consistent; Google profile shows canonical site and phone | Phone is not on site, but no contradictory number exists | P2 | Confirm preferred public-phone policy first |
 | Case evidence | Paid/organic/client/own-project evidence separated | Dream booking, revenue, qualification and selected report control absent | P0 | Added only visible chart dates; request missing evidence |
 | FAQ / price | Buyer questions, CAD 700–1,000, separate ad spend and exclusions visible | Exact deliverables/terms not universal | P1 | Keep written-scope language |
-| Enquiry | Form and CTA work at 390px with no overflow or entry gate | Delivery unproven; no source field | P0 | Added optional source question; complete labelled delivery test |
+| Enquiry | Form and CTA work at 390px with no overflow or entry gate; labelled production submission reached `Sent` with no browser error | Inbox receipt remains unverified | P0 | Confirm the test email exists in `email@josephthegreat.art` |
 | Google profile | Public category, site, Instagram, Toronto area and revised description visible | No reviews; duplicate not freshly resolved | P0 | Seek one honest client review; follow Google procedure for duplicate only after status is clear |
 | Measurement | Lead event fires after Web3Forms success | No self-reported discovery source | P1 | Added ChatGPT/Google/Instagram/referral/outreach/other field |
 
