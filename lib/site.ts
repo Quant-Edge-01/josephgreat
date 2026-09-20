@@ -10,6 +10,10 @@ export const IG_USER = "thejosephgreat";
 export const IG_HANDLE = `@${IG_USER}`;
 export const IG_URL = `https://instagram.com/${IG_USER}`;
 
+/** Stable public Google Business Profile URL for the verified studio listing. */
+export const GOOGLE_BUSINESS_URL =
+  "https://www.google.com/maps?cid=8034545054644969661";
+
 export const PRICE_FLOOR = 700;
 export const PRICE_CEILING = 1000;
 export const PRICE_RANGE = `$${PRICE_FLOOR}–$${PRICE_CEILING.toLocaleString()}`;

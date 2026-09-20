@@ -32,3 +32,13 @@ Unpersonalized temporary mode and explicit Web search were verified. The backend
 Published implementation: [18 September transfer document](GEO-HANDOFF-2026-09-18.md) and [full receipt](18-phase-2-receipt.md).
 
 [Search Console verification and request outcomes](19-search-console.md): sitemap Success/20 discovered; six new URLs queued; gym confirmed indexed by direct inspection.
+
+## 20 September follow-up
+
+- [Current production audit](20-current-audit-2026-09-20.md)
+- [Competitor evidence gap](competitor-evidence-gap.md)
+- [Source-first benchmark analysis](21-source-first-analysis-2026-09-20.md)
+- [Entity/evidence graph](22-entity-evidence-graph.md)
+- [External Authority Plan](23-external-authority-plan.md)
+
+Five of the six newly queued URLs are now indexed. `/service-areas` remains discovered/not-indexed but passes Google's live indexability test. Genuine OpenAI crawler traffic remains unverified because request logs are unavailable. The fixed 50-prompt repeat has not been run; the previous 0/49 cannot be attributed to the new implementation.

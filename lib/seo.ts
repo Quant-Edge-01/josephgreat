@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { EMAIL, IG_URL, PRICE_FLOOR, PRICE_CEILING, SITE_URL } from './site';
+import { EMAIL, GOOGLE_BUSINESS_URL, IG_URL, PRICE_FLOOR, PRICE_CEILING, SITE_URL } from './site';
 
 export const organizationId = `${SITE_URL}/#organization`;
 export const personId = `${SITE_URL}/about-joseph#person`;
@@ -19,7 +19,7 @@ export const organizationSchema = {
   name: 'Joseph The Great', url: SITE_URL, email: EMAIL,
   description: 'Joseph The Great is an independent creative marketing studio led by Yusuf Yakubov, known as Joseph, serving small businesses in Toronto and the Greater Toronto Area. Services include short-form content, creative advertising, Meta Ads and website work.',
   contactPoint: { '@type': 'ContactPoint', email: EMAIL, contactType: 'project enquiries', availableLanguage: 'English' },
-  areaServed: serviceArea, sameAs: [IG_URL], founder: { '@id': personId },
+  areaServed: serviceArea, sameAs: [IG_URL, GOOGLE_BUSINESS_URL], founder: { '@id': personId },
 };
 
 export function webPageSchema(name: string, description: string, path: string, type = 'WebPage') {

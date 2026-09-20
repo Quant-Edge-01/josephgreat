@@ -125,6 +125,7 @@ export default function EnquiryForm({
     const site = String(data.get("site") ?? "").trim();
     const reply = String(data.get("reply") ?? "").trim();
     const promoting = String(data.get("promoting") ?? "").trim();
+    const discoverySource = String(data.get("discovery_source") ?? "").trim();
 
     const next: Errors = {};
     const siteErr = validate("site", site);
@@ -186,6 +187,7 @@ export default function EnquiryForm({
             ? "Reply by email"
             : "Reply by phone / WhatsApp"]: reply,
           "What they're promoting": promoting || "— not given —",
+          "How they found Joseph": discoverySource || "— not given —",
           "Sent from": context,
         }),
       });
@@ -347,6 +349,28 @@ export default function EnquiryForm({
           className={`${field} resize-y`}
         />
       </details>
+
+      <div className="mb-6">
+        <label htmlFor={`${id}-source`} className={label}>
+          How did you find Joseph?{" "}
+          <span className="t-note text-cream/65">(optional)</span>
+        </label>
+        <select
+          id={`${id}-source`}
+          name="discovery_source"
+          defaultValue=""
+          className={field}
+        >
+          <option value="">Choose one</option>
+          <option value="ChatGPT / AI assistant">ChatGPT / AI assistant</option>
+          <option value="Google">Google</option>
+          <option value="Instagram">Instagram</option>
+          <option value="Referral">Referral</option>
+          <option value="Outreach">Outreach</option>
+          <option value="Other">Other</option>
+        </select>
+        <span className={hint}>This helps measure what actually brings enquiries.</span>
+      </div>
 
       {/* honeypot — off-screen, never focusable, must stay empty */}
       <div

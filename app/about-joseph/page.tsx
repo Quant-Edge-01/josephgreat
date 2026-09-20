@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { EMAIL, IG_URL, IG_HANDLE, SITE_URL } from '@/lib/site';
+import { EMAIL, GOOGLE_BUSINESS_URL, IG_URL, IG_HANDLE, SITE_URL } from '@/lib/site';
 import { pageMetadata, webPageSchema, personId, organizationId, toronto } from '@/lib/seo';
 import JsonLd from '@/components/JsonLd';
 import { ServiceDocument, DocumentSection } from '@/components/ServiceDocument';
@@ -36,7 +36,7 @@ export default function AboutJoseph() {
     <DocumentSection title="Is this a freelancer or an agency?"><p>Joseph The Great is a one-person creative marketing studio. You work directly with Yusuf Yakubov, known as Joseph, on concepts, production and the agreed campaign or website tasks. It is a small studio rather than a large team with separate account managers.</p></DocumentSection>
     <DocumentSection title="Find me and the studio">
       <p>Joseph The Great is based in Toronto, Ontario, and serves businesses in Toronto and the GTA.</p>
-      <p>Studio Instagram: <a href={IG_URL} className="text-neon underline">{IG_HANDLE}</a><br />Email: <a href={`mailto:${EMAIL}`} className="text-neon underline break-all">{EMAIL}</a></p>
+      <p>Studio Instagram: <a href={IG_URL} className="text-neon underline">{IG_HANDLE}</a><br />Google Business Profile: <a href={GOOGLE_BUSINESS_URL} className="text-neon underline">Joseph The Great — Toronto marketing agency</a><br />Email: <a href={`mailto:${EMAIL}`} className="text-neon underline break-all">{EMAIL}</a></p>
       <p><Link className="text-neon underline" href="/toronto-marketing">Services for Toronto businesses</Link> · <Link className="text-neon underline" href="/affordable-marketing-toronto">Pricing and scope</Link></p>
     </DocumentSection>
   </ServiceDocument>;

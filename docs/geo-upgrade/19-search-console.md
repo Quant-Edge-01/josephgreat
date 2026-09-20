@@ -60,6 +60,12 @@ Gym direct inspection overrides its absence from the older aggregate list: last 
 
 Review index status at the next manual check around September21–25; do not keep resubmitting accepted requests. This is a documented check window, not a created automation or a guaranteed indexing deadline. The50-prompt comparison remains September30 subject to recorded conditions.
 
+## Fresh URL inspection — September 20
+
+Five of the six routes queued on September 18 now report **URL is on Google / Page is indexed**: `/meta-ads-toronto`, `/instagram-reels-toronto`, `/creative-marketing-toronto`, `/websites-for-small-businesses-toronto` and `/case-studies`. Google-selected canonical is the inspected URL. Meta, Reels, Creative and Websites show a September 18, 12:16:03 AM crawl by Googlebot smartphone with crawl allowed, successful fetch and indexing allowed. Case Studies shows a September 18, 9:32:32 AM crawl with the same positive fields; its discovery subsection says Temporary processing error even though the page is indexed and the sitemap report previously showed Success/20.
+
+`/service-areas` still reports **Discovered - currently not indexed**, sitemap discovered, no crawl and no selected canonical. A fresh live test on September 20 at 12:35 AM reported **URL is available to Google / Page can be indexed / one valid Breadcrumb item**. This points to crawl scheduling/selection rather than a current technical block. The accepted request was not resubmitted.
+
 ## Profile recheck — September18
 
 Reloaded Google profile: revised full description visible in the knowledge panel; Instagram link present under Profiles. Services manager no longer displayed the earlier pending-review banner, and Meta Ads Management retained the exact saved290-character description. No service edits were submitted in this recheck. Public rendering of that individual service description was not independently inspected; no all-edits-public guarantee. The profile is owner-managed third-party presence, not independent editorial corroboration.

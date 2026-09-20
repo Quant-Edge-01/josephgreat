@@ -79,7 +79,7 @@ const SEEDS: WorkSeed[] = [
     lede: "$3.64 to put a bride in the inbox — and they kept me on. Still running the account, every month since January.",
     body: [
       "Custom bridal and wedding gown alterations across the GTA. Appointments only — which means every enquiry has to be a real one. There's no walk-in traffic to hide a weak campaign behind.",
-      "The paid side: $214.86 spent, 59 messaging conversations started, $3.64 each on average. Nine leads are owner-reported; the qualification criteria and full campaign timeframe are unavailable. Bookings and revenue were not tracked. On the best day of the run the cost per conversation dropped to $1.46.",
+      "The paid side: $214.86 spent, 59 messaging conversations started, $3.64 each on average. The visible chart runs from July 9 to August 7, but the screenshot does not show the year or selected reporting control. Nine leads are owner-reported; the qualification criteria are unavailable. Bookings and revenue were not tracked. On the best day of the run the cost per conversation dropped to $1.46.",
       "The organic side does the rest — half a million views on one reel, 17,200 likes, 2,700 saves, from an account with twelve posts and 689 followers. These are organic reach and engagement metrics, separate from the paid messaging campaign; customer recognition and sales were not measured.",
       "This one is not a finished case study. I still run the account on a monthly retainer, and have since January — which is the part I would look at hardest if I were you, because a single good month is luck and a client who keeps paying is not.",
     ],

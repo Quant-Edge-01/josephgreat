@@ -1,0 +1,32 @@
+{
+  "date_utc": "2026-09-18",
+  "website_source_release": "2f8cf3a",
+  "build": {
+    "command": "npm run build",
+    "exit_code": 0
+  },
+  "production_acceptance": {
+    "command": "python3 scripts/check-geo.py https://www.josephthegreat.art",
+    "exit_code": 0,
+    "sitemap_pages_passed": 20,
+    "checks": [
+      "HTTP responses",
+      "self-canonical and OG URLs",
+      "metadata",
+      "JSON-LD parse",
+      "initial HTML",
+      "links and fragments",
+      "reachability",
+      "404s",
+      "legacy redirects",
+      "simulated crawler UAs"
+    ]
+  },
+  "limitations": [
+    "UA simulation does not establish genuine bot-IP access",
+    "No fresh browser/mobile test",
+    "No live form delivery test",
+    "No controlled ChatGPT repeat"
+  ],
+  "repeat_template_validation": "PASS: 50 unchanged prompts; all NOT_RUN; unknown results null"
+}

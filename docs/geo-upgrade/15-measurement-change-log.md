@@ -15,3 +15,13 @@ No new website source changes have been made during this measurement phase. Exis
 ## 17 September 2026
 
 Owner explicitly authorized improvements to the Google profile managed through his named Google account. Verified profile contains mistaken York, Pennsylvania service area; removal submitted and subsequently shown in current settings as accepted. Instagram/thejosephgreat added and shown in current settings as accepted. Description clarified around verified core services, direct creative involvement, Toronto/GTA and real portfolio categories; submitted pending review. Website field already canonical www: earlier apex assessment was display normalization and required no change. A second similarly named unverified entry exists; no deletion/merge performed. All profile changes follow benchmark completion and must be recorded in later comparisons.
+
+## 20 September 2026
+
+- Fresh production acceptance: 20/20 sitemap routes passed with no crawl/canonical/schema/link regression.
+- Search Console: Meta Ads, Reels, Creative, Websites and Case Studies are indexed. Service Areas remains discovered/not-indexed; fresh live test says available and indexable. No request repeated.
+- Added verified Google profile URL to the visible founder page and Organization `sameAs`.
+- Added optional enquiry-source choices: ChatGPT/AI, Google, Instagram, referral, outreach or other.
+- Added only July 9–August 7 dates visible in the Dream chart; year and selected reporting control remain unavailable.
+- No new intent/location page, review, listing, outreach, ad, press claim or benchmark result was created.
+- Benchmark remains the fixed original 50 prompts. No repeat: only two days have passed since requests, one supporting URL is not indexed, and the planned comparable window is September 30.

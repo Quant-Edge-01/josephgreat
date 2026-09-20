@@ -108,13 +108,14 @@ export default function PrivacyPolicyPage() {
               "Your phone number, if you provide one",
               "Your business name",
               "Your website, Instagram handle or other social accounts",
+              "How you say you found Joseph The Great, if you choose to answer",
               "Anything you choose to tell me about your business — what you sell, what you are promoting, what you have tried before",
             ]}
           />
           <p>
             The enquiry form on this site asks for fewer fields than that list: a
             social account or website, one way to reply to you (an email address or a
-            phone number), and a short note about what you are promoting. The wider
+            phone number), an optional source question, and a short note about what you are promoting. The wider
             list exists because enquiries also arrive by email, by Instagram message
             and through Meta lead forms, where more may be included.
           </p>
