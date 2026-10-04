@@ -1,8 +1,8 @@
 # Joseph The Great — homepage preview, 3 October 2026
 
-## Status
+## Status at preview time
 
-Local preview only: `http://127.0.0.1:3100/`. Screenshots: `previews/home-desktop.jpg` and `previews/home-mobile.jpg`. This redesign has **not** been deployed. Production continues to show the prior homepage until Joseph approves this version.
+On 3 October, this was a local preview at `http://127.0.0.1:3100/`. Screenshots: `previews/home-desktop.jpg` and `previews/home-mobile.jpg`. See the release note below for the later production status.
 
 ## What changed
 
@@ -41,4 +41,12 @@ Joseph asked to keep the approved homepage design, use only **Yusuf** without a 
 
 The Toronto marketing, pricing, About and case-study listing pages have shorter copy and shorter headings. Service and industry pages combine repeated scope, pricing and location sections while keeping a real evidence link and factual limitations. Shared support-page headers are centred with more breathing room; the long list of additional services is now expandable. The homepage design was not otherwise revised in this pass.
 
-Build, type check and the read-only 20-route local acceptance check passed again. The final About, Pricing, Toronto Marketing and case-study listing pages were viewed at 390px with no horizontal overflow. Local screenshots: `previews/about-mobile.jpg` and `previews/pricing-mobile.jpg`. These are preview results; production remains unchanged.
+Build, type check and the read-only 20-route local acceptance check passed again. The final About, Pricing, Toronto Marketing and case-study listing pages were viewed at 390px with no horizontal overflow. Local screenshots: `previews/about-mobile.jpg` and `previews/pricing-mobile.jpg`. These were preview results before publication.
+
+## Release verification, 4 October 2026
+
+- Owner approved publication. Commit `7e9e38a` was pushed to `main`; GitHub reported the Vercel status as successful with “Deployment has completed.”
+- The public homepage returned HTTP 200 and contained the new hero, the new homepage styling and no surname in its initial HTML. The public About page showed “Yusuf” without the surname.
+- `python3 scripts/check-geo.py https://www.josephthegreat.art` passed for all 20 public routes: canonical, metadata, JSON-LD, initial HTML, internal links, robots/sitemap and simulated crawler User-Agents.
+- The public homepage and About page were reviewed at 390px; neither had horizontal overflow. The tap-to-enter interaction opened the homepage. No production form submission was made for this release because the form itself was not changed.
+- These checks verify publication and technical behaviour. They do not establish Google indexation changes, genuine OAI-SearchBot visits, ChatGPT recommendations, enquiries or sales.

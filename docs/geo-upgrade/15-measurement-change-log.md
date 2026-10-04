@@ -26,3 +26,10 @@ Owner explicitly authorized improvements to the Google profile managed through h
 - No new intent/location page, review, listing, outreach, ad, press claim or benchmark result was created.
 - Benchmark remains the fixed original 50 prompts. No repeat: only two days have passed since requests, one supporting URL is not indexed, and the planned comparable window is September 30.
 - Owner-confirmed production form test submitted from `/meta-ads-toronto`: website `josephthegreat.art`, public reply email, source `Other` and a TEST ONLY note. UI moved through Sending to Sent; browser console recorded no warning/error. Web3Forms acceptance is confirmed; destination-inbox receipt is not.
+
+## 4 October 2026
+
+- Published homepage redesign and shorter supporting-page copy via `main` commit `7e9e38a`. This is a material site change for any future visibility comparison.
+- Homepage now states the Toronto/GTA small-business category and Reels, Meta ads and websites in the first screen. Existing jar entry, sound, mask identity, proof and enquiry form remain.
+- Founder is publicly “Yusuf” without a surname in visible copy and structured data. Toronto marketing, pricing, About, case-study listing, service and industry pages contain less repeated copy while retaining price, case evidence and limits.
+- Vercel reported deployment success; the production homepage, About page and 20-route read-only acceptance check passed. No new indexing or ChatGPT recommendation result is claimed. The fixed 50-prompt repeat remains outstanding.
