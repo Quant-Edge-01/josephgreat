@@ -17,7 +17,7 @@ export function pageMetadata(title: string, description: string, path: string, i
 export const organizationSchema = {
   '@context': 'https://schema.org', '@type': 'Organization', '@id': organizationId,
   name: 'Joseph The Great', url: SITE_URL, email: EMAIL,
-  description: 'Joseph The Great is an independent creative marketing studio led by Yusuf Yakubov, known as Joseph, serving small businesses in Toronto and the Greater Toronto Area. Services include short-form content, creative advertising, Meta Ads and website work.',
+  description: 'Joseph The Great is an independent creative marketing studio led by Yusuf, known as Joseph, serving small businesses in Toronto and the Greater Toronto Area. Services include short-form content, creative advertising, Meta Ads and website work.',
   contactPoint: { '@type': 'ContactPoint', email: EMAIL, contactType: 'project enquiries', availableLanguage: 'English' },
   areaServed: serviceArea, sameAs: [IG_URL, GOOGLE_BUSINESS_URL], founder: { '@id': personId },
 };

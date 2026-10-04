@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { OFFER } from "@/lib/site";
 import SoundToggle from "./SoundToggle";
 
@@ -25,6 +26,7 @@ const LINKS = [
 ];
 
 export default function Nav() {
+  const pathname = usePathname();
   const [lifted, setLifted] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -43,7 +45,7 @@ export default function Nav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-[9500] transition-colors duration-300 ${
+      className={`fixed inset-x-0 top-0 z-[9500] transition-colors duration-300 ${pathname === "/" && !lifted ? "home-nav-at-top" : ""} ${
         lifted
           ? "border-b border-neon/20 bg-void/85 backdrop-blur-md"
           : "bg-transparent"
