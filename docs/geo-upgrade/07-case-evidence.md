@@ -44,7 +44,7 @@ Replace blanket language that all figures came from screenshots when the nine-le
 
 - Spartan Gymnastics: 9,224 views, 74.9% non-followers, two-week/$0-ad-spend case; no measured enrolment or membership growth.
 - YouTube: saved 33,134,030 lifetime views; +324.4K metric is historical net subscriber growth, not a current live total. Award is visible in saved photo, not evidence of agency client outcomes.
-- Quantlarper: owned project, 1.2M 30-day views, 175 active email subscribers. Subscribers must never become paid clients in copy.
+- Quant Larper: founder-owned project. Saved Instagram screenshot shows 1.2M views in 30 days; a separate saved email-platform screenshot shows 175 active subscribers. On October 22, Yusuf directly reported 25 paid purchases for the project. No transaction export, date range, product-price detail or per-channel attribution was supplied. Publish the 25 only as founder-reported purchases; do not equate the 175 subscribers with buyers or attribute purchases to the Reel.
 - Beauty/restaurant/retail: adjacent capability evidence only. No fictional direct case, testimonial, client logo or outcomes.
 
 ## Minimum evidence for future updates

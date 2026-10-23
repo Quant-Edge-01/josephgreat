@@ -35,10 +35,10 @@ export const CASE_NOTES: Record<
   },
   quantlarper: {
     problem: "Find an audience for a market tool in a crowded finance feed.",
-    work: "Organic short-form creative and a route to email signup.",
+    work: "Organic short-form creative and a route to email signup and the product.",
     result: "1.2M views",
-    label: "30-day snapshot · $0 ad spend",
+    label: "30-day snapshot · 25 paid purchases reported by founder",
     limit:
-      "175 email subscribers reported. Subscribers are not paying customers.",
+      "Founder-owned project. The Instagram screenshot supports the view count. The founder reports 25 paid purchases, but no transaction record, sales period or per-channel attribution is published. The 175 email subscribers are a separate metric.",
   },
 };

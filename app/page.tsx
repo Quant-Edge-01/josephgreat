@@ -57,16 +57,45 @@ export default function Page() {
         <div className="home-case home-case-dream">
           <div className="home-case-image"><Image src="/works/dream-alteration/04.png" width={1600} height={1053} alt="Meta Ads Manager screenshot showing CAD 214.86 spent and 59 messaging conversations started" sizes="(max-width: 800px) 100vw, 44vw" /></div>
           <div className="home-case-copy">
-            <p className="home-label">DREAM ALTERATIONS / GTA BRIDAL CLIENT</p>
+            <p className="home-label">01 / DREAM ALTERATIONS · GTA BRIDAL CLIENT</p>
             <p className="home-big-number">59<span> conversations</span></p>
             <p className="home-body">CAD $214.86 in Meta ad spend. CAD $3.64 per conversation started. Nine qualified leads were reported by the owner.</p>
             <p className="home-small">Conversations are not bookings or sales; those outcomes were not tracked in this snapshot. Dream Alterations has been an ongoing client since January 2026.</p>
+            <p className="home-dream-reel"><strong>501,539</strong><span>organic views on a separate Dream Alterations Reel. Reach, not revenue.</span></p>
             <Link href="/works/dream-alteration" className="home-text-link">See the case and screenshots ↗</Link>
           </div>
         </div>
-        <div className="home-proof-mini">
-          <p><strong>501,539</strong><span>organic views on a Dream Alterations Reel. Reach, not revenue.</span></p>
-          <p><strong>9,224</strong><span>views in two weeks for Spartan Gymnastics; 74.9% from non-followers, CAD $0 ad spend. Enrolments unmeasured.</span></p>
+        <article className="home-quant" aria-labelledby="home-quant-title">
+          <div className="home-quant-copy">
+            <p className="home-label">02 / QUANT LARPER · MY OWN PROJECT</p>
+            <h3 id="home-quant-title">A million views.<br /><em>And actual buyers.</em></h3>
+            <p className="home-body">I made short-form content for my own finance project, Quant Larper. The saved Instagram snapshot shows <strong>1.2 million views in 30 days</strong> with no ad spend.</p>
+            <div className="home-quant-numbers">
+              <p><strong>1.2M</strong><span>views / 30 days</span></p>
+              <p><strong>25</strong><span>paid purchases reported by Yusuf</span></p>
+            </div>
+            <p className="home-small">The 25 sales are founder-reported; transaction records, reporting period and attribution to the Reels are not published here. This is my project, not a client case.</p>
+            <Link href="/works/quantlarper" className="home-text-link">See Quant Larper and the view screenshots ↗</Link>
+          </div>
+          <div className="home-quant-image"><Image src="/works/quantlarper/02.jpg" width={736} height={1600} alt="Quant Larper Instagram profile screenshot showing 1.2 million views in the last 30 days" sizes="(max-width: 800px) 80vw, 30vw" /></div>
+        </article>
+        <div className="home-proof-next">
+          <article className="home-proof-card">
+            <div className="home-proof-card-image"><Image src="/works/joeroblox85/02.jpg" width={1600} height={1200} alt="Joseph's YouTube silver play button beside saved YouTube Studio analytics showing 33.1 million lifetime views" sizes="(max-width: 800px) 100vw, 42vw" /></div>
+            <p className="home-label">03 / MY YOUTUBE CHANNEL</p>
+            <h3>Joeroblox85</h3>
+            <p className="home-proof-card-stat"><strong>33.1M</strong><span>lifetime views in saved YouTube analytics</span></p>
+            <p>My own channel, built from scratch. Six Shorts crossed one million views. Audience-building proof, not local client sales.</p>
+            <Link href="/works/joeroblox85" className="home-text-link">See the YouTube evidence ↗</Link>
+          </article>
+          <article className="home-proof-card">
+            <div className="home-proof-card-image"><Image src="/works/spartan-gymnastics/03.jpg" width={1600} height={1200} alt="Spartan Gymnastics Instagram insights showing 9,224 views, 74.9 percent from non-followers" sizes="(max-width: 800px) 100vw, 42vw" /></div>
+            <p className="home-label">04 / TORONTO GYM WORK</p>
+            <h3>Spartan Gymnastics</h3>
+            <p className="home-proof-card-stat"><strong>9,224</strong><span>views in two weeks · $0 ad spend</span></p>
+            <p>74.9% came from non-followers. Local reach is measured; enrolments are not.</p>
+            <Link href="/works/spartan-gymnastics" className="home-text-link">See the gym case ↗</Link>
+          </article>
         </div>
         <Link href="/case-studies" className="home-text-link home-all-cases">All case studies ↗</Link>
       </section>
@@ -76,7 +105,7 @@ export default function Page() {
         <MaskObject />
         <h2 id="home-founder-title">Small studio.<br /><em>Actual human.</em></h2>
         <p className="home-lead">I&apos;m Yusuf. Joseph to most people. You talk to me; I make the work.</p>
-        <p className="home-body">I&apos;ve made videos since I was eleven and built an audience with my own creator projects. Those are my projects, not agency clients. The local business work above is the proof of what I&apos;m doing for other people.</p>
+        <p className="home-body">I&apos;ve made videos since I was eleven. Quant Larper and Joeroblox85 are my own projects; Dream Alterations and Spartan Gymnastics are work for local businesses. You can see which result belongs to which.</p>
         <Link href="/about-joseph" className="home-text-link">More about Joseph ↗</Link>
       </section>
 

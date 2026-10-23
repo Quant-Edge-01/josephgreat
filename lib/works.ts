@@ -1,7 +1,7 @@
 /**
- * Every number here is read off a screenshot sitting in public/works/<slug>/.
- * If a claim isn't in an image, it isn't on the page. Project-note fields are summaries; lead and subscriber figures must retain
- * their provenance and must never imply verified sales.
+ * Reach numbers here are read off screenshots in public/works/<slug>/.
+ * Other outcome claims must state their source. Quant Larper's 25 paid purchases
+ * were reported directly by the founder and have no published transaction proof.
  */
 
 export type WorkImage = {
@@ -57,13 +57,11 @@ export type Work = WorkSeed & {
 };
 
 /**
- * Ordered for a cold local owner, not chronologically and not by headline size.
+ * The display order below is applied after the seed records: local client proof,
+ * then the founder's large audience projects, then the smaller local gym result.
  *
- * The bridal shop goes first because it is the only job on here that proves the
- * thing being sold — money in, conversations out — and it is the business a
- * Toronto owner can map onto their own. The 33.1M-view Roblox channel used to
- * lead; it is a bigger number and a worse argument, because "makes viral kids'
- * content" is not what someone with a gym is trying to buy.
+ * Dream leads because its paid campaign documents conversations for a local
+ * business. Founder-owned results remain explicitly separate from client work.
  */
 const SEEDS: WorkSeed[] = [
   {
@@ -237,18 +235,19 @@ const SEEDS: WorkSeed[] = [
     proves: "reach",
     local: false,
     headline: { value: "1.2M", label: "views in 30 days, $0 spent" },
-    lede: "Two posts. Zero dollars. 175 active email subscribers in the saved snapshot.",
+    lede: "Two posts. Zero ad spend. 1.2 million views in a saved 30-day snapshot — and 25 paid purchases reported by the founder.",
     body: [
       "A financial tool for people trading the stock market — the least forgiving niche on the platform, because every second account in it belongs to a man renting a Lamborghini by the hour.",
       "So I went the other way. The bio reads “i'm not a guru, dude pls do not hate me.” That isn't self-deprecation, it's positioning. In a feed built entirely on borrowed authority, refusing to claim any is the thing that stops the thumb.",
       "One month, no ad spend, an account with two posts on it: 1.2 million views in 30 days. The top reel alone took 1,150,970 views from 643,263 unique viewers, with 65,300 likes and 9,900 saves. 2,159 followers at the end of it — and 175 active subscribers on the list.",
+      "I also recorded 25 paid purchases for this founder-owned project. That sales count comes from my report, not a published transaction screenshot. The exact sales period and which purchases came from Instagram versus another source are not verified here; the 175 email subscribers are a separate metric, not the sales count.",
     ],
-    quote: "175 email subscribers reported, with no ad spend in the saved project snapshot.",
+    quote: "1.2 million views are visible in the saved Instagram snapshot; 25 paid purchases are founder-reported.",
     stats: [
-      { value: "$0", label: "ad spend" },
       { value: "1.2M", label: "views in 30 days" },
-      { value: "1,150,970", label: "top reel" },
+      { value: "25", label: "founder-reported paid purchases" },
       { value: "175", label: "active subscribers" },
+      { value: "$0", label: "ad spend" },
     ],
     cover: "/works/quantlarper/02.jpg",
     images: [
@@ -319,8 +318,10 @@ const CARD_SLOTS: Work["card"][] = [
   },
 ];
 
+const DISPLAY_ORDER = ["dream-alteration", "quantlarper", "joeroblox85", "spartan-gymnastics"];
+
 /** `n` is derived so the file numbers can never disagree with the running order. */
-export const WORKS: Work[] = SEEDS.map((w, i) => ({
+export const WORKS: Work[] = [...SEEDS].sort((a, b) => DISPLAY_ORDER.indexOf(a.slug) - DISPLAY_ORDER.indexOf(b.slug)).map((w, i) => ({
   ...w,
   n: String(i + 1).padStart(2, "0"),
   card: CARD_SLOTS[i % CARD_SLOTS.length],

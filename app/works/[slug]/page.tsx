@@ -105,8 +105,7 @@ export default async function WorkPage({ params }: Params) {
           </div>
         </dl>
         <p className="t-note my-10 max-w-3xl text-cream/65">
-          {CASE_NOTES[w.slug].limit} Figures are from the saved campaign
-          screenshots.
+          {CASE_NOTES[w.slug].limit} {w.slug === "quantlarper" ? "Saved screenshots support the published reach and subscriber figures; sales are founder-reported." : "Figures are from the saved campaign screenshots."}
         </p>
         <WorkGallery images={w.images} />
 

@@ -33,3 +33,10 @@ Owner explicitly authorized improvements to the Google profile managed through h
 - Homepage now states the Toronto/GTA small-business category and Reels, Meta ads and websites in the first screen. Existing jar entry, sound, mask identity, proof and enquiry form remain.
 - Founder is publicly “Yusuf” without a surname in visible copy and structured data. Toronto marketing, pricing, About, case-study listing, service and industry pages contain less repeated copy while retaining price, case evidence and limits.
 - Vercel reported deployment success; the production homepage, About page and 20-route read-only acceptance check passed. No new indexing or ChatGPT recommendation result is claimed. The fixed 50-prompt repeat remains outstanding.
+
+## 22 October 2026
+
+- Reordered homepage work to Dream Alterations, Quant Larper, Yusuf's YouTube channel, then Spartan Gymnastics. Added prominent Quant and YouTube evidence blocks while retaining the existing visual identity and direct links to full cases.
+- Yusuf directly reported 25 paid purchases for his founder-owned Quant Larper project. The site labels this as founder-reported. No transaction record, sales date range or attribution to Instagram was available; existing 1.2M-view and 175-subscriber snapshots are separate evidence.
+- Updated the case index, Quant case notes and project order to distinguish local client work from founder-owned projects. Local production build and mobile/desktop visual checks passed before release.
+- This is another material content intervention. It is not evidence of new indexation, AI recommendations or new business enquiries. The fixed 50-prompt benchmark remains unrepeated.
