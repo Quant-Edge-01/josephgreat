@@ -9,7 +9,7 @@ import { serviceSchema, webPageSchema } from '@/lib/seo';
 export default function DiscoveryService({ service }: { service: typeof DISCOVERY_SERVICES[number] }) {
   const path = `/${service.slug}`;
   const proof = workBySlug(service.proofSlug)!;
-  const summary = `Joseph The Great offers ${service.serviceType.toLowerCase()} for small businesses in Toronto and the GTA. Monthly work is CAD $700–$1,000 depending on the agreed deliverables; ad spend is separate. You work directly with Joseph. ${service.intro}`;
+  const summary = `Joseph The Great offers ${service.serviceType.toLowerCase()} for small businesses in Toronto and the GTA. Monthly work is CAD $700–$1,800 depending on the agreed deliverables; ad spend is separate. You work directly with Joseph. ${service.intro}`;
   return <ServiceDocument title={service.title} intro={summary} path={path}>
     <JsonLd data={[webPageSchema(service.title, summary, path), serviceSchema(service.title, summary, path, service.serviceType)]} />
     <DocumentSection title="Is this for you?"><p>{service.buyer}</p></DocumentSection>
@@ -19,7 +19,7 @@ export default function DiscoveryService({ service }: { service: typeof DISCOVER
       <p>{service.evidence}</p><Link href={`/works/${proof.slug}`} className="inline-block py-2 text-neon underline">See {proof.title}: work and screenshots ↗</Link>
     </DocumentSection>
     <DocumentSection title="Price and a practical question">
-      <p>Monthly work is CAD $700–$1,000 for an agreed scope. Ad spend, third-party costs and major website work are separate. Toronto and GTA projects are welcome; filming travel is confirmed before starting. <Link href="/affordable-marketing-toronto" className="text-neon underline">Full pricing ↗</Link></p>
+      <p>Monthly work is CAD $700–$1,800 for an agreed scope. Ad spend, third-party costs and major website work are separate. Toronto and GTA projects are welcome; filming travel is confirmed before starting. <Link href="/affordable-marketing-toronto" className="text-neon underline">Full pricing ↗</Link></p>
       <details className="short-detail"><summary>{service.question}</summary><p className="mt-3">{service.answer}</p></details>
     </DocumentSection>
   </ServiceDocument>;

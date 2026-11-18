@@ -56,7 +56,7 @@ for url in urls:
     assert page.ld,(path,'JSON-LD')
     if path.startswith('/services/') or path in ['/toronto-marketing','/affordable-marketing-toronto','/about-joseph','/meta-ads-toronto','/instagram-reels-toronto','/creative-marketing-toronto','/websites-for-small-businesses-toronto','/service-areas','/case-studies']:
         text=' '.join(page.text)
-        assert 'Toronto' in text and '$700' in text and '$1,000' in text,(path,'visible facts')
+        assert 'Toronto' in text and '$700' in text and '$1,800' in text,(path,'visible facts')
         assert len(text.split())>250,(path,'insufficient content')
     if path in ['/meta-ads-toronto','/instagram-reels-toronto','/creative-marketing-toronto','/websites-for-small-businesses-toronto']:
         assert 'request-ideas' in page.ids and any(link.startswith('mailto:') for link in page.links),(path,'direct contact/form')

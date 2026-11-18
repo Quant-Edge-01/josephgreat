@@ -36,7 +36,7 @@ export function serviceSchema(name: string, description: string, path: string, s
     name, description, url: `${SITE_URL}${path}`, serviceType,
     provider: { '@id': organizationId }, areaServed: serviceArea,
     offers: { '@type': 'Offer', url: `${SITE_URL}/affordable-marketing-toronto`,
-      description: 'CAD $700–$1,000 per month depending on agreed scope. Ad spend is separate. A full website and every service are not automatically included.',
+      description: 'CAD $700–$1,800 per month depending on agreed scope. Ad spend is separate. A full website and every service are not automatically included.',
       priceSpecification: { '@type': 'UnitPriceSpecification', minPrice: PRICE_FLOOR, maxPrice: PRICE_CEILING, priceCurrency: 'CAD', unitText: 'month' },
     },
   };

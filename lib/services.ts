@@ -3,7 +3,7 @@ export const INDUSTRIES = [
   {
     slug: 'bridal-marketing-toronto', name: 'Bridal & alterations',
     title: 'Bridal marketing in Toronto',
-    description: 'Reels, Meta ads and enquiry-focused websites for Toronto bridal boutiques and alterations studios. Joseph The Great: CAD $700–$1,000/month, ad spend separate.',
+    description: 'Reels, Meta ads and enquiry-focused websites for Toronto bridal boutiques and alterations studios. Joseph The Great: CAD $700–$1,800/month, ad spend separate.',
     intro: 'Help a bride understand your work before she asks for a fitting. I make short videos, Meta ads and websites for bridal boutiques and alterations studios in Toronto and the GTA.',
     problem: 'A beautiful dress photo cannot explain what an alteration involves, how early to enquire or whether you can handle a particular gown. Those unanswered questions are useful subjects for content — and useful information to put next to an enquiry button.',
     ideas: [
@@ -19,7 +19,7 @@ export const INDUSTRIES = [
   {
     slug: 'beauty-salon-marketing-toronto', name: 'Beauty & salons',
     title: 'Beauty salon marketing in Toronto',
-    description: 'Short-form content, Meta ads and booking-page work for Toronto beauty salons. Work directly with Joseph. CAD $700–$1,000/month depending on scope.',
+    description: 'Short-form content, Meta ads and booking-page work for Toronto beauty salons. Work directly with Joseph. CAD $700–$1,800/month depending on scope.',
     intro: 'Turn your salon’s skill into content people can understand and a clear route to an appointment. I offer reels, Meta ads and website work for Toronto hair, nail, lash and beauty businesses.',
     problem: 'A feed of finished looks can leave a new customer unsure which service to choose, how much time to set aside or who will be doing the work. Start with one service you want to book more often and explain it clearly.',
     ideas: [
@@ -35,7 +35,7 @@ export const INDUSTRIES = [
   {
     slug: 'gym-marketing-toronto', name: 'Gyms & fitness',
     title: 'Gym marketing in Toronto',
-    description: 'Reels, Meta ads and trial-enquiry pages for Toronto gyms and fitness studios. See the Spartan Gymnastics reach case. CAD $700–$1,000/month; ads separate.',
+    description: 'Reels, Meta ads and trial-enquiry pages for Toronto gyms and fitness studios. See the Spartan Gymnastics reach case. CAD $700–$1,800/month; ads separate.',
     intro: 'Give someone a reason to try their first session. I make reels, Meta ads and website content for gyms, fitness studios and gymnastics businesses in Toronto and the GTA.',
     problem: 'Existing members already know the room and the coaches. A new visitor may be wondering whether beginners are welcome, what a first session looks like and how to choose a class. Content can answer those questions before asking for a trial.',
     ideas: [
@@ -51,7 +51,7 @@ export const INDUSTRIES = [
   {
     slug: 'restaurant-marketing-toronto', name: 'Restaurants & cafés',
     title: 'Restaurant marketing in Toronto',
-    description: 'Reels, local Meta ads and website work for Toronto restaurants and cafés. Clear menus and reservation or ordering paths. CAD $700–$1,000/month; scope agreed.',
+    description: 'Reels, local Meta ads and website work for Toronto restaurants and cafés. Clear menus and reservation or ordering paths. CAD $700–$1,800/month; scope agreed.',
     intro: 'Make the food memorable and the practical details easy to find. I offer short videos, local Meta ads and website work for restaurants and cafés in Toronto.',
     problem: 'A food video can get attention from anywhere. A local diner still needs to know where you are, when you are open, what is on the menu and how to reserve or order. The creative and that practical information need to agree.',
     ideas: [
@@ -67,7 +67,7 @@ export const INDUSTRIES = [
   {
     slug: 'retail-marketing-toronto', name: 'Shops & local retail',
     title: 'Retail marketing in Toronto',
-    description: 'Product reels, local Meta ads and website work for independent Toronto shops. Work directly with Joseph at CAD $700–$1,000/month depending on scope.',
+    description: 'Product reels, local Meta ads and website work for independent Toronto shops. Work directly with Joseph at CAD $700–$1,800/month depending on scope.',
     intro: 'Show people what is worth coming in for. I offer product videos, Meta ads and website work for independent shops and local retail businesses in Toronto.',
     problem: 'A product photo shows what is on the shelf. A useful video can show how it works, how to choose between options or why someone would want to see it in person. The next step should match whether the shop sells in-store, online or through enquiries.',
     ideas: [

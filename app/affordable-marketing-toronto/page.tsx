@@ -7,7 +7,7 @@ import { ServiceDocument, DocumentSection } from '@/components/ServiceDocument';
 
 const title = 'Toronto marketing, clearly priced.';
 const intro = 'Reels, Meta ads and focused website work for Toronto small businesses. One clear monthly scope, agreed before we start.';
-export const metadata = pageMetadata('Affordable Toronto Marketing: $700–$1,000 CAD/month | Joseph The Great', intro, '/affordable-marketing-toronto');
+export const metadata = pageMetadata('Affordable Toronto Marketing: $700–$1,800 CAD/month | Joseph The Great', intro, '/affordable-marketing-toronto');
 
 export default function PricingPage() {
   return <ServiceDocument title={title} intro={intro} path="/affordable-marketing-toronto">

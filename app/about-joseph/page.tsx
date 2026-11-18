@@ -24,7 +24,7 @@ export default function AboutJoseph() {
       <p>For local businesses, see <Link className="text-neon underline" href="/works/dream-alteration">Dream Alterations</Link> for a Meta campaign that started 59 conversations, and <Link className="text-neon underline" href="/works/spartan-gymnastics">Spartan Gymnastics</Link> for short-form reach. Each case includes the limits of what was measured.</p>
     </DocumentSection>
     <DocumentSection title="Working together">
-      <p>You speak to me and I make the agreed work. Joseph The Great is a small studio, not a large team with account managers. Monthly work is CAD $700–$1,000 depending on scope; ad spend is separate.</p>
+      <p>You speak to me and I make the agreed work. Joseph The Great is a small studio, not a large team with account managers. Monthly work is CAD $700–$1,800 depending on scope; ad spend is separate.</p>
       <p><a href={IG_URL} className="text-neon underline">{IG_HANDLE}</a> · <a href={`mailto:${EMAIL}`} className="text-neon underline break-all">{EMAIL}</a> · <a href={GOOGLE_BUSINESS_URL} className="text-neon underline">Google profile</a></p>
     </DocumentSection>
   </ServiceDocument>;

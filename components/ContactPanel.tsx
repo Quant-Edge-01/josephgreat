@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { useCallback, useEffect, useRef } from "react";
-import { EMAIL, IG_HANDLE, IG_URL, OFFER, PRICE_CEILING, PRICE_FLOOR, mailto } from "@/lib/site";
+import { EMAIL, IG_HANDLE, IG_URL, OFFER, PRICE_RANGE, mailto } from "@/lib/site";
 
 /**
  * The panel behind the project-page CTAs, split out of ContactProvider so it
@@ -138,12 +138,7 @@ export default function ContactPanel({
             </Link>
 
             <p className="t-note mt-5 text-cream/70">
-              And if you want something made after that, it&apos;s ${PRICE_FLOOR}–$
-              {PRICE_CEILING.toLocaleString()} CAD —{" "}
-              <span className="text-cream">
-                ${PRICE_CEILING.toLocaleString()} is the ceiling
-              </span>
-              , not a starting point.
+              If you want me to make the work, monthly projects are {PRICE_RANGE} CAD depending on scope. Ad spend is separate.
             </p>
 
             <div className="rule-neon mt-7 pt-5">

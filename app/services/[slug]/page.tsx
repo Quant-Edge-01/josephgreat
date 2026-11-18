@@ -31,7 +31,7 @@ export default async function IndustryPage({ params }: Props) {
       <p>{page.proof}</p><Link className="inline-block py-2 text-neon underline underline-offset-4" href={`/works/${page.proofSlug}`}>See the {proof.title} case and screenshots ↗</Link>
     </DocumentSection>
     <DocumentSection title="If we work together">
-      <p>{page.need} We agree on deliverables and revisions before starting. Monthly work is CAD $700–$1,000; ad spend and major website work are separate.</p>
+      <p>{page.need} We agree on deliverables and revisions before starting. Monthly work is CAD $700–$1,800; ad spend and major website work are separate.</p>
       <p>{page.measure}</p>
       <details className="short-detail"><summary>{page.faq.question}</summary><p className="mt-3">{page.faq.answer}</p></details>
       <Link href="/affordable-marketing-toronto" className="inline-block py-2 text-neon underline">Pricing and scope ↗</Link>
