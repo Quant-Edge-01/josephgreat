@@ -15,7 +15,17 @@ const PLACEMENT = [
   { w: "w-[82%] md:w-[46%]", pull: "ml-auto md:mr-[10%]", rot: "-1.6deg", amp: "11px", dur: "10s" },
 ];
 
-export default function WorkGallery({ images }: { images: WorkImage[] }) {
+export default function WorkGallery({ images, compact = false }: { images: WorkImage[]; compact?: boolean }) {
+  if (compact) {
+    return <div className="grid max-w-5xl gap-6 sm:grid-cols-2">
+      {images.map(img => <figure key={img.src} className="border border-neon/25 bg-void-2 p-3 sm:p-4">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={img.src} alt={img.alt} width={img.w} height={img.h} loading="lazy" decoding="async" className="h-auto w-full" />
+        <figcaption className="t-note mt-3 text-cream/75">{img.caption}</figcaption>
+      </figure>)}
+    </div>;
+  }
+
   return (
     <div className="space-y-16 md:space-y-28">
       {images.map((img, i) => {

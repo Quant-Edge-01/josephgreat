@@ -13,10 +13,11 @@ export default function TorontoMarketing() {
   return <ServiceDocument title={title} intro={intro} path="/toronto-marketing">
     <JsonLd data={serviceSchema(title, intro, '/toronto-marketing')} />
     <DocumentSection title="Pick a starting point">
-      <div className="grid gap-5 md:grid-cols-3">
+      <div className="grid gap-5 md:grid-cols-2">
         <div><h3 className="t-grotesk text-xl text-cream">Reels</h3><p>Short videos built around an idea people might remember.</p><Link className="text-neon underline" href="/instagram-reels-toronto">Explore Reels ↗</Link></div>
         <div><h3 className="t-grotesk text-xl text-cream">Meta ads</h3><p>Creative and campaigns with a clear offer and a way to enquire.</p><Link className="text-neon underline" href="/meta-ads-toronto">Explore ads ↗</Link></div>
         <div><h3 className="t-grotesk text-xl text-cream">Websites</h3><p>Simple destinations that explain what you sell and what to do next.</p><Link className="text-neon underline" href="/websites-for-small-businesses-toronto">Explore websites ↗</Link></div>
+        <div><h3 className="t-grotesk text-xl text-cream">AI search / GEO</h3><p>Make your services and evidence easier to find and cite.</p><Link className="text-neon underline" href="/ai-search-toronto">Explore AI search ↗</Link></div>
       </div>
       <p>Monthly work is CAD $700–$1,800 for an agreed scope. Ad spend is separate; a full website is quoted separately.</p>
     </DocumentSection>

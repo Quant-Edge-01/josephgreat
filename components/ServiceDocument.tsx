@@ -5,7 +5,7 @@ import EnquiryForm from './EnquiryForm';
 import JsonLd from './JsonLd';
 import { breadcrumbs } from '@/lib/seo';
 
-export function ServiceDocument({ title, intro, path, children }: { title: string; intro: string; path: string; children: React.ReactNode }) {
+export function ServiceDocument({ title, intro, path, kicker = "Joseph The Great · Toronto / GTA", children }: { title: string; intro: string; path: string; kicker?: string; children: React.ReactNode }) {
   return <main id="main" tabIndex={-1} data-nav-dark className="min-h-screen bg-void px-6 pb-24 pt-28 text-cream md:px-10 md:pt-36">
     <JsonLd data={breadcrumbs([{ name: 'Home', path: '/' }, ...(path === '/toronto-marketing' ? [] : [{ name: 'Toronto marketing', path: '/toronto-marketing' }]), { name: title, path }])} />
     <div className="mx-auto max-w-6xl">
@@ -14,7 +14,7 @@ export function ServiceDocument({ title, intro, path, children }: { title: strin
         {path !== '/toronto-marketing' && <Link href="/toronto-marketing" className="underline underline-offset-4">Toronto marketing</Link>}
       </nav>
       <header className="mx-auto max-w-4xl pb-24 pt-16 text-center md:pb-32 md:pt-24">
-        <p className="t-mono text-neon">Joseph The Great · Toronto / GTA</p>
+        <p className="t-mono text-neon">{kicker}</p>
         <h1 className="t-grotesk mt-6 text-[clamp(2.7rem,7vw,6.5rem)] leading-[.98]">{title}</h1>
         <p className="mx-auto mt-9 max-w-2xl text-[clamp(1.15rem,2vw,1.5rem)] leading-relaxed text-cream/85">{intro}</p>
         <p className="mt-7 text-base text-neon">{PRICE_RANGE} CAD / month · scope agreed · ad spend separate</p>
@@ -24,7 +24,7 @@ export function ServiceDocument({ title, intro, path, children }: { title: strin
         <h2 id="next-step" className="t-serif text-[clamp(2.6rem,6vw,4.5rem)] leading-none text-neon">An idea for your business?</h2>
         <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-cream/80">Send me your business link. I’ll send back three creative ideas. Free, with no call required.</p>
         <Link href="#request-ideas" className="t-grotesk mt-8 inline-flex min-h-[56px] items-center bg-neon px-7 text-void">{OFFER.cta} →</Link>
-        <div id="request-ideas" className="mx-auto mt-14 max-w-[34rem] scroll-mt-28 text-left"><EnquiryForm /></div>
+        <div id="request-ideas" className="mx-auto mt-14 max-w-[34rem] scroll-mt-28 text-left"><EnquiryForm context={path === "/ai-search-toronto" ? "ai-search-toronto" : undefined} /></div>
         <p className="mt-7 flex flex-wrap justify-center gap-5 text-base"><a className="py-2 text-neon underline break-all" href={`mailto:${EMAIL}`}>Email Joseph</a><a className="py-2 text-neon underline" href={IG_URL}>DM on Instagram</a></p>
       </section>
       <details className="mx-auto mt-20 max-w-3xl border-t border-neon/25 pt-5 text-center">

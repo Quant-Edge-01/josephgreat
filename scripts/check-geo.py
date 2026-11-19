@@ -38,7 +38,7 @@ rp=urllib.robotparser.RobotFileParser();rp.parse(robots.splitlines())
 status,headers,xml,_=fetch('/sitemap.xml'); assert status==200
 assert 'xml' in headers.get('Content-Type','')
 urls=[n.text for n in ET.fromstring(xml).findall('{*}url/{*}loc')]
-assert len(urls)==20 and len(set(urls))==20, urls
+assert len(urls)==22 and len(set(urls))==22, urls
 pages={}
 for url in urls:
     assert url.startswith(canonical_origin+'/')
@@ -96,4 +96,4 @@ for ua in ['OAI-SearchBot/1.4','Googlebot','bingbot','ChatGPT-User']:
     page=Page(html)
     assert status==200 and page.canonicals==[canonical_origin+'/services/gym-marketing-toronto']
     assert 'Spartan' in ' '.join(page.text)
-print('PASS: 20 indexable pages, discovery links/anchors, 404s, legacy redirects, crawler UA responses')
+print('PASS: 22 indexable pages, discovery links/anchors, 404s, legacy redirects, crawler UA responses')

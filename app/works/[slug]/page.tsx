@@ -107,7 +107,7 @@ export default async function WorkPage({ params }: Params) {
         <p className="t-note my-10 max-w-3xl text-cream/65">
           {CASE_NOTES[w.slug].limit} {w.slug === "quantlarper" ? "Saved screenshots support the published reach and subscriber figures; sales are founder-reported." : "Figures are from the saved campaign screenshots."}
         </p>
-        <WorkGallery images={w.images} />
+        <WorkGallery images={w.images} compact={w.slug === "tiktok-collaboration"} />
 
         {w.link && (
           <a
@@ -123,6 +123,7 @@ export default async function WorkPage({ params }: Params) {
 
         <nav aria-label="Related services" className="t-mono mt-12 flex flex-wrap gap-x-6 gap-y-4 text-neon">
           <Link href="/toronto-marketing" className="underline underline-offset-4">Toronto marketing services</Link>
+          {w.slug === "dream-alteration" && <Link href="/ai-search-toronto" className="underline underline-offset-4">AI search pilot</Link>}
           {INDUSTRIES.filter(page => page.proofSlug === w.slug).map(page => <Link key={page.slug} href={`/services/${page.slug}`} className="underline underline-offset-4">{page.name}</Link>)}
         </nav>
         <div className="mt-24 md:mt-36">

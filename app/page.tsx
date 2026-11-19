@@ -7,6 +7,12 @@ import SyrupJourney from "@/components/SyrupJourney";
 import { EMAIL, IG_HANDLE, IG_URL, PRICE_RANGE, mailto } from "@/lib/site";
 import "./home.css";
 
+const featured = [
+  { name: "Dream Alterations", type: "GTA bridal client", result: "501.5K", detail: "organic views on one Reel", extra: "Separate Meta campaign: 59 conversations on CAD $214.86.", slug: "dream-alteration", image: "02.jpg", width: 1600, height: 1368, alt: "Dream Alterations Reel insights showing 501,539 views" },
+  { name: "Quant Larper", type: "Founder project", result: "1.2M", detail: "Instagram views in 30 days · $0 ad spend", extra: "25 paid purchases, reported by Yusuf. Channel attribution unverified.", slug: "quantlarper", image: "02.jpg", width: 736, height: 1600, alt: "Quant Larper Instagram snapshot showing 1.2 million views" },
+  { name: "TikTok side project", type: "Two-person collaboration", result: "39.2K", detail: "views in about one day · $0 ad spend", extra: "From zero to 1,438 followers.", slug: "tiktok-collaboration", image: "first-day.webp", width: 900, height: 691, alt: "TikTok Studio screenshot showing 39.2K views" },
+];
+
 export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 export default function Page() {
@@ -23,8 +29,8 @@ export default function Page() {
             <span className="home-portrait-stamp" aria-hidden="true">GOOD IDEAS<br />LOOK STRANGE<br />AT FIRST.</span>
           </div>
           <div className="home-hero-bottom">
-            <p>Give me two minutes. You&apos;ll know what I make, what it costs, and whether we&apos;re your kind of weird.</p>
-            <a href="#what" className="home-round-link" aria-label="Scroll to what Joseph does">↓</a>
+            <p>Give me two minutes. See the work and decide if we&apos;re your kind of weird.</p>
+            <a href="#work" className="home-round-link" aria-label="Jump to selected work">↓</a>
           </div>
         </div>
       </section>
@@ -32,19 +38,17 @@ export default function Page() {
       <div className="home-story" id="what">
         <SyrupJourney />
         <section className="home-intro home-pad" aria-labelledby="home-what-title">
-          <p className="home-label">01 / THE SHORT VERSION</p>
           <h2 id="home-what-title">Not another<br /><em>“we do everything”</em><br />agency.</h2>
           <p className="home-lead">I&apos;m Joseph. I make your business look impossible to scroll past — then give people somewhere useful to go.</p>
-          <p className="home-body">That can mean a strange Reel, an ad people actually want to watch, or a simple page that makes it easy to get in touch. The idea comes first. The useful part comes right after.</p>
         </section>
 
         <section className="home-services home-pad" id="offer" aria-labelledby="home-services-title">
-          <p className="home-label">02 / WHAT I ACTUALLY DO</p>
           <h2 id="home-services-title">Make the thing.<br /><em>Make it work.</em></h2>
           <div className="home-service-list">
-            <div><span>01</span><h3>Short-form video</h3><p>Reels with a reason to stop scrolling. Ideas, filming and editing are scoped together.</p></div>
-            <div><span>02</span><h3>Meta ads</h3><p>Creative and campaigns built around a real offer, with conversations and enquiries tracked where possible.</p></div>
-            <div><span>03</span><h3>Websites</h3><p>Focused landing pages that explain your offer and make the next step obvious. Quoted as a separate project.</p></div>
+            <div><span>01</span><h3>Short-form video</h3><p>Reels with a reason to stop scrolling. Ideas, filming and editing.</p></div>
+            <div><span>02</span><h3>Meta ads</h3><p>Campaigns built around a clear offer.</p></div>
+            <div><span aria-hidden="true">03</span><h3>Websites</h3><p>Landing pages with a clear next step. Quoted separately.</p></div>
+            <div><span aria-hidden="true">04</span><h3><Link href="/ai-search-toronto">AI search / GEO ↗</Link></h3><p>Help AI search understand what you sell and where you work.</p></div>
           </div>
           <p className="home-pricing"><strong>{PRICE_RANGE} CAD</strong> / month for an agreed ongoing scope. Ad spend is separate.</p>
           <Link className="home-text-link" href="/affordable-marketing-toronto">See pricing and scope ↗</Link>
@@ -52,65 +56,38 @@ export default function Page() {
       </div>
 
       <section className="home-proof home-pad" id="work" aria-labelledby="home-proof-title">
-        <p className="home-label">03 / REAL WORK. REAL LIMITS.</p>
-        <h2 id="home-proof-title">The numbers can talk.<br /><em>They just shouldn&apos;t exaggerate.</em></h2>
-        <div className="home-case home-case-dream">
-          <div className="home-case-image"><Image src="/works/dream-alteration/04.png" width={1600} height={1053} alt="Meta Ads Manager screenshot showing CAD 214.86 spent and 59 messaging conversations started" sizes="(max-width: 800px) 100vw, 44vw" /></div>
-          <div className="home-case-copy">
-            <p className="home-label">01 / DREAM ALTERATIONS · GTA BRIDAL CLIENT</p>
-            <p className="home-big-number">59<span> conversations</span></p>
-            <p className="home-body">CAD $214.86 in Meta ad spend. CAD $3.64 per conversation started. Nine qualified leads were reported by the owner.</p>
-            <p className="home-small">Conversations are not bookings or sales; those outcomes were not tracked in this snapshot. Dream Alterations has been an ongoing client since January 2026.</p>
-            <p className="home-dream-reel"><strong>501,539</strong><span>organic views on a separate Dream Alterations Reel. Reach, not revenue.</span></p>
-            <Link href="/works/dream-alteration" className="home-text-link">See the case and screenshots ↗</Link>
-          </div>
+        <h2 id="home-proof-title">Good weird.<br /><em>Real numbers.</em></h2>
+        <div className="home-evidence-grid">
+          {featured.map(item => <article className="home-evidence" key={item.slug}>
+            <Link href={`/works/${item.slug}`} className="home-evidence-link">
+              <div className="home-evidence-frame">
+                <Image src={`/works/${item.slug}/${item.image}`} width={item.width} height={item.height} sizes="(min-width: 851px) 330px, (min-width: 621px) 45vw, 88vw" alt={item.alt} />
+              </div>
+              <div className="home-evidence-copy">
+                <p className="home-label">{item.type}</p>
+                <h3>{item.name} <span aria-hidden="true">↗</span></h3>
+                <p className="home-evidence-stat"><strong>{item.result}</strong> {item.detail}</p>
+                <p>{item.extra}</p>
+              </div>
+            </Link>
+          </article>)}
         </div>
-        <article className="home-quant" aria-labelledby="home-quant-title">
-          <div className="home-quant-copy">
-            <p className="home-label">02 / QUANT LARPER · MY OWN PROJECT</p>
-            <h3 id="home-quant-title">A million views.<br /><em>And actual buyers.</em></h3>
-            <p className="home-body">I made short-form content for my own finance project, Quant Larper. The saved Instagram snapshot shows <strong>1.2 million views in 30 days</strong> with no ad spend.</p>
-            <div className="home-quant-numbers">
-              <p><strong>1.2M</strong><span>views / 30 days</span></p>
-              <p><strong>25</strong><span>paid purchases reported by Yusuf</span></p>
-            </div>
-            <p className="home-small">The 25 sales are founder-reported; transaction records, reporting period and attribution to the Reels are not published here. This is my project, not a client case.</p>
-            <Link href="/works/quantlarper" className="home-text-link">See Quant Larper and the view screenshots ↗</Link>
-          </div>
-          <div className="home-quant-image"><Image src="/works/quantlarper/02.jpg" width={736} height={1600} alt="Quant Larper Instagram profile screenshot showing 1.2 million views in the last 30 days" sizes="(max-width: 800px) 80vw, 30vw" /></div>
-        </article>
-        <div className="home-proof-next">
-          <article className="home-proof-card">
-            <div className="home-proof-card-image"><Image src="/works/joeroblox85/02.jpg" width={1600} height={1200} alt="Joseph's YouTube silver play button beside saved YouTube Studio analytics showing 33.1 million lifetime views" sizes="(max-width: 800px) 100vw, 42vw" /></div>
-            <p className="home-label">03 / MY YOUTUBE CHANNEL</p>
-            <h3>Joeroblox85</h3>
-            <p className="home-proof-card-stat"><strong>33.1M</strong><span>lifetime views in saved YouTube analytics</span></p>
-            <p>My own channel, built from scratch. Six Shorts crossed one million views. Audience-building proof, not local client sales.</p>
-            <Link href="/works/joeroblox85" className="home-text-link">See the YouTube evidence ↗</Link>
-          </article>
-          <article className="home-proof-card">
-            <div className="home-proof-card-image"><Image src="/works/spartan-gymnastics/03.jpg" width={1600} height={1200} alt="Spartan Gymnastics Instagram insights showing 9,224 views, 74.9 percent from non-followers" sizes="(max-width: 800px) 100vw, 42vw" /></div>
-            <p className="home-label">04 / TORONTO GYM WORK</p>
-            <h3>Spartan Gymnastics</h3>
-            <p className="home-proof-card-stat"><strong>9,224</strong><span>views in two weeks · $0 ad spend</span></p>
-            <p>74.9% came from non-followers. Local reach is measured; enrolments are not.</p>
-            <Link href="/works/spartan-gymnastics" className="home-text-link">See the gym case ↗</Link>
-          </article>
+        <div className="home-more-proof">
+          <Link href="/works/joeroblox85">My YouTube · <strong>33.1M lifetime views</strong> ↗</Link>
+          <Link href="/works/spartan-gymnastics">Spartan Gymnastics · <strong>9,224 organic views</strong> ↗</Link>
         </div>
         <Link href="/case-studies" className="home-text-link home-all-cases">All case studies ↗</Link>
       </section>
 
       <section className="home-founder home-pad" id="joseph" aria-labelledby="home-founder-title">
-        <p className="home-label">04 / THE PERSON BEHIND THE MASK</p>
         <MaskObject />
         <h2 id="home-founder-title">Small studio.<br /><em>Actual human.</em></h2>
         <p className="home-lead">I&apos;m Yusuf. Joseph to most people. You talk to me; I make the work.</p>
-        <p className="home-body">I&apos;ve made videos since I was eleven. Quant Larper and Joeroblox85 are my own projects; Dream Alterations and Spartan Gymnastics are work for local businesses. You can see which result belongs to which.</p>
+        <p className="home-body">I&apos;ve made videos since I was eleven. I work directly with small businesses across Toronto and the GTA.</p>
         <Link href="/about-joseph" className="home-text-link">More about Joseph ↗</Link>
       </section>
 
       <section className="home-contact home-pad" id="start" aria-labelledby="home-contact-title">
-        <p className="home-label">05 / YOUR TURN</p>
         <h2 id="home-contact-title">Let me look at<br /><em>your business.</em></h2>
         <p className="home-lead">Send your Instagram or website. I&apos;ll send back three creative ideas you can actually use. Free, and no call required.</p>
         <div className="home-form"><EnquiryForm context="home" /></div>

@@ -33,6 +33,13 @@ export const CASE_NOTES: Record<
     limit:
       "My own channel. Historical audience results, not local client sales.",
   },
+  "tiktok-collaboration": {
+    problem: "Build a TikTok audience from zero with one collaborator. The account links to Quant Larper. This case covers the joint TikTok work.",
+    work: "Organic short videos. We sold digital products first and now sell a paid membership.",
+    result: "39.2K views in about one day",
+    label: "Nov 18, 2026 post · $0 ad spend, as reported by the team",
+    limit: "TikTok screenshots show reach and follower growth. Sales attributable to TikTok are unverified.",
+  },
   quantlarper: {
     problem: "Find an audience for a market tool in a crowded finance feed.",
     work: "Organic short-form creative and a route to email signup and the product.",

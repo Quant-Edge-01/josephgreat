@@ -65,6 +65,32 @@ export type Work = WorkSeed & {
  */
 const SEEDS: WorkSeed[] = [
   {
+    slug: "tiktok-collaboration",
+    title: "The TikTok side project",
+    client: "@quantlarperr · Joseph + one collaborator",
+    kind: "collaboration · organic TikTok",
+    proves: "reach",
+    local: false,
+    headline: { value: "39.2K", label: "views in about one day" },
+    lede: "Built from zero with one collaborator.",
+    body: ["We used organic short videos to promote digital products first, then a paid membership."],
+    quote: "",
+    stats: [
+      { value: "39.2K", label: "views in about one day" },
+      { value: "296.9K", label: "views on a separate post" },
+      { value: "1,438", label: "account followers · Nov 2026" },
+      { value: "$0", label: "ad spend · project-reported" },
+    ],
+    cover: "/works/tiktok-collaboration/first-day.webp",
+    images: [
+      { src: "/works/tiktok-collaboration/first-day.webp", w: 900, h: 691, alt: "TikTok analytics showing 39.2K views and 48 new followers", caption: "Nov 18, 2026 post · 39.2K views by the next morning." },
+      { src: "/works/tiktok-collaboration/profile.webp", w: 900, h: 497, alt: "TikTok profile @quantlarperr showing 1,438 followers", caption: "From zero to 1,438 followers · Nov 2026 snapshot." },
+      { src: "/works/tiktok-collaboration/breakout.webp", w: 900, h: 699, alt: "TikTok analytics showing 296.9K views and 1.1K new followers", caption: "Nov 30, 2025 post · 296.9K views as of Nov 17, 2026." },
+      { src: "/works/tiktok-collaboration/november-15.webp", w: 900, h: 691, alt: "TikTok analytics showing 18.7K views", caption: "Nov 15, 2026 post · 18.7K views in the saved snapshot." },
+    ],
+    link: { label: "See the TikTok account", href: "https://www.tiktok.com/@quantlarperr" },
+  },
+  {
     slug: "dream-alteration",
     title: "Dream Alterations",
     client: "Dream Alterations — bridal, GTA",
@@ -318,7 +344,7 @@ const CARD_SLOTS: Work["card"][] = [
   },
 ];
 
-const DISPLAY_ORDER = ["dream-alteration", "quantlarper", "joeroblox85", "spartan-gymnastics"];
+const DISPLAY_ORDER = ["dream-alteration", "quantlarper", "tiktok-collaboration", "joeroblox85", "spartan-gymnastics"];
 
 /** `n` is derived so the file numbers can never disagree with the running order. */
 export const WORKS: Work[] = [...SEEDS].sort((a, b) => DISPLAY_ORDER.indexOf(a.slug) - DISPLAY_ORDER.indexOf(b.slug)).map((w, i) => ({
