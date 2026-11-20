@@ -36,7 +36,7 @@ export const CASE_NOTES: Record<
   "tiktok-collaboration": {
     problem: "Build a TikTok audience from zero with one collaborator. The account links to Quant Larper. This case covers the joint TikTok work.",
     work: "Organic short videos. We sold digital products first and now sell a paid membership.",
-    result: "74.9K views by Nov 19",
+    result: "74.9K views by the next day",
     label: "Nov 18, 2026 post · $0 ad spend, as reported by the team",
     limit: "TikTok screenshots show reach and follower growth. Sales attributable to TikTok are unverified.",
   },
