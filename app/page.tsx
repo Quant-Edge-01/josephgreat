@@ -10,7 +10,7 @@ import "./home.css";
 const featured = [
   { name: "Dream Alterations", type: "GTA bridal client", result: "501.5K", detail: "organic views on one Reel", extra: "Separate Meta campaign: 59 conversations on CAD $214.86.", slug: "dream-alteration", image: "02.jpg", width: 1600, height: 1368, alt: "Dream Alterations Reel insights showing 501,539 views" },
   { name: "Quant Larper", type: "Founder project", result: "1.2M", detail: "Instagram views in 30 days · $0 ad spend", extra: "25 paid purchases, reported by Yusuf. Channel attribution unverified.", slug: "quantlarper", image: "02.jpg", width: 736, height: 1600, alt: "Quant Larper Instagram snapshot showing 1.2 million views" },
-  { name: "TikTok side project", type: "Two-person collaboration", result: "74.9K", detail: "views by the next day · $0 ad spend", extra: "From zero to 1,438 followers.", slug: "tiktok-collaboration", image: "november-18.webp", width: 900, height: 692, alt: "TikTok Studio screenshot showing 74.9K views" },
+  { name: "TikTok side project", type: "Two-person collaboration", result: "130K+", detail: "views in about two days · $0 ad spend", extra: "From zero to 1,438 followers.", slug: "tiktok-collaboration", image: "november-20.webp", width: 900, height: 693, alt: "TikTok Studio screenshot showing 136K views" },
 ];
 
 export const metadata: Metadata = { alternates: { canonical: "/" } };
